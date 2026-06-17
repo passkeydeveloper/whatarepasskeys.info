@@ -1,0 +1,93 @@
+---
+import { ShieldX, ShieldCheck, Code2 } from 'lucide-astro';
+
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+const pr = t.phishingResistance;
+---
+<section id="phishing-resistance" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-gradient-to-br from-emerald-50 to-white">
+  <div class="max-w-5xl mx-auto w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Illustration first on mobile -->
+      <div class="order-2 md:order-1 fade-in-section flex justify-center">
+        <div class="w-full max-w-sm flex flex-col items-center gap-5" aria-label="Passkey phishing resistance illustration" role="img">
+          <!-- User avatar -->
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center">
+              <svg viewBox="0 0 40 44" class="w-9 h-9" aria-hidden="true">
+                <circle cx="20" cy="14" r="10" fill="#10b981" opacity="0.65"/>
+                <path d="M4 40 Q20 30 36 40" fill="#10b981" opacity="0.45"/>
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-500 mt-2">You + Passkey</p>
+          </div>
+
+          <!-- Two site boxes -->
+          <div class="grid grid-cols-2 gap-3 w-full">
+            <div class="rounded-2xl border-2 border-red-200 bg-red-50 p-4 flex flex-col items-center text-center gap-2">
+              <p class="font-bold text-red-600 text-base">Fake Site</p>
+              <p class="font-mono text-xs text-red-500 break-all leading-snug">bank-secure-login.com</p>
+              <ShieldX size={30} class="text-red-500 mt-1 flex-shrink-0" />
+              <p class="text-sm font-semibold text-red-500">Passkey refuses</p>
+            </div>
+            <div class="rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-4 flex flex-col items-center text-center gap-2">
+              <p class="font-bold text-emerald-700 text-base">Real Site</p>
+              <p class="font-mono text-sm text-emerald-600">bank.com</p>
+              <ShieldCheck size={30} class="text-emerald-600 mt-1 flex-shrink-0" />
+              <p class="text-sm font-semibold text-emerald-600">Passkey works!</p>
+            </div>
+          </div>
+
+          <!-- Key binding box -->
+          <div class="w-full rounded-2xl border border-indigo-200 bg-indigo-50 p-5 text-center">
+            <p class="font-bold text-indigo-800 text-base">Your passkey is locked to</p>
+            <p class="font-mono font-extrabold text-indigo-700 text-xl mt-1">bank.com</p>
+            <p class="text-sm text-gray-500 mt-2">It simply won't respond anywhere else</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 md:order-2">
+        <div class="fade-in-section">
+          <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 mb-4">{pr.sectionLabel}</p>
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
+            {pr.headline}
+          </h2>
+          <p class="text-xl text-gray-600 leading-relaxed mb-10">{pr.body}</p>
+        </div>
+
+        <div class="fade-in-section space-y-4 mb-8" style="transition-delay: 0.2s">
+          <div class="flex items-center gap-4 bg-red-50 border border-red-200 rounded-xl px-5 py-4">
+            <ShieldX size={28} class="text-red-500 flex-shrink-0" />
+            <div>
+              <p class="text-xs text-gray-500 font-semibold uppercase">{pr.comparison.fake.label}</p>
+              <p class="font-mono font-bold text-red-700">{pr.comparison.fake.site}</p>
+              <p class="text-sm text-red-600">{pr.comparison.fake.result}</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 bg-emerald-50 border border-emerald-200 rounded-xl px-5 py-4">
+            <ShieldCheck size={28} class="text-emerald-600 flex-shrink-0" />
+            <div>
+              <p class="text-xs text-gray-500 font-semibold uppercase">{pr.comparison.real.label}</p>
+              <p class="font-mono font-bold text-emerald-700">{pr.comparison.real.site}</p>
+              <p class="text-sm text-emerald-600">{pr.comparison.real.result}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical callout -->
+        <div class="technical-only fade-in-section rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+          <p class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-700 mb-3">
+            <Code2 size={16} />
+            Technical detail
+          </p>
+          <h3 class="text-lg font-bold text-indigo-900 mb-2">{pr.techCallout.headline}</h3>
+          <p class="text-indigo-800 leading-relaxed text-sm">{pr.techCallout.body}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

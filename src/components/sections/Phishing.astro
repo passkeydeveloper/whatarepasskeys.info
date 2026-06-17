@@ -1,0 +1,105 @@
+---
+import { Check, AlertTriangle, Code2 } from 'lucide-astro';
+
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+const p = t.phishing;
+---
+<section id="phishing" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-white">
+  <div class="max-w-5xl mx-auto w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="fade-in-section">
+          <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 mb-4">{p.sectionLabel}</p>
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
+            {p.headline}
+          </h2>
+          <p class="text-xl text-gray-600 leading-relaxed mb-8">{p.body}</p>
+        </div>
+
+        <div class="fade-in-section space-y-3 mb-8" style="transition-delay: 0.2s">
+          <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">{p.example.label}</p>
+
+          <div class="flex items-center gap-3 bg-green-50 border border-green-200 rounded-xl px-4 py-3">
+            <Check size={18} class="text-green-600 flex-shrink-0" />
+            <span class="font-mono font-semibold text-green-800">{p.example.real}</span>
+            <span class="ml-auto text-xs text-green-600 font-semibold">Real</span>
+          </div>
+
+          <div class="flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+            <AlertTriangle size={18} class="text-red-600 flex-shrink-0" />
+            <span class="font-mono font-semibold text-red-800">{p.example.fake}</span>
+            <span class="ml-auto text-xs text-red-600 font-semibold">Fake</span>
+          </div>
+        </div>
+
+        <div class="technical-only fade-in-section rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+          <p class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-700 mb-3">
+            <Code2 size={16} />
+            Technical detail
+          </p>
+          <h3 class="text-lg font-bold text-indigo-900 mb-2">{p.techCallout.headline}</h3>
+          <p class="text-indigo-800 leading-relaxed text-sm">{p.techCallout.body}</p>
+        </div>
+      </div>
+
+      <!-- Phishing diagram -->
+      <div class="fade-in-section flex justify-center" style="transition-delay: 0.3s">
+        <div class="w-full max-w-xs flex flex-col items-center gap-1" aria-label="Phishing attack illustration showing a fake website stealing a password" role="img">
+          <!-- User -->
+          <div class="flex flex-col items-center mb-1">
+            <div class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center">
+              <svg viewBox="0 0 40 44" class="w-8 h-8" aria-hidden="true">
+                <circle cx="20" cy="14" r="10" fill="#6366f1" opacity="0.6"/>
+                <path d="M4 40 Q20 30 36 40" fill="#6366f1" opacity="0.4"/>
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-500 mt-1">You</p>
+          </div>
+
+          <!-- Arrow down -->
+          <div class="flex flex-col items-center">
+            <div class="w-0.5 h-5 bg-red-400"></div>
+            <div class="border-l-[5px] border-r-[5px] border-t-[7px] border-l-transparent border-r-transparent border-t-red-400"></div>
+          </div>
+
+          <!-- Fake site -->
+          <div class="w-full rounded-2xl border-2 border-red-200 bg-red-50 p-4">
+            <p class="font-bold text-red-600 text-center text-base">FAKE SITE</p>
+            <p class="font-mono text-xs text-red-500 text-center mt-1">bank-secure-login.com</p>
+            <div class="mt-3 bg-white border border-red-200 rounded-lg px-3 py-2 text-sm text-gray-400 italic text-center">
+              Enter your password...
+            </div>
+          </div>
+
+          <!-- Arrow down -->
+          <div class="flex flex-col items-center self-end mr-8">
+            <div class="w-0.5 h-5 bg-red-400"></div>
+            <div class="border-l-[5px] border-r-[5px] border-t-[7px] border-l-transparent border-r-transparent border-t-red-400"></div>
+          </div>
+
+          <!-- Attacker -->
+          <div class="self-end mr-0 rounded-xl bg-gray-800 px-5 py-3 text-center min-w-36">
+            <p class="font-bold text-white text-sm">Attacker</p>
+            <p class="text-red-300 text-xs mt-0.5">has your password</p>
+          </div>
+
+          <!-- Arrow down + left -->
+          <div class="flex flex-col items-center self-end mr-8">
+            <div class="w-0.5 h-5 bg-red-400"></div>
+            <div class="border-l-[5px] border-r-[5px] border-t-[7px] border-l-transparent border-r-transparent border-t-red-400"></div>
+          </div>
+
+          <!-- Real site -->
+          <div class="w-full rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-4">
+            <p class="font-bold text-emerald-700 text-center text-base">Real Site</p>
+            <p class="font-mono text-sm text-emerald-600 text-center mt-1">bank.com</p>
+            <p class="text-sm font-semibold text-red-500 text-center mt-2">Now signed in as you!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import { ChevronDown } from 'lucide-astro';
+
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+const faq = t.faq;
+---
+<section id="faq" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-gradient-to-br from-indigo-50 to-white">
+  <div class="max-w-3xl mx-auto w-full">
+    <div class="fade-in-section mb-12 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 mb-4">{faq.sectionLabel}</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
+        {faq.headline}
+      </h2>
+    </div>
+
+    <div class="space-y-0 divide-y divide-gray-100">
+      {faq.items.map((item: { question: string; answer: string }, i: number) => (
+        <details class={`faq-item fade-in-section`} style={`transition-delay: ${i * 0.08}s`}>
+          <summary>
+            <span>{item.question}</span>
+            <ChevronDown size={20} class="faq-chevron" />
+          </summary>
+          <p class="pb-5 text-gray-600 leading-relaxed">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+
+    <div class="technical-only mt-8 space-y-0 divide-y divide-indigo-100 border-t border-indigo-200 pt-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-indigo-500 mb-4">Advanced</p>
+      {faq.advancedItems.map((item: { question: string; answer: string }, i: number) => (
+        <details class={`faq-item fade-in-section`} style={`transition-delay: ${i * 0.08}s`}>
+          <summary>
+            <span>{item.question}</span>
+            <ChevronDown size={20} class="faq-chevron" />
+          </summary>
+          <p class="pb-5 text-gray-600 leading-relaxed">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

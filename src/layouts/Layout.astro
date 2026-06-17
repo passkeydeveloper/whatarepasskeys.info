@@ -1,0 +1,160 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import SectionDots from '../components/layout/SectionDots.astro';
+import Footer from '../components/layout/Footer.astro';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const ogLocale = locale === 'en' ? 'en_US' : locale;
+const ogImage = new URL('/og-image.png', Astro.site).toString();
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [...t.faq.items, ...t.faq.advancedItems].map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: t.site.title,
+  description: t.site.description,
+  url: Astro.site?.toString(),
+};
+
+const sections = [
+  { id: 'hero', label: 'Passkeys' },
+  { id: 'problems', label: 'The Problem' },
+  { id: 'what-is', label: 'What is a Passkey?' },
+  { id: 'how-it-works', label: 'How It Works' },
+  { id: 'comparison', label: 'Why Passkeys Win' },
+  { id: 'phishing', label: 'Phishing' },
+  { id: 'phishing-resistance', label: 'Phishing Resistance' },
+  { id: 'credential-managers', label: 'Credential Managers' },
+  { id: 'faq', label: 'FAQ' },
+];
+---
+<!doctype html>
+<html lang={locale} data-mode="consumer">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{t.site.title}</title>
+    <meta name="description" content={t.site.description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={t.site.title} />
+    <meta property="og:title" content={t.site.title} />
+    <meta property="og:description" content={t.site.description} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t.site.description} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.site.title} />
+    <meta name="twitter:description" content={t.site.description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  <body>
+    <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
+      {t.nav.skipToContent}
+    </a>
+
+    <Header locale={locale} t={t} />
+    <SectionDots sections={sections} />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer locale={locale} t={t} />
+
+    <script>
+      // Section dot navigation
+      const dots = document.querySelectorAll('#section-dots a');
+      const sectionIds = Array.from(dots).map(d => d.getAttribute('href')!.slice(1));
+
+      function updateActiveDot() {
+        const scrollY = window.scrollY;
+        let activeId = sectionIds[0];
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.5) {
+            activeId = id;
+          }
+        }
+        dots.forEach(d => {
+          d.classList.toggle('active', d.getAttribute('href') === '#' + activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveDot, { passive: true });
+      updateActiveDot();
+
+      // Scroll reveal
+      const fadeEls = document.querySelectorAll('.fade-in-section');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      fadeEls.forEach(el => observer.observe(el));
+
+      // Flow step reveal
+      const flowSteps = document.querySelectorAll('.flow-step');
+      const flowObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => {
+                e.target.classList.add('visible');
+              }, parseInt((e.target as HTMLElement).dataset.delay ?? '0'));
+              flowObserver.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      flowSteps.forEach(el => flowObserver.observe(el));
+    </script>
+  </body>
+</html>

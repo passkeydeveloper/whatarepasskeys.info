@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #4f46e5;
+  --color-brand-accent: #10b981;
+  --font-family-display: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #1f2937;
+    background: #ffffff;
+  }
+
+  /* Technical mode content toggling */
+  html[data-mode="technical"] .consumer-only {
+    display: none !important;
+  }
+
+  html[data-mode="technical"] .technical-only {
+    display: block !important;
+  }
+
+  html:not([data-mode="technical"]) .technical-only {
+    display: none !important;
+  }
+}
+
+/* Scroll reveal animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section dot navigation */
+#section-dots {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#section-dots a {
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  background: #d1d5db;
+  transition: all 0.3s;
+  position: relative;
+}
+
+#section-dots a::before {
+  content: attr(data-label);
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: #1f2937;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+#section-dots a:hover::before {
+  opacity: 1;
+}
+
+#section-dots a.active {
+  background: #4f46e5;
+  transform: scale(1.35);
+}
+
+/* Mode toggle */
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  border: 2px solid #e0e7ff;
+  background: #ffffff;
+  padding: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mode-toggle-option {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  color: #9ca3af;
+}
+
+.mode-toggle-option.selected {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+/* FAQ accordion */
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  transition: color 0.2s;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item[open] summary {
+  color: #4f46e5;
+}
+
+.faq-chevron {
+  transition: transform 0.3s;
+  color: #818cf8;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Passkey flow diagram */
+.flow-step {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.flow-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Credential manager logos */
+.manager-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.manager-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Comparison table */
+.comparison-check {
+  color: #10b981;
+}
+
+.comparison-cross {
+  color: #ef4444;
+}
+
+.comparison-passkey-col {
+  background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 100%);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section,
+  .flow-step {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

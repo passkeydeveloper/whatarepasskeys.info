@@ -1,0 +1,24 @@
+---
+interface Props {
+  path: string;
+  hex: string;
+  title: string;
+  size?: number;
+  class?: string;
+}
+
+const { path, hex, title, size = 24, class: className = '' } = Astro.props;
+---
+<svg
+  role="img"
+  viewBox="0 0 24 24"
+  width={size}
+  height={size}
+  fill={`#${hex}`}
+  class={className}
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label={title}
+>
+  <title>{title}</title>
+  <path d={path} />
+</svg>
