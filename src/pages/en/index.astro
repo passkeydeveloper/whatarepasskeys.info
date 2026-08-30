@@ -8,6 +8,7 @@ import Phishing from '../../components/sections/Phishing.astro';
 import Comparison from '../../components/sections/Comparison.astro';
 import CredentialManagers from '../../components/sections/CredentialManagers.astro';
 import ClosingCTA from '../../components/sections/ClosingCTA.astro';
+import WorkPasskeys from '../../components/sections/WorkPasskeys.astro';
 import FAQ from '../../components/sections/FAQ.astro';
 import { useTranslations } from '../../i18n/utils';
 
@@ -23,5 +24,6 @@ const t = useTranslations(locale);
   <Comparison t={t} />
   <CredentialManagers t={t} />
   <ClosingCTA t={t} />
+  <WorkPasskeys t={t} />
   <FAQ t={t} />
 </Layout>

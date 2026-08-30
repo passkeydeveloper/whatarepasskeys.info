@@ -224,6 +224,11 @@
     "signInLabel": "Sign in with a passkey",
     "cta": "Read the FAQ"
   },
+  "workPasskeys": {
+    "sectionLabel": "Passkeys at work",
+    "headline": "What's different about using passkeys at work?",
+    "placeholderNote": "Content coming soon."
+  },
   "faq": {
     "sectionLabel": "FAQ",
     "headline": "Common Questions About Passkeys",
