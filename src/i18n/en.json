@@ -176,10 +176,6 @@
         "name": "Google Password Manager",
         "description": "Built into Android and Chrome. Syncs to your Google account. Works across Android devices."
       },
-      "microsoft": {
-        "name": "Microsoft Authenticator",
-        "description": "Available on Windows via Windows Hello. Also available as an app for iOS and Android."
-      },
       "1password": {
         "name": "1Password",
         "description": "Popular third-party password manager with full passkey support across all platforms."
