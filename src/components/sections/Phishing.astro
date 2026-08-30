@@ -23,13 +23,13 @@ const p = t.phishing;
           <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">{p.example.label}</p>
 
           <div class="flex items-center gap-3 bg-green-50 border border-green-200 rounded-xl px-4 py-3">
-            <Check size={18} class="text-green-600 flex-shrink-0" />
+            <Check size={18} class="text-green-600 shrink-0" />
             <span class="font-mono font-semibold text-green-800">{p.example.real}</span>
             <span class="ml-auto text-xs text-green-600 font-semibold">Real</span>
           </div>
 
           <div class="flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-            <AlertTriangle size={18} class="text-red-600 flex-shrink-0" />
+            <AlertTriangle size={18} class="text-red-600 shrink-0" />
             <span class="font-mono font-semibold text-red-800">{p.example.fake}</span>
             <span class="ml-auto text-xs text-red-600 font-semibold">Fake</span>
           </div>
@@ -40,11 +40,11 @@ const p = t.phishing;
           <p class="text-emerald-800 leading-relaxed text-sm mb-4">{p.resistance.body}</p>
           <div class="grid grid-cols-2 gap-3">
             <div class="flex items-center gap-2 bg-white border border-red-200 rounded-xl px-3 py-2">
-              <ShieldX size={18} class="text-red-500 flex-shrink-0" />
+              <ShieldX size={18} class="text-red-500 shrink-0" />
               <span class="text-sm text-red-600 font-medium">{p.resistance.fake.result}</span>
             </div>
             <div class="flex items-center gap-2 bg-white border border-emerald-200 rounded-xl px-3 py-2">
-              <ShieldCheck size={18} class="text-emerald-600 flex-shrink-0" />
+              <ShieldCheck size={18} class="text-emerald-600 shrink-0" />
               <span class="text-sm text-emerald-700 font-medium">{p.resistance.real.result}</span>
             </div>
           </div>

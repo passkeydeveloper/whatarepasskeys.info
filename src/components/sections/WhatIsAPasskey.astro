@@ -7,7 +7,7 @@ interface Props {
 const { t } = Astro.props;
 const w = t.whatIsAPasskey;
 ---
-<section id="what-is" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-gradient-to-br from-indigo-50 to-white">
+<section id="what-is" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-linear-to-br from-indigo-50 to-white">
   <div class="max-w-5xl mx-auto w-full">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div>
@@ -22,7 +22,7 @@ const w = t.whatIsAPasskey;
         <div class="space-y-5">
           {(['staysWithYou', 'websiteGetsKey', 'workTogether'] as const).map((key, i) => (
             <div class={`fade-in-section flex gap-4`} style={`transition-delay: ${i * 0.15}s`}>
-              <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-lg">
+              <div class="shrink-0 w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-lg">
                 {i + 1}
               </div>
               <div>
