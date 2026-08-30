@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "What Are Passkeys?",
-    "description": "Passkeys are the simple, safe way to sign in. No passwords to remember. No texts to wait for.",
+    "description": "The easier and safer way to sign in. No passwords to remember. No codes to wait for.",
     "toggleConsumer": "Basic",
     "toggleTechnical": "Advanced"
   },
@@ -9,53 +9,26 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "headline": "Say goodbye to passwords.",
-    "subheadline": "Passkeys are the simple, safe way to sign in. No passwords to remember. No texts to wait for. Just you.",
-    "scrollCta": "Scroll to learn how they work"
-  },
-  "problems": {
-    "sectionLabel": "The problem",
-    "headline": "Passwords are broken.",
-    "intro": "We've been using passwords for decades — and they've never really worked.",
-    "cards": {
-      "reuse": {
-        "title": "People reuse them",
-        "body": "Most people use the same password everywhere. When one site gets hacked, attackers try that password on every other site."
-      },
-      "stolen": {
-        "title": "They get stolen",
-        "body": "Every year, billions of passwords are leaked from hacked websites — including sites you forgot you even had an account on."
-      },
-      "phishing": {
-        "title": "Fake sites steal them",
-        "body": "Criminals create fake versions of real websites. You type in your password, they've got it. This is called phishing."
-      },
-      "sms": {
-        "title": "\"Just add a text message\" isn't enough",
-        "body": "SMS codes can be intercepted, SIM-swapped, or stolen by fake sites. Magic links sent to your email aren't much better — they can be phished too, and your inbox is just another password-protected account waiting to be compromised. Adding weak layers doesn't fix a broken foundation."
-      }
-    },
-    "techCallout": {
-      "headline": "The root problem",
-      "body": "Passwords are shared secrets — you know it, and the server stores it. That means there are two places they can be stolen: from you (phishing) and from the server (data breaches). Any authentication scheme based on shared secrets has this fundamental weakness."
-    }
+    "headline": "Say Hello to Passkeys",
+    "subheadline": "The easier and safer way to sign in. No passwords to remember. No codes to wait for. Just sign in and get back to what matters.",
+    "scrollCta": "See how it works"
   },
   "whatIsAPasskey": {
     "sectionLabel": "What is a passkey?",
-    "headline": "A passkey is like a key only your devices can make.",
-    "body": "When you create a passkey, your device generates two mathematically linked keys: a private key that never leaves your device, and a public key that's shared with the website. Think of it like a lock and key — the website holds the lock, and only your device has the matching key.",
+    "headline": "A passkey is a unique digital key that replaces your password.",
+    "body": "When you sign in with a passkey, your device first verifies it's you using your face, fingerprint, or device PIN. Behind the scenes, your device creates two linked digital keys. One stays with you, and one is shared with the website or app. When you log in, the website uses the key you shared with it to verify you, using the key that's stored securely on your device. The part of your passkey on your device that proves it's you is never shared or stored. Passkeys let you sign in quickly and securely — without creating, remembering, or typing a password.",
     "highlights": {
-      "neverLeaves": {
-        "title": "Your private key stays in your control",
-        "body": "It's never sent to the website."
+      "staysWithYou": {
+        "title": "One key stays with you",
+        "body": "Your device securely keeps one of the keys. It never leaves your device."
       },
-      "biometric": {
-        "title": "Your face, fingerprint, or PIN unlocks it",
-        "body": "Your device uses face unlock, fingerprint, or your device PIN to confirm it's really you."
+      "websiteGetsKey": {
+        "title": "The website gets the linked key",
+        "body": "The website stores the linked key, but it can't be used to sign in by itself."
       },
-      "perSite": {
-        "title": "Each site gets its own passkey",
-        "body": "Your bank passkey only works on your bank's website. There's nothing to steal and reuse elsewhere."
+      "workTogether": {
+        "title": "They work together",
+        "body": "When you sign in, your device uses its key to prove it's really you. No password is ever sent or stored."
       }
     },
     "techCallout": {
@@ -64,38 +37,84 @@
     }
   },
   "howItWorks": {
-    "sectionLabel": "How it works",
-    "headline": "Here's what happens when you sign in.",
+    "sectionLabel": "How you sign in",
+    "headline": "How You Use Passkeys to Sign In",
+    "intro": "Using a passkey is simple. Once you've created one, signing in only takes a few seconds.",
     "steps": {
-      "tap": {
-        "label": "Tap \"Sign in\"",
-        "body": "You tap the sign-in button on the website or app."
-      },
-      "challenge": {
-        "label": "Website sends a challenge",
-        "body": "The website sends your device a unique, random code — a \"challenge\"."
+      "create": {
+        "label": "Create a Passkey",
+        "body": "When you register a passkey, your device creates a unique passkey for that website or app. One part of the passkey is shared with the website. The other part is securely stored in your Credential Manager on your device to prove it's you — your part is never shared or stored by the website or app."
       },
       "confirm": {
-        "label": "You confirm it's you",
-        "body": "Your device asks: \"Is this really you?\" You glance at the camera or touch the fingerprint sensor."
+        "label": "Confirm It's You",
+        "body": "The next time you sign in, your device asks you to verify it's you using your face, fingerprint, or device PIN. Your biometric, if used, never leaves your device and is never shared."
       },
-      "sign": {
-        "label": "Your device signs the challenge",
-        "body": "Your private key signs the challenge — a mathematical proof that you authorized this sign-in."
-      },
-      "verify": {
-        "label": "You're in!",
-        "body": "The website checks the signature using your public key. It matches — you're authenticated."
+      "signedIn": {
+        "label": "You're Signed In",
+        "body": "Your device securely proves it's you to the website — without ever sending a password over the internet."
       }
+    },
+    "uniqueness": {
+      "headline": "Every Passkey Is Unique",
+      "body": "Every website and app gets its own unique passkey. A passkey created for your bank only works with your bank. A passkey created for your email only works with your email. Because every passkey is unique, there's nothing to steal and reuse on another website."
     },
     "techCallout": {
       "headline": "The cryptographic handshake",
       "body": "The authenticator signs the challenge using the credential's private key (ECDSA/EdDSA). The signed response includes the authenticatorData, clientDataJSON (which contains the origin), and the signature. The server verifies: (1) the origin matches the RP ID, (2) the challenge matches the one it issued, and (3) the signature is valid against the stored public key. The credential ID ties it all together."
     }
   },
-  "comparison": {
-    "sectionLabel": "Why passkeys win",
-    "headline": "Better than passwords. Better than \"add a text message.\"",
+  "whyPasswordsFail": {
+    "sectionLabel": "Why passwords keep failing",
+    "headline": "Why Passwords Keep Failing",
+    "intro": "Passwords have been around for decades, but they weren't designed for today's internet. As online threats have evolved, we've tried to make passwords more secure by adding text message codes to enter, email links to click on, and asking you to perform other extra steps to prove you're allowed to sign in. While these can help in some situations, they don't solve the underlying problem: passwords themselves are a terrible way to prove who you are.",
+    "outro": "Passkeys were designed to solve these problems.",
+    "cards": {
+      "reuse": {
+        "title": "Passwords get reused",
+        "body": "Many people reuse passwords across multiple accounts. If one website is compromised, attackers often try the same password on other websites."
+      },
+      "stolen": {
+        "title": "Passwords can be stolen",
+        "body": "Websites store password information that attackers target during data breaches. Once stolen, passwords can be cracked or reused."
+      },
+      "phishing": {
+        "title": "Passwords can be phished",
+        "body": "Phishing is the most common attack that leads to stolen accounts and identity theft. Attackers create fake websites that look like legitimate ones, tricking people into entering their passwords or verification codes."
+      },
+      "slow": {
+        "title": "Passwords slow you down",
+        "body": "Remembering passwords, resetting forgotten passwords, waiting for text messages, and checking your email all add friction to something you do every day."
+      }
+    },
+    "techCallout": {
+      "headline": "The root problem",
+      "body": "Passwords are shared secrets — you know it, and the server stores it. That means there are two places they can be stolen: from you (phishing) and from the server (data breaches). Any authentication scheme based on shared secrets has this fundamental weakness."
+    }
+  },
+  "phishing": {
+    "sectionLabel": "Why passwords keep failing",
+    "headline": "What Is Phishing?",
+    "body": "Criminals build websites that look identical to real ones — your bank, your email, your favorite store. They trick you into visiting the fake site and typing in your password. Then they use it on the real site. Phishing is the most common way accounts and identities get stolen online, and it works on passwords, verification codes, and text messages alike.",
+    "example": {
+      "label": "Real site vs fake site",
+      "real": "bank.com",
+      "fake": "bank-secure-login.com"
+    },
+    "resistance": {
+      "headline": "With a passkey, this doesn't work",
+      "body": "Your passkey is permanently tied to the exact website where you created it. It simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing to steal.",
+      "fake": { "label": "Fake site", "result": "Passkey refuses to work" },
+      "real": { "label": "Real site", "result": "Passkey works perfectly" }
+    },
+    "techCallout": {
+      "headline": "Why traditional MFA doesn't fully protect you",
+      "body": "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, bypassing the second factor. This is why FIDO2/WebAuthn was designed specifically to address this. During registration, the Relying Party declares an RP ID, and the browser enforces that the origin making the WebAuthn request matches it — a cross-origin request is rejected before the authenticator is ever invoked."
+    }
+  },
+  "whyPasskeysWin": {
+    "sectionLabel": "Why passwords keep failing",
+    "headline": "Why Passkeys Win",
+    "tagline": "Better than passwords. Better than \"add a text message.\"",
     "categories": {
       "passwordRequired": "Password required?",
       "phishable": "Can be phished?",
@@ -142,47 +161,12 @@
       "body": "In a credential stuffing attack, attackers take username/password pairs leaked from one site and try them on others. Passkeys eliminate this entirely — there's no secret to stuff. On the server side, only the public key is stored. Even if a server is fully compromised, the attacker gets a list of public keys: mathematically useless for signing in. The secret never left your device."
     }
   },
-  "phishing": {
-    "sectionLabel": "Phishing",
-    "headline": "Phishing: when websites lie.",
-    "body": "Criminals build websites that look identical to real ones — your bank, your email, your favorite store. They trick you into visiting the fake site and typing in your password. Then they use it on the real site.",
-    "example": {
-      "label": "Real site vs fake site",
-      "real": "bank.com",
-      "fake": "bank-secure-login.com"
-    },
-    "techCallout": {
-      "headline": "Why traditional MFA doesn't fully protect you",
-      "body": "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, bypassing the second factor. This is why FIDO2/WebAuthn was designed specifically to address this."
-    }
-  },
-  "phishingResistance": {
-    "sectionLabel": "Phishing resistance",
-    "headline": "Passkeys can't be tricked.",
-    "body": "Your passkey is permanently tied to the exact website where you created it. Your device won't use your bank passkey on any site except your actual bank — not a lookalike, not a typosquat, not a redirect. There's simply no way to fool it.",
-    "comparison": {
-      "fake": {
-        "label": "Fake site",
-        "site": "bank-secure-login.com",
-        "result": "Passkey refuses to work"
-      },
-      "real": {
-        "label": "Real site",
-        "site": "bank.com",
-        "result": "Passkey works perfectly"
-      }
-    },
-    "techCallout": {
-      "headline": "RP ID and origin binding",
-      "body": "During WebAuthn registration, the Relying Party (RP) declares an RP ID (typically the domain, e.g. \"bank.com\"). The browser enforces that the origin making the WebAuthn request matches the RP ID — a cross-origin request is rejected at the browser level before the authenticator is ever invoked. Even if a fake site intercepts the challenge and tries to forward it, the clientDataJSON that gets signed includes the actual origin of the requesting page — and that doesn't match. Verification fails server-side."
-    }
-  },
   "credentialManagers": {
     "sectionLabel": "Where passkeys live",
-    "headline": "Your passkeys live in your credential manager.",
-    "body": "A credential manager is an app or service that securely stores and syncs your passkeys across your devices. Most are already built into your phone or browser — you may already have one.",
-    "storageAnalogy": "Think of it like a file storage service. Your phone comes with one built in — iCloud Drive on iPhone, Google Drive on Android — but you can choose a third-party service like Dropbox instead. The big advantage: your files (and passkeys) become available across all your devices, even ones in different ecosystems.",
-    "syncNote": "Passkeys sync across your devices through your credential manager, so if you create a passkey on your phone, you can use it on your laptop too.",
+    "headline": "Where Do I Store My Passkeys?",
+    "intro": "Your passkeys live in your credential manager. A credential manager is an app or service that securely stores your passkeys and syncs them across your devices. Think of it like the service that keeps your photos and contacts available across all your devices — your passkeys work the same way, so they're available wherever you choose to use them.",
+    "platformNote": "Most people already have one built into their phone or browser — you may already be using one for your passwords, payment information, and passkeys without realizing it. If you use an iPhone, your passkeys are likely stored in the Passwords app. If you use Android or Chrome, they're likely stored in Google Password Manager. If you use Windows, you may use Microsoft Password Manager. You can also choose a third-party credential manager like 1Password, Dashlane, or Bitwarden.",
+    "convenienceNote": "The biggest advantage is convenience. Create a passkey on your phone, and it can be available on your laptop too, so you don't have to create it again for every device.",
     "managers": {
       "apple": {
         "name": "Apple Passwords",
@@ -213,6 +197,21 @@
         "description": "Password manager from Nord Security with passkey support across platforms."
       }
     },
+    "scoring": {
+      "sectionLabel": "Which credential manager is right for me?",
+      "headline": "Which Credential Manager Is Right for Me?",
+      "intro": "Pick a credential manager, and then stick with it. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
+      "methodologyIntro": "We are making it easier for you to choose a credential manager. We've scored each one against the criteria below — see the FAQ for our scoring methodology.",
+      "criteria": [
+        "Supported on all of your devices and browsers",
+        "Works easily to sign into websites and apps",
+        "Keeps your passkeys secure",
+        "Lets you move to another credential manager if you want",
+        "Is up to date with the latest features and functionality",
+        "Protects your digital legacy"
+      ],
+      "placeholderNote": "Scores coming soon."
+    },
     "techCallout": {
       "headline": "Synced vs. device-bound passkeys",
       "headline2": "Hardware security keys",
@@ -220,9 +219,18 @@
       "bodyHardware": "You can also store passkeys on hardware security keys (roaming authenticators) like a YubiKey. These are device-bound by definition — the private key never leaves the physical token. This is very different from storing a long password in a password manager: a password manager just stores your secret so you don't have to type it, but that secret can still be phished or stolen from the server. A passkey on a security key uses cryptographic signing — the secret never leaves the hardware, and the server-side challenge/response means even if the exchange is intercepted, it can't be replayed."
     }
   },
+  "closingCTA": {
+    "sectionLabel": "Say goodbye to passwords",
+    "headline": "Say Goodbye to Passwords",
+    "body": "You said hello to passkeys. Now it's time to say goodbye to passwords.",
+    "detail": "The next time you sign in to a website or app, look for the option to Create a passkey or Sign in with a passkey. It only takes a minute to get started — and after that, you can spend less time signing in and more time getting on with your day.",
+    "createLabel": "Create a passkey",
+    "signInLabel": "Sign in with a passkey",
+    "cta": "Read the FAQ"
+  },
   "faq": {
     "sectionLabel": "FAQ",
-    "headline": "Some common questions",
+    "headline": "Common Questions About Passkeys",
     "items": [
       {
         "question": "What if I lose my phone?",
@@ -247,6 +255,10 @@
       {
         "question": "Can websites see my biometrics?",
         "answer": "No. Your fingerprint or face scan never leaves your device. The biometric is only used to unlock your local passkey. The website only ever sees a cryptographic signature — not anything about you or your body."
+      },
+      {
+        "question": "How do you score credential managers?",
+        "answer": "We're finalizing our scoring methodology now. It will evaluate each credential manager against six criteria: device and browser support, ease of sign-in, security, portability, feature currency, and digital legacy support. Check back soon for full scores."
       }
     ],
     "advancedItems": [

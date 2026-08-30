@@ -1,5 +1,5 @@
 ---
-import { Check, AlertTriangle, Code2 } from 'lucide-astro';
+import { Check, AlertTriangle, ShieldX, ShieldCheck, Code2 } from 'lucide-astro';
 
 interface Props {
   t: any;
@@ -32,6 +32,21 @@ const p = t.phishing;
             <AlertTriangle size={18} class="text-red-600 flex-shrink-0" />
             <span class="font-mono font-semibold text-red-800">{p.example.fake}</span>
             <span class="ml-auto text-xs text-red-600 font-semibold">Fake</span>
+          </div>
+        </div>
+
+        <div class="fade-in-section rounded-2xl border border-emerald-200 bg-emerald-50 p-6 mb-8" style="transition-delay: 0.25s">
+          <h3 class="text-lg font-bold text-emerald-900 mb-2">{p.resistance.headline}</h3>
+          <p class="text-emerald-800 leading-relaxed text-sm mb-4">{p.resistance.body}</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center gap-2 bg-white border border-red-200 rounded-xl px-3 py-2">
+              <ShieldX size={18} class="text-red-500 flex-shrink-0" />
+              <span class="text-sm text-red-600 font-medium">{p.resistance.fake.result}</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white border border-emerald-200 rounded-xl px-3 py-2">
+              <ShieldCheck size={18} class="text-emerald-600 flex-shrink-0" />
+              <span class="text-sm text-emerald-700 font-medium">{p.resistance.real.result}</span>
+            </div>
           </div>
         </div>
 

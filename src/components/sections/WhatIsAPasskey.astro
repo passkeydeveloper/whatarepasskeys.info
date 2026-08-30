@@ -20,7 +20,7 @@ const w = t.whatIsAPasskey;
         </div>
 
         <div class="space-y-5">
-          {(['neverLeaves', 'biometric', 'perSite'] as const).map((key, i) => (
+          {(['staysWithYou', 'websiteGetsKey', 'workTogether'] as const).map((key, i) => (
             <div class={`fade-in-section flex gap-4`} style={`transition-delay: ${i * 0.15}s`}>
               <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-lg">
                 {i + 1}
