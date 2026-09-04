@@ -48,7 +48,7 @@ function cellResult(value: string, method: string): CellResult {
               return (
                 <div class="flex justify-between items-center py-1.5 text-sm border-b border-gray-100 last:border-0">
                   <span class="text-gray-500">{(c.categories as any)[cat]}</span>
-                  <span class={`flex items-center gap-1 ${result.type === 'check' ? 'text-emerald-600' : result.type === 'cross' ? 'text-red-500' : 'text-gray-500'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
+                  <span class={`flex items-center gap-1 ${result.type === 'check' ? 'text-emerald-700' : result.type === 'cross' ? 'text-red-600' : 'text-gray-500'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
                     {result.type === 'check' && <Check size={14} />}
                     {result.type === 'cross' && <X size={14} />}
                     {val}
@@ -93,7 +93,7 @@ function cellResult(value: string, method: string): CellResult {
                 const isPasskey = method === 'passkey';
                 return (
                   <td class={`py-3 px-4 text-center text-sm border-b border-gray-100 ${isPasskey ? 'comparison-passkey-col border-indigo-100' : ''}`}>
-                    <span class={`inline-flex items-center justify-center gap-1 ${result.type === 'check' ? 'text-emerald-600' : result.type === 'cross' ? 'text-red-500' : 'text-gray-500'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
+                    <span class={`inline-flex items-center justify-center gap-1 ${result.type === 'check' ? 'text-emerald-700' : result.type === 'cross' ? 'text-red-600' : 'text-gray-500'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
                       {result.type === 'check' && <Check size={14} />}
                       {result.type === 'cross' && <X size={14} />}
                       {val}
