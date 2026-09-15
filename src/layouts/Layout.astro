@@ -19,7 +19,10 @@ const ogImage = new URL('/og-image.png', Astro.site).toString();
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [...t.faq.items, ...t.faq.advancedItems].map((item) => ({
+  mainEntity: [
+    ...t.faq.categories.flatMap((category: { items: { question: string; answer: string }[] }) => category.items),
+    ...t.faq.advancedItems,
+  ].map((item) => ({
     '@type': 'Question',
     name: item.question,
     acceptedAnswer: {

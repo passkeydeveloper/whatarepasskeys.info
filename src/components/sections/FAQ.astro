@@ -16,17 +16,26 @@ const faq = t.faq;
       </h2>
     </div>
 
-    <div class="space-y-0 divide-y divide-gray-100">
-      {faq.items.map((item: { question: string; answer: string }, i: number) => (
-        <details class={`faq-item fade-in-section`} style={`transition-delay: ${i * 0.08}s`}>
-          <summary>
-            <span>{item.question}</span>
-            <ChevronDown size={20} class="faq-chevron" />
-          </summary>
-          <p class="pb-5 text-gray-600 leading-relaxed">
-            {item.answer}
-          </p>
-        </details>
+    <div class="space-y-12">
+      {faq.categories.map((category: { name: string; items: { question: string; answer: string }[] }) => (
+        <div class="faq-category fade-in-section">
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-indigo-500 mb-2">
+            {category.name}
+          </h3>
+          <div class="space-y-0 divide-y divide-gray-100">
+            {category.items.map((item: { question: string; answer: string }, i: number) => (
+              <details class="faq-item" style={`transition-delay: ${i * 0.05}s`}>
+                <summary>
+                  <span>{item.question}</span>
+                  <ChevronDown size={20} class="faq-chevron" />
+                </summary>
+                <p class="pb-5 text-gray-600 leading-relaxed">
+                  {item.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
       ))}
     </div>
 
