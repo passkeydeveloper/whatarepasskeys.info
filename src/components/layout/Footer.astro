@@ -22,6 +22,16 @@ const { t } = Astro.props;
         {t.footer.feedbackLink}
       </a>
     </p>
-    <p>{t.footer.license}</p>
+    <p>
+      {t.footer.licensePrefix}
+      <a
+        href="https://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-indigo-400 hover:text-indigo-300 ml-1"
+      >
+        {t.footer.licenseName}
+      </a>
+    </p>
   </div>
 </footer>

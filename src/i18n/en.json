@@ -521,6 +521,7 @@
     "by": "by the passkey community.",
     "feedback": "Have feedback on this site?",
     "feedbackLink": "Let us know",
-    "license": "Content licensed under CC BY 4.0"
+    "licensePrefix": "Content licensed under",
+    "licenseName": "CC BY 4.0"
   }
 }
