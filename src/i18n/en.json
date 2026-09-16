@@ -38,7 +38,7 @@
   },
   "howItWorks": {
     "sectionLabel": "Using passkeys",
-    "headline": "How You Use Passkeys to Sign In",
+    "headline": "How you use passkeys to sign in"",
     "intro": "Using a passkey is simple. Once you've created one, signing in only takes a few seconds.",
     "steps": {
       "create": {
@@ -65,7 +65,7 @@
   },
   "whyPasswordsFail": {
     "sectionLabel": "The password problem",
-    "headline": "Why Passwords Keep Failing",
+    "headline": "Why passwords keep failing",
     "intro": "Passwords have been around for decades, but they weren't designed for today's internet. As online threats have evolved, we've tried to make passwords more secure by adding text message codes to enter, email links to click on, and asking you to perform other extra steps to prove you're allowed to sign in. While these can help in some situations, they don't solve the underlying problem: passwords themselves are a terrible way to prove who you are.",
     "outro": "Passkeys were designed to solve these problems.",
     "cards": {
@@ -93,7 +93,7 @@
   },
   "phishing": {
     "sectionLabel": "Understanding phishing",
-    "headline": "What Is Phishing?",
+    "headline": "What is phishing?",
     "body": "Criminals build websites that look identical to real ones — your bank, your email, your favorite store. They trick you into visiting the fake site and typing in your password. Then they use it on the real site. Phishing is the most common way accounts and identities get stolen online, and it works on passwords, verification codes, and text messages alike.",
     "example": {
       "label": "Real site vs fake site",
@@ -119,7 +119,7 @@
   },
   "whyPasskeysWin": {
     "sectionLabel": "The passkey advantage",
-    "headline": "Why Passkeys Win",
+    "headline": "Why passkeys win",
     "tagline": "Better than passwords. Better than \"add a text message.\"",
     "categories": {
       "passwordRequired": "Password required?",
@@ -169,39 +169,39 @@
   },
   "credentialManagers": {
     "sectionLabel": "Storing passkeys",
-    "headline": "Where Do I Store My Passkeys?",
+    "headline": "Where do I store my passkeys?",
     "intro": "Your passkeys live in your credential manager. A credential manager is an app or service that securely stores your passkeys and syncs them across your devices. Think of it like the service that keeps your photos and contacts available across all your devices — your passkeys work the same way, so they're available wherever you choose to use them.",
     "platformNote": "Most people already have one built into their phone or browser — you may already be using one for your passwords, payment information, and passkeys without realizing it. If you use an iPhone, your passkeys are likely stored in the Passwords app. If you use Android or Chrome, they're likely stored in Google Password Manager. If you use Windows, you may use Microsoft Password Manager. You can also choose a third-party credential manager like 1Password, Dashlane, or Bitwarden.",
     "convenienceNote": "The biggest advantage is convenience. Create a passkey on your phone, and it can be available on your laptop too, so you don't have to create it again for every device.",
     "managers": {
       "apple": {
         "name": "Apple Passwords",
-        "description": "Built into iPhone, iPad, and Mac. Syncs via iCloud Keychain. Works with Face ID and Touch ID."
+        "description": "Built into iPhone, iPad, and Mac. Syncs via iCloud Keychain using your Apple Account."
       },
       "google": {
         "name": "Google Password Manager",
-        "description": "Built into Android and Chrome. Syncs to your Google account. Works across Android devices."
+        "description": "Built into Android and Chrome. Syncs across devices using your Google account. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
       "1password": {
         "name": "1Password",
-        "description": "Popular third-party password manager with full passkey support across all platforms."
+        "description": "Independent credential manager with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
       "bitwarden": {
         "name": "Bitwarden",
-        "description": "Open-source password manager with passkey support. Free tier available."
+        "description": "Independent, open-source credential manager with passkey support. Free and self-hosted versions available. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
       "dashlane": {
         "name": "Dashlane",
-        "description": "Password manager with passkey support and a built-in passkey experience."
+        "description": "Independent credential manager with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
-      "nordpass": {
-        "name": "NordPass",
-        "description": "Password manager from Nord Security with passkey support across platforms."
+      "microsoft": {
+        "name": "Microsoft Password Manager",
+        "description": "Built into Microsoft Edge and Windows. Syncs across devices using your Microsoft account."
       }
     },
     "scoring": {
       "sectionLabel": "Choosing a credential manager",
-      "headline": "Which Credential Manager Is Right for Me?",
+      "headline": "Which credential manager is right for me?",
       "intro": "Pick a credential manager, and then stick with it. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
       "methodologyIntro": "We are making it easier for you to choose a credential manager. We've scored each one against the criteria below — see the FAQ for our scoring methodology.",
       "criteria": [
@@ -233,11 +233,63 @@
   "workPasskeys": {
     "sectionLabel": "Passkeys at work",
     "headline": "What's different about using passkeys at work?",
-    "placeholderNote": "Content coming soon."
+    "intro": "Passkeys typically work the same way at your job as they do everywhere else, but the environment around them often doesn't. A single compromised work account can put an entire company at risk, so employers frequently layer on stricter rules than you're used to at home.",
+    "highlights": {
+      "choice": {
+        "title": "You may not get to choose your credential manager",
+        "body": "At home, you pick whatever app or device feels right. At work, IT and security teams often decide for you — requiring a specific credential manager, a managed device, or a physical security key — so every employee meets the same bar."
+      },
+      "extraSteps": {
+        "title": "Extra steps may be required",
+        "body": "Some organizations add a PIN, a biometric check, or a managed-device requirement before a passkey can be used, especially for sensitive systems like finance, HR, or admin consoles."
+      },
+      "differentLook": {
+        "title": "The sign-in screen might look different",
+        "body": "You might be prompted to insert a security key, see your company's own branding, or find that your personal device's built-in passkey option isn't offered at all."
+      }
+    },
+    "compare": {
+      "sectionLabel": "Two different worlds",
+      "headline": "Personal life vs. work",
+      "personal": {
+        "label": "Your personal accounts",
+        "caption": "You're in control",
+        "items": [
+          "Choose any credential manager you like",
+          "Sync passkeys across your own devices",
+          "You manage backup and recovery"
+        ]
+      },
+      "work": {
+        "label": "Your work accounts",
+        "caption": "IT sets the rules",
+        "items": [
+          "IT chooses the approved credential manager",
+          "May also require a physical security key or managed device",
+          "Often device-bound — no personal cloud sync",
+          "Tied to company security and compliance policy"
+        ]
+      }
+    },
+    "examples": {
+      "sectionLabel": "What you might encounter at work",
+      "items": {
+        "managedDevice": { "label": "Managed credential managers" },
+        "securityKey": { "label": "Physical security keys" },
+        "brandedSignIn": { "label": "Company-branded sign-in" },
+        "deviceBound": { "label": "Device-bound passkeys only" }
+      }
+    },
+    "techCallout": {
+      "headline": "Enterprise controls behind the scenes",
+      "body": "Organizations can enforce policy through mechanisms like Windows Hello for Business, platform or MDM restrictions on which authenticators are allowed, WebAuthn attestation to verify a specific authenticator model or AAGUID, and relying party policies that require device-bound credentials (backup eligibility flag = 0) instead of synced ones. Conditional access and phishing-resistant MFA mandates — aligning with assurance levels like NIST AAL3 or PIV/CAC-equivalent controls — may further restrict which authenticators are accepted."
+    }
   },
   "faq": {
     "sectionLabel": "FAQ",
     "headline": "Common Questions About Passkeys",
+    "missingQuestion": "Missing a question?",
+    "missingQuestionLink": "Let us know",
     "advancedItems": [
       {
         "question": "What cryptographic algorithms do passkeys use?",
@@ -467,8 +519,9 @@
   "footer": {
     "madeWith": "Made with",
     "by": "by the passkey community.",
-    "learnMore": "Learn more at",
-    "passkeysDevLink": "passkeys.dev",
-    "license": "Content licensed under CC BY 4.0"
+    "feedback": "Have feedback on this site?",
+    "feedbackLink": "Let us know",
+    "licensePrefix": "Content licensed under",
+    "licenseName": "CC BY 4.0"
   }
 }

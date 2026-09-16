@@ -89,6 +89,11 @@ const sections = [
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+    <!-- Analytics (proxied through /metrics to avoid tracker blockers) -->
+    {import.meta.env.PROD && (
+      <script defer data-domain={Astro.site?.hostname} data-api="/metrics/event" src="/metrics/script"></script>
+    )}
   </head>
   <body>
     <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
