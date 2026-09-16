@@ -229,50 +229,59 @@
       "lastUpdated": "Scores last updated September 2026.",
       "coreTag": "Core",
       "lowerTag": "Lower weight",
+      "criteria": {
+        "ecosystemAvailability": { "consumerLabel": "Works where you do", "technicalLabel": "Ecosystem Availability" },
+        "nativePlatformIntegration": { "consumerLabel": "Works easily with websites & apps", "technicalLabel": "Native Platform Integration" },
+        "e2eeVaultSecurity": { "consumerLabel": "Keeps your credentials secure", "technicalLabel": "E2EE Vault Security" },
+        "credentialExchange": { "consumerLabel": "Lets you leave", "technicalLabel": "Credential Exchange" },
+        "specCompliance": { "consumerLabel": "Built for the future of sign-in", "technicalLabel": "Interoperability" },
+        "digitalInheritance": { "consumerLabel": "Protects your digital legacy", "technicalLabel": "Digital Inheritance" },
+        "familySharing": { "consumerLabel": "Shares with friends & family", "technicalLabel": "Family Sharing" }
+      },
       "criteriaDetails": {
         "sectionLabel": "Scoring criteria",
         "headline": "What each criterion measures",
         "intro": "Here's what we're actually looking at behind each score, and what separates a top score from a low one.",
         "items": {
           "ecosystemAvailability": {
-            "consumerBody": "Can you actually use this credential manager everywhere you need it — your phone, your computer, and the browsers you use? A top score means it has apps for all the major platforms and works smoothly in all the major browsers. A low score means it's mostly locked to one company's devices.",
-            "technicalBody": "Native app coverage across all 5 major OSs (Android, iOS, Linux, macOS, Windows) plus extension/browser support across all major browsers.",
-            "tier5": "Native apps for all 5 major OSs, plus extensions/support for all major browsers.",
+            "consumerBody": "Can you actually use this credential manager everywhere you need it: your phone, your computer, and your tablet, and in the apps and browsers you use? A top score means it has apps for all the major platforms and works smoothly in all the major browsers. A low score means it's mostly locked to one company's devices.",
+            "technicalBody": "Native credential manager app coverage across all 4 major operating systems (Android, iOS, macOS, Windows) and browser extension support for the others.",
+            "tier5": "Native apps for all 4 major OSs, plus browser extensions for others.",
             "tier3": "Missing one key platform, or meaningful browser limitations.",
             "tier1": "Primarily locked to one ecosystem."
           },
           "nativePlatformIntegration": {
-            "consumerBody": "Does signing in actually feel seamless, or do you have to fight with an extension or copy-paste a code? A top score means passkeys just work, built directly into your operating system and browser. A low score means you're stuck with manual workarounds.",
-            "technicalBody": "Depth of native credential-provider/platform API support (e.g., platform autofill and credential-provider frameworks) versus reliance on browser extensions or manual workflows.",
-            "tier5": "Full native credential-provider/API support across major platforms; seamless passkey use in browsers and native apps.",
-            "tier3": "Native integration on some platforms, but meaningful reliance on extensions/browser workflows.",
+            "consumerBody": "Does signing in actually feel seamless, or do you have to fight with a browser extension? A top score means passkeys just work, integrated directly into your operating system. A low score means you're stuck with manual workarounds and hacks.",
+            "technicalBody": "Depth of native platform API support (e.g., system-level credential manager integration) versus reliance on browser extensions or other manual workflows.",
+            "tier5": "Full native platform API support across major platforms; seamless passkey use in browsers and native apps.",
+            "tier3": "Native integration on some platforms, but meaningful reliance on browser extension workflows.",
             "tier1": "Little or no system-level integration."
           },
           "e2eeVaultSecurity": {
             "consumerBody": "Even the company that makes this app shouldn't be able to read your saved passwords and passkeys. A top score means your vault uses end-to-end encryption strong enough that only you hold the key. A low score means it falls short of that bar.",
-            "technicalBody": "Whether the vault meets a zero-knowledge/E2EE bar, including strong modern cryptography and encryption of sensitive metadata, not just secret values.",
+            "technicalBody": "Whether the vault meets a zero-knowledge/end-to-end encryption bar, including strong modern cryptography and encryption of sensitive metadata, not just secret values.",
             "tier5": "Meets the highest zero-knowledge/E2EE bar, including strong modern cryptography and encrypted sensitive metadata.",
             "tier3": "Strong E2EE/zero-knowledge protection, but doesn't meet all top-tier requirements.",
             "tier1": "Does not meet the expected E2EE/zero-knowledge bar."
           },
           "credentialExchange": {
-            "consumerBody": "If you ever want to switch to a different app, can you actually take your passkeys with you? A top score means you can directly move both your passwords and passkeys out. A low score means your passwords might export, but your passkeys are stuck.",
+            "consumerBody": "If you ever want to switch to a different credential manager app, can you actually take your passkeys with you? A top score means you can directly move your passkeys, passwords, and other vault data out. A low score means your passwords might export, but your passkeys are stuck.",
             "technicalBody": "Support for direct, standards-based transfer of both passwords and passkeys (e.g., via the FIDO Credential Exchange Protocol), versus partial support or passkeys that can't be exported at all.",
             "tier5": "Direct, standards-based transfer of passwords and passkeys.",
             "tier3": "Partial or limited standards-based credential transfer.",
             "tier1": "Passwords may export, but passkeys are effectively trapped."
           },
-          "webauthnL3": {
+          "specCompliance": {
             "consumerBody": "Passkey technology keeps improving. A top score means this credential manager keeps up with the newest capabilities, not just the basics from a few years ago. A low score means it only supports the fundamentals.",
-            "technicalBody": "Demonstrated support for advanced/current WebAuthn Level 3 capabilities, beyond baseline passkey registration and authentication.",
-            "tier5": "Demonstrated support for advanced/current WebAuthn L3 capabilities.",
-            "tier3": "Strong passkey support, but missing or flawed advanced L3 capabilities.",
-            "tier1": "Basic passkey support only, or no demonstrated L3 support."
+            "technicalBody": "The implementation adheres to the WebAuthn L3 specification, ensuring interoperability and consistency across the ecosystem.",
+            "tier5": "Demonstrated support and adherence to the WebAuthn L3 specification.",
+            "tier3": "Strong passkey support, but lacks full WebAuthn L3 support and adherence.",
+            "tier1": "Basic passkey support only, or no lack of WebAuthn L3 support and adherence."
           },
           "digitalInheritance": {
             "consumerBody": "If something happens to you, can a trusted person get into your accounts? A top score means there's a real, built-in way to grant emergency or legacy access. A low score means there's no practical way for anyone to get in.",
-            "technicalBody": "Whether there's a purpose-built emergency/legacy access mechanism for both passwords and passkeys, versus manual recovery planning or no practical trusted-access mechanism.",
-            "tier5": "Purpose-built emergency/legacy access to passwords and passkeys.",
+            "technicalBody": "Whether there's a purpose-built emergency/legacy access mechanism for passkeys, passwords, and other vault data, versus manual recovery planning or no practical trusted-access mechanism.",
+            "tier5": "Purpose-built emergency/legacy access to passkeys, passwords, and other vault data.",
             "tier3": "Access possible with meaningful limitations or manual recovery planning.",
             "tier1": "No practical trusted-access mechanism for passwords and passkeys."
           },
@@ -288,9 +297,7 @@
     },
     "techCallout": {
       "headline": "Synced vs. device-bound passkeys",
-      "headline2": "Hardware security keys",
-      "body": "Most passkeys today are \"synced passkeys\" — the private key is encrypted and synced across your devices through a credential manager's cloud (e.g., iCloud Keychain, Google Password Manager). The sync is end-to-end encrypted; the cloud provider cannot decrypt or use the private key. \"Device-bound\" passkeys (also called single-device credentials) exist only on one device. They're more secure against cloud compromise but less convenient — if you lose the device, you lose the passkey.",
-      "bodyHardware": "You can also store passkeys on hardware security keys (roaming authenticators) like a YubiKey. These are device-bound by definition — the private key never leaves the physical token. This is very different from storing a long password in a password manager: a password manager just stores your secret so you don't have to type it, but that secret can still be phished or stolen from the server. A passkey on a security key uses cryptographic signing — the secret never leaves the hardware, and the server-side challenge/response means even if the exchange is intercepted, it can't be replayed."
+      "body": "Most passkeys today are \"synced passkeys\" — the private key is encrypted and synced across your devices using your credential manager. The sync is end-to-end encrypted; the credential manager vendor cannot decrypt or use the private key. \"Device-bound\" passkeys exist only on one device. They're more secure against cloud or service compromise but less convenient — if you lose the device, you lose the passkey. Security keys and Windows Hello are examples of authenticators which create device-bound passkeys."
     }
   },
   "closingCTA": {

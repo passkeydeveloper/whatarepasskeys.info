@@ -7,3 +7,6 @@ Bitwarden
 YubiKey
 COSE
 AAGUID
+Nord
+protonpass
+lastpass
