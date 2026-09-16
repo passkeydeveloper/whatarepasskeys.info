@@ -12,7 +12,7 @@ body:
     attributes:
       label: Page URL
       description: The exact page or route where the issue occurred.
-      placeholder: https://example.com/login
+      placeholder: https://whatarepasskeys.info/en/
     validations:
       required: true
   - type: textarea

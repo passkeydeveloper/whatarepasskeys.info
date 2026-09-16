@@ -1,31 +1,26 @@
 name: Content Request
-description: Propose a new feature, tool, or major content addition.
+description: Propose new content
 title: "[Content Request]: "
 labels: ["triage", "content"]
 body:
   - type: textarea
-    id: problem
+    id: topic
     attributes:
-      label: Problem Statement / User Story
-      description: What problem does this solve, or what user need does it address?
-      placeholder: As a user, I need to... so that...
+      label: Topic
+      description: What is the high level topic?
+      placeholder: Add an explanation of the passkey upgrades feature
     validations:
       required: true
   - type: textarea
     id: solution
     attributes:
-      label: Proposed Solution
-      description: Describe the feature or implementation you would like to see.
+      label: Additional Detail or Proposed Text
+      description: Provide additional detail or some proposed content/text.
     validations:
       required: true
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: Alternatives Considered
-      description: Describe any alternative solutions or workarounds you have considered.
   - type: checkboxes
     id: contribution
     attributes:
       label: Willingness to Contribute
       options:
-        - label: I am interested in submitting a PR to help implement this feature.
+        - label: I am interested in submitting a PR for this
