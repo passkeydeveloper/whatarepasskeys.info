@@ -12,14 +12,12 @@ const { t } = Astro.props;
       {t.footer.madeWith} ❤️ {t.footer.by}
     </p>
     <p>
-      {t.footer.learnMore}
+      {t.footer.feedback}
       <a
-        href="https://passkeys.dev"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/feedback"
         class="text-indigo-400 hover:text-indigo-300 ml-1"
       >
-        {t.footer.passkeysDevLink}
+        {t.footer.feedbackLink}
       </a>
     </p>
     <p>{t.footer.license}</p>

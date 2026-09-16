@@ -14,6 +14,12 @@ const faq = t.faq;
       <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
         {faq.headline}
       </h2>
+      <p class="mt-4 text-gray-500">
+        {faq.missingQuestion}
+        <a href="/feedback" class="text-indigo-600 hover:text-indigo-500 ml-1">
+          {faq.missingQuestionLink}
+        </a>
+      </p>
     </div>
 
     <div class="space-y-12">
