@@ -1,0 +1,26 @@
+name: Content Request
+description: Propose new content
+title: "[Content Request]: "
+labels: ["triage", "content"]
+body:
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic
+      description: What is the high level topic?
+      placeholder: Add an explanation of the passkey upgrades feature
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Additional Detail or Proposed Text
+      description: Provide additional detail or some proposed content/text.
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Willingness to Contribute
+      options:
+        - label: I am interested in submitting a PR for this

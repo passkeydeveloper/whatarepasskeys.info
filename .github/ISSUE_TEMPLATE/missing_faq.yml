@@ -1,0 +1,25 @@
+name: Missing FAQ Item
+description: Propose a new question and answer to be added to the FAQ.
+title: "[FAQ]: "
+labels: ["triage", "faq"]
+body:
+  - type: textarea
+    id: proposed-question
+    attributes:
+      label: Proposed Question
+      description: Write the question as someone would naturally search or ask it.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-answer
+    attributes:
+      label: Proposed Answer
+      description: Draft the answer, steps, or explanation to display.
+    validations:
+      required: false
+  - type: textarea
+    id: why-needed
+    attributes:
+      label: Why is this FAQ needed?
+    validations:
+      required: false
