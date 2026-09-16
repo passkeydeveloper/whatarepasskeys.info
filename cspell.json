@@ -6,7 +6,8 @@
     "enabledFileTypes": {
       "*": false,
       "json": true,
-      "markdown": true
+      "markdown": true,
+      "yaml": true
     },
     "dictionaryDefinitions": [
         {
