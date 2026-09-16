@@ -197,22 +197,94 @@
       "microsoft": {
         "name": "Microsoft Password Manager",
         "description": "Built into Microsoft Edge and Windows. Syncs across devices using your Microsoft account."
+      },
+      "nordpass": {
+        "name": "NordPass",
+        "description": "Independent credential manager from Nord Security with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
+      },
+      "keeper": {
+        "name": "Keeper",
+        "description": "Independent credential manager for individuals and businesses with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
+      },
+      "protonpass": {
+        "name": "Proton Pass",
+        "description": "Independent, end-to-end encrypted credential manager from Proton with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
+      },
+      "lastpass": {
+        "name": "LastPass",
+        "description": "Independent credential manager with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
       }
     },
     "scoring": {
       "sectionLabel": "Choosing a credential manager",
       "headline": "Which credential manager is right for me?",
       "intro": "Pick a credential manager, and then stick with it. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
-      "methodologyIntro": "We are making it easier for you to choose a credential manager. We've scored each one against the criteria below — see the FAQ for our scoring methodology.",
-      "criteria": [
-        "Supported on all of your devices and browsers",
-        "Works easily to sign into websites and apps",
-        "Keeps your passkeys secure",
-        "Lets you move to another credential manager if you want",
-        "Is up to date with the latest features and functionality",
-        "Protects your digital legacy"
-      ],
-      "placeholderNote": "Scores coming soon."
+      "methodologyIntro": "We've scored each credential manager below, ranked from highest to lowest overall grade. See the FAQ for our full scoring methodology.",
+      "coreGroupLabel": "Core criteria",
+      "lowerGroupLabel": "Also considered",
+      "gradeLabel": "Grade",
+      "scoreLabel5": "Excellent",
+      "scoreLabel3": "Partial",
+      "scoreLabel1": "Limited",
+      "lastUpdated": "Scores last updated September 2026.",
+      "coreTag": "Core",
+      "lowerTag": "Lower weight",
+      "criteriaDetails": {
+        "sectionLabel": "Scoring criteria",
+        "headline": "What each criterion measures",
+        "intro": "Here's what we're actually looking at behind each score, and what separates a top score from a low one.",
+        "items": {
+          "ecosystemAvailability": {
+            "consumerBody": "Can you actually use this credential manager everywhere you need it — your phone, your computer, and the browsers you use? A top score means it has apps for all the major platforms and works smoothly in all the major browsers. A low score means it's mostly locked to one company's devices.",
+            "technicalBody": "Native app coverage across all 5 major OSs (Android, iOS, Linux, macOS, Windows) plus extension/browser support across all major browsers.",
+            "tier5": "Native apps for all 5 major OSs, plus extensions/support for all major browsers.",
+            "tier3": "Missing one key platform, or meaningful browser limitations.",
+            "tier1": "Primarily locked to one ecosystem."
+          },
+          "nativePlatformIntegration": {
+            "consumerBody": "Does signing in actually feel seamless, or do you have to fight with an extension or copy-paste a code? A top score means passkeys just work, built directly into your operating system and browser. A low score means you're stuck with manual workarounds.",
+            "technicalBody": "Depth of native credential-provider/platform API support (e.g., platform autofill and credential-provider frameworks) versus reliance on browser extensions or manual workflows.",
+            "tier5": "Full native credential-provider/API support across major platforms; seamless passkey use in browsers and native apps.",
+            "tier3": "Native integration on some platforms, but meaningful reliance on extensions/browser workflows.",
+            "tier1": "Little or no system-level integration."
+          },
+          "e2eeVaultSecurity": {
+            "consumerBody": "Even the company that makes this app shouldn't be able to read your saved passwords and passkeys. A top score means your vault uses end-to-end encryption strong enough that only you hold the key. A low score means it falls short of that bar.",
+            "technicalBody": "Whether the vault meets a zero-knowledge/E2EE bar, including strong modern cryptography and encryption of sensitive metadata, not just secret values.",
+            "tier5": "Meets the highest zero-knowledge/E2EE bar, including strong modern cryptography and encrypted sensitive metadata.",
+            "tier3": "Strong E2EE/zero-knowledge protection, but doesn't meet all top-tier requirements.",
+            "tier1": "Does not meet the expected E2EE/zero-knowledge bar."
+          },
+          "credentialExchange": {
+            "consumerBody": "If you ever want to switch to a different app, can you actually take your passkeys with you? A top score means you can directly move both your passwords and passkeys out. A low score means your passwords might export, but your passkeys are stuck.",
+            "technicalBody": "Support for direct, standards-based transfer of both passwords and passkeys (e.g., via the FIDO Credential Exchange Protocol), versus partial support or passkeys that can't be exported at all.",
+            "tier5": "Direct, standards-based transfer of passwords and passkeys.",
+            "tier3": "Partial or limited standards-based credential transfer.",
+            "tier1": "Passwords may export, but passkeys are effectively trapped."
+          },
+          "webauthnL3": {
+            "consumerBody": "Passkey technology keeps improving. A top score means this credential manager keeps up with the newest capabilities, not just the basics from a few years ago. A low score means it only supports the fundamentals.",
+            "technicalBody": "Demonstrated support for advanced/current WebAuthn Level 3 capabilities, beyond baseline passkey registration and authentication.",
+            "tier5": "Demonstrated support for advanced/current WebAuthn L3 capabilities.",
+            "tier3": "Strong passkey support, but missing or flawed advanced L3 capabilities.",
+            "tier1": "Basic passkey support only, or no demonstrated L3 support."
+          },
+          "digitalInheritance": {
+            "consumerBody": "If something happens to you, can a trusted person get into your accounts? A top score means there's a real, built-in way to grant emergency or legacy access. A low score means there's no practical way for anyone to get in.",
+            "technicalBody": "Whether there's a purpose-built emergency/legacy access mechanism for both passwords and passkeys, versus manual recovery planning or no practical trusted-access mechanism.",
+            "tier5": "Purpose-built emergency/legacy access to passwords and passkeys.",
+            "tier3": "Access possible with meaningful limitations or manual recovery planning.",
+            "tier1": "No practical trusted-access mechanism for passwords and passkeys."
+          },
+          "familySharing": {
+            "consumerBody": "Sometimes you need to share a login with a partner or family member. A top score means you can securely share both passwords and passkeys with people you trust. A low score means passkey sharing isn't possible at all.",
+            "technicalBody": "Whether secure sharing extends to passkeys, not just passwords, and how limited that sharing is.",
+            "tier5": "Secure sharing of passwords and passkeys.",
+            "tier3": "Passkey sharing exists but with meaningful limitations.",
+            "tier1": "No passkey sharing."
+          }
+        }
+      }
     },
     "techCallout": {
       "headline": "Synced vs. device-bound passkeys",
