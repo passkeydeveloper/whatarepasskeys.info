@@ -1,0 +1,25 @@
+{
+    "version": "0.2",
+    "ignorePaths": [
+        "/.cspell/*"
+    ],
+    "enabledFileTypes": {
+      "*": false,
+      "json": true,
+      "markdown": true
+    },
+    "dictionaryDefinitions": [
+        {
+            "name": "dict",
+            "path": "./.cspell/dict.txt",
+            "addWords": true
+        }
+    ],
+    "dictionaries": [
+        "dict"
+    ],
+    "words": [],
+    "ignoreWords": [],
+    "import": [],
+    "ignoreRegExpList": []
+}

@@ -1,0 +1,9 @@
+phishable
+subheadline
+typosquat
+TOTP
+Dashlane
+Bitwarden
+YubiKey
+COSE
+AAGUID
