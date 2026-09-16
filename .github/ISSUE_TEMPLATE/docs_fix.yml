@@ -1,0 +1,27 @@
+name: Content Fix
+description: Report typos,broken links, or other content issues
+title: "[Content Issue]: "
+labels: ["triage", "content"]
+body:
+  - type: input
+    id: doc-url
+    attributes:
+      label: Page URL
+      description: Where is the inaccurate or broken documentation?
+      placeholder: https://whatarepasskeys.info/en/#faq...
+    validations:
+      required: true
+  - type: textarea
+    id: current-content
+    attributes:
+      label: Current Content / Broken Element
+      description: Paste the exact excerpt, dead link, or misleading instructions.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-fix
+    attributes:
+      label: Suggested Correction
+      description: Provide the corrected wording, new URL, or updated steps.
+    validations:
+      required: true

@@ -1,0 +1,55 @@
+name: Bug Report
+description: Report a broken feature, UI glitch, or functional error on the site.
+title: "[Bug]: "
+labels: ["triage", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the site! Please check existing issues before submitting.
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      description: The exact page or route where the issue occurred.
+      placeholder: https://example.com/login
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Clear, sequential steps to trigger the bug.
+      placeholder: |
+        1. Navigate to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-actual
+    attributes:
+      label: Expected vs. Actual Behavior
+      description: What did you expect to happen, and what happened instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile Safari / Chrome
+        - Other (specify below)
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots-logs
+    attributes:
+      label: Console Logs / Screenshots
+      description: Paste any JavaScript console errors or drag-and-drop screenshots here.
+      render: shell

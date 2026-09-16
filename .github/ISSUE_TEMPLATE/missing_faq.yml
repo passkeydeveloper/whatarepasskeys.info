@@ -1,0 +1,32 @@
+name: Missing FAQ Item
+description: Propose a new question and answer to be added to the FAQ.
+title: "[FAQ]: "
+labels: ["triage", "faq"]
+body:
+  - type: textarea
+    id: proposed-question
+    attributes:
+      label: Proposed Question
+      description: Write the question as a user would naturally search or ask it.
+      placeholder: "How do I transfer workspace ownership to another team member?"
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-answer
+    attributes:
+      label: Proposed Answer
+      description: Draft the answer, steps, or explanation to display.
+      placeholder: |
+        To transfer workspace ownership:
+        1. Navigate to Settings > Team.
+        2. Select 'Transfer Ownership' next to the designated member.
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: why-needed
+    attributes:
+      label: Why is this FAQ needed?
+      description: Where has this question come from (e.g., recurring user confusion, common support request, recent product change)?
+    validations:
+      required: true

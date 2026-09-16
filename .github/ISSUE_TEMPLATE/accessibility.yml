@@ -1,0 +1,38 @@
+name: Accessibility (a11y) Issue
+description: Report barriers affecting keyboard navigation, screen readers, or contrast.
+title: "[A11y]: "
+labels: ["triage", "accessibility"]
+body:
+  - type: input
+    id: a11y-url
+    attributes:
+      label: Page URL / Component
+      placeholder: https://whatarepasskeys.info/en/#faq
+    validations:
+      required: true
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Barrier Category
+      options:
+        - Keyboard Navigation / Focus Trap
+        - Screen Reader Incompatibility / Missing Labels
+        - Color Contrast / Visual Legibility
+        - Motion / Animation / Flashing Content
+        - Semantic HTML / ARIA Attribute Error
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: assistive-tech
+    attributes:
+      label: Assistive Technology Used
+      description: Mention screen readers, browser extensions, or OS settings (e.g., NVDA, VoiceOver, high contrast mode).
+      placeholder: NVDA 2024.1 on Chrome / VoiceOver on iOS
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Description
+      description: Explain the barrier, reproduction steps, and WCAG reference if known.
+    validations:
+      required: true

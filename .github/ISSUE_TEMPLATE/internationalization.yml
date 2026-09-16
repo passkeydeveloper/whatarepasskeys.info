@@ -1,0 +1,51 @@
+name: Internationalization (i18n) / Localization
+description: Report translation errors, untranslated strings, or formatting issues (dates, currencies, RTL).
+title: "[i18n]: "
+labels: ["triage", "i18n"]
+body:
+  - type: input
+    id: page-url
+    attributes:
+      label: Page URL
+      description: The exact route or component where the issue appears.
+      placeholder: https://example.com/fr/checkout
+    validations:
+      required: true
+  - type: dropdown
+    id: issue-category
+    attributes:
+      label: Category
+      options:
+        - Incorrect Translation / Grammar
+        - Untranslated / Hardcoded String
+        - Layout Overflow / Text Truncation
+        - Right-to-Left (RTL) Layout Issue
+        - Date, Time, Number, or Currency Formatting
+        - Request New Language Support
+    validations:
+      required: true
+  - type: input
+    id: locale
+    attributes:
+      label: Target Language / Locale
+      description: Provide the language code and country/region (e.g., es-ES, ja-JP, ar-EG).
+      placeholder: es-ES
+    validations:
+      required: true
+  - type: textarea
+    id: original-vs-suggested
+    attributes:
+      label: Current Text vs. Suggested Correction
+      description: |
+        Provide the string currently displayed and the recommended replacement, or describe the formatting failure.
+      placeholder: |
+        Current: ...
+        Suggested: ...
+        Context / Meaning: ...
+    validations:
+      required: true
+  - type: textarea
+    id: visual-evidence
+    attributes:
+      label: Screenshots or Layout Details
+      description: Especially helpful for RTL layout breaks, font clipping, or UI truncation.
