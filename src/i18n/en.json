@@ -38,7 +38,7 @@
   },
   "howItWorks": {
     "sectionLabel": "Using passkeys",
-    "headline": "How you use passkeys to sign in"",
+    "headline": "How you use passkeys to sign in",
     "intro": "Using a passkey is simple. Once you've created one, signing in only takes a few seconds.",
     "steps": {
       "create": {
