@@ -112,7 +112,7 @@
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   transition: all 0.2s;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .mode-toggle-option.selected {
@@ -198,5 +198,58 @@
 
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Copyable section headings */
+.section-link-heading {
+  cursor: pointer;
+  width: fit-content;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color 0.2s;
+}
+
+.section-link-heading:hover,
+.section-link-heading:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.section-link-heading:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+
+/* Copy-link toast */
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translate(-50%, 0.5rem);
+  background: #1f2937;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 100;
+}
+
+.copy-toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-toast {
+    transition: opacity 0.25s ease;
   }
 }

@@ -38,6 +38,10 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## ✅ Git hooks
+
+This repo uses a native Git pre-commit hook (no Husky) to validate that any staged `.json` files are syntactically valid before allowing a commit. It's wired up automatically the first time you run `npm install` (via the `prepare` script, which sets `core.hooksPath` to `.githooks`). The hook itself lives at `.githooks/pre-commit`.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

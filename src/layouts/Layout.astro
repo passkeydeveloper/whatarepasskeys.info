@@ -19,7 +19,10 @@ const ogImage = new URL('/og-image.png', Astro.site).toString();
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [...t.faq.items, ...t.faq.advancedItems].map((item) => ({
+  mainEntity: [
+    ...t.faq.categories.flatMap((category: { items: { question: string; answer: string }[] }) => category.items),
+    ...t.faq.advancedItems,
+  ].map((item) => ({
     '@type': 'Question',
     name: item.question,
     acceptedAnswer: {
@@ -39,13 +42,12 @@ const websiteSchema = {
 
 const sections = [
   { id: 'hero', label: 'Passkeys' },
-  { id: 'problems', label: 'The Problem' },
   { id: 'what-is', label: 'What is a Passkey?' },
   { id: 'how-it-works', label: 'How It Works' },
-  { id: 'comparison', label: 'Why Passkeys Win' },
-  { id: 'phishing', label: 'Phishing' },
-  { id: 'phishing-resistance', label: 'Phishing Resistance' },
+  { id: 'why-passwords-fail', label: 'Why Passwords Fail' },
   { id: 'credential-managers', label: 'Credential Managers' },
+  { id: 'say-goodbye', label: 'Say Goodbye to Passwords' },
+  { id: 'work-passkeys', label: 'Passkeys at Work' },
   { id: 'faq', label: 'FAQ' },
 ];
 ---
@@ -87,6 +89,11 @@ const sections = [
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+    <!-- Analytics (proxied through /metrics to avoid tracker blockers) -->
+    {import.meta.env.PROD && (
+      <script defer data-domain={Astro.site?.hostname} data-api="/metrics/event" src="/metrics/script"></script>
+    )}
   </head>
   <body>
     <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
@@ -123,6 +130,58 @@ const sections = [
 
       window.addEventListener('scroll', updateActiveDot, { passive: true });
       updateActiveDot();
+
+      // Copy-link-to-section on heading click
+      const toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = 'Link copied!';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toast);
+
+      let toastTimeout: ReturnType<typeof setTimeout>;
+      function showToast() {
+        toast.classList.add('visible');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toast.classList.remove('visible'), 1600);
+      }
+
+      async function copySectionLink(id: string) {
+        const url = `${location.origin}${location.pathname}#${id}`;
+        try {
+          await navigator.clipboard.writeText(url);
+        } catch {
+          const ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+        }
+        history.replaceState(null, '', `#${id}`);
+        showToast();
+      }
+
+      sectionIds.forEach(id => {
+        const section = document.getElementById(id);
+        const heading = section?.querySelector('h2');
+        if (!heading) return;
+
+        heading.classList.add('section-link-heading');
+        heading.setAttribute('tabindex', '0');
+        heading.setAttribute('role', 'button');
+        heading.setAttribute('aria-label', `Copy link to "${heading.textContent?.trim()}" section`);
+
+        heading.addEventListener('click', () => copySectionLink(id));
+        heading.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            copySectionLink(id);
+          }
+        });
+      });
 
       // Scroll reveal
       const fadeEls = document.querySelectorAll('.fade-in-section');

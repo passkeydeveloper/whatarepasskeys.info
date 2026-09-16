@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "What Are Passkeys?",
-    "description": "Passkeys are the simple, safe way to sign in. No passwords to remember. No texts to wait for.",
+    "description": "The easier and safer way to sign in. No passwords to remember. No codes to wait for.",
     "toggleConsumer": "Basic",
     "toggleTechnical": "Advanced"
   },
@@ -9,53 +9,26 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "headline": "Say goodbye to passwords.",
-    "subheadline": "Passkeys are the simple, safe way to sign in. No passwords to remember. No texts to wait for. Just you.",
-    "scrollCta": "Scroll to learn how they work"
-  },
-  "problems": {
-    "sectionLabel": "The problem",
-    "headline": "Passwords are broken.",
-    "intro": "We've been using passwords for decades — and they've never really worked.",
-    "cards": {
-      "reuse": {
-        "title": "People reuse them",
-        "body": "Most people use the same password everywhere. When one site gets hacked, attackers try that password on every other site."
-      },
-      "stolen": {
-        "title": "They get stolen",
-        "body": "Every year, billions of passwords are leaked from hacked websites — including sites you forgot you even had an account on."
-      },
-      "phishing": {
-        "title": "Fake sites steal them",
-        "body": "Criminals create fake versions of real websites. You type in your password, they've got it. This is called phishing."
-      },
-      "sms": {
-        "title": "\"Just add a text message\" isn't enough",
-        "body": "SMS codes can be intercepted, SIM-swapped, or stolen by fake sites. Magic links sent to your email aren't much better — they can be phished too, and your inbox is just another password-protected account waiting to be compromised. Adding weak layers doesn't fix a broken foundation."
-      }
-    },
-    "techCallout": {
-      "headline": "The root problem",
-      "body": "Passwords are shared secrets — you know it, and the server stores it. That means there are two places they can be stolen: from you (phishing) and from the server (data breaches). Any authentication scheme based on shared secrets has this fundamental weakness."
-    }
+    "headline": "Say Hello to Passkeys",
+    "subheadline": "The easier and safer way to sign in. No passwords to remember. No codes to wait for. Just sign in and get back to what matters.",
+    "scrollCta": "See how it works"
   },
   "whatIsAPasskey": {
     "sectionLabel": "What is a passkey?",
-    "headline": "A passkey is like a key only your devices can make.",
-    "body": "When you create a passkey, your device generates two mathematically linked keys: a private key that never leaves your device, and a public key that's shared with the website. Think of it like a lock and key — the website holds the lock, and only your device has the matching key.",
+    "headline": "A passkey is a unique digital key that replaces your password.",
+    "body": "When you sign in with a passkey, your device first verifies it's you using your face, fingerprint, or device PIN. Behind the scenes, your device creates two linked digital keys. One stays with you, and one is shared with the website or app. When you log in, the website uses the key you shared with it to verify you, using the key that's stored securely on your device. The part of your passkey on your device that proves it's you is never shared or stored. Passkeys let you sign in quickly and securely — without creating, remembering, or typing a password.",
     "highlights": {
-      "neverLeaves": {
-        "title": "Your private key stays in your control",
-        "body": "It's never sent to the website."
+      "staysWithYou": {
+        "title": "One key stays with you",
+        "body": "Your device securely keeps one of the keys. It never leaves your device."
       },
-      "biometric": {
-        "title": "Your face, fingerprint, or PIN unlocks it",
-        "body": "Your device uses face unlock, fingerprint, or your device PIN to confirm it's really you."
+      "websiteGetsKey": {
+        "title": "The website gets the linked key",
+        "body": "The website stores the linked key, but it can't be used to sign in by itself."
       },
-      "perSite": {
-        "title": "Each site gets its own passkey",
-        "body": "Your bank passkey only works on your bank's website. There's nothing to steal and reuse elsewhere."
+      "workTogether": {
+        "title": "They work together",
+        "body": "When you sign in, your device uses its key to prove it's really you. No password is ever sent or stored."
       }
     },
     "techCallout": {
@@ -64,38 +37,90 @@
     }
   },
   "howItWorks": {
-    "sectionLabel": "How it works",
-    "headline": "Here's what happens when you sign in.",
+    "sectionLabel": "Using passkeys",
+    "headline": "How you use passkeys to sign in",
+    "intro": "Using a passkey is simple. Once you've created one, signing in only takes a few seconds.",
     "steps": {
-      "tap": {
-        "label": "Tap \"Sign in\"",
-        "body": "You tap the sign-in button on the website or app."
-      },
-      "challenge": {
-        "label": "Website sends a challenge",
-        "body": "The website sends your device a unique, random code — a \"challenge\"."
+      "create": {
+        "label": "Create a Passkey",
+        "body": "When you register a passkey, your device creates a unique passkey for that website or app. One part of the passkey is shared with the website. The other part is securely stored in your Credential Manager on your device to prove it's you — your part is never shared or stored by the website or app."
       },
       "confirm": {
-        "label": "You confirm it's you",
-        "body": "Your device asks: \"Is this really you?\" You glance at the camera or touch the fingerprint sensor."
+        "label": "Confirm It's You",
+        "body": "The next time you sign in, your device asks you to verify it's you using your face, fingerprint, or device PIN. Your biometric, if used, never leaves your device and is never shared."
       },
-      "sign": {
-        "label": "Your device signs the challenge",
-        "body": "Your private key signs the challenge — a mathematical proof that you authorized this sign-in."
-      },
-      "verify": {
-        "label": "You're in!",
-        "body": "The website checks the signature using your public key. It matches — you're authenticated."
+      "signedIn": {
+        "label": "You're Signed In",
+        "body": "Your device securely proves it's you to the website — without ever sending a password over the internet."
       }
+    },
+    "uniqueness": {
+      "headline": "Every Passkey Is Unique",
+      "body": "Every website and app gets its own unique passkey. A passkey created for your bank only works with your bank. A passkey created for your email only works with your email. Because every passkey is unique, there's nothing to steal and reuse on another website."
     },
     "techCallout": {
       "headline": "The cryptographic handshake",
       "body": "The authenticator signs the challenge using the credential's private key (ECDSA/EdDSA). The signed response includes the authenticatorData, clientDataJSON (which contains the origin), and the signature. The server verifies: (1) the origin matches the RP ID, (2) the challenge matches the one it issued, and (3) the signature is valid against the stored public key. The credential ID ties it all together."
     }
   },
-  "comparison": {
-    "sectionLabel": "Why passkeys win",
-    "headline": "Better than passwords. Better than \"add a text message.\"",
+  "whyPasswordsFail": {
+    "sectionLabel": "The password problem",
+    "headline": "Why passwords keep failing",
+    "intro": "Passwords have been around for decades, but they weren't designed for today's internet. As online threats have evolved, we've tried to make passwords more secure by adding text message codes to enter, email links to click on, and asking you to perform other extra steps to prove you're allowed to sign in. While these can help in some situations, they don't solve the underlying problem: passwords themselves are a terrible way to prove who you are.",
+    "outro": "Passkeys were designed to solve these problems.",
+    "cards": {
+      "reuse": {
+        "title": "Passwords get reused",
+        "body": "Many people reuse passwords across multiple accounts. If one website is compromised, attackers often try the same password on other websites."
+      },
+      "stolen": {
+        "title": "Passwords can be stolen",
+        "body": "Websites store password information that attackers target during data breaches. Once stolen, passwords can be cracked or reused."
+      },
+      "phishing": {
+        "title": "Passwords can be phished",
+        "body": "Phishing is the most common attack that leads to stolen accounts and identity theft. Attackers create fake websites that look like legitimate ones, tricking people into entering their passwords or verification codes."
+      },
+      "slow": {
+        "title": "Passwords slow you down",
+        "body": "Remembering passwords, resetting forgotten passwords, waiting for text messages, and checking your email all add friction to something you do every day."
+      }
+    },
+    "techCallout": {
+      "headline": "The root problem",
+      "body": "Passwords are shared secrets — you know it, and the server stores it. That means there are two places they can be stolen: from you (phishing) and from the server (data breaches). Any authentication scheme based on shared secrets has this fundamental weakness."
+    }
+  },
+  "phishing": {
+    "sectionLabel": "Understanding phishing",
+    "headline": "What is phishing?",
+    "body": "Criminals build websites that look identical to real ones — your bank, your email, your favorite store. They trick you into visiting the fake site and typing in your password. Then they use it on the real site. Phishing is the most common way accounts and identities get stolen online, and it works on passwords, verification codes, and text messages alike.",
+    "example": {
+      "label": "Real site vs fake site",
+      "real": "bank.com",
+      "fake": "bank-secure-login.com"
+    },
+    "resistance": {
+      "headline": "With a passkey, this doesn't work",
+      "body": "Your passkey is permanently tied to the exact website where you created it. It simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing to steal.",
+      "fake": {
+        "label": "Fake site",
+        "result": "Passkey refuses to work"
+      },
+      "real": {
+        "label": "Real site",
+        "result": "Passkey works perfectly"
+      }
+    },
+    "techCallout": {
+      "headline": "Why traditional MFA doesn't fully protect you",
+      "body": "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, bypassing the second factor. This is why FIDO2/WebAuthn was designed specifically to address this. During registration, the Relying Party declares an RP ID, and the browser enforces that the origin making the WebAuthn request matches it — a cross-origin request is rejected before the authenticator is ever invoked."
+    }
+  },
+  "whyPasskeysWin": {
+    "sectionLabel": "The passkey advantage",
+    "headline": "Why passkeys win",
+    "tagline": "Better than passwords. Better than \"add a text message.\"",
     "categories": {
       "passwordRequired": "Password required?",
       "phishable": "Can be phished?",
@@ -142,76 +167,52 @@
       "body": "In a credential stuffing attack, attackers take username/password pairs leaked from one site and try them on others. Passkeys eliminate this entirely — there's no secret to stuff. On the server side, only the public key is stored. Even if a server is fully compromised, the attacker gets a list of public keys: mathematically useless for signing in. The secret never left your device."
     }
   },
-  "phishing": {
-    "sectionLabel": "Phishing",
-    "headline": "Phishing: when websites lie.",
-    "body": "Criminals build websites that look identical to real ones — your bank, your email, your favorite store. They trick you into visiting the fake site and typing in your password. Then they use it on the real site.",
-    "example": {
-      "label": "Real site vs fake site",
-      "real": "bank.com",
-      "fake": "bank-secure-login.com"
-    },
-    "techCallout": {
-      "headline": "Why traditional MFA doesn't fully protect you",
-      "body": "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, bypassing the second factor. This is why FIDO2/WebAuthn was designed specifically to address this."
-    }
-  },
-  "phishingResistance": {
-    "sectionLabel": "Phishing resistance",
-    "headline": "Passkeys can't be tricked.",
-    "body": "Your passkey is permanently tied to the exact website where you created it. Your device won't use your bank passkey on any site except your actual bank — not a lookalike, not a typosquat, not a redirect. There's simply no way to fool it.",
-    "comparison": {
-      "fake": {
-        "label": "Fake site",
-        "site": "bank-secure-login.com",
-        "result": "Passkey refuses to work"
-      },
-      "real": {
-        "label": "Real site",
-        "site": "bank.com",
-        "result": "Passkey works perfectly"
-      }
-    },
-    "techCallout": {
-      "headline": "RP ID and origin binding",
-      "body": "During WebAuthn registration, the Relying Party (RP) declares an RP ID (typically the domain, e.g. \"bank.com\"). The browser enforces that the origin making the WebAuthn request matches the RP ID — a cross-origin request is rejected at the browser level before the authenticator is ever invoked. Even if a fake site intercepts the challenge and tries to forward it, the clientDataJSON that gets signed includes the actual origin of the requesting page — and that doesn't match. Verification fails server-side."
-    }
-  },
   "credentialManagers": {
-    "sectionLabel": "Where passkeys live",
-    "headline": "Your passkeys live in your credential manager.",
-    "body": "A credential manager is an app or service that securely stores and syncs your passkeys across your devices. Most are already built into your phone or browser — you may already have one.",
-    "storageAnalogy": "Think of it like a file storage service. Your phone comes with one built in — iCloud Drive on iPhone, Google Drive on Android — but you can choose a third-party service like Dropbox instead. The big advantage: your files (and passkeys) become available across all your devices, even ones in different ecosystems.",
-    "syncNote": "Passkeys sync across your devices through your credential manager, so if you create a passkey on your phone, you can use it on your laptop too.",
+    "sectionLabel": "Storing passkeys",
+    "headline": "Where do I store my passkeys?",
+    "intro": "Your passkeys live in your credential manager. A credential manager is an app or service that securely stores your passkeys and syncs them across your devices. Think of it like the service that keeps your photos and contacts available across all your devices — your passkeys work the same way, so they're available wherever you choose to use them.",
+    "platformNote": "Most people already have one built into their phone or browser — you may already be using one for your passwords, payment information, and passkeys without realizing it. If you use an iPhone, your passkeys are likely stored in the Passwords app. If you use Android or Chrome, they're likely stored in Google Password Manager. If you use Windows, you may use Microsoft Password Manager. You can also choose a third-party credential manager like 1Password, Dashlane, or Bitwarden.",
+    "convenienceNote": "The biggest advantage is convenience. Create a passkey on your phone, and it can be available on your laptop too, so you don't have to create it again for every device.",
     "managers": {
       "apple": {
         "name": "Apple Passwords",
-        "description": "Built into iPhone, iPad, and Mac. Syncs via iCloud Keychain. Works with Face ID and Touch ID."
+        "description": "Built into iPhone, iPad, and Mac. Syncs via iCloud Keychain using your Apple Account."
       },
       "google": {
         "name": "Google Password Manager",
-        "description": "Built into Android and Chrome. Syncs to your Google account. Works across Android devices."
-      },
-      "microsoft": {
-        "name": "Microsoft Authenticator",
-        "description": "Available on Windows via Windows Hello. Also available as an app for iOS and Android."
+        "description": "Built into Android and Chrome. Syncs across devices using your Google account. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
       "1password": {
         "name": "1Password",
-        "description": "Popular third-party password manager with full passkey support across all platforms."
+        "description": "Independent credential manager with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
       "bitwarden": {
         "name": "Bitwarden",
-        "description": "Open-source password manager with passkey support. Free tier available."
+        "description": "Independent, open-source credential manager with passkey support. Free and self-hosted versions available. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
       "dashlane": {
         "name": "Dashlane",
-        "description": "Password manager with passkey support and a built-in passkey experience."
+        "description": "Independent credential manager with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
-      "nordpass": {
-        "name": "NordPass",
-        "description": "Password manager from Nord Security with passkey support across platforms."
+      "microsoft": {
+        "name": "Microsoft Password Manager",
+        "description": "Built into Microsoft Edge and Windows. Syncs across devices using your Microsoft account."
       }
+    },
+    "scoring": {
+      "sectionLabel": "Choosing a credential manager",
+      "headline": "Which credential manager is right for me?",
+      "intro": "Pick a credential manager, and then stick with it. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
+      "methodologyIntro": "We are making it easier for you to choose a credential manager. We've scored each one against the criteria below — see the FAQ for our scoring methodology.",
+      "criteria": [
+        "Supported on all of your devices and browsers",
+        "Works easily to sign into websites and apps",
+        "Keeps your passkeys secure",
+        "Lets you move to another credential manager if you want",
+        "Is up to date with the latest features and functionality",
+        "Protects your digital legacy"
+      ],
+      "placeholderNote": "Scores coming soon."
     },
     "techCallout": {
       "headline": "Synced vs. device-bound passkeys",
@@ -220,47 +221,307 @@
       "bodyHardware": "You can also store passkeys on hardware security keys (roaming authenticators) like a YubiKey. These are device-bound by definition — the private key never leaves the physical token. This is very different from storing a long password in a password manager: a password manager just stores your secret so you don't have to type it, but that secret can still be phished or stolen from the server. A passkey on a security key uses cryptographic signing — the secret never leaves the hardware, and the server-side challenge/response means even if the exchange is intercepted, it can't be replayed."
     }
   },
+  "closingCTA": {
+    "sectionLabel": "Start using passkeys",
+    "headline": "Start saying goodbye to passwords, one sign-in at a time",
+    "body": "You said hello to passkeys. Now it's time to say start saying goodbye to managing so many passwords.",
+    "detail": "The next time you sign in to a website or app, look for the option to Create a passkey or Sign in with a passkey. It only takes a minute to get started — and after that, you can spend less time signing in and more time getting on with your day.",
+    "createLabel": "Create a passkey",
+    "signInLabel": "Sign in with a passkey",
+    "cta": "Read the FAQ"
+  },
+  "workPasskeys": {
+    "sectionLabel": "Passkeys at work",
+    "headline": "What's different about using passkeys at work?",
+    "intro": "Passkeys typically work the same way at your job as they do everywhere else, but the environment around them often doesn't. A single compromised work account can put an entire company at risk, so employers frequently layer on stricter rules than you're used to at home.",
+    "highlights": {
+      "choice": {
+        "title": "You may not get to choose your credential manager",
+        "body": "At home, you pick whatever app or device feels right. At work, IT and security teams often decide for you — requiring a specific credential manager, a managed device, or a physical security key — so every employee meets the same bar."
+      },
+      "extraSteps": {
+        "title": "Extra steps may be required",
+        "body": "Some organizations add a PIN, a biometric check, or a managed-device requirement before a passkey can be used, especially for sensitive systems like finance, HR, or admin consoles."
+      },
+      "differentLook": {
+        "title": "The sign-in screen might look different",
+        "body": "You might be prompted to insert a security key, see your company's own branding, or find that your personal device's built-in passkey option isn't offered at all."
+      }
+    },
+    "compare": {
+      "sectionLabel": "Two different worlds",
+      "headline": "Personal life vs. work",
+      "personal": {
+        "label": "Your personal accounts",
+        "caption": "You're in control",
+        "items": [
+          "Choose any credential manager you like",
+          "Sync passkeys across your own devices",
+          "You manage backup and recovery"
+        ]
+      },
+      "work": {
+        "label": "Your work accounts",
+        "caption": "IT sets the rules",
+        "items": [
+          "IT chooses the approved credential manager",
+          "May also require a physical security key or managed device",
+          "Often device-bound — no personal cloud sync",
+          "Tied to company security and compliance policy"
+        ]
+      }
+    },
+    "examples": {
+      "sectionLabel": "What you might encounter at work",
+      "items": {
+        "managedDevice": { "label": "Managed credential managers" },
+        "securityKey": { "label": "Physical security keys" },
+        "brandedSignIn": { "label": "Company-branded sign-in" },
+        "deviceBound": { "label": "Device-bound passkeys only" }
+      }
+    },
+    "techCallout": {
+      "headline": "Enterprise controls behind the scenes",
+      "body": "Organizations can enforce policy through mechanisms like Windows Hello for Business, platform or MDM restrictions on which authenticators are allowed, WebAuthn attestation to verify a specific authenticator model or AAGUID, and relying party policies that require device-bound credentials (backup eligibility flag = 0) instead of synced ones. Conditional access and phishing-resistant MFA mandates — aligning with assurance levels like NIST AAL3 or PIV/CAC-equivalent controls — may further restrict which authenticators are accepted."
+    }
+  },
   "faq": {
     "sectionLabel": "FAQ",
-    "headline": "Some common questions",
-    "items": [
-      {
-        "question": "What if I lose my phone?",
-        "answer": "If you're using a credential manager like Apple Passwords or Google Password Manager, your passkeys are synced to your account — not just one device. Get a new phone, sign into your account, and your passkeys are back. For device-bound passkeys on hardware keys, you should always have a backup key registered."
-      },
-      {
-        "question": "What if a website doesn't support passkeys yet?",
-        "answer": "Most credential managers also store regular passwords, so you can keep using passwords where passkeys aren't supported yet. Passkey adoption is growing fast — many major sites already support them, including Google, Apple, Microsoft, Amazon, and many banks."
-      },
-      {
-        "question": "Can I use my passkey on a friend's computer?",
-        "answer": "Yes! You can use your phone to scan a QR code on any computer. Your phone handles the authentication using its passkey, and you get signed in — without leaving any credential on the other device."
-      },
-      {
-        "question": "Are passkeys the same on every device?",
-        "answer": "The passkey works the same way everywhere, but how you verify yourself depends on the device — Face ID on an iPhone, fingerprint on Android, Windows Hello on a PC, or a PIN. The cryptographic key is the same; only the unlock method changes."
-      },
-      {
-        "question": "Do I need an internet connection to use a passkey?",
-        "answer": "The cryptographic signing happens on your device and doesn't require internet. However, the website you're signing into obviously needs to be reachable. If you're syncing passkeys across devices, the sync requires connectivity — but using an already-synced passkey doesn't."
-      },
-      {
-        "question": "Can websites see my biometrics?",
-        "answer": "No. Your fingerprint or face scan never leaves your device. The biometric is only used to unlock your local passkey. The website only ever sees a cryptographic signature — not anything about you or your body."
-      }
-    ],
+    "headline": "Common Questions About Passkeys",
+    "missingQuestion": "Missing a question?",
+    "missingQuestionLink": "Let us know",
     "advancedItems": [
       {
         "question": "What cryptographic algorithms do passkeys use?",
         "answer": "Passkeys use public-key cryptography, most commonly ECDSA with the P-256 curve (COSE algorithm -7) as defined in the WebAuthn spec. Some authenticators also support RS256 (RSASSA-PKCS1-v1_5) or EdDSA. During registration, the authenticator generates a key pair and returns the public key and a credential ID to the relying party. During authentication, the authenticator signs a server-generated challenge with the private key, which the server verifies against the stored public key."
+      }
+    ],
+    "categories": [
+      {
+        "name": "Basics",
+        "items": [
+          {
+            "question": "What is a passkey, exactly?",
+            "answer": "A passkey is a unique digital key that replaces your password. When you create one, two linked digital keys are created: one is securely stored in your credential manager, and one is shared with the website or app. When you sign in, your device verifies it’s you using your face, fingerprint, or device PIN, then uses your part of the passkey to securely prove it’s you. Your private key is never shared with the website."
+          },
+          {
+            "question": "How is a passkey different from a password?",
+            "answer": "A password is a secret that you know and type into a website. A passkey is a unique digital key stored in your credential manager that you don’t need to remember or type. Every passkey is unique to the website or app it was created for, so it can’t be guessed, phished, or reused across other accounts like a password can."
+          },
+          {
+            "question": "How is a passkey different from 2FA (like text codes or authenticator apps)?",
+            "answer": "Traditional two-factor authentication, or 2FA, usually adds another step after you enter your password, such as a code sent by text or generated by an app. A passkey can replace both the password and these additional steps by securely verifying that you have your passkey and that it’s really you using your face, fingerprint, or device PIN. Some websites may still require additional verification depending on how they have implemented passkeys."
+          },
+          {
+            "question": "What is FIDO2, and how does it relate to passkeys?",
+            "answer": "FIDO2 is the technical standard passkeys are built on. You don't need to know the details - just know that \"passkey\" is the friendly name for what FIDO2 makes possible, and it's why passkeys work the same way across operating systems, websites, apps, devices and credential managers from different companies."
+          },
+          {
+            "question": "Is a passkey the same as a physical security key (like a YubiKey)?",
+            "answer": "A physical security key can store a passkey, but you don’t need one to use passkeys. Most consumers store their passkeys in a credential manager on their phone, computer or other devices. Physical security keys are another option for storing your passkeys and can be useful for people who want an additional way to sign in."
+          },
+          {
+            "question": "Does using a passkey mean I'm sending my fingerprint or face scan to the website?",
+            "answer": "No. Your fingerprint or face scan is used by your device to verify that it’s you. Your biometric information never leaves your device and is never shared with the website or app."
+          },
+          {
+            "question": "What do I need to actually log in with a passkey?",
+            "answer": "You need access to your passkey through your credential manager and a way to verify it’s you, such as your face, fingerprint or device PIN. In most cases, you don’t need to download anything new because your phone or computer already has a credential manager built in."
+          },
+          {
+            "question": "What's the difference between my device PIN and my old password?",
+            "answer": "A password is shared with a website when you sign in. Your device PIN is used locally to verify it’s you and isn’t shared with the website. When you use a passkey, your device PIN can be one of the ways your device verifies that you’re authorized to use your passkey. Your device PIN/passcode is never shared with the website or app."
+          },
+          {
+            "question": "Where are passkeys actually stored?",
+            "answer": "Usually in one of two places: your device's built-in secure storage (a protected chip separate from the rest of the phone/computer) or your credential manager, if you use one. You generally can't \"see\" the raw key, similar to how you can't see the code behind a stored password - but you can see and manage the list of passkeys you've created in your account settings or credential manager."
+          },
+          {
+            "question": "Do Google, Apple, or Microsoft own my passkeys, and can they block me?",
+            "answer": "No, passkeys belong to you and are tied to the website, not to Google/Apple/Microsoft. Those companies offer a place to store and sync them (similar to how they offer a place to store and sync your photos). But keep in mind, if you lose access to that account, you may not be able to access them on a new device. If you're not comfortable with that, you can store passkeys in a different credential manager instead."
+          }
+        ]
+      },
+      {
+        "name": "Setting Up and Everyday Use",
+        "items": [
+          {
+            "question": "How do I set up a passkey?",
+            "answer": "When a website or app offers passkeys, look for an option like “Create a passkey” or “Set up a passkey” in your account or security settings. Your device will ask you to verify it’s you using your face, fingerprint or device PIN. Your passkey will then be created and stored in your credential manager. Some websites and apps will ask you to set one up after signing in."
+          },
+          {
+            "question": "Why does a site ask me to create a passkey when I already have a password?",
+            "answer": "Many websites and apps are adding passkeys as a safer and easier way to sign in. Creating a passkey lets you use it instead of typing your password the next time you sign in. Depending on the website, your password may remain as another sign-in or recovery option."
+          },
+          {
+            "question": "Why did I set up a passkey but the site still asked for a password?",
+            "answer": "This usually happens when you're on a new device or browser that hasn't been \"introduced\" to your passkey yet. Once it's set up on that device too, the prompt should stop. It's an inconsistency in how some sites are still rolling this out, not something wrong with your passkey."
+          },
+          {
+            "question": "Why do some sites still ask for a second code even after I use a passkey?",
+            "answer": "A few sites haven't fully updated their systems yet, so they still ask for old-style 2FA out of caution. It's redundant, but harmless - it should go away over time as sites finish their rollout."
+          },
+          {
+            "question": "Can I use only a passkey, with no password at all?",
+            "answer": "This is how passkeys are designed to be used, but some sites still require you to set up a password, even if you plan to always sign in with your passkey, as a way to have a “just in case” backup account recovery method."
+          },
+          {
+            "question": "Why does using a passkey feel like more steps than a password?",
+            "answer": "Right now, some websites still show extra prompts (like \"do you want to use a passkey?\") while they're getting people used to the new option. As it becomes standard, it will be super quick: verify it’s you with your face, fingerprint or device PIN and you’re in."
+          },
+          {
+            "question": "Can I name my passkeys so I can tell them apart?",
+            "answer": "Yes, many websites and apps let you label each passkey. This makes it easier to know which one to remove if you lose a device. But keep in mind that most passkeys will be available across all of your devices, so naming them by device can be confusing. Many sites will automatically name the credential manager where you saved them (e.g. Google Password Manager, Apple Passwords, Bitwarden). If a name is not auto populated, consider using your credential manager’s name instead of the device."
+          },
+          {
+            "question": "How do I turn off the \"save a passkey?\" pop-ups if I don't want them?",
+            "answer": "These prompts may come from a website, browser or credential manager, so how you turn them off depends on where the prompt is coming from. Check the passkey, sign-in or autofill settings in your browser or credential manager."
+          }
+        ]
+      },
+      {
+        "name": "Multiple Devices and Syncing",
+        "items": [
+          {
+            "question": "How do passkeys work if I use a phone, laptop, and other devices (like a game console)?",
+            "answer": "It depends on where your passkey is stored. Many credential managers can securely sync your passkeys across your devices, so a passkey you create on your phone may also be available on your laptop or tablet. Some passkeys are stored only on a specific device and don't sync. If your passkey isn't available on the device you're using, you may still be able to use a passkey from another device, such as your phone, to sign in."
+          },
+          {
+            "question": "Can I sync passkeys between my phone and my computer?",
+            "answer": "Yes, if your credential manager supports both devices and passkey syncing. Otherwise, each device's passkeys stay separate."
+          },
+          {
+            "question": "Can I move a passkey from one credential manager to another?",
+            "answer": "Support for moving passkeys between credential managers is improving, but it isn't available everywhere yet. Whether you can move your passkeys depends on the credential managers you are moving between and the features they currently support; our credential manager scoring guide lists what managers currently support this. Look for the “Credential Exchange” feature."
+          },
+          {
+            "question": "Why does syncing sometimes ask me for an unrelated PIN, like my phone's PIN, on my laptop?",
+            "answer": "This happens when your laptop and phone are linked for passkey syncing, and the system is double-checking it's really you by confirming through both devices. It can look confusing but is functioning as intended."
+          },
+          {
+            "question": "How do I use a passkey on a device I don't own, like a library or friend's computer?",
+            "answer": "You may be able to use a passkey from your phone or tablet to sign in on another device without storing your passkey on that device. Look for an option like “Use another device” when signing in. You’ll likely be shown a QR code that you can scan with your phone to continue the sign-in."
+          },
+          {
+            "question": "Can I use passkeys across different operating systems, like macOS and Windows?",
+            "answer": "Yes, but the experience isn't always seamless. Passkeys stored in one platform's credential manager don't necessarily sync directly to another platform. For example, if your passkey is stored with Apple Passwords and you're signing in on a Windows computer, you may need to use your iPhone to sign in, such as by scanning a QR code. If you regularly use devices and browsers from different ecosystems, choosing a credential manager that works well across all of them can make using passkeys much easier. See our credential manager scores to compare which options offer the best support across devices, operating systems and browsers. And if you need to move existing passkeys to another credential manager, make sure your next credential manager scores high in the Credential Exchange Support category."
+          }
+        ]
+      },
+      {
+        "name": "Backup, Loss, and Recovery",
+        "items": [
+          {
+            "question": "How do I back up my passkeys?",
+            "answer": "If your passkeys are synced by your credential manager, they can be available again when you sign in to your credential manager on a new device. If a passkey was stored only on the device you lost, you'll need another way to sign in or recover your account. This is why using a credential manager is really helpful to ensure you can always get into your accounts."
+          },
+          {
+            "question": "What happens if I lose my phone or my computer breaks?",
+            "answer": "Being able to recover your passkeys depends on your credential manager and how you have it set up. Credential managers have different approaches to account recovery, backup and access from a new device, so it's important to understand your recovery options before you need them. See our credential manager scores to compare how different options handle security, recovery and digital legacy. If you can't recover your passkeys, you may need to use the account recovery process provided by each website or app."
+          },
+          {
+            "question": "Can I switch phone carriers or lose my phone number without losing my passkeys?",
+            "answer": "Yes. Passkeys aren't tied to your phone number - they're tied to your credential manager account or device, so changing carriers shouldn't affect them. Just make sure your new device has access to your credential manager before trading in your current one."
+          },
+          {
+            "question": "Can I export and back up my passkeys myself, without relying on a big company?",
+            "answer": "Some credential managers support this now, others don't yet. If full control over your backups matters to you, check your credential manager's specific export options."
+          }
+        ]
+      },
+      {
+        "name": "Managing Multiple Passkeys",
+        "items": [
+          {
+            "question": "Should I set up more than one passkey per account?",
+            "answer": "It depends on how your passkeys are stored. If your credential manager syncs your passkeys across your devices, you generally don’t need multiple passkeys per account. If your passkey is stored only on one device, or you want another way to access your account, it is a good idea to create additional passkeys."
+          },
+          {
+            "question": "Can I limit an account to only one device's passkey?",
+            "answer": "Some sites offer this as a security option in account settings, though it's not universal. Check the specific site's security settings."
+          },
+          {
+            "question": "Should I use a passkey as my only login method, or keep a password as backup too?",
+            "answer": "Use a passkey whenever a website or app gives you the option. Whether you can remove your password entirely depends on the website. Some support passkey-only accounts, while others keep your password as another sign-in or recovery method. If you can remove your password, make sure you have another reliable way to access or recover your account if you lose access to your passkey."
+          }
+        ]
+      },
+      {
+        "name": "Security",
+        "items": [
+          {
+            "question": "Are passkeys more secure than passwords and old-style 2FA?",
+            "answer": "Yes. Passkeys are designed to protect against phishing and other common attacks that can steal passwords and verification codes. Every passkey is unique to the website or app it was created for, so it can't be guessed, reused on another site or tricked into working on a fake website."
+          },
+          {
+            "question": "If someone steals my phone, can they get into my accounts?",
+            "answer": "Someone would only be able to use your passkeys if they can also unlock your device (fingerprint, face, or PIN), since that's required to use any passkey stored there. This is generally harder for a remote attacker than stealing a password."
+          },
+          {
+            "question": "Can a website tell the difference between a passkey in a credential manager and a passkey on a physical security key?",
+            "answer": "Yes, technically it can, though for most everyday logins it doesn't matter - both are treated as equally trustworthy."
+          },
+          {
+            "question": "Is there a security risk if my credential manager or account provider is hacked?",
+            "answer": "Yes, but the risk is different from a password breach. Passkeys aren't reusable secrets like passwords, so an attacker can't simply steal a passkey and use it to sign in to your account. Your passkeys are also protected by the security of your credential manager and the devices you use to access it. This is why choosing a secure credential manager matters. See our credential manager scores to compare how different options protect your passkeys and account."
+          }
+        ]
+      },
+      {
+        "name": "Sharing and Family Access",
+        "items": [
+          {
+            "question": "Can I share a passkey-protected account with a family member?",
+            "answer": "Sometimes. Some credential managers let you securely share passkeys with family members or other trusted people. Whether you can share a passkey depends on the credential manager you use and whether the website or app allows the passkey to be shared. See our credential manager scores to compare which options support family sharing."
+          },
+          {
+            "question": "How do I make sure my family can access my accounts if something happens to me?",
+            "answer": "This depends on your credential manager. Some offer features such as emergency access, legacy contacts or other digital inheritance features that can help trusted people access your accounts or credentials if something happens to you. If this is important to you, set it up in advance. See our credential manager scores to compare how different options support your digital legacy."
+          },
+          {
+            "question": "If my platform account gets suspended, can I still log in elsewhere with a passkey stored there?",
+            "answer": "Not necessarily. If you lose access to the account that your credential manager depends on, you may also lose access to passkeys stored or synced through that credential manager. What happens depends on the provider and the recovery options you have set up. This is one reason it's important to understand how your credential manager handles account recovery and access. See our credential manager scores to compare your options."
+          }
+        ]
+      },
+      {
+        "name": "Switching Credential Managers and Vendor Lock-In",
+        "items": [
+          {
+            "question": "Am I locked into one credential manager once I start using passkeys?",
+            "answer": "Not by design. In practice, though, credential managers are still catching up to support passkey migration, but most popular credential managers do now support secure credential migration, including passkeys, to another service. Support for Credential Exchange is actively expanding throughout the ecosystem. See the Credential Exchange Support category in the credential manager scores section."
+          },
+          {
+            "question": "Why can't I freely move my passkeys between devices or credential managers I own?",
+            "answer": "The underlying technology supports this, but not every company has built the tools to make it easy yet. It's a feature gap and not a fundamental limitation of passkeys."
+          }
+        ]
+      },
+      {
+        "name": "Trust and Adoption",
+        "items": [
+          {
+            "question": "Why do so many sites explain passkeys so poorly?",
+            "answer": "This is a fair criticism. Since passkeys are still new to most people, many websites haven't invested in clear explanations yet. It's a known gap in the industry that most sites struggle with. That’s one of the reasons this website exists!"
+          },
+          {
+            "question": "Why should I bother if something better might replace passkeys next year?",
+            "answer": "Passkeys are built on an open industry standard (FIDO2) supported by Apple, Google, and Microsoft together, so they're expected to be the long-term direction rather than a temporary fad. Setting them up now still reduces your risk today."
+          },
+          {
+            "question": "Are passkeys going to work the same way for years, or will I have to relearn this again?",
+            "answer": "The core idea (unlock your device to log into a website) is expected to stay consistent. What's still improving is the syncing and credential manager migration experiences described above."
+          }
+        ]
       }
     ]
   },
   "footer": {
     "madeWith": "Made with",
     "by": "by the passkey community.",
-    "learnMore": "Learn more at",
-    "passkeysDevLink": "passkeys.dev",
-    "license": "Content licensed under CC BY 4.0"
+    "feedback": "Have feedback on this site?",
+    "feedbackLink": "Let us know",
+    "licensePrefix": "Content licensed under",
+    "licenseName": "CC BY 4.0"
   }
 }
