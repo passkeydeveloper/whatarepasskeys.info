@@ -37,7 +37,7 @@
     }
   },
   "howItWorks": {
-    "sectionLabel": "How you sign in",
+    "sectionLabel": "Using passkeys",
     "headline": "How you use passkeys to sign in",
     "intro": "Using a passkey is simple. Once you've created one, signing in only takes a few seconds.",
     "steps": {
@@ -64,7 +64,7 @@
     }
   },
   "whyPasswordsFail": {
-    "sectionLabel": "Why passwords keep failing",
+    "sectionLabel": "The password problem",
     "headline": "Why passwords keep failing",
     "intro": "Passwords have been around for decades, but they weren't designed for today's internet. As online threats have evolved, we've tried to make passwords more secure by adding text message codes to enter, email links to click on, and asking you to perform other extra steps to prove you're allowed to sign in. While these can help in some situations, they don't solve the underlying problem: passwords themselves are a terrible way to prove who you are.",
     "outro": "Passkeys were designed to solve these problems.",
@@ -92,7 +92,7 @@
     }
   },
   "phishing": {
-    "sectionLabel": "Why passwords keep failing",
+    "sectionLabel": "Understanding phishing",
     "headline": "What is phishing?",
     "body": "Criminals build websites that look identical to real ones — your bank, your email, your favorite store. They trick you into visiting the fake site and typing in your password. Then they use it on the real site. Phishing is the most common way accounts and identities get stolen online, and it works on passwords, verification codes, and text messages alike.",
     "example": {
@@ -118,7 +118,7 @@
     }
   },
   "whyPasskeysWin": {
-    "sectionLabel": "Why passwords keep failing",
+    "sectionLabel": "The passkey advantage",
     "headline": "Why passkeys win",
     "tagline": "Better than passwords. Better than \"add a text message.\"",
     "categories": {
@@ -168,10 +168,10 @@
     }
   },
   "credentialManagers": {
-    "sectionLabel": "Where passkeys live",
+    "sectionLabel": "Storing passkeys",
     "headline": "Where do I store my passkeys?",
-    "intro": "Your passkeys live in your credential manager. A credential manager is an app or service that securely stores your passkeys (and passwords!) and syncs them across your devices. Think of it like the service that keeps your photos and contacts available across all your devices — your passkeys work the same way, so they're available wherever you choose to use them. You'll often hear credential managers called password managers. Same thing — it's just a little ironic to call the thing storing your passwordless login a password manager!",
-    "platformNote": "Most people already have one built into their phone or browser — you may already be using one for your passwords, payment information, and passkeys without realizing it. If you use an iPhone, your passkeys are likely stored in the Apple Passwords app. If you use Android, Chrome on Mac, or Chrome on Windows, they're likely stored in Google Password Manager. You can also choose a third-party credential manager like 1Password, Dashlane, or Bitwarden.",
+    "intro": "Your passkeys live in your credential manager. A credential manager is an app or service that securely stores your passkeys and syncs them across your devices. Think of it like the service that keeps your photos and contacts available across all your devices — your passkeys work the same way, so they're available wherever you choose to use them.",
+    "platformNote": "Most people already have one built into their phone or browser — you may already be using one for your passwords, payment information, and passkeys without realizing it. If you use an iPhone, your passkeys are likely stored in the Passwords app. If you use Android or Chrome, they're likely stored in Google Password Manager. If you use Windows, you may use Microsoft Password Manager. You can also choose a third-party credential manager like 1Password, Dashlane, or Bitwarden.",
     "convenienceNote": "The biggest advantage is convenience. Create a passkey on your phone, and it can be available on your laptop too, so you don't have to create it again for every device.",
     "managers": {
       "apple": {
@@ -200,7 +200,7 @@
       }
     },
     "scoring": {
-      "sectionLabel": "Which credential manager is right for me?",
+      "sectionLabel": "Choosing a credential manager",
       "headline": "Which credential manager is right for me?",
       "intro": "Pick a credential manager, and then stick with it. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
       "methodologyIntro": "We are making it easier for you to choose a credential manager. We've scored each one against the criteria below — see the FAQ for our scoring methodology.",
@@ -222,9 +222,9 @@
     }
   },
   "closingCTA": {
-    "sectionLabel": "Say goodbye to passwords",
-    "headline": "Say Goodbye to Passwords",
-    "body": "You said hello to passkeys. Now it's time to say goodbye to passwords.",
+    "sectionLabel": "Start using passkeys",
+    "headline": "Start saying goodbye to passwords, one sign-in at a time",
+    "body": "You said hello to passkeys. Now it's time to say start saying goodbye to managing so many passwords.",
     "detail": "The next time you sign in to a website or app, look for the option to Create a passkey or Sign in with a passkey. It only takes a minute to get started — and after that, you can spend less time signing in and more time getting on with your day.",
     "createLabel": "Create a passkey",
     "signInLabel": "Sign in with a passkey",
