@@ -225,10 +225,10 @@
     "sectionLabel": "Start using passkeys",
     "headline": "Start saying goodbye to passwords, one sign-in at a time",
     "body": "You said hello to passkeys. Now it's time to say start saying goodbye to managing so many passwords.",
-    "detail": "The next time you sign in to a website or app, look for the option to Create a passkey or Sign in with a passkey. It only takes a minute to get started — and after that, you can spend less time signing in and more time getting on with your day.",
+    "detail": "It only takes a few seconds to get started. After that, you can spend less time signing in and more time getting on with your day.",
     "createLabel": "Create a passkey",
     "signInLabel": "Sign in with a passkey",
-    "cta": "Read the FAQ"
+    "iconCalloutBody": "Look for the passkey icon on the sites and apps you use."
   },
   "workPasskeys": {
     "sectionLabel": "Passkeys at work",
