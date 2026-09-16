@@ -196,7 +196,7 @@
       },
       "microsoft": {
         "name": "Microsoft Password Manager",
-        "description": "Built into Microsoft Edge and Windows. Syncs across devices using your Microsoft account."
+        "description": "Built into Microsoft Edge and Windows. Syncs across devices using your Microsoft account. Works across Android, iOS, Linux, macOS, and Windows devices."
       },
       "nordpass": {
         "name": "NordPass",
@@ -219,7 +219,7 @@
       "sectionLabel": "Choosing a credential manager",
       "headline": "Which credential manager is right for me?",
       "intro": "Pick a credential manager, and then stick with it. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
-      "methodologyIntro": "We've scored each credential manager below, ranked from highest to lowest overall grade. See the FAQ for our full scoring methodology.",
+      "methodologyIntro": "We've scored each credential manager below, ranked from highest to lowest overall grade. See the Scoring Criteria section for our full scoring methodology.",
       "coreGroupLabel": "Core criteria",
       "lowerGroupLabel": "Also considered",
       "gradeLabel": "Grade",
