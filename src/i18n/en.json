@@ -224,10 +224,13 @@
   "closingCTA": {
     "sectionLabel": "Start using passkeys",
     "headline": "Start saying goodbye to passwords, one sign-in at a time",
-    "body": "You said hello to passkeys. Now it's time to say start saying goodbye to managing so many passwords.",
+    "body": "You said hello to passkeys. Now it's time to start saying goodbye to passwords.",
     "detail": "It only takes a few seconds to get started. After that, you can spend less time signing in and more time getting on with your day.",
+    "examplesLabel": "Examples",
     "createLabel": "Create a passkey",
     "signInLabel": "Sign in with a passkey",
+    "autofillCaption": "Autofill on desktop",
+    "keyboardCaption": "Keyboard suggestion on mobile",
     "iconCalloutBody": "Look for the passkey icon on the sites and apps you use."
   },
   "workPasskeys": {
