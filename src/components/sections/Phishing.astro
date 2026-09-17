@@ -41,13 +41,13 @@ const p = t.phishing;
           <h3 class="text-lg font-bold text-emerald-900 mb-2">{p.resistance.headline}</h3>
           <RichText class="text-emerald-800 leading-relaxed text-sm mb-4" text={p.resistance.body} />
           <div class="grid grid-cols-2 gap-3">
-            <div class="flex items-center gap-2 bg-white border border-red-200 rounded-xl px-3 py-2">
-              <ShieldX size={18} class="text-red-500 shrink-0" />
-              <span class="text-sm text-red-600 font-medium">{p.resistance.fake.result}</span>
-            </div>
             <div class="flex items-center gap-2 bg-white border border-emerald-200 rounded-xl px-3 py-2">
               <ShieldCheck size={18} class="text-emerald-600 shrink-0" />
-              <span class="text-sm text-emerald-700 font-medium">{p.resistance.real.result}</span>
+              <span class="text-sm text-emerald-700 font-medium">{p.resistance.real.label}:<br>{p.resistance.real.result}</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white border border-red-200 rounded-xl px-3 py-2">
+              <ShieldX size={18} class="text-red-500 shrink-0" />
+              <span class="text-sm text-red-600 font-medium">{p.resistance.fake.label}:<br>{p.resistance.fake.result}</span>
             </div>
           </div>
         </div>
@@ -83,19 +83,19 @@ const p = t.phishing;
           </div>
 
           <!-- Arrow down -->
-          <div class="flex flex-col items-center self-end mr-8">
+          <div class="flex flex-col items-center">
             <div class="w-0.5 h-5 bg-red-400"></div>
             <div class="border-l-[5px] border-r-[5px] border-t-[7px] border-l-transparent border-r-transparent border-t-red-400"></div>
           </div>
 
           <!-- Attacker -->
-          <div class="self-end mr-0 rounded-xl bg-gray-800 px-5 py-3 text-center min-w-36">
+          <div class="rounded-xl bg-gray-800 px-5 py-3 text-center min-w-36">
             <p class="font-bold text-white text-sm">Attacker</p>
             <p class="text-red-300 text-xs mt-0.5">has your password</p>
           </div>
 
           <!-- Arrow down + left -->
-          <div class="flex flex-col items-center self-end mr-8">
+          <div class="flex flex-col items-center">
             <div class="w-0.5 h-5 bg-red-400"></div>
             <div class="border-l-[5px] border-r-[5px] border-t-[7px] border-l-transparent border-r-transparent border-t-red-400"></div>
           </div>
