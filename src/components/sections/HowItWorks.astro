@@ -1,5 +1,7 @@
 ---
 import { KeyRound, ScanFace, ShieldCheck, Sparkles, Code2 } from 'lucide-astro';
+import TechCalloutLinks from '../TechCalloutLinks.astro';
+import RichText from '../RichText.astro';
 
 interface Props {
   t: any;
@@ -20,7 +22,7 @@ const steps = [
       <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 mb-4">
         {h.headline}
       </h2>
-      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">{h.intro}</p>
+      <RichText class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto" text={h.intro} />
     </div>
 
     <div class="relative">
@@ -44,9 +46,7 @@ const steps = [
                 <h3 class="text-lg font-bold text-gray-900 mt-1 mb-1">
                   {(h.steps as any)[step.key].label}
                 </h3>
-                <p class="text-gray-600">
-                  {(h.steps as any)[step.key].body}
-                </p>
+                <RichText class="text-gray-600" text={(h.steps as any)[step.key].body} />
               </div>
             </div>
           </div>
@@ -60,7 +60,8 @@ const steps = [
       </div>
       <div>
         <h3 class="text-xl font-bold text-emerald-900 mb-2">{h.uniqueness.headline}</h3>
-        <p class="text-emerald-800 leading-relaxed">{h.uniqueness.body}</p>
+        <RichText class="text-emerald-800 leading-relaxed" text={h.uniqueness.body} />
+        <RichText class="text-sm text-emerald-700 leading-relaxed mt-3 pt-3 border-t border-emerald-200" text={h.uniqueness.privacyNote} />
       </div>
     </div>
 
@@ -70,7 +71,8 @@ const steps = [
         Technical detail
       </p>
       <h3 class="text-xl font-bold text-indigo-900 mb-3">{h.techCallout.headline}</h3>
-      <p class="text-indigo-800 leading-relaxed">{h.techCallout.body}</p>
+      <RichText class="text-indigo-800 leading-relaxed" text={h.techCallout.body} />
+      <TechCalloutLinks links={h.techCallout.additionalLinks} />
     </div>
   </div>
 </section>

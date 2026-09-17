@@ -1,5 +1,7 @@
 ---
 import { Check, X, Trophy, Code2 } from 'lucide-astro';
+import TechCalloutLinks from '../TechCalloutLinks.astro';
+import RichText from '../RichText.astro';
 
 interface Props {
   t: any;
@@ -113,7 +115,8 @@ function cellResult(value: string, method: string): CellResult {
         Technical detail
       </p>
       <h3 class="text-xl font-bold text-indigo-900 mb-3">{c.techCallout.headline}</h3>
-      <p class="text-indigo-800 leading-relaxed">{c.techCallout.body}</p>
+      <RichText class="text-indigo-800 leading-relaxed" text={c.techCallout.body} />
+      <TechCalloutLinks links={c.techCallout.additionalLinks} />
     </div>
   </div>
 </section>

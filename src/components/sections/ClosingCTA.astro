@@ -1,5 +1,6 @@
 ---
 import { Lock, MonitorSmartphone } from 'lucide-astro';
+import RichText from '../RichText.astro';
 
 interface Props {
     t: any;
@@ -56,29 +57,35 @@ const cta = t.closingCTA;
         </div>
 
         <div
-            class="fade-in-section flex flex-col items-center gap-4 mb-10"
+            class="fade-in-section flex flex-col items-center gap-8 mb-10"
             style="transition-delay: 0.3s"
         >
-            <p class="text-base font-semibold uppercase tracking-widest text-indigo-50">{cta.examplesLabel}</p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <span class="inline-flex items-center gap-2 bg-white text-indigo-700 font-bold rounded-2xl px-6 py-3 text-base">
-                <img
-                    src="/images/passkey-icons/passkey-icon-2024-black-nobox.svg"
-                    alt=""
-                    aria-hidden="true"
-                    class="w-5 h-5"
-                />
-                {cta.createLabel}
-            </span>
-            <span class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-bold rounded-2xl px-6 py-3 text-base">
-                <img
-                    src="/images/passkey-icons/passkey-icon-2024-white-nobox.svg"
-                    alt=""
-                    aria-hidden="true"
-                    class="w-5 h-5"
-                />
-                {cta.signInLabel}
-            </span>
+            <p class="text-xl md:text-2xl font-semibold uppercase tracking-widest text-indigo-50">{cta.examplesLabel}</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
+            <div class="flex flex-col items-center gap-3">
+                <span class="inline-flex items-center gap-2 bg-white text-indigo-700 font-bold rounded-2xl px-6 py-3 text-base">
+                    <img
+                        src="/images/passkey-icons/passkey-icon-2024-black-nobox.svg"
+                        alt=""
+                        aria-hidden="true"
+                        class="w-5 h-5"
+                    />
+                    {cta.createLabel}
+                </span>
+                <p class="text-sm font-semibold text-indigo-50">{cta.createButtonCaption}</p>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+                <span class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-bold rounded-2xl px-6 py-3 text-base">
+                    <img
+                        src="/images/passkey-icons/passkey-icon-2024-white-nobox.svg"
+                        alt=""
+                        aria-hidden="true"
+                        class="w-5 h-5"
+                    />
+                    {cta.signInLabel}
+                </span>
+                <p class="text-sm font-semibold text-indigo-50">{cta.signInButtonCaption}</p>
+            </div>
             </div>
         </div>
 
@@ -171,9 +178,7 @@ const cta = t.closingCTA;
         </div>
 
         <div class="fade-in-section" style="transition-delay: 0.4s">
-            <p class="text-lg text-indigo-50 leading-relaxed max-w-2xl mx-auto">
-                {cta.detail}
-            </p>
+            <RichText class="text-lg text-indigo-50 leading-relaxed max-w-2xl mx-auto" text={cta.detail} />
         </div>
     </div>
 </section>

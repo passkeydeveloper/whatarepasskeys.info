@@ -19,17 +19,16 @@ const ogImage = new URL('/og-image.png', Astro.site).toString();
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    ...t.faq.categories.flatMap((category: { items: { question: string; answer: string }[] }) => category.items),
-    ...t.faq.advancedItems,
-  ].map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
+  mainEntity: t.faq.categories
+    .flatMap((category: { items: { question: string; answer: string }[] }) => category.items)
+    .map((item: { question: string; answer: string }) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
 };
 
 const websiteSchema = {
