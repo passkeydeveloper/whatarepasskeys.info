@@ -71,7 +71,7 @@ Nearly all of the site's actual content — headlines, body copy, FAQ questions/
 
 ## Contributing
 
-Contributions of all kinds are welcome — content corrections, new FAQ entries, accessibility fixes, credential manager updates, translations, and code improvements. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get set up and submit changes, and use the [issue templates](.github/ISSUE_TEMPLATE) to report problems or suggest content.
+Contributions of all kinds are welcome — content corrections, new FAQ entries, accessibility fixes, credential manager updates, translations, and code improvements. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get set up and submit changes, and [create an issue](https://github.com/passkeydeveloper/whatarepasskeys.info/issues/new/choose) to report problems or suggest content.
 
 ## License
 
@@ -80,4 +80,4 @@ Contributions of all kinds are welcome — content corrections, new FAQ entries,
 
 ## Feedback
 
-Have feedback on the site itself? Use the [feedback link](https://whatarepasskeys.info/feedback) on the site, or open an issue using one of the [issue templates](.github/ISSUE_TEMPLATE).
+Have feedback on the site itself? Use the [feedback link](https://whatarepasskeys.info/feedback) on the site, or open an issue.
