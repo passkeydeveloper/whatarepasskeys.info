@@ -1,5 +1,5 @@
 ---
-import { ChevronDown } from 'lucide-astro';
+import { ChevronDown, Search } from 'lucide-astro';
 
 interface Props {
   t: any;
@@ -22,7 +22,23 @@ const faq = t.faq;
       </p>
     </div>
 
-    <div class="space-y-12">
+    <div class="fade-in-section mb-8">
+      <div class="faq-search-wrap">
+        <Search size={18} class="faq-search-icon" aria-hidden="true" />
+        <input
+          type="search"
+          id="faq-search-input"
+          class="faq-search-input"
+          placeholder={faq.searchPlaceholder}
+          aria-label={faq.searchAriaLabel}
+          autocomplete="off"
+        />
+      </div>
+      <p id="faq-search-count" class="faq-search-count" aria-live="polite" hidden></p>
+      <p id="faq-no-results" class="faq-no-results" hidden>{faq.noResults}</p>
+    </div>
+
+    <div class="space-y-12" id="faq-categories">
       {faq.categories.map((category: { name: string; types: string[]; items: { type: 'basic' | 'advanced'; question: string; answer: string }[] }) => (
         <div class="faq-category fade-in-section">
           <h3 class="text-sm font-semibold uppercase tracking-widest text-indigo-500 mb-2">
@@ -32,6 +48,7 @@ const faq = t.faq;
             {category.items.map((item: { type: 'basic' | 'advanced'; question: string; answer: string }, i: number) => (
               <details
                 class={`faq-item ${item.type === 'advanced' ? 'technical-only' : ''}`}
+                data-type={item.type}
                 style={`transition-delay: ${i * 0.05}s`}
               >
                 <summary>
@@ -50,5 +67,99 @@ const faq = t.faq;
         </div>
       ))}
     </div>
+
+    <div class="space-y-0 divide-y divide-gray-100" id="faq-flat-results" hidden></div>
   </div>
 </section>
+
+<script>
+  import Fuse from 'fuse.js';
+
+  interface FaqEntry {
+    el: HTMLDetailsElement;
+    question: string;
+    answer: string;
+    type: string;
+    originalParent: HTMLElement;
+  }
+
+  const items: FaqEntry[] = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>('.faq-item')
+  ).map((el) => ({
+    el,
+    question: el.querySelector('summary span')?.textContent?.trim() ?? '',
+    answer: el.querySelector('p')?.textContent?.trim() ?? '',
+    type: el.dataset.type ?? 'basic',
+    originalParent: el.parentElement as HTMLElement,
+  }));
+
+  const fuse = new Fuse(items, {
+    keys: [
+      { name: 'question', weight: 0.7 },
+      { name: 'answer', weight: 0.3 },
+    ],
+    threshold: 0.35,
+    ignoreLocation: true,
+    includeScore: true,
+    includeMatches: true,
+  });
+
+  const input = document.getElementById('faq-search-input') as HTMLInputElement;
+  const countEl = document.getElementById('faq-search-count') as HTMLElement;
+  const noResultsEl = document.getElementById('faq-no-results') as HTMLElement;
+  const categoriesEl = document.getElementById('faq-categories') as HTMLElement;
+  const flatEl = document.getElementById('faq-flat-results') as HTMLElement;
+  const html = document.documentElement;
+
+  function isVisibleInMode(type: string) {
+    return type !== 'advanced' || html.getAttribute('data-mode') === 'technical';
+  }
+
+  // Reassembles the original category layout by re-appending each item,
+  // in original document order, to the category div it started in.
+  function restoreOriginalOrder() {
+    items.forEach(({ el, originalParent }) => originalParent.appendChild(el));
+  }
+
+  function render(query: string) {
+    const q = query.trim();
+
+    if (!q) {
+      restoreOriginalOrder();
+      items.forEach(({ el }) => el.removeAttribute('open'));
+      categoriesEl.hidden = false;
+      flatEl.hidden = true;
+      flatEl.replaceChildren();
+      countEl.hidden = true;
+      noResultsEl.hidden = true;
+      return;
+    }
+
+    // Rank question-title matches ahead of answer-only matches, then by
+    // Fuse's relevance score (lower is better) within each tier.
+    const ranked = fuse
+      .search(q)
+      .filter((r) => isVisibleInMode(r.item.type))
+      .sort((a, b) => {
+        const aQuestionMatch = a.matches?.some((m) => m.key === 'question') ? 0 : 1;
+        const bQuestionMatch = b.matches?.some((m) => m.key === 'question') ? 0 : 1;
+        if (aQuestionMatch !== bQuestionMatch) return aQuestionMatch - bQuestionMatch;
+        return (a.score ?? 0) - (b.score ?? 0);
+      });
+
+    ranked.forEach(({ item }) => item.el.setAttribute('open', ''));
+    flatEl.replaceChildren(...ranked.map((r) => r.item.el));
+    categoriesEl.hidden = true;
+    flatEl.hidden = false;
+
+    countEl.hidden = false;
+    countEl.textContent = `${ranked.length} question${ranked.length === 1 ? '' : 's'} found`;
+    noResultsEl.hidden = ranked.length !== 0;
+  }
+
+  input.addEventListener('input', () => render(input.value));
+
+  new MutationObserver(() => {
+    if (input.value.trim()) render(input.value);
+  }).observe(html, { attributes: true, attributeFilter: ['data-mode'] });
+</script>

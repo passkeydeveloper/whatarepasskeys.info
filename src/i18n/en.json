@@ -413,6 +413,9 @@
     "headline": "Common Questions About Passkeys",
     "missingQuestion": "Missing a question?",
     "missingQuestionLink": "Let us know",
+    "searchPlaceholder": "Search questions...",
+    "searchAriaLabel": "Search FAQ",
+    "noResults": "No matching questions found. Try a different search term.",
     "categories": [
       {
         "name": "Basics",
