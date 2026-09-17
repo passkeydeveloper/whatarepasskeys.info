@@ -33,7 +33,7 @@
     },
     "techCallout": {
       "headline": "Under the hood: asymmetric cryptography",
-      "body": "Passkeys use public key cryptography, similar to SSH keys. The private key is generated in a credential manager or in a hardware authenticator's secure element. The public key, along with some additional WebAuthn-specific metadata, is sent to the server, but it's mathematically useless without the private key to sign challenges with. The server never sees or stores anything secret."
+      "body": "Passkeys use public key cryptography, similar to SSH keys. The private key is generated in a credential manager or in a hardware authenticator's secure element. The public key, along with some additional WebAuthn-specific metadata, is sent to the server. However the public key is mathematically useless without the private key to sign challenges with. The server never sees or stores anything secret."
     }
   },
   "howItWorks": {
@@ -43,7 +43,7 @@
     "steps": {
       "create": {
         "label": "Create a Passkey",
-        "body": "Your credential manager creates a unique passkey for the website or app. One part of the passkey is shared with the website. The other part is remains securely stored in your credential manager on your device to prove it's you. Your part is never shared or stored by the website or app."
+        "body": "Your credential manager creates a unique pair of keys, your passkey, for the website or app. One part of the passkey is shared with the website. The other part remains securely stored in your credential manager on your device to prove it's you. Your part is never shared or stored by the website or app."
       },
       "confirm": {
         "label": "Confirm It's You",
@@ -61,7 +61,7 @@
     },
     "techCallout": {
       "headline": "The cryptographic handshake",
-      "body": "To confirm its you, the service (app or site) sends a challenge during the sign in process. The credential manager/authenticator signs this challenge using the passkey's private key. The signed response includes additional context about the session such as the origin, whether the request was made in an embedded context (iframe), and of course the signature. The server verifies: (1) the origin is the expected value (e.g. bank.com not fake-bank.com), (2) the challenge matches the one it issued, and (3) the signature is valid against the stored public key. The signed origin match is the primary way passkeys (and other WebAuthn credentials) are resistant to phishing.",
+      "body": "To confirm its you, the service (app or site) sends a challenge during the sign in process. The credential manager/authenticator signs this challenge using the passkey's private key. The signed response includes this signature as well as additional context about the session, such as the origin, and whether the request was made in an embedded context (iframe). The server verifies that (1) the origin is the expected value (e.g. bank.com not fake-bank.com), (2) the challenge matches the one it issued, and (3) the signature is valid for the stored public key. The signed origin match is the primary way that passkeys (and WebAuthn credentials in general) resist phishing.",
       "additionalLinks": [
         {
           "label": "Diagrams and a deeper explanation @ MDN",
@@ -82,11 +82,11 @@
       },
       "stolen": {
         "title": "Passwords can be stolen",
-        "body": "Websites store password information that attackers target during data breaches. Once stolen, passwords can be cracked or reused."
+        "body": "Websites store password information that attackers target during data breaches. Once stolen, passwords can be cracked and then used by those attackers."
       },
       "phishing": {
         "title": "Passwords can be phished",
-        "body": "Phishing is the most common attack that leads to stolen accounts and identity theft. Attackers create fake websites that look like legitimate ones, tricking people into entering their passwords or verification codes."
+        "body": "Phishing is the most common attack that leads to stolen accounts and identity theft. Attackers create fake websites that look like legitimate ones, tricking people into entering their passwords and even their verification codes."
       },
       "slow": {
         "title": "Passwords slow you down",
@@ -107,15 +107,15 @@
   "phishing": {
     "sectionLabel": "Understanding phishing",
     "headline": "What is phishing?",
-    "body": "Criminals build websites that look identical to real ones — your bank, your email, your favorite store. They trick you into visiting the fake site and typing in your password. Then they use it on the real site. Phishing is the most common way accounts and identities get stolen online, and it works on passwords, verification codes, and text messages alike.",
+    "body": "Criminals build websites that look identical to real ones, like your bank, your email, or your favorite store. They trick you into visiting the fake site and typing in your password. Then they use your password on the real site to log in as you. Phishing is the most common way that accounts and identities get stolen online, and it works on passwords, verification codes, and text messages alike.",
     "example": {
       "label": "Real site vs fake site",
       "real": "bank.com",
       "fake": "bank-secure-login.com"
     },
     "resistance": {
-      "headline": "With a passkey, this doesn't work",
-      "body": "Your passkey is permanently tied to the exact website where you created it. It simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing to steal.",
+      "headline": "With a passkey, this doesn't work!",
+      "body": "Your passkey is permanently tied to the exact website where you created it. It simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing the attacker can steal.",
       "fake": {
         "label": "Fake site",
         "result": "Passkey refuses to work"
@@ -128,8 +128,8 @@
     "techCallout": {
       "headline": "Why traditional MFA doesn't fully protect you",
       "body": [
-        "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, bypassing the second factor. This is why FIDO2/WebAuthn was designed specifically to address this. WebAuthn credentials, including passkeys, are scoped to a specific domain.",
-        "During a registration ceremony, this is declared as the Relying Party ID, which is saved with the passkey in the credential manager. During an authentication ceremony, this is used by the browser, app, and/or OS to select the appropriate passkey for the service. But this is not what provide the primary phishing protection! The service's calling origin is signed over by using the passkey's private key. This origin can then be checked by the service on their backend to ensure its what they expected. If the origin is not an expected value, the request is rejected and no session is established. The origin is often the web origin (e.g., https://login.example.com), but can also be an app identity for native apps."
+        "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, including the second factor. This is why FIDO2/WebAuthn was designed specifically to address this. WebAuthn credentials, including passkeys, are scoped to a specific domain.",
+        "During a registration ceremony, this is declared as the Relying Party ID (RP ID), which is saved with the passkey in the credential manager. During an authentication ceremony, the RP ID is used by the browser, app, and/or OS to select the appropriate passkey for the service. But this is not what provides the primary phishing protection! The service's calling origin is signed over by using the passkey's private key. This origin can then be checked by the service on their backend to ensure it's what they expected. If the origin is not an expected value, the request is rejected and no session is established. The origin is often the web origin (e.g., https://login.example.com), but can also be an app identity for native apps."
       ],
       "additionalLinks": [
         {
@@ -146,7 +146,7 @@
   "whyPasskeysWin": {
     "sectionLabel": "The passkey advantage",
     "headline": "Why passkeys win",
-    "tagline": "Better than passwords. Better than \"add a text message.\"",
+    "tagline": "Better than password with SMS. Better than magic links.",
     "categories": {
       "passwordRequired": "Password required?",
       "phishable": "Can be phished?",
@@ -190,7 +190,7 @@
     },
     "techCallout": {
       "headline": "Credential stuffing & server-side breach protection",
-      "body": "In a credential stuffing attack, attackers take username/password pairs leaked from one site and try them on others. Passkeys eliminate this entirely: there's no secret to stuff. On the server side, only the public key is stored. Even if a server is fully compromised, the attacker gets a list of public keys: mathematically useless for signing in. The secret never left your credential manager."
+      "body": "In a credential stuffing attack, attackers take username/password pairs leaked from one site and try them on others. Passkeys eliminate this entirely: there's no secret to stuff. On the server side, only the public key is stored. Even if a server is fully compromised, the attacker gets a list of public keys, which are mathematically useless for signing in. The corresponding private key never left your credential manager."
     }
   },
   "credentialManagers": {
@@ -244,7 +244,7 @@
     "scoring": {
       "sectionLabel": "Choosing a credential manager",
       "headline": "Which credential manager is right for me?",
-      "intro": "Pick a credential manager, and then stick with it. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
+      "intro": "Pick the credential manager that's right for you. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
       "methodologyIntro": "We've scored each credential manager below, ranked from highest to lowest overall grade. See the Scoring Criteria section for our full scoring methodology.",
       "coreGroupLabel": "Core criteria",
       "lowerGroupLabel": "Also considered",
@@ -270,25 +270,25 @@
         "intro": "Here's what we're actually looking at behind each score, and what separates a top score from a low one.",
         "items": {
           "ecosystemAvailability": {
-            "consumerBody": "Can you actually use this credential manager everywhere you need it: your phone, your computer, and your tablet, and in the apps and browsers you use? A top score means it has apps for all the major platforms and works smoothly in all the major browsers. A low score means it's mostly locked to one company's devices.",
+            "consumerBody": "Can you actually use this credential manager everywhere you need it, like on your phone, your computer, your tablet, and in the apps and browsers you use? A top score means it has native apps for all the major platforms and works smoothly in all the major browsers. A low score means it's mostly locked to one company's devices.",
             "technicalBody": "Native credential manager app coverage across all 4 major operating systems (Android, iOS, macOS, Windows) and browser extension support for the others.",
             "tier5": "Native apps for all 4 major OSs, plus browser extensions for others.",
             "tier3": "Missing one key platform, or meaningful browser limitations.",
             "tier1": "Primarily locked to one ecosystem."
           },
           "nativePlatformIntegration": {
-            "consumerBody": "Does signing in actually feel seamless, or do you have to fight with a browser extension? A top score means passkeys just work, integrated directly into your operating system. A low score means you're stuck with manual workarounds and hacks.",
+            "consumerBody": "Does signing in actually feel seamless, or do you have to fight with a browser extension? A top score means passkeys just work by integrating directly into your operating system. A low score means you're stuck with manual workarounds and hacks.",
             "technicalBody": "Depth of native platform API support (e.g., system-level credential manager integration) versus reliance on browser extensions or other manual workflows.",
-            "tier5": "Full native platform API support across major platforms; seamless passkey use in browsers and native apps.",
-            "tier3": "Native integration on some platforms, but meaningful reliance on browser extension workflows.",
-            "tier1": "Little or no system-level integration."
+            "tier5": "Full native platform integration across major platforms; seamless passkey use in browsers and native apps.",
+            "tier3": "Native platform integration on some platforms, but meaningful reliance on browser extension workflows.",
+            "tier1": "Little or no native platform integration."
           },
           "e2eeVaultSecurity": {
             "consumerBody": "Even the company that makes this app shouldn't be able to read your saved passwords and passkeys. A top score means your vault uses end-to-end encryption strong enough that only you hold the key. A low score means it falls short of that bar.",
             "technicalBody": "Whether the vault meets a zero-knowledge/end-to-end encryption bar, including strong modern cryptography and encryption of sensitive metadata, not just secret values.",
-            "tier5": "Meets the highest zero-knowledge/E2EE bar, including strong modern cryptography and encrypted sensitive metadata.",
+            "tier5": "Meets the highest E2EE/zero-knowledge protection bar, including strong modern cryptography and encrypted sensitive metadata.",
             "tier3": "Strong E2EE/zero-knowledge protection, but doesn't meet all top-tier requirements.",
-            "tier1": "Does not meet the expected E2EE/zero-knowledge bar."
+            "tier1": "Does not meet the expected E2EE/zero-knowledge protection bar."
           },
           "credentialExchange": {
             "consumerBody": "If you ever want to switch to a different credential manager app, can you actually take your passkeys with you? A top score means you can directly move your passkeys, passwords, and other vault data out. A low score means your passwords might export, but your passkeys are stuck.",
@@ -305,7 +305,7 @@
             "tier1": "Basic passkey support only, or no lack of WebAuthn L3 support and adherence."
           },
           "digitalInheritance": {
-            "consumerBody": "If something happens to you, can a trusted person get into your accounts? A top score means there's a real, built-in way to grant emergency or legacy access. A low score means there's no practical way for anyone to get in.",
+            "consumerBody": "If something happens to you, can a trusted person get into your accounts? A top score means there's a real, built-in way to grant emergency or legacy access. A low score means there's no practical way for even loved ones to get in.",
             "technicalBody": "Whether there's a purpose-built emergency/legacy access mechanism for passkeys, passwords, and other vault data, versus manual recovery planning or no practical trusted-access mechanism.",
             "tier5": "Purpose-built emergency/legacy access to passkeys, passwords, and other vault data.",
             "tier3": "Access possible with meaningful limitations or manual recovery planning.",
@@ -357,7 +357,7 @@
     "highlights": {
       "choice": {
         "title": "You may not get to choose your credential manager",
-        "body": "At home, you pick whatever app or device feels right. At work, IT and security teams often decide for you — requiring a specific credential manager, a managed device, or a physical security key — so every employee meets the same bar."
+        "body": "At home, you pick whatever app or device feels right. At work, IT and security teams often decide for you by requiring you to use a specific credential manager, a managed device, or a physical security key so that every employee meets the same security bar."
       },
       "extraSteps": {
         "title": "Extra steps may be required",
