@@ -1,0 +1,38 @@
+---
+import { si1password, siBitwarden, siDashlane, siKeeper, siLastpass, siProton } from 'simple-icons';
+import { Lock } from 'lucide-astro';
+import SimpleIcon from './SimpleIcon.astro';
+import ApplePasswords from './icons/ApplePasswords.astro';
+import GooglePasswordManager from './icons/GooglePasswordManager.astro';
+import Microsoft from './icons/Microsoft.astro';
+import NordPass from './icons/NordPass.astro';
+
+interface Props {
+  managerKey: string;
+  size?: number;
+}
+const { managerKey, size = 24 } = Astro.props;
+
+const simpleIconMap: Record<string, { path: string; hex: string; title: string }> = {
+  '1password': si1password,
+  bitwarden: siBitwarden,
+  dashlane: siDashlane,
+  keeper: siKeeper,
+  lastpass: siLastpass,
+  protonpass: siProton,
+};
+const si = simpleIconMap[managerKey];
+---
+{managerKey === 'apple' ? (
+  <ApplePasswords size={size} />
+) : managerKey === 'google' ? (
+  <GooglePasswordManager size={size} />
+) : managerKey === 'microsoft' ? (
+  <Microsoft size={size} />
+) : managerKey === 'nordpass' ? (
+  <NordPass size={size} />
+) : si ? (
+  <SimpleIcon path={si.path} hex={si.hex} title={si.title} size={size} />
+) : (
+  <Lock size={size} class="text-gray-500" />
+)}
