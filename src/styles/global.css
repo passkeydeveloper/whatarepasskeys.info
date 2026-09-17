@@ -152,6 +152,19 @@
   transform: rotate(180deg);
 }
 
+.faq-advanced-tag {
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #4f46e5;
+  background: #eef2ff;
+  vertical-align: middle;
+}
+
 /* Passkey flow diagram */
 .flow-step {
   opacity: 0;

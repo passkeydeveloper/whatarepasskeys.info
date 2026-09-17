@@ -10,3 +10,4 @@ AAGUID
 Nord
 protonpass
 lastpass
+nordpass

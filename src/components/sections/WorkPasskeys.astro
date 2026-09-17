@@ -1,5 +1,7 @@
 ---
 import { Home, Building2, ShieldCheck, Usb, KeyRound, Lock, Code2 } from 'lucide-astro';
+import TechCalloutLinks from '../TechCalloutLinks.astro';
+import RichText from '../RichText.astro';
 
 interface Props {
   t: any;
@@ -23,7 +25,7 @@ const exampleChips = [
       <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
         {w.headline}
       </h2>
-      <p class="text-xl text-gray-600 leading-relaxed max-w-3xl">{w.intro}</p>
+      <RichText class="text-xl text-gray-600 leading-relaxed max-w-3xl" text={w.intro} />
     </div>
 
     <!-- Numbered highlights -->
@@ -35,7 +37,7 @@ const exampleChips = [
           </div>
           <div>
             <h3 class="font-bold text-gray-900 mb-1">{w.highlights[key].title}</h3>
-            <p class="text-gray-600 leading-relaxed text-sm">{w.highlights[key].body}</p>
+            <RichText class="text-gray-600 leading-relaxed text-sm" text={w.highlights[key].body} />
           </div>
         </div>
       ))}
@@ -110,7 +112,8 @@ const exampleChips = [
         Technical detail
       </p>
       <h3 class="text-xl font-bold text-indigo-900 mb-3">{w.techCallout.headline}</h3>
-      <p class="text-indigo-800 leading-relaxed text-sm">{w.techCallout.body}</p>
+      <RichText class="text-indigo-800 leading-relaxed" text={w.techCallout.body} />
+      <TechCalloutLinks links={w.techCallout.additionalLinks} />
     </div>
   </div>
 </section>
