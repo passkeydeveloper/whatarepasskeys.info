@@ -658,7 +658,7 @@
           {
             "type": "basic",
             "question": "Am I locked into one credential manager once I start using passkeys?",
-            "answer": "Not by design. In practice, though, credential managers are still catching up to support passkey migration, but most popular credential managers do now support secure credential migration, including passkeys, to another service. Support for Credential Exchange is actively expanding throughout the ecosystem. See the Credential Exchange Support category in the credential manager scores section."
+            "answer": "Not by design. In practice, though, credential managers are still catching up to support passkey migration, but most popular credential managers do now support secure credential migration, including passkeys, to another service. Support for Credential Exchange is actively expanding throughout the ecosystem. See the \"Let's you leave\" category in the credential manager scores section."
           },
           {
             "type": "basic",
