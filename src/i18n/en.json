@@ -33,7 +33,7 @@
     },
     "techCallout": {
       "headline": "Under the hood: asymmetric cryptography",
-      "body": "Passkeys use public key cryptography, similar to SSH keys. The private key is generated in a credential manager or in a hardware authenticator's secure element. The public key, along with some additional WebAuthn-specific metadata, is sent to the server, but it's mathematically useless without the private key to sign challenges with. The server never sees or stores anything secret."
+      "body": "Passkeys use public key cryptography, similar to SSH keys. The private key is generated in a credential manager or in a hardware authenticator's secure element. The public key, along with some additional WebAuthn-specific metadata, is sent to the server. However the public key is mathematically useless without the private key to sign challenges with. The server never sees or stores anything secret."
     }
   },
   "howItWorks": {
@@ -61,7 +61,7 @@
     },
     "techCallout": {
       "headline": "The cryptographic handshake",
-      "body": "To confirm its you, the service (app or site) sends a challenge during the sign in process. The credential manager/authenticator signs this challenge using the passkey's private key. The signed response includes additional context about the session such as the origin, whether the request was made in an embedded context (iframe), and of course the signature. The server verifies: (1) the origin is the expected value (e.g. bank.com not fake-bank.com), (2) the challenge matches the one it issued, and (3) the signature is valid against the stored public key. The signed origin match is the primary way passkeys (and other WebAuthn credentials) are resistant to phishing.",
+      "body": "To confirm its you, the service (app or site) sends a challenge during the sign in process. The credential manager/authenticator signs this challenge using the passkey's private key. The signed response includes this signature as well as additional context about the session, such as the origin, and whether the request was made in an embedded context (iframe). The server verifies that (1) the origin is the expected value (e.g. bank.com not fake-bank.com), (2) the challenge matches the one it issued, and (3) the signature is valid for the stored public key. The signed origin match is the primary way that passkeys (and WebAuthn credentials in general) resist phishing.",
       "additionalLinks": [
         {
           "label": "Diagrams and a deeper explanation @ MDN",
@@ -128,8 +128,8 @@
     "techCallout": {
       "headline": "Why traditional MFA doesn't fully protect you",
       "body": [
-        "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, bypassing the second factor. This is why FIDO2/WebAuthn was designed specifically to address this. WebAuthn credentials, including passkeys, are scoped to a specific domain.",
-        "During a registration ceremony, this is declared as the Relying Party ID, which is saved with the passkey in the credential manager. During an authentication ceremony, this is used by the browser, app, and/or OS to select the appropriate passkey for the service. But this is not what provide the primary phishing protection! The service's calling origin is signed over by using the passkey's private key. This origin can then be checked by the service on their backend to ensure its what they expected. If the origin is not an expected value, the request is rejected and no session is established. The origin is often the web origin (e.g., https://login.example.com), but can also be an app identity for native apps."
+        "Real-time phishing attacks (also called \"adversary in the middle\") can intercept SMS OTP codes, TOTP codes, and even push notifications in real time. The attacker's fake site relays your credentials to the real site instantly, including the second factor. This is why FIDO2/WebAuthn was designed specifically to address this. WebAuthn credentials, including passkeys, are scoped to a specific domain.",
+        "During a registration ceremony, this is declared as the Relying Party ID (RP ID), which is saved with the passkey in the credential manager. During an authentication ceremony, the RP ID is used by the browser, app, and/or OS to select the appropriate passkey for the service. But this is not what provides the primary phishing protection! The service's calling origin is signed over by using the passkey's private key. This origin can then be checked by the service on their backend to ensure it's what they expected. If the origin is not an expected value, the request is rejected and no session is established. The origin is often the web origin (e.g., https://login.example.com), but can also be an app identity for native apps."
       ],
       "additionalLinks": [
         {
@@ -190,7 +190,7 @@
     },
     "techCallout": {
       "headline": "Credential stuffing & server-side breach protection",
-      "body": "In a credential stuffing attack, attackers take username/password pairs leaked from one site and try them on others. Passkeys eliminate this entirely: there's no secret to stuff. On the server side, only the public key is stored. Even if a server is fully compromised, the attacker gets a list of public keys: mathematically useless for signing in. The secret never left your credential manager."
+      "body": "In a credential stuffing attack, attackers take username/password pairs leaked from one site and try them on others. Passkeys eliminate this entirely: there's no secret to stuff. On the server side, only the public key is stored. Even if a server is fully compromised, the attacker gets a list of public keys, which are mathematically useless for signing in. The corresponding private key never left your credential manager."
     }
   },
   "credentialManagers": {
@@ -279,16 +279,16 @@
           "nativePlatformIntegration": {
             "consumerBody": "Does signing in actually feel seamless, or do you have to fight with a browser extension? A top score means passkeys just work by integrating directly into your operating system. A low score means you're stuck with manual workarounds and hacks.",
             "technicalBody": "Depth of native platform API support (e.g., system-level credential manager integration) versus reliance on browser extensions or other manual workflows.",
-            "tier5": "Full native platform API support across major platforms; seamless passkey use in browsers and native apps.",
-            "tier3": "Native integration on some platforms, but meaningful reliance on browser extension workflows.",
-            "tier1": "Little or no system-level integration."
+            "tier5": "Full native platform integration across major platforms; seamless passkey use in browsers and native apps.",
+            "tier3": "Native platform integration on some platforms, but meaningful reliance on browser extension workflows.",
+            "tier1": "Little or no native platform integration."
           },
           "e2eeVaultSecurity": {
             "consumerBody": "Even the company that makes this app shouldn't be able to read your saved passwords and passkeys. A top score means your vault uses end-to-end encryption strong enough that only you hold the key. A low score means it falls short of that bar.",
             "technicalBody": "Whether the vault meets a zero-knowledge/end-to-end encryption bar, including strong modern cryptography and encryption of sensitive metadata, not just secret values.",
-            "tier5": "Meets the highest zero-knowledge/E2EE bar, including strong modern cryptography and encrypted sensitive metadata.",
+            "tier5": "Meets the highest E2EE/zero-knowledge protection bar, including strong modern cryptography and encrypted sensitive metadata.",
             "tier3": "Strong E2EE/zero-knowledge protection, but doesn't meet all top-tier requirements.",
-            "tier1": "Does not meet the expected E2EE/zero-knowledge bar."
+            "tier1": "Does not meet the expected E2EE/zero-knowledge protection bar."
           },
           "credentialExchange": {
             "consumerBody": "If you ever want to switch to a different credential manager app, can you actually take your passkeys with you? A top score means you can directly move your passkeys, passwords, and other vault data out. A low score means your passwords might export, but your passkeys are stuck.",
