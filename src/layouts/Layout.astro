@@ -31,6 +31,11 @@ const faqSchema = {
     })),
 };
 
+// CF_PAGES_BRANCH is set by Cloudflare Pages at build time; PROD alone is true
+// for preview deploys too, which would otherwise send preview traffic to the
+// production Plausible tenant.
+const isProductionDeploy = import.meta.env.PROD && import.meta.env.CF_PAGES_BRANCH === 'main';
+
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -92,7 +97,7 @@ const sections = [
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <!-- Analytics (proxied through /metrics to avoid tracker blockers) -->
-    {import.meta.env.PROD && (
+    {isProductionDeploy && (
       <script defer data-domain={Astro.site?.hostname} data-api="/metrics/event" src="/metrics/script"></script>
     )}
   </head>
