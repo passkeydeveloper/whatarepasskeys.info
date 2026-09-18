@@ -81,11 +81,22 @@ main > section:not(#hero) {
    instead of the IntersectionObserver + .visible class toggle below (see
    Layout.astro, which skips setting up that observer when this is
    supported). The `animation-range: 0% 100%` check filters out browsers
-   with only partial scroll-driven-animations support. */
-@supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
+   with only partial scroll-driven-animations support. This must test the
+   same timeline function (`view()`) that the rule below actually uses —
+   testing `scroll()` support here previously let this block activate (and
+   disabled the JS fallback) in browsers that support scroll() timelines
+   but not view() ones, permanently hiding this content. */
+@supports ((animation-timeline: view()) and (animation-range: 0% 100%)) {
   .fade-in-section {
     transition: none;
-    animation: fade-in-reveal linear both;
+    /* Deliberately not using the `animation` shorthand: the production
+       build's CSS minifier folds a separately-declared animation-timeline
+       into it (producing e.g. `animation: linear both fade-in-reveal
+       view()`), which real browsers silently reject as invalid, dropping
+       the whole animation and leaving this permanently hidden. */
+    animation-name: fade-in-reveal;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
     animation-timeline: view();
     animation-range: entry 0% cover 30%;
   }

@@ -256,7 +256,7 @@ const sections = [
       // .fade-in-section reveal is handled entirely by CSS and this
       // IntersectionObserver fallback is skipped.
       const supportsScrollDrivenAnimations = CSS.supports(
-        '(animation-timeline: scroll()) and (animation-range: 0% 100%)'
+        '(animation-timeline: view()) and (animation-range: 0% 100%)'
       );
 
       if (!supportsScrollDrivenAnimations) {
