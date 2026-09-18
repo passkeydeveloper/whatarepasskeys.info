@@ -20,7 +20,7 @@ const ogTerritoryMap: Record<string, string> = {
   de: 'DE',
   es: 'ES',
   fr: 'FR',
-  jp: 'JP',
+  ja: 'JP',
 };
 const ogLocale = `${bcp47Language(locale)}_${ogTerritoryMap[locale] ?? bcp47Language(locale).toUpperCase()}`;
 const ogImage = new URL('/og-image.png', Astro.site).toString();
@@ -74,7 +74,7 @@ const sections = [
 ];
 ---
 <!doctype html>
-<html lang={locale} data-mode="consumer">
+<html lang={bcp47Language(locale)} data-mode="consumer">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

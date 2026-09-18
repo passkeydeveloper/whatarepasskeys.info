@@ -26,11 +26,9 @@ export const localeNames: Record<string, string> = Object.fromEntries(
 );
 
 // Maps our routing codes to real BCP-47 language codes, for contexts that
-// require the latter (hreflang, Open Graph locale). Only needed where a
-// routing code isn't already valid BCP-47 (e.g. "jp" -> "ja").
-export const bcp47LanguageMap: Record<string, string> = {
-  jp: 'ja',
-};
+// require the latter (hreflang, Open Graph locale). Only needed if a future
+// locale's routing code isn't already valid BCP-47.
+export const bcp47LanguageMap: Record<string, string> = {};
 
 export function bcp47Language(locale: string): string {
   return bcp47LanguageMap[locale] ?? locale;
