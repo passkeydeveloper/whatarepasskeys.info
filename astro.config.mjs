@@ -20,7 +20,7 @@ export default defineConfig({
     defaultLocale: 'en',
     locales,
     routing: {
-      prefixDefaultLocale: true,
+      prefixDefaultLocale: false,
     },
   },
   vite: {

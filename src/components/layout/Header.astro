@@ -1,6 +1,6 @@
 ---
 import { Languages, ChevronDown, Check, Sun, Moon } from 'lucide-astro';
-import { locales, localeNames } from '../../i18n/utils';
+import { locales, localeNames, localeHref } from '../../i18n/utils';
 
 interface Props {
   locale: string;
@@ -67,7 +67,7 @@ const { locale, t } = Astro.props;
             {locales.map((code) => (
               <li role="none">
                 <a
-                  href={`/${code}/`}
+                  href={localeHref(code)}
                   role="menuitem"
                   class:list={['lang-menu-item', { selected: code === locale }]}
                   aria-current={code === locale ? 'true' : undefined}

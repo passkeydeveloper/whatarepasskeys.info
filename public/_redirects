@@ -1,0 +1,4 @@
+# /en/ used to be the canonical URL for the default locale; it's now served
+# unprefixed at /. Redirect so old links/bookmarks/search results still work.
+/en/*  /:splat  301
+/en    /         301
