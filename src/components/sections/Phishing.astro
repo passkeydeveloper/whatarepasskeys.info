@@ -11,16 +11,16 @@ const p = t.phishing;
 ---
 <section id="phishing" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-white">
   <div class="max-w-5xl mx-auto w-full">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <div class="fade-in-section">
-          <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 mb-4">{p.sectionLabel}</p>
-          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
-            {p.headline}
-          </h2>
-          <RichText class="text-xl text-gray-600 leading-relaxed mb-8" text={p.body} />
-        </div>
+    <div class="fade-in-section mb-12">
+      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 mb-4">{p.sectionLabel}</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
+        {p.headline}
+      </h2>
+      <RichText class="text-xl text-gray-600 leading-relaxed" text={p.body} />
+    </div>
 
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div>
         <div class="fade-in-section space-y-3 mb-8" style="transition-delay: 0.2s">
           <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">{p.example.label}</p>
 

@@ -9,14 +9,14 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "headline": "Say Hello to Passkeys",
+    "headline": "Say hello to passkeys",
     "subheadline": "The easier and safer way to sign in. No passwords to remember. No codes to wait for. Just sign in and get back to what matters.",
     "scrollCta": "See how passkeys work"
   },
   "whatIsAPasskey": {
     "sectionLabel": "What is a passkey?",
     "headline": "A passkey is a unique digital key that replaces your password.",
-    "body": "When you sign in with a passkey, your device first verifies it's you using your face, fingerprint, or device PIN. Behind the scenes, your device creates two linked digital keys. One stays with you, and one is shared with the website or app. When you log in, the website uses the key you shared with it to verify you, using the key that's stored securely on your device. The part of your passkey on your device that proves it's you is never shared or stored. Passkeys let you sign in quickly and securely without creating, remembering, or typing a password.",
+    "body": "Passkeys let you sign in quickly and securely without creating, remembering, or typing a password. When you sign in with a passkey, your device first verifies it's you using your face, fingerprint, or device PIN.",
     "highlights": {
       "staysWithYou": {
         "title": "One key stays with you",
@@ -56,8 +56,10 @@
     },
     "uniqueness": {
       "headline": "Every Passkey Is Unique",
-      "body": "Every service you use gets its own unique passkey. A passkey created for your bank works with your bank (website or app) and nowhere else. A passkey created for your email works the same way, for your email only. Because each passkey belongs to one service, there's nothing to steal and reuse anywhere else.",
-      "privacyNote": "This also protects your privacy: since each service only ever sees the passkey made for it, there's no shared identifier that could be used to track or link your activity across different sites."
+      "body": [
+        "Every service you use gets its own unique passkey. A passkey created for your bank works with your bank (website or app) and nowhere else. A passkey created for your email works the same way, for your email only. Because each passkey belongs to one service, there's nothing to steal and reuse anywhere else.",
+        "This also protects your privacy: since each service only ever sees the passkey made for it, there's no shared identifier that could be used to track or link your activity across different sites."
+      ]
     },
     "techCallout": {
       "headline": "The cryptographic handshake",
@@ -196,9 +198,11 @@
   "credentialManagers": {
     "sectionLabel": "Storing passkeys",
     "headline": "Where do I store my passkeys?",
-    "intro": "Your passkeys live in your credential manager. A credential manager is an app or service that securely stores your passkeys and syncs them across your devices. Think of it like the service that keeps your photos and contacts available across all your devices. Your passkeys work the same way, so they're available wherever you choose to use them.",
-    "platformNote": "Most people already have one built into their device. You may already be using one for your passwords, payment information, and passkeys without realizing it. If you use an iPhone, your passkeys are likely stored in the Apple Passwords app. If you use Android or Chrome, they're likely stored in Google Password Manager. If you use Windows, you may use Microsoft Password Manager. You can also choose a third-party credential manager like 1Password, Dashlane, or Bitwarden.",
-    "convenienceNote": "The biggest advantage is convenience. Create a passkey on your phone, and it can be available on your laptop too, so you don't have to create it again for every device.",
+    "intro": [
+      "Your passkeys are stored in a credential manager, an app or service that syncs them securely across your devices, similar to how your photos or contacts stay available everywhere you're signed in.",
+      "Most people already have one. Android users have Google Password Manager or Samsung Pass, iPhone users typically have Apple Passwords, and Windows users may have Microsoft Password Manager. You can also use a third-party option like 1Password, Dashlane, or Bitwarden.",
+      "The big benefit: create a passkey once, and it's available on all your devices. No need to set it up again on each device."
+    ],
     "managers": {
       "apple": {
         "name": "Apple Passwords",
@@ -244,8 +248,10 @@
     "scoring": {
       "sectionLabel": "Choosing a credential manager",
       "headline": "Which credential manager is right for me?",
-      "intro": "Pick the credential manager that's right for you. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
-      "methodologyIntro": "We've scored each credential manager below, ranked from highest to lowest overall grade. See the Scoring Criteria section for our full scoring methodology.",
+      "intro": [
+        "Pick the credential manager that's right for you. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
+        "We've scored each credential manager below, ranked from highest to lowest overall grade. See the Scoring Criteria section for our full scoring methodology."
+      ],
       "coreGroupLabel": "Core criteria",
       "lowerGroupLabel": "Also considered",
       "gradeLabel": "Grade",
