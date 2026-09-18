@@ -1,0 +1,9 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 24, class: className = '' } = Astro.props;
+---
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size} class={className} role="img" aria-label="Samsung Wallet (Pass)"><title>Samsung Wallet (Pass)</title><defs><linearGradient id="sw-bg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#4c63ff"/><stop offset="50%" stop-color="#2d42fc"/><stop offset="100%" stop-color="#4d00ea"/></linearGradient><linearGradient id="sw-green" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#55d400"/><stop offset="100%" stop-color="#3eb800"/></linearGradient><linearGradient id="sw-cyan" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00a8ff"/><stop offset="100%" stop-color="#0080ff"/></linearGradient><linearGradient id="sw-blue" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#143df5"/><stop offset="100%" stop-color="#0c2cd1"/></linearGradient><clipPath id="sw-clip"><rect x="80" y="96" width="352" height="320" rx="36" ry="36"/></clipPath></defs><rect width="512" height="512" rx="140" ry="140" fill="url(#sw-bg)"/><rect x="80" y="96" width="352" height="320" rx="36" ry="36" fill="#fff"/><g clip-path="url(#sw-clip)"><polygon points="106,128 274,128 266,158 106,158" fill="url(#sw-green)"/><polygon points="106,158 266,158 256,206 106,206" fill="url(#sw-cyan)"/><polygon points="106,206 256,206 226,384 106,384" fill="url(#sw-blue)"/></g></svg>

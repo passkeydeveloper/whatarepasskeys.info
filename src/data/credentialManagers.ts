@@ -91,4 +91,16 @@ export const managerScores: ManagerScore[] = [
     weightedScore: 49,
     grade: 'D',
   },
+  {
+    key: 'keepassxc',
+    scores: { ecosystemAvailability: 5, nativePlatformIntegration: 1, e2eeVaultSecurity: 3, credentialExchange: 3, specCompliance: 3, digitalInheritance: 3, familySharing: 3 },
+    weightedScore: 60,
+    grade: 'C',
+  },
+  {
+    key: 'samsungpass',
+    scores: { ecosystemAvailability: 1, nativePlatformIntegration: 3, e2eeVaultSecurity: 5, credentialExchange: 1, specCompliance: 3, digitalInheritance: 1, familySharing: 1 },
+    weightedScore: 49,
+    grade: 'D',
+  },
 ];
