@@ -3,16 +3,53 @@
     "title": "What Are Passkeys?",
     "description": "The easier and safer way to sign in. No passwords to remember. No codes to wait for.",
     "toggleConsumer": "Basic",
-    "toggleTechnical": "Advanced"
+    "toggleTechnical": "Advanced",
+    "logoText": "What are passkeys?"
+  },
+  "common": {
+    "technicalDetail": "Technical detail",
+    "goDeeper": "Go Deeper",
+    "opensInNewTab": "(opens in a new tab)",
+    "step": "Step {number}"
   },
   "nav": {
     "skipToContent": "Skip to content",
-    "language": "Language"
+    "language": "Language",
+    "contentMode": "Content mode",
+    "jumpToSection": "Jump to section",
+    "pageSections": "Page sections",
+    "copyLinkToSection": "Copy link to \"{section}\" section",
+    "linkCopied": "Link copied!",
+    "sections": {
+      "hero": "Passkeys",
+      "whatIs": "What is a Passkey?",
+      "howItWorks": "How It Works",
+      "whyPasswordsFail": "Why Passwords Fail",
+      "phishing": "Phishing",
+      "comparison": "Comparison",
+      "credentialManagers": "Credential Managers",
+      "sayGoodbye": "Say Goodbye to Passwords",
+      "workPasskeys": "Passkeys at Work",
+      "faq": "FAQ"
+    }
   },
   "hero": {
     "headline": "Say Hello to Passkeys",
     "subheadline": "The easier and safer way to sign in. No passwords to remember. No codes to wait for. Just sign in and get back to what matters.",
-    "scrollCta": "See how passkeys work"
+    "scrollCta": "See how passkeys work",
+    "badge": "The future of sign-in is here",
+    "illustrationAlt": "Passkey illustration",
+    "scrollIndicator": "Scroll to explore",
+    "jumpLinks": {
+      "whatIs": "What is a passkey?",
+      "howItWorks": "Using Passkeys",
+      "whyPasswordsFail": "The Password Problem",
+      "phishing": "Understanding Phishing",
+      "comparison": "The Passkey Advantage",
+      "credentialManagers": "Storing Passkeys",
+      "workPasskeys": "Passkeys at Work",
+      "faq": "FAQ"
+    }
   },
   "whatIsAPasskey": {
     "sectionLabel": "What is a passkey?",
@@ -35,6 +72,31 @@
     "techCallout": {
       "headline": "Under the hood: asymmetric cryptography",
       "body": "Passkeys use public key cryptography, similar to SSH keys. The private key is generated in a credential manager or in a hardware authenticator's secure element. The public key, along with some additional WebAuthn-specific metadata, is sent to the server. However the public key is mathematically useless without the private key to sign challenges with. The server never sees or stores anything secret."
+    },
+    "illustrationAlt": "Public and private key pair illustration",
+    "diagram": {
+      "title": "Two keys. One pair.",
+      "privateKeyLabel": "PRIVATE KEY",
+      "publicKeyLabel": "PUBLIC KEY",
+      "linked": "linked",
+      "private": {
+        "line1": "Stays on your",
+        "line2": "devices.",
+        "line3": "Never shared"
+      },
+      "public": {
+        "line1": "Shared with the",
+        "line2": "website. Useless",
+        "line3": "without private key"
+      },
+      "device": {
+        "title": "Your Device",
+        "subtitle": "Credential Manager"
+      },
+      "website": {
+        "title": "Website Server",
+        "subtitle": "Stores public key only"
+      }
     }
   },
   "howItWorks": {
@@ -142,6 +204,18 @@
           "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
         }
       ]
+    },
+    "illustrationAlt": "Phishing attack illustration showing a fake website stealing a password",
+    "diagram": {
+      "youLabel": "You",
+      "fakeSiteLabel": "FAKE SITE",
+      "passwordPlaceholder": "Enter your password...",
+      "attackerLabel": "Attacker",
+      "attackerCaption": "has your password",
+      "realSiteLabel": "Real Site",
+      "signedInAsYou": "Now signed in as you!",
+      "realBadge": "Real",
+      "fakeBadge": "Fake"
     }
   },
   "whyPasskeysWin": {
@@ -257,13 +331,34 @@
       "coreTag": "Core",
       "lowerTag": "Lower weight",
       "criteria": {
-        "ecosystemAvailability": { "consumerLabel": "Works where you do", "technicalLabel": "Ecosystem Availability" },
-        "nativePlatformIntegration": { "consumerLabel": "Works easily with websites & apps", "technicalLabel": "Native Platform Integration" },
-        "e2eeVaultSecurity": { "consumerLabel": "Keeps your credentials secure", "technicalLabel": "E2EE Vault Security" },
-        "credentialExchange": { "consumerLabel": "Lets you leave", "technicalLabel": "Credential Exchange" },
-        "specCompliance": { "consumerLabel": "Built for the future of sign-in", "technicalLabel": "Interoperability" },
-        "digitalInheritance": { "consumerLabel": "Protects your digital legacy", "technicalLabel": "Digital Inheritance" },
-        "familySharing": { "consumerLabel": "Shares with friends & family", "technicalLabel": "Family Sharing" }
+        "ecosystemAvailability": {
+          "consumerLabel": "Works where you do",
+          "technicalLabel": "Ecosystem Availability"
+        },
+        "nativePlatformIntegration": {
+          "consumerLabel": "Works easily with websites & apps",
+          "technicalLabel": "Native Platform Integration"
+        },
+        "e2eeVaultSecurity": {
+          "consumerLabel": "Keeps your credentials secure",
+          "technicalLabel": "E2EE Vault Security"
+        },
+        "credentialExchange": {
+          "consumerLabel": "Lets you leave",
+          "technicalLabel": "Credential Exchange"
+        },
+        "specCompliance": {
+          "consumerLabel": "Built for the future of sign-in",
+          "technicalLabel": "Interoperability"
+        },
+        "digitalInheritance": {
+          "consumerLabel": "Protects your digital legacy",
+          "technicalLabel": "Digital Inheritance"
+        },
+        "familySharing": {
+          "consumerLabel": "Shares with friends & family",
+          "technicalLabel": "Family Sharing"
+        }
       },
       "criteriaDetails": {
         "sectionLabel": "Scoring criteria",
@@ -349,7 +444,14 @@
     "signInButtonCaption": "Button to sign in with a passkey",
     "autofillCaption": "Autofill on desktop",
     "keyboardCaption": "Keyboard suggestion on mobile",
-    "iconCalloutBody": "Look for the passkey icon on the sites and apps you use."
+    "iconCalloutBody": "Look for the passkey icon on the sites and apps you use.",
+    "passkeyIconAlt": "Passkey icon",
+    "applePasskeyIconAlt": "Apple passkey icon",
+    "googlePasskeyIconAlt": "Google passkey icon",
+    "usernameLabel": "Username",
+    "passkeyLabel": "Passkey",
+    "useAnotherDevice": "Use a passkey from another device",
+    "forDomain": "for {domain}"
   },
   "workPasskeys": {
     "sectionLabel": "Passkeys at work",
@@ -395,10 +497,18 @@
     "examples": {
       "sectionLabel": "What you might encounter at work",
       "items": {
-        "managedDevice": { "label": "Managed credential managers" },
-        "securityKey": { "label": "Physical security keys" },
-        "brandedSignIn": { "label": "Company-branded sign-in" },
-        "deviceBound": { "label": "Device-bound passkeys only" }
+        "managedDevice": {
+          "label": "Managed credential managers"
+        },
+        "securityKey": {
+          "label": "Physical security keys"
+        },
+        "brandedSignIn": {
+          "label": "Company-branded sign-in"
+        },
+        "deviceBound": {
+          "label": "Device-bound passkeys only"
+        }
       }
     },
     "techCallout": {
@@ -420,7 +530,9 @@
     "categories": [
       {
         "name": "Basics",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -476,7 +588,9 @@
       },
       {
         "name": "Setting Up and Everyday Use",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -522,7 +636,9 @@
       },
       {
         "name": "Multiple Devices and Syncing",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -558,7 +674,9 @@
       },
       {
         "name": "Backup, Loss, and Recovery",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -584,7 +702,9 @@
       },
       {
         "name": "Managing Multiple Passkeys",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -605,7 +725,10 @@
       },
       {
         "name": "Security",
-        "types": ["basic", "advanced"],
+        "types": [
+          "basic",
+          "advanced"
+        ],
         "items": [
           {
             "type": "basic",
@@ -636,7 +759,9 @@
       },
       {
         "name": "Sharing and Family Access",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -657,7 +782,9 @@
       },
       {
         "name": "Switching Credential Managers and Vendor Lock-In",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -673,7 +800,9 @@
       },
       {
         "name": "Trust and Adoption",
-        "types": ["basic"],
+        "types": [
+          "basic"
+        ],
         "items": [
           {
             "type": "basic",
@@ -692,7 +821,12 @@
           }
         ]
       }
-    ]
+    ],
+    "advancedTag": "Advanced",
+    "resultsFound": {
+      "one": "{count} question found",
+      "other": "{count} questions found"
+    }
   },
   "footer": {
     "madeWith": "Made with",
@@ -700,6 +834,7 @@
     "feedback": "Have feedback on this site?",
     "feedbackLink": "Let us know",
     "licensePrefix": "Content licensed under",
-    "licenseName": "CC BY 4.0"
+    "licenseName": "CC BY 4.0",
+    "viewSourceOnGitHub": "View source on GitHub"
   }
 }

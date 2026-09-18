@@ -13,11 +13,11 @@ const { locale, t } = Astro.props;
   <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
     <a href="#hero" class="flex items-center gap-2.5 no-underline">
       <img src="/images/passkey-yellow-box.svg" alt="" aria-hidden="true" class="w-7 h-7" />
-      <span class="font-bold text-gray-900 text-xl tracking-tight">What are passkeys?</span>
+      <span class="font-bold text-gray-900 text-xl tracking-tight">{t.site.logoText}</span>
     </a>
 
     <div class="flex items-center gap-3">
-      <div class="mode-toggle" id="mode-toggle" role="group" aria-label="Content mode">
+      <div class="mode-toggle" id="mode-toggle" role="group" aria-label={t.nav.contentMode}>
         <button
           class="mode-toggle-option selected"
           id="toggle-consumer"

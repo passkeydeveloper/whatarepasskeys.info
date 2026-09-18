@@ -45,16 +45,16 @@ const websiteSchema = {
 };
 
 const sections = [
-  { id: 'hero', label: 'Passkeys' },
-  { id: 'what-is', label: 'What is a Passkey?' },
-  { id: 'how-it-works', label: 'How It Works' },
-  { id: 'why-passwords-fail', label: 'Why Passwords Fail' },
-  { id: 'phishing', label: 'Phishing' },
-  { id: 'comparison', label: 'Comparison' },
-  { id: 'credential-managers', label: 'Credential Managers' },
-  { id: 'say-goodbye', label: 'Say Goodbye to Passwords' },
-  { id: 'work-passkeys', label: 'Passkeys at Work' },
-  { id: 'faq', label: 'FAQ' },
+  { id: 'hero', label: t.nav.sections.hero },
+  { id: 'what-is', label: t.nav.sections.whatIs },
+  { id: 'how-it-works', label: t.nav.sections.howItWorks },
+  { id: 'why-passwords-fail', label: t.nav.sections.whyPasswordsFail },
+  { id: 'phishing', label: t.nav.sections.phishing },
+  { id: 'comparison', label: t.nav.sections.comparison },
+  { id: 'credential-managers', label: t.nav.sections.credentialManagers },
+  { id: 'say-goodbye', label: t.nav.sections.sayGoodbye },
+  { id: 'work-passkeys', label: t.nav.sections.workPasskeys },
+  { id: 'faq', label: t.nav.sections.faq },
 ];
 ---
 <!doctype html>
@@ -101,13 +101,13 @@ const sections = [
       <script defer data-domain={Astro.site?.hostname} data-api="/metrics/event" src="/metrics/script"></script>
     )}
   </head>
-  <body>
+  <body data-link-copied-text={t.nav.linkCopied} data-copy-link-template={t.nav.copyLinkToSection}>
     <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
       {t.nav.skipToContent}
     </a>
 
     <Header locale={locale} t={t} />
-    <SectionDots sections={sections} />
+    <SectionDots sections={sections} t={t} />
 
     <main>
       <slot />
@@ -138,9 +138,12 @@ const sections = [
       updateActiveDot();
 
       // Copy-link-to-section on heading click
+      const linkCopiedText = document.body.dataset.linkCopiedText!;
+      const copyLinkTemplate = document.body.dataset.copyLinkTemplate!;
+
       const toast = document.createElement('div');
       toast.className = 'copy-toast';
-      toast.textContent = 'Link copied!';
+      toast.textContent = linkCopiedText;
       toast.setAttribute('role', 'status');
       toast.setAttribute('aria-live', 'polite');
       document.body.appendChild(toast);
@@ -178,7 +181,7 @@ const sections = [
         heading.classList.add('section-link-heading');
         heading.setAttribute('tabindex', '0');
         heading.setAttribute('role', 'button');
-        heading.setAttribute('aria-label', `Copy link to "${heading.textContent?.trim()}" section`);
+        heading.setAttribute('aria-label', copyLinkTemplate.replace('{section}', heading.textContent?.trim() ?? ''));
 
         heading.addEventListener('click', () => copySectionLink(id));
         heading.addEventListener('keydown', (e) => {

@@ -3,16 +3,53 @@
     "title": "¿Qué son las passkeys?",
     "description": "La forma más fácil y segura de iniciar sesión. Sin contraseñas que recordar. Sin códigos que esperar.",
     "toggleConsumer": "Básico",
-    "toggleTechnical": "Avanzado"
+    "toggleTechnical": "Avanzado",
+    "logoText": "¿Qué son las passkeys?"
+  },
+  "common": {
+    "technicalDetail": "Detalle técnico",
+    "goDeeper": "Profundiza",
+    "opensInNewTab": "(se abre en una pestaña nueva)",
+    "step": "Paso {number}"
   },
   "nav": {
     "skipToContent": "Saltar al contenido",
-    "language": "Idioma"
+    "language": "Idioma",
+    "contentMode": "Modo de contenido",
+    "jumpToSection": "Ir a una sección",
+    "pageSections": "Secciones de la página",
+    "copyLinkToSection": "Copiar enlace a la sección \"{section}\"",
+    "linkCopied": "¡Enlace copiado!",
+    "sections": {
+      "hero": "Passkeys",
+      "whatIs": "¿Qué es una passkey?",
+      "howItWorks": "Cómo funcionan",
+      "whyPasswordsFail": "Por qué fallan las contraseñas",
+      "phishing": "Phishing",
+      "comparison": "Comparación",
+      "credentialManagers": "Gestores de credenciales",
+      "sayGoodbye": "Adiós a las contraseñas",
+      "workPasskeys": "Passkeys en el trabajo",
+      "faq": "Preguntas frecuentes"
+    }
   },
   "hero": {
     "headline": "Dile hola a las passkeys",
     "subheadline": "La forma más fácil y segura de iniciar sesión. Sin contraseñas que recordar. Sin códigos que esperar. Solo inicia sesión y vuelve a lo que importa.",
-    "scrollCta": "Mira cómo funcionan las passkeys"
+    "scrollCta": "Mira cómo funcionan las passkeys",
+    "badge": "El futuro del inicio de sesión ya está aquí",
+    "illustrationAlt": "Ilustración de una passkey",
+    "scrollIndicator": "Desplázate para explorar",
+    "jumpLinks": {
+      "whatIs": "¿Qué es una passkey?",
+      "howItWorks": "Usar las passkeys",
+      "whyPasswordsFail": "El problema de las contraseñas",
+      "phishing": "Entender el phishing",
+      "comparison": "La ventaja de las passkeys",
+      "credentialManagers": "Almacenar passkeys",
+      "workPasskeys": "Passkeys en el trabajo",
+      "faq": "Preguntas frecuentes"
+    }
   },
   "whatIsAPasskey": {
     "sectionLabel": "¿Qué es una passkey?",
@@ -35,6 +72,31 @@
     "techCallout": {
       "headline": "Bajo el capó: criptografía asimétrica",
       "body": "Las passkeys utilizan criptografía de clave pública, similar a las claves SSH. La clave privada se genera en un gestor de credenciales o en el elemento seguro de un autenticador por hardware. La clave pública, junto con metadatos específicos de WebAuthn, se envía al servidor. Sin embargo, la clave pública es matemáticamente inútil sin la clave privada para firmar los desafíos (challenges). El servidor nunca ve ni almacena ningún secreto."
+    },
+    "illustrationAlt": "Ilustración del par de claves pública y privada",
+    "diagram": {
+      "title": "Dos claves. Un par.",
+      "privateKeyLabel": "CLAVE PRIVADA",
+      "publicKeyLabel": "CLAVE PÚBLICA",
+      "linked": "vinculadas",
+      "private": {
+        "line1": "Se queda en tus",
+        "line2": "dispositivos.",
+        "line3": "Nunca se comparte"
+      },
+      "public": {
+        "line1": "Se comparte con el",
+        "line2": "sitio web. Inútil",
+        "line3": "sin la clave privada"
+      },
+      "device": {
+        "title": "Tu dispositivo",
+        "subtitle": "Gestor de credenciales"
+      },
+      "website": {
+        "title": "Servidor del sitio web",
+        "subtitle": "Solo guarda la clave pública"
+      }
     }
   },
   "howItWorks": {
@@ -142,6 +204,18 @@
           "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
         }
       ]
+    },
+    "illustrationAlt": "Ilustración de un ataque de phishing que muestra un sitio web falso robando una contraseña",
+    "diagram": {
+      "youLabel": "Tú",
+      "fakeSiteLabel": "SITIO FALSO",
+      "passwordPlaceholder": "Introduce tu contraseña...",
+      "attackerLabel": "Atacante",
+      "attackerCaption": "tiene tu contraseña",
+      "realSiteLabel": "Sitio real",
+      "signedInAsYou": "¡Ahora ha iniciado sesión como tú!",
+      "realBadge": "Real",
+      "fakeBadge": "Falso"
     }
   },
   "whyPasskeysWin": {
@@ -370,7 +444,14 @@
     "signInButtonCaption": "Botón para iniciar sesión con una passkey",
     "autofillCaption": "Autocompletado en escritorio",
     "keyboardCaption": "Sugerencia del teclado en el móvil",
-    "iconCalloutBody": "Busca el icono de passkey en los sitios y aplicaciones que utilizas."
+    "iconCalloutBody": "Busca el icono de passkey en los sitios y aplicaciones que utilizas.",
+    "passkeyIconAlt": "Icono de passkey",
+    "applePasskeyIconAlt": "Icono de passkey de Apple",
+    "googlePasskeyIconAlt": "Icono de passkey de Google",
+    "usernameLabel": "Nombre de usuario",
+    "passkeyLabel": "Passkey",
+    "useAnotherDevice": "Usar una passkey desde otro dispositivo",
+    "forDomain": "de {domain}"
   },
   "workPasskeys": {
     "sectionLabel": "Passkeys en el trabajo",
@@ -740,7 +821,12 @@
           }
         ]
       }
-    ]
+    ],
+    "advancedTag": "Avanzado",
+    "resultsFound": {
+      "one": "{count} pregunta encontrada",
+      "other": "{count} preguntas encontradas"
+    }
   },
   "footer": {
     "madeWith": "Hecho con",
@@ -748,6 +834,7 @@
     "feedback": "¿Tienes comentarios sobre este sitio?",
     "feedbackLink": "Avísanos",
     "licensePrefix": "Contenido bajo licencia",
-    "licenseName": "CC BY 4.0"
+    "licenseName": "CC BY 4.0",
+    "viewSourceOnGitHub": "Ver el código fuente en GitHub"
   }
 }

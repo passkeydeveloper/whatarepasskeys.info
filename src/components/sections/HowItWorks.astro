@@ -42,7 +42,7 @@ const steps = [
 
             <div class={`md:w-5/12 ${i % 2 === 0 ? 'md:pr-16' : 'md:pl-16 md:ml-auto'}`}>
               <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:shadow-md transition-shadow">
-                <span class="text-xs font-bold uppercase tracking-widest text-indigo-600">Step {i + 1}</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-indigo-600">{t.common.step.replace('{number}', String(i + 1))}</span>
                 <h3 class="text-lg font-bold text-gray-900 mt-1 mb-1">
                   {(h.steps as any)[step.key].label}
                 </h3>
@@ -68,11 +68,11 @@ const steps = [
     <div class="technical-only fade-in-section mt-8 rounded-2xl border border-indigo-200 bg-indigo-50 p-6 md:p-8">
       <p class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-700 mb-3">
         <Code2 size={16} />
-        Technical detail
+        {t.common.technicalDetail}
       </p>
       <h3 class="text-xl font-bold text-indigo-900 mb-3">{h.techCallout.headline}</h3>
       <RichText class="text-indigo-800 leading-relaxed" text={h.techCallout.body} />
-      <TechCalloutLinks links={h.techCallout.additionalLinks} />
+      <TechCalloutLinks links={h.techCallout.additionalLinks} t={t} />
     </div>
   </div>
 </section>

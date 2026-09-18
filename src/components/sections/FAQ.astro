@@ -34,7 +34,14 @@ const faq = t.faq;
           autocomplete="off"
         />
       </div>
-      <p id="faq-search-count" class="faq-search-count" aria-live="polite" hidden></p>
+      <p
+        id="faq-search-count"
+        class="faq-search-count"
+        aria-live="polite"
+        hidden
+        data-template-one={faq.resultsFound.one}
+        data-template-other={faq.resultsFound.other}
+      ></p>
       <p id="faq-no-results" class="faq-no-results" hidden>{faq.noResults}</p>
     </div>
 
@@ -54,7 +61,7 @@ const faq = t.faq;
                 <summary>
                   <span>
                     {item.question}
-                    {item.type === 'advanced' && <span class="faq-advanced-tag">Advanced</span>}
+                    {item.type === 'advanced' && <span class="faq-advanced-tag">{faq.advancedTag}</span>}
                   </span>
                   <ChevronDown size={20} class="faq-chevron" />
                 </summary>
@@ -153,7 +160,8 @@ const faq = t.faq;
     flatEl.hidden = false;
 
     countEl.hidden = false;
-    countEl.textContent = `${ranked.length} question${ranked.length === 1 ? '' : 's'} found`;
+    const template = ranked.length === 1 ? countEl.dataset.templateOne! : countEl.dataset.templateOther!;
+    countEl.textContent = template.replace('{count}', String(ranked.length));
     noResultsEl.hidden = ranked.length !== 0;
   }
 

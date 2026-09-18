@@ -8,6 +8,53 @@ interface Props {
 }
 const { t } = Astro.props;
 const w = t.whatIsAPasskey;
+
+// The device/website label boxes at the bottom of the key-pair illustration
+// size themselves to whatever text a locale needs, since translated labels
+// can run longer than the English originals and would otherwise overflow
+// the fixed-height box.
+const TITLE_MAX_CHARS = 16;
+const SUBTITLE_MAX_CHARS = 22;
+const TITLE_LINE_HEIGHT = 14;
+const SUBTITLE_LINE_HEIGHT = 13;
+const TITLE_TO_SUBTITLE_GAP = 16;
+const BOX_TOP = 268;
+const BOX_MIN_HEIGHT = 50;
+const BOX_BOTTOM_PADDING = 11;
+const BOX_FIRST_LINE_OFFSET = 23;
+
+function wrapLabel(text: string, maxChars: number): string[] {
+  const words = text.split(' ');
+  const lines: string[] = [];
+  let current = '';
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (Array.from(candidate).length > maxChars && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = candidate;
+    }
+  }
+  if (current) lines.push(current);
+  return lines;
+}
+
+function layoutLabelBox(titleText: string, subtitleText: string) {
+  const titleLines = wrapLabel(titleText, TITLE_MAX_CHARS);
+  const subtitleLines = wrapLabel(subtitleText, SUBTITLE_MAX_CHARS);
+  const titleFirstY = BOX_TOP + BOX_FIRST_LINE_OFFSET;
+  const titleLastY = titleFirstY + (titleLines.length - 1) * TITLE_LINE_HEIGHT;
+  const subtitleFirstY = titleLastY + TITLE_TO_SUBTITLE_GAP;
+  const subtitleLastY = subtitleFirstY + (subtitleLines.length - 1) * SUBTITLE_LINE_HEIGHT;
+  const height = Math.max(BOX_MIN_HEIGHT, subtitleLastY - BOX_TOP + BOX_BOTTOM_PADDING);
+  return { titleLines, subtitleLines, titleFirstY, subtitleFirstY, height };
+}
+
+const deviceBox = layoutLabelBox(`📱 ${w.diagram.device.title}`, w.diagram.device.subtitle);
+const websiteBox = layoutLabelBox(`🌐 ${w.diagram.website.title}`, w.diagram.website.subtitle);
+const labelBoxHeight = Math.max(deviceBox.height, websiteBox.height);
+const svgHeight = Math.max(340, BOX_TOP + labelBoxHeight + 22);
 ---
 <section id="what-is" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-linear-to-br from-indigo-50 to-white">
   <div class="max-w-5xl mx-auto w-full">
@@ -36,13 +83,13 @@ const w = t.whatIsAPasskey;
 
       <!-- Key pair illustration -->
       <div class="fade-in-section flex justify-center" style="transition-delay: 0.3s">
-        <svg viewBox="0 0 320 340" class="w-full max-w-xs" aria-label="Public and private key pair illustration" role="img">
+        <svg viewBox={`0 0 320 ${svgHeight}`} class="w-full max-w-xs" aria-label={w.illustrationAlt} role="img">
           <!-- Title -->
-          <text x="160" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#6b7280">Two keys. One pair.</text>
+          <text x="160" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#6b7280">{w.diagram.title}</text>
 
           <!-- Private key (device) -->
           <rect x="20" y="48" width="130" height="190" rx="20" fill="#4f46e5" opacity="0.1" stroke="#4f46e5" stroke-width="1.5"/>
-          <text x="85" y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#4f46e5">PRIVATE KEY</text>
+          <text x="85" y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#4f46e5">{w.diagram.privateKeyLabel}</text>
           <!-- Key SVG -->
           <g transform="translate(69, 126)">
             <circle cx="0" cy="0" r="20" fill="#4f46e5" opacity="0.2" stroke="#4f46e5" stroke-width="2"/>
@@ -51,36 +98,52 @@ const w = t.whatIsAPasskey;
             <rect x="38" y="5" width="8" height="8" rx="2" fill="#4f46e5"/>
             <rect x="46" y="5" width="6" height="6" rx="2" fill="#4f46e5" opacity="0.6"/>
           </g>
-          <text x="85" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#4f46e5">Stays on your</text>
-          <text x="85" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#4f46e5">devices.</text>
-          <text x="85" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#4f46e5">Never shared</text>
+          <text x="85" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#4f46e5">{w.diagram.private.line1}</text>
+          <text x="85" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#4f46e5">{w.diagram.private.line2}</text>
+          <text x="85" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#4f46e5">{w.diagram.private.line3}</text>
 
           <!-- Link -->
           <line x1="150" y1="126" x2="170" y2="126" stroke="#059669" stroke-width="2.5" stroke-dasharray="5,3" stroke-linecap="round"/>
-          <text x="160" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857" font-weight="700">linked</text>
+          <text x="160" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857" font-weight="700">{w.diagram.linked}</text>
 
           <!-- Public key (website) -->
           <rect x="170" y="48" width="130" height="190" rx="20" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1.5"/>
-          <text x="235" y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#047857">PUBLIC KEY</text>
+          <text x="235" y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#047857">{w.diagram.publicKeyLabel}</text>
           <!-- Lock SVG -->
           <g transform="translate(235, 124)">
             <rect x="-18" y="-5" width="36" height="28" rx="6" fill="#10b981" opacity="0.3" stroke="#10b981" stroke-width="2"/>
             <path d="M-10 -5 Q-10 -20 0 -20 Q10 -20 10 -5" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round"/>
             <circle cx="0" cy="8" r="5" fill="#059669" opacity="0.8"/>
           </g>
-          <text x="235" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857">Shared with the </text>
-          <text x="235" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857">website. Useless</text>
-          <text x="235" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857">without private key</text>
+          <text x="235" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857">{w.diagram.public.line1}</text>
+          <text x="235" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857">{w.diagram.public.line2}</text>
+          <text x="235" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#047857">{w.diagram.public.line3}</text>
 
           <!-- Device box -->
-          <rect x="20" y="268" width="130" height="50" rx="12" fill="#f8f7ff" stroke="#e0e7ff" stroke-width="1.5"/>
-          <text x="85" y="291" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#4f46e5">📱 Your Device</text>
-          <text x="85" y="307" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">Credential Manager</text>
+          <rect x="20" y="268" width="130" height={labelBoxHeight} rx="12" fill="#f8f7ff" stroke="#e0e7ff" stroke-width="1.5"/>
+          <text x="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#4f46e5">
+            {deviceBox.titleLines.map((line, i) => (
+              <tspan x="85" y={deviceBox.titleFirstY + i * TITLE_LINE_HEIGHT}>{line}</tspan>
+            ))}
+          </text>
+          <text x="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">
+            {deviceBox.subtitleLines.map((line, i) => (
+              <tspan x="85" y={deviceBox.subtitleFirstY + i * SUBTITLE_LINE_HEIGHT}>{line}</tspan>
+            ))}
+          </text>
 
           <!-- Website box -->
-          <rect x="170" y="268" width="130" height="50" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
-          <text x="235" y="291" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#047857">🌐 Website Server</text>
-          <text x="235" y="307" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">Stores public key only</text>
+          <rect x="170" y="268" width="130" height={labelBoxHeight} rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+          <text x="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#047857">
+            {websiteBox.titleLines.map((line, i) => (
+              <tspan x="235" y={websiteBox.titleFirstY + i * TITLE_LINE_HEIGHT}>{line}</tspan>
+            ))}
+          </text>
+          <text x="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">
+            {websiteBox.subtitleLines.map((line, i) => (
+              <tspan x="235" y={websiteBox.subtitleFirstY + i * SUBTITLE_LINE_HEIGHT}>{line}</tspan>
+            ))}
+          </text>
 
           <!-- Arrows -->
           <line x1="85" y1="238" x2="85" y2="268" stroke="#c7d2fe" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
@@ -102,11 +165,11 @@ const w = t.whatIsAPasskey;
     <div class="technical-only fade-in-section mt-8 rounded-2xl border border-indigo-200 bg-indigo-50 p-6 md:p-8">
       <p class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-700 mb-3">
         <Code2 size={16} />
-        Technical detail
+        {t.common.technicalDetail}
       </p>
       <h3 class="text-xl font-bold text-indigo-900 mb-3">{w.techCallout.headline}</h3>
       <RichText class="text-indigo-800 leading-relaxed" text={w.techCallout.body} />
-      <TechCalloutLinks links={w.techCallout.additionalLinks} />
+      <TechCalloutLinks links={w.techCallout.additionalLinks} t={t} />
     </div>
   </div>
 </section>
