@@ -65,6 +65,23 @@ main > section:not(#hero) {
   contain-intrinsic-size: auto 800px;
 }
 
+/* #phishing runs well past the shared 800px estimate once its diagram and
+   two supporting cards stack into a single column on mobile (~1400px+),
+   so the 800px guess caused a large scroll-position jump the first time
+   the section was measured. A closer placeholder keeps that reflow small. */
+#phishing {
+  contain-intrinsic-size: auto 1400px;
+}
+
+/* #say-goodbye ("Start using passkeys") is the tallest section on the page:
+   an icon row, an examples row, and two device mockups that all stack to a
+   single column on mobile (~1700px+), far past the shared 800px estimate.
+   That mismatch caused the large scroll-position jump reported when
+   reaching this section. */
+#say-goodbye {
+  contain-intrinsic-size: auto 1600px;
+}
+
 /* Scroll reveal animations */
 .fade-in-section {
   opacity: 0;
