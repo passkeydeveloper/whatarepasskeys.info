@@ -62,6 +62,21 @@ const sections = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('passkeys-theme');
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
     <meta name="generator" content={Astro.generator} />
     <title>{t.site.title}</title>
     <meta name="description" content={t.site.description} />
@@ -86,7 +101,8 @@ const sections = [
     <meta name="twitter:description" content={t.site.description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <meta name="theme-color" content="#4f46e5" />
+    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

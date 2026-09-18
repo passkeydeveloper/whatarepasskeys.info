@@ -1,5 +1,5 @@
 ---
-import { Languages, ChevronDown, Check } from 'lucide-astro';
+import { Languages, ChevronDown, Check, Sun, Moon } from 'lucide-astro';
 import { locales, localeNames } from '../../i18n/utils';
 
 interface Props {
@@ -9,11 +9,11 @@ interface Props {
 
 const { locale, t } = Astro.props;
 ---
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-indigo-50 shadow-sm">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-indigo-50 dark:border-gray-800 shadow-sm">
   <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
     <a href="#hero" class="flex items-center gap-2.5 no-underline">
       <img src="/images/passkey-yellow-box.svg" alt="" aria-hidden="true" class="w-7 h-7" />
-      <span class="font-bold text-gray-900 text-xl tracking-tight">{t.site.logoText}</span>
+      <span class="font-bold text-gray-900 dark:text-gray-50 text-xl tracking-tight">{t.site.logoText}</span>
     </a>
 
     <div class="flex items-center gap-3">
@@ -35,6 +35,18 @@ const { locale, t } = Astro.props;
           {t.site.toggleTechnical}
         </button>
       </div>
+
+      <button
+        type="button"
+        class="theme-toggle"
+        id="theme-toggle"
+        aria-label={t.nav.switchToDarkMode}
+        data-label-to-light={t.nav.switchToLightMode}
+        data-label-to-dark={t.nav.switchToDarkMode}
+      >
+        <Sun size={18} aria-hidden="true" class="theme-toggle-icon-light" />
+        <Moon size={18} aria-hidden="true" class="theme-toggle-icon-dark" />
+      </button>
 
       {locales.length > 1 && (
         <div class="lang-menu" id="lang-menu">
@@ -93,6 +105,38 @@ const { locale, t } = Astro.props;
 
   consumerBtn.addEventListener('click', () => setMode('consumer'));
   technicalBtn.addEventListener('click', () => setMode('technical'));
+
+  // Theme toggle. The initial data-theme was already set by a blocking
+  // script in <head> (before first paint), so this only needs to keep the
+  // button's aria-label in sync and handle manual overrides from here on.
+  const themeToggle = document.getElementById('theme-toggle')!;
+  const labelToLight = themeToggle.dataset.labelToLight!;
+  const labelToDark = themeToggle.dataset.labelToDark!;
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function syncThemeLabel() {
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    themeToggle.setAttribute('aria-label', isDark ? labelToLight : labelToDark);
+  }
+
+  function setTheme(theme: 'light' | 'dark') {
+    html.setAttribute('data-theme', theme);
+    syncThemeLabel();
+  }
+
+  syncThemeLabel();
+
+  themeToggle.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('passkeys-theme', next);
+    setTheme(next);
+  });
+
+  // Live-follow the OS theme until the user explicitly pins one.
+  media.addEventListener('change', (e) => {
+    if (localStorage.getItem('passkeys-theme')) return;
+    setTheme(e.matches ? 'dark' : 'light');
+  });
 
   // Language dropdown
   const langMenu = document.getElementById('lang-menu');

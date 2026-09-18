@@ -23,14 +23,14 @@ function cellResult(value: string, method: string): CellResult {
   return { type: 'text' };
 }
 ---
-<section id="comparison" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-linear-to-br from-emerald-50 to-white">
+<section id="comparison" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-linear-to-br from-emerald-50 to-white dark:from-emerald-950 dark:to-gray-900">
   <div class="max-w-5xl mx-auto w-full">
     <div class="fade-in-section mb-12">
-      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 mb-4">{c.sectionLabel}</p>
-      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 mb-4">
+      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-4">{c.sectionLabel}</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-gray-50 mb-4">
         {c.headline}
       </h2>
-      <p class="text-xl text-gray-600 leading-relaxed">{c.tagline}</p>
+      <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">{c.tagline}</p>
     </div>
 
     <!-- Mobile: cards -->
@@ -39,8 +39,8 @@ function cellResult(value: string, method: string): CellResult {
         const m = (c.methods as any)[method];
         const isPasskey = method === 'passkey';
         return (
-          <div class={`rounded-2xl border p-5 ${isPasskey ? 'border-indigo-300 bg-linear-to-br from-indigo-50 to-emerald-50 shadow-md' : 'border-gray-100 bg-white'}`}>
-            <h3 class={`flex items-center gap-2 text-lg font-bold mb-3 ${isPasskey ? 'text-indigo-700' : 'text-gray-900'}`}>
+          <div class={`rounded-2xl border p-5 ${isPasskey ? 'border-indigo-300 dark:border-indigo-700 bg-linear-to-br from-indigo-50 to-emerald-50 dark:from-indigo-950 dark:to-emerald-950 shadow-md' : 'border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800'}`}>
+            <h3 class={`flex items-center gap-2 text-lg font-bold mb-3 ${isPasskey ? 'text-indigo-700 dark:text-indigo-300' : 'text-gray-900 dark:text-gray-50'}`}>
               {isPasskey && <Trophy size={16} />}
               {m.name}
             </h3>
@@ -48,9 +48,9 @@ function cellResult(value: string, method: string): CellResult {
               const val = m[cat];
               const result = cellResult(val, method);
               return (
-                <div class="flex justify-between items-center py-1.5 text-sm border-b border-gray-100 last:border-0">
-                  <span class="text-gray-500">{(c.categories as any)[cat]}</span>
-                  <span class={`flex items-center gap-1 ${result.type === 'check' ? 'text-emerald-700' : result.type === 'cross' ? 'text-red-600' : 'text-gray-500'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
+                <div class="flex justify-between items-center py-1.5 text-sm border-b border-gray-100 dark:border-gray-700 last:border-0">
+                  <span class="text-gray-500 dark:text-gray-400">{(c.categories as any)[cat]}</span>
+                  <span class={`flex items-center gap-1 ${result.type === 'check' ? 'text-emerald-700 dark:text-emerald-400' : result.type === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
                     {result.type === 'check' && <Check size={14} />}
                     {result.type === 'cross' && <X size={14} />}
                     {val}
@@ -68,12 +68,12 @@ function cellResult(value: string, method: string): CellResult {
       <table class="w-full border-collapse">
         <thead>
           <tr>
-            <th class="text-left py-3 px-4 text-sm text-gray-500 font-semibold border-b border-gray-200 w-1/4"></th>
+            <th class="text-left py-3 px-4 text-sm text-gray-500 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-700 w-1/4"></th>
             {methods.map(method => {
               const m = (c.methods as any)[method];
               const isPasskey = method === 'passkey';
               return (
-                <th class={`text-center py-3 px-4 text-sm font-bold border-b ${isPasskey ? 'text-indigo-700 comparison-passkey-col rounded-t-xl border-indigo-200' : 'text-gray-700 border-gray-200'}`}>
+                <th class={`text-center py-3 px-4 text-sm font-bold border-b ${isPasskey ? 'text-indigo-700 dark:text-indigo-300 comparison-passkey-col rounded-t-xl border-indigo-200 dark:border-indigo-800' : 'text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700'}`}>
                   <span class="inline-flex items-center justify-center gap-1.5">
                     {isPasskey && <Trophy size={14} />}
                     {m.name}
@@ -85,8 +85,8 @@ function cellResult(value: string, method: string): CellResult {
         </thead>
         <tbody>
           {categories.map((cat, ri) => (
-            <tr class={ri % 2 === 0 ? 'bg-gray-50/50' : 'bg-white'}>
-              <td class="py-3 px-4 text-sm text-gray-600 font-medium border-b border-gray-100">
+            <tr class={ri % 2 === 0 ? 'bg-gray-50/50 dark:bg-gray-800/50' : 'bg-white dark:bg-gray-900'}>
+              <td class="py-3 px-4 text-sm text-gray-600 dark:text-gray-300 font-medium border-b border-gray-100 dark:border-gray-800">
                 {(c.categories as any)[cat]}
               </td>
               {methods.map(method => {
@@ -94,8 +94,8 @@ function cellResult(value: string, method: string): CellResult {
                 const result = cellResult(val, method);
                 const isPasskey = method === 'passkey';
                 return (
-                  <td class={`py-3 px-4 text-center text-sm border-b border-gray-100 ${isPasskey ? 'comparison-passkey-col border-indigo-100' : ''}`}>
-                    <span class={`inline-flex items-center justify-center gap-1 ${result.type === 'check' ? 'text-emerald-700' : result.type === 'cross' ? 'text-red-600' : 'text-gray-500'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
+                  <td class={`py-3 px-4 text-center text-sm border-b border-gray-100 dark:border-gray-800 ${isPasskey ? 'comparison-passkey-col border-indigo-100 dark:border-indigo-800' : ''}`}>
+                    <span class={`inline-flex items-center justify-center gap-1 ${result.type === 'check' ? 'text-emerald-700 dark:text-emerald-400' : result.type === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
                       {result.type === 'check' && <Check size={14} />}
                       {result.type === 'cross' && <X size={14} />}
                       {val}
@@ -109,13 +109,13 @@ function cellResult(value: string, method: string): CellResult {
       </table>
     </div>
 
-    <div class="technical-only fade-in-section rounded-2xl border border-indigo-200 bg-indigo-50 p-6 md:p-8">
-      <p class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-700 mb-3">
+    <div class="technical-only fade-in-section rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/40 p-6 md:p-8">
+      <p class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-300 mb-3">
         <Code2 size={16} />
         {t.common.technicalDetail}
       </p>
-      <h3 class="text-xl font-bold text-indigo-900 mb-3">{c.techCallout.headline}</h3>
-      <RichText class="text-indigo-800 leading-relaxed" text={c.techCallout.body} />
+      <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-200 mb-3">{c.techCallout.headline}</h3>
+      <RichText class="text-indigo-800 dark:text-indigo-300 leading-relaxed" text={c.techCallout.body} />
       <TechCalloutLinks links={c.techCallout.additionalLinks} t={t} />
     </div>
   </div>
