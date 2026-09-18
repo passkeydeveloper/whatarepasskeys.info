@@ -252,8 +252,7 @@
         "name": "KeePassXC",
         "description": "Independent, open-source, offline-first credential manager with passkey support. Works across Linux, macOS, and Windows, with community-built companion apps for Android and iOS.",
         "caveats": {
-          "general": "Placeholder caveat text: explain a nuance behind the overall grade here.",
-          "ecosystemAvailability": "Placeholder caveat text: explain the specific nuance behind this score here."
+          "general": "KeePassXC isn't a service with built-in sync or sharing: it's an app that produces and consumes a database file, so features like E2EE, family sharing, and migration aren't provided by KeePassXC itself but depend entirely on how you choose to store and sync that file (e.g., a plain folder, a personal cloud drive, or a self-hosted solution). That flexibility is why it earns a neutral rating for some items: you get exactly the level of security and convenience you're willing to configure yourself."
         }
       }
     },
