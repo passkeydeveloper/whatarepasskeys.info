@@ -19,6 +19,8 @@
     "skipToContent": "メインコンテンツへスキップ",
     "language": "言語",
     "contentMode": "表示モード",
+    "switchToLightMode": "ライトモードに切り替え",
+    "switchToDarkMode": "ダークモードに切り替え",
     "jumpToSection": "セクションに移動",
     "pageSections": "ページ内のセクション",
     "copyLinkToSection": "「{section}」セクションへのリンクをコピー",

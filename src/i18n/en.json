@@ -19,6 +19,8 @@
     "skipToContent": "Skip to content",
     "language": "Language",
     "contentMode": "Content mode",
+    "switchToLightMode": "Switch to light mode",
+    "switchToDarkMode": "Switch to dark mode",
     "jumpToSection": "Jump to section",
     "pageSections": "Page sections",
     "copyLinkToSection": "Copy link to \"{section}\" section",

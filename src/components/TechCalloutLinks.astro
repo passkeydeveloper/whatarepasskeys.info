@@ -15,15 +15,15 @@ interface Props {
 const { links, t, heading = t.common.goDeeper } = Astro.props;
 ---
 {links && links.length > 0 && (
-  <div class="mt-4 pt-4 border-t border-indigo-200">
-    <p class="text-xs font-bold uppercase tracking-widest text-indigo-700 mb-3">{heading}</p>
+  <div class="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800">
+    <p class="text-xs font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-300 mb-3">{heading}</p>
     <div class="flex flex-wrap gap-2">
       {links.map((link) => (
         <a
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 rounded-full bg-white border border-indigo-200 px-3 py-1.5 text-sm font-semibold text-indigo-700 hover:bg-indigo-100 hover:border-indigo-300 transition-colors"
+          class="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-gray-800 border border-indigo-200 dark:border-indigo-800 px-3 py-1.5 text-sm font-semibold text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-950 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors"
         >
           {link.label}
           <ExternalLink size={13} class="shrink-0" />

@@ -36,7 +36,13 @@ const si = simpleIconMap[managerKey];
 ) : managerKey === 'samsungpass' ? (
   <SamsungWallet size={size} />
 ) : si ? (
-  <SimpleIcon path={si.path} hex={si.hex} title={si.title} size={size} />
+  <SimpleIcon
+    path={si.path}
+    hex={si.hex}
+    title={si.title}
+    size={size}
+    class={managerKey === 'dashlane' ? 'dark:fill-white' : undefined}
+  />
 ) : (
-  <Lock size={size} class="text-gray-500" />
+  <Lock size={size} class="text-gray-500 dark:text-gray-400" />
 )}

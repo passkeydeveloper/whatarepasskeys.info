@@ -7,16 +7,16 @@ interface Props {
 const { t } = Astro.props;
 const faq = t.faq;
 ---
-<section id="faq" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-linear-to-br from-indigo-50 to-white">
+<section id="faq" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-linear-to-br from-indigo-50 to-white dark:from-indigo-950 dark:to-gray-900">
   <div class="max-w-3xl mx-auto w-full">
     <div class="fade-in-section mb-12 text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 mb-4">{faq.sectionLabel}</p>
-      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
+      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-4">{faq.sectionLabel}</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-gray-50">
         {faq.headline}
       </h2>
-      <p class="mt-4 text-gray-500">
+      <p class="mt-4 text-gray-500 dark:text-gray-400">
         {faq.missingQuestion}
-        <a href="/feedback" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-500 ml-1">
+        <a href="/feedback" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 ml-1">
           {faq.missingQuestionLink}
         </a>
       </p>
@@ -48,10 +48,10 @@ const faq = t.faq;
     <div class="space-y-12" id="faq-categories">
       {faq.categories.map((category: { name: string; types: string[]; items: { type: 'basic' | 'advanced'; question: string; answer: string }[] }) => (
         <div class="faq-category fade-in-section">
-          <h3 class="text-sm font-semibold uppercase tracking-widest text-indigo-500 mb-2">
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-2">
             {category.name}
           </h3>
-          <div class="space-y-0 divide-y divide-gray-100">
+          <div class="space-y-0 divide-y divide-gray-100 dark:divide-gray-800">
             {category.items.map((item: { type: 'basic' | 'advanced'; question: string; answer: string }, i: number) => (
               <details
                 class={`faq-item ${item.type === 'advanced' ? 'technical-only' : ''}`}
@@ -65,7 +65,7 @@ const faq = t.faq;
                   </span>
                   <ChevronDown size={20} class="faq-chevron" />
                 </summary>
-                <p class="pb-5 text-gray-600 leading-relaxed">
+                <p class="pb-5 text-gray-600 dark:text-gray-400 leading-relaxed">
                   {item.answer}
                 </p>
               </details>
@@ -75,7 +75,7 @@ const faq = t.faq;
       ))}
     </div>
 
-    <div class="space-y-0 divide-y divide-gray-100" id="faq-flat-results" hidden></div>
+    <div class="space-y-0 divide-y divide-gray-100 dark:divide-gray-800" id="faq-flat-results" hidden></div>
   </div>
 </section>
 
