@@ -12,8 +12,8 @@ const h = t.howItWorks;
 const steps = [
   { key: 'create',   Icon: KeyRound   },
   { key: 'confirm',  Icon: ScanFace   },
-  { key: 'signedIn', Icon: ShieldCheck },
 ] as const;
+const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
 ---
 <section id="how-it-works" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-white">
   <div class="max-w-5xl mx-auto w-full">
@@ -51,6 +51,21 @@ const steps = [
             </div>
           </div>
         ))}
+
+        <div
+          class="flow-step relative flex flex-col items-center text-center gap-4"
+          data-delay={String(steps.length * 150)}
+        >
+          <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-md bg-emerald-600 text-white z-10">
+            <signedIn.Icon size={20} />
+          </div>
+          <div class="max-w-md bg-emerald-50 border-2 border-emerald-200 rounded-2xl shadow-sm p-5">
+            <h3 class="text-lg font-bold text-emerald-900 mb-1">
+              {(h.steps as any)[signedIn.key].label}
+            </h3>
+            <RichText class="text-emerald-800" text={(h.steps as any)[signedIn.key].body} />
+          </div>
+        </div>
       </div>
     </div>
 
