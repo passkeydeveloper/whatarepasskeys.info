@@ -7,7 +7,7 @@ export default defineConfig({
   site: 'https://whatarepasskeys.info',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'es'],
     routing: {
       prefixDefaultLocale: true,
     },

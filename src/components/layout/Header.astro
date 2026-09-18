@@ -1,10 +1,13 @@
 ---
+import { Languages, ChevronDown, Check } from 'lucide-astro';
+import { locales, localeNames } from '../../i18n/utils';
+
 interface Props {
   locale: string;
   t: any;
 }
 
-const { t } = Astro.props;
+const { locale, t } = Astro.props;
 ---
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-indigo-50 shadow-sm">
   <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -13,23 +16,57 @@ const { t } = Astro.props;
       <span class="font-bold text-gray-900 text-xl tracking-tight">What are passkeys?</span>
     </a>
 
-    <div class="mode-toggle" id="mode-toggle" role="group" aria-label="Content mode">
-      <button
-        class="mode-toggle-option selected"
-        id="toggle-consumer"
-        aria-pressed="true"
-        type="button"
-      >
-        {t.site.toggleConsumer}
-      </button>
-      <button
-        class="mode-toggle-option"
-        id="toggle-technical"
-        aria-pressed="false"
-        type="button"
-      >
-        {t.site.toggleTechnical}
-      </button>
+    <div class="flex items-center gap-3">
+      <div class="mode-toggle" id="mode-toggle" role="group" aria-label="Content mode">
+        <button
+          class="mode-toggle-option selected"
+          id="toggle-consumer"
+          aria-pressed="true"
+          type="button"
+        >
+          {t.site.toggleConsumer}
+        </button>
+        <button
+          class="mode-toggle-option"
+          id="toggle-technical"
+          aria-pressed="false"
+          type="button"
+        >
+          {t.site.toggleTechnical}
+        </button>
+      </div>
+
+      <div class="lang-menu" id="lang-menu">
+        <button
+          type="button"
+          class="lang-menu-button"
+          id="lang-menu-button"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="lang-menu-list"
+          aria-label={t.nav.language}
+        >
+          <Languages size={18} aria-hidden="true" />
+          <span class="lang-menu-current">{locale.toUpperCase()}</span>
+          <ChevronDown size={16} aria-hidden="true" class="lang-menu-chevron" />
+        </button>
+        <ul class="lang-menu-list" id="lang-menu-list" role="menu" aria-label={t.nav.language} hidden>
+          {locales.map((code) => (
+            <li role="none">
+              <a
+                href={`/${code}/`}
+                role="menuitem"
+                class:list={['lang-menu-item', { selected: code === locale }]}
+                aria-current={code === locale ? 'true' : undefined}
+                data-locale={code}
+              >
+                <span>{localeNames[code] ?? code}</span>
+                {code === locale && <Check size={16} aria-hidden="true" />}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </div>
 </header>
@@ -54,4 +91,41 @@ const { t } = Astro.props;
 
   consumerBtn.addEventListener('click', () => setMode('consumer'));
   technicalBtn.addEventListener('click', () => setMode('technical'));
+
+  // Language dropdown
+  const langMenu = document.getElementById('lang-menu')!;
+  const langButton = document.getElementById('lang-menu-button')!;
+  const langList = document.getElementById('lang-menu-list')!;
+
+  // Preserve the current section anchor when switching languages
+  langList.querySelectorAll<HTMLAnchorElement>('.lang-menu-item').forEach((link) => {
+    if (location.hash) link.href = link.pathname + location.hash;
+  });
+
+  function closeLangMenu() {
+    langList.hidden = true;
+    langButton.setAttribute('aria-expanded', 'false');
+  }
+
+  function openLangMenu() {
+    langList.hidden = false;
+    langButton.setAttribute('aria-expanded', 'true');
+  }
+
+  langButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (langList.hidden) openLangMenu();
+    else closeLangMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!langMenu.contains(e.target as Node)) closeLangMenu();
+  });
+
+  langMenu.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLangMenu();
+      langButton.focus();
+    }
+  });
 </script>

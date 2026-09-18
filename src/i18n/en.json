@@ -6,7 +6,8 @@
     "toggleTechnical": "Advanced"
   },
   "nav": {
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "language": "Language"
   },
   "hero": {
     "headline": "Say Hello to Passkeys",

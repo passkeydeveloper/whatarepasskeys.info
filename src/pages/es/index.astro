@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import WhatIsAPasskey from '../../components/sections/WhatIsAPasskey.astro';
+import HowItWorks from '../../components/sections/HowItWorks.astro';
+import ProblemWithPasswords from '../../components/sections/ProblemWithPasswords.astro';
+import Phishing from '../../components/sections/Phishing.astro';
+import Comparison from '../../components/sections/Comparison.astro';
+import CredentialManagers from '../../components/sections/CredentialManagers.astro';
+import ClosingCTA from '../../components/sections/ClosingCTA.astro';
+import WorkPasskeys from '../../components/sections/WorkPasskeys.astro';
+import FAQ from '../../components/sections/FAQ.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const locale = 'es';
+const t = useTranslations(locale);
+---
+<Layout locale={locale}>
+  <Hero t={t} />
+  <WhatIsAPasskey t={t} />
+  <HowItWorks t={t} />
+  <ProblemWithPasswords t={t} />
+  <Phishing t={t} />
+  <Comparison t={t} />
+  <CredentialManagers t={t} />
+  <ClosingCTA t={t} />
+  <WorkPasskeys t={t} />
+  <FAQ t={t} />
+</Layout>

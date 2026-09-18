@@ -1,4 +1,27 @@
 ---
-// Redirect root to default locale
-return Astro.redirect('/en/', 301);
+// This is a fully static site, so there's no server available at request
+// time to inspect the Accept-Language header. Browser-language detection is
+// therefore done client-side; the meta-refresh below is the no-JS fallback
+// to the default locale.
+const supportedLocales = ['en', 'es'];
+const defaultLocale = 'en';
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=/${defaultLocale}/`} />
+    <title>Redirecting…</title>
+    <script define:vars={{ supportedLocales, defaultLocale }}>
+      const preferred = (navigator.languages || [navigator.language])
+        .map((lang) => lang.split('-')[0].toLowerCase())
+        .find((lang) => supportedLocales.includes(lang));
+
+      location.replace(`/${preferred || defaultLocale}/`);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href={`/${defaultLocale}/`}>whatarepasskeys.info</a>&hellip;</p>
+  </body>
+</html>
