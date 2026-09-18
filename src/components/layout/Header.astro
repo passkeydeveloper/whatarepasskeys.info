@@ -12,7 +12,7 @@ const { locale, t } = Astro.props;
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-indigo-50 dark:border-gray-800 shadow-sm">
   <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
     <a href="#hero" class="flex items-center gap-2.5 no-underline">
-      <img src="/images/passkey-yellow-box.svg" alt="" aria-hidden="true" class="w-7 h-7" />
+      <img src="/images/passkey-yellow-box.svg" alt="" aria-hidden="true" class="w-7 h-7" width="28" height="28" />
       <span class="font-bold text-gray-900 dark:text-gray-50 text-xl tracking-tight">{t.site.logoText}</span>
     </a>
 
@@ -99,9 +99,14 @@ const { locale, t } = Astro.props;
     technicalBtn.setAttribute('aria-pressed', String(mode === 'technical'));
   }
 
-  // Restore saved mode
-  const saved = localStorage.getItem('passkeys-mode') as 'consumer' | 'technical' | null;
-  if (saved === 'technical') setMode('technical');
+  // data-mode was already set before first paint by the blocking script in
+  // <head> (see Layout.astro); just sync this button's UI to match.
+  if (html.getAttribute('data-mode') === 'technical') {
+    consumerBtn.classList.remove('selected');
+    technicalBtn.classList.add('selected');
+    consumerBtn.setAttribute('aria-pressed', 'false');
+    technicalBtn.setAttribute('aria-pressed', 'true');
+  }
 
   consumerBtn.addEventListener('click', () => setMode('consumer'));
   technicalBtn.addEventListener('click', () => setMode('technical'));

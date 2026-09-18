@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 
 /* Manual light/dark override on top of the system preference: the theme
    toggle sets data-theme explicitly, and this variant is what every
@@ -37,6 +38,10 @@
     }
   }
 
+  h1, h2, h3 {
+    font-family: var(--font-family-display);
+  }
+
   /* Technical mode content toggling */
   html[data-mode="technical"] .consumer-only {
     display: none !important;
@@ -51,6 +56,15 @@
   }
 }
 
+/* Defer rendering for below-the-fold sections on this long single-page
+   site. #hero stays eager since it's above the fold. contain-intrinsic-size
+   is a placeholder height (not exact) so the browser can reserve scroll
+   space before each section has been rendered. */
+main > section:not(#hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
 /* Scroll reveal animations */
 .fade-in-section {
   opacity: 0;
@@ -61,6 +75,27 @@
 .fade-in-section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Where supported, drive the fade-in reveal natively off scroll position
+   instead of the IntersectionObserver + .visible class toggle below (see
+   Layout.astro, which skips setting up that observer when this is
+   supported). The `animation-range: 0% 100%` check filters out browsers
+   with only partial scroll-driven-animations support. */
+@supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
+  .fade-in-section {
+    transition: none;
+    animation: fade-in-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  @keyframes fade-in-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 /* Section dot navigation */
@@ -474,6 +509,7 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
     opacity: 1;
     transform: none;
     transition: none;
+    animation: none !important;
   }
 
   html {

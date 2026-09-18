@@ -13,7 +13,16 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-const ogLocale = locale === 'en' ? 'en_US' : locale;
+// Open Graph requires language_TERRITORY locale codes (e.g. en_US), not the
+// bare BCP-47-ish codes used for routing/i18n.
+const ogLocaleMap: Record<string, string> = {
+  en: 'en_US',
+  de: 'de_DE',
+  es: 'es_ES',
+  fr: 'fr_FR',
+  jp: 'ja_JP',
+};
+const ogLocale = ogLocaleMap[locale] ?? locale;
 const ogImage = new URL('/og-image.png', Astro.site).toString();
 
 const faqSchema = {
@@ -74,6 +83,11 @@ const sections = [
                 ? 'dark'
                 : 'light';
           document.documentElement.setAttribute('data-theme', theme);
+
+          var mode = localStorage.getItem('passkeys-mode');
+          if (mode === 'technical') {
+            document.documentElement.setAttribute('data-mode', 'technical');
+          }
         } catch (e) {}
       })();
     </script>
@@ -118,14 +132,14 @@ const sections = [
     )}
   </head>
   <body data-link-copied-text={t.nav.linkCopied} data-copy-link-template={t.nav.copyLinkToSection}>
-    <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
+    <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
       {t.nav.skipToContent}
     </a>
 
     <Header locale={locale} t={t} />
     <SectionDots sections={sections} t={t} />
 
-    <main>
+    <main id="content" tabindex="-1">
       <slot />
     </main>
 
@@ -150,7 +164,15 @@ const sections = [
         });
       }
 
-      window.addEventListener('scroll', updateActiveDot, { passive: true });
+      let scrollTicking = false;
+      window.addEventListener('scroll', () => {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+          updateActiveDot();
+          scrollTicking = false;
+        });
+      }, { passive: true });
       updateActiveDot();
 
       // Copy-link-to-section on heading click
@@ -200,28 +222,47 @@ const sections = [
         heading.setAttribute('aria-label', copyLinkTemplate.replace('{section}', heading.textContent?.trim() ?? ''));
 
         heading.addEventListener('click', () => copySectionLink(id));
+        // Match native <button> behavior: Enter triggers on keydown, Space
+        // triggers on keyup (keydown only prevents the page from scrolling).
         heading.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            copySectionLink(id);
+          } else if (e.key === ' ') {
+            e.preventDefault();
+          }
+        });
+        heading.addEventListener('keyup', (e) => {
+          if (e.key === ' ') {
             e.preventDefault();
             copySectionLink(id);
           }
         });
       });
 
-      // Scroll reveal
-      const fadeEls = document.querySelectorAll('.fade-in-section');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              e.target.classList.add('visible');
-              observer.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
+      // Scroll reveal. Where the browser supports native CSS scroll-driven
+      // animations (see the matching @supports block in global.css), the
+      // .fade-in-section reveal is handled entirely by CSS and this
+      // IntersectionObserver fallback is skipped.
+      const supportsScrollDrivenAnimations = CSS.supports(
+        '(animation-timeline: scroll()) and (animation-range: 0% 100%)'
       );
-      fadeEls.forEach(el => observer.observe(el));
+
+      if (!supportsScrollDrivenAnimations) {
+        const fadeEls = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        fadeEls.forEach(el => observer.observe(el));
+      }
 
       // Flow step reveal
       const flowSteps = document.querySelectorAll('.flow-step');
