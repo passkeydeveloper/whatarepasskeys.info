@@ -250,7 +250,11 @@
       },
       "keepassxc": {
         "name": "KeePassXC",
-        "description": "Independent, open-source, offline-first credential manager with passkey support. Works across Linux, macOS, and Windows, with community-built companion apps for Android and iOS."
+        "description": "Independent, open-source, offline-first credential manager with passkey support. Works across Linux, macOS, and Windows, with community-built companion apps for Android and iOS.",
+        "caveats": {
+          "general": "Placeholder caveat text: explain a nuance behind the overall grade here.",
+          "ecosystemAvailability": "Placeholder caveat text: explain the specific nuance behind this score here."
+        }
       }
     },
     "scoring": {
@@ -269,6 +273,8 @@
       "lastUpdated": "Scores last updated September 2026.",
       "coreTag": "Core",
       "lowerTag": "Lower weight",
+      "caveatIndicatorLabel": "View caveat for",
+      "caveatsLabel": "Additional Info",
       "criteria": {
         "ecosystemAvailability": { "consumerLabel": "Works where you do", "technicalLabel": "Ecosystem Availability" },
         "nativePlatformIntegration": { "consumerLabel": "Works easily with websites & apps", "technicalLabel": "Native Platform Integration" },
