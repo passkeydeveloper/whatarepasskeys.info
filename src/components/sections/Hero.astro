@@ -7,14 +7,14 @@ interface Props {
 const { t } = Astro.props;
 
 const jumpLinks = [
-  { id: 'what-is', label: 'What is a passkey?' },
-  { id: 'how-it-works', label: 'Using Passkeys' },
-  { id: 'why-passwords-fail', label: 'The Password Problem' },
-  { id: 'phishing', label: 'Understanding Phishing' },
-  { id: 'comparison', label: 'The Passkey Advantage' },
-  { id: 'credential-managers', label: 'Storing Passkeys' },
-  { id: 'work-passkeys', label: 'Passkeys at Work' },
-  { id: 'faq', label: 'FAQ' },
+  { id: 'what-is', label: t.hero.jumpLinks.whatIs },
+  { id: 'how-it-works', label: t.hero.jumpLinks.howItWorks },
+  { id: 'why-passwords-fail', label: t.hero.jumpLinks.whyPasswordsFail },
+  { id: 'phishing', label: t.hero.jumpLinks.phishing },
+  { id: 'comparison', label: t.hero.jumpLinks.comparison },
+  { id: 'credential-managers', label: t.hero.jumpLinks.credentialManagers },
+  { id: 'work-passkeys', label: t.hero.jumpLinks.workPasskeys },
+  { id: 'faq', label: t.hero.jumpLinks.faq },
 ];
 ---
 <section id="hero" class="min-h-screen flex flex-col justify-center pt-14 px-6 bg-linear-to-br from-indigo-50 via-white to-emerald-50 relative overflow-hidden">
@@ -29,7 +29,7 @@ const jumpLinks = [
       <div class="fade-in-section">
         <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
           <KeyRound size={14} />
-          <span>The future of sign-in is here</span>
+          <span>{t.hero.badge}</span>
         </div>
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
           {t.hero.headline}
@@ -50,7 +50,7 @@ const jumpLinks = [
 
       <!-- Hero illustration -->
       <div class="fade-in-section flex justify-center" style="transition-delay: 0.2s">
-        <svg viewBox="0 0 400 400" class="w-full max-w-sm" aria-label="Passkey illustration" role="img">
+        <svg viewBox="0 0 400 400" class="w-full max-w-sm" aria-label={t.hero.illustrationAlt} role="img">
           <!-- Phone -->
           <rect x="130" y="60" width="140" height="240" rx="20" fill="#4f46e5" opacity="0.12"/>
           <rect x="135" y="65" width="130" height="230" rx="17" fill="#f8f7ff"/>
@@ -85,7 +85,7 @@ const jumpLinks = [
       </div>
     </div>
 
-    <nav aria-label="Jump to section" class="flex flex-wrap justify-center gap-2 mt-16 fade-in-section" style="transition-delay: 0.3s">
+    <nav aria-label={t.nav.jumpToSection} class="flex flex-wrap justify-center gap-2 mt-16 fade-in-section" style="transition-delay: 0.3s">
       {jumpLinks.map(link => (
         <a
           href={`#${link.id}`}
@@ -98,7 +98,7 @@ const jumpLinks = [
 
     <div class="flex justify-center mt-6 fade-in-section" style="transition-delay: 0.4s">
       <div class="flex flex-col items-center gap-2 text-gray-500 text-sm">
-        <span>Scroll to explore</span>
+        <span>{t.hero.scrollIndicator}</span>
         <svg class="animate-bounce" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
