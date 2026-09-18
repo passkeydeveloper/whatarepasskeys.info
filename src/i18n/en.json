@@ -21,6 +21,8 @@
     "contentMode": "Content mode",
     "switchToLightMode": "Switch to light mode",
     "switchToDarkMode": "Switch to dark mode",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "jumpToSection": "Jump to section",
     "pageSections": "Page sections",
     "copyLinkToSection": "Copy link to \"{section}\" section",

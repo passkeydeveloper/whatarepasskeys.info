@@ -1,5 +1,5 @@
 ---
-import { Languages, ChevronDown, Check, Sun, Moon } from 'lucide-astro';
+import { Languages, ChevronDown, Check, Sun, Moon, Menu, X } from 'lucide-astro';
 import { locales, localeNames, localeHref } from '../../i18n/utils';
 
 interface Props {
@@ -10,13 +10,27 @@ interface Props {
 const { locale, t } = Astro.props;
 ---
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-indigo-50 dark:border-gray-800 shadow-sm">
-  <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-    <a href="#hero" class="flex items-center gap-2.5 no-underline">
-      <img src="/images/passkey-yellow-box.svg" alt="" aria-hidden="true" class="w-7 h-7" width="28" height="28" />
-      <span class="font-bold text-gray-900 dark:text-gray-50 text-xl tracking-tight">{t.site.logoText}</span>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2 relative">
+    <a href="#hero" class="flex items-center gap-2 sm:gap-2.5 no-underline min-w-0">
+      <img src="/images/passkey-yellow-box.svg" alt="" aria-hidden="true" class="w-7 h-7 shrink-0" width="28" height="28" />
+      <span class="font-bold text-gray-900 dark:text-gray-50 text-lg sm:text-xl tracking-tight">{t.site.logoText}</span>
     </a>
 
-    <div class="flex items-center gap-3">
+    <button
+      type="button"
+      class="header-menu-toggle inline-flex items-center justify-center sm:hidden"
+      id="header-menu-toggle"
+      aria-expanded="false"
+      aria-controls="header-controls"
+      aria-label={t.nav.openMenu}
+      data-label-to-open={t.nav.openMenu}
+      data-label-to-close={t.nav.closeMenu}
+    >
+      <Menu size={20} aria-hidden="true" class="header-menu-icon-open" />
+      <X size={20} aria-hidden="true" class="header-menu-icon-close" />
+    </button>
+
+    <div class="header-controls items-center gap-3" id="header-controls">
       <div class="mode-toggle" id="mode-toggle" role="group" aria-label={t.nav.contentMode}>
         <button
           class="mode-toggle-option selected"
@@ -110,6 +124,54 @@ const { locale, t } = Astro.props;
 
   consumerBtn.addEventListener('click', () => setMode('consumer'));
   technicalBtn.addEventListener('click', () => setMode('technical'));
+
+  // Mobile controls menu. Below the sm breakpoint, the mode/theme/language
+  // controls collapse behind a hamburger toggle instead of squeezing into
+  // the header alongside the site title.
+  const menuToggle = document.getElementById('header-menu-toggle')!;
+  const headerControls = document.getElementById('header-controls')!;
+  const menuLabelOpen = menuToggle.dataset.labelToOpen!;
+  const menuLabelClose = menuToggle.dataset.labelToClose!;
+
+  function closeHeaderMenu() {
+    headerControls.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', menuLabelOpen);
+  }
+
+  function openHeaderMenu() {
+    headerControls.classList.add('open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', menuLabelClose);
+  }
+
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (headerControls.classList.contains('open')) closeHeaderMenu();
+    else openHeaderMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!headerControls.contains(e.target as Node) && !menuToggle.contains(e.target as Node)) {
+      closeHeaderMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && headerControls.classList.contains('open')) {
+      closeHeaderMenu();
+      menuToggle.focus();
+    }
+  });
+
+  // Collapse the mobile menu once a control inside it has been used, since
+  // it covers the page content while open.
+  headerControls.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('.mode-toggle-option, .theme-toggle, .lang-menu-item')) {
+      closeHeaderMenu();
+    }
+  });
 
   // Theme toggle. The initial data-theme was already set by a blocking
   // script in <head> (before first paint), so this only needs to keep the

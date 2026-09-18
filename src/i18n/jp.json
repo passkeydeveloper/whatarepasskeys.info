@@ -21,6 +21,8 @@
     "contentMode": "表示モード",
     "switchToLightMode": "ライトモードに切り替え",
     "switchToDarkMode": "ダークモードに切り替え",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
     "jumpToSection": "セクションに移動",
     "pageSections": "ページ内のセクション",
     "copyLinkToSection": "「{section}」セクションへのリンクをコピー",
