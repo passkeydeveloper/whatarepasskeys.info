@@ -200,7 +200,7 @@
     "headline": "Where do I store my passkeys?",
     "intro": [
       "Your passkeys are stored in a credential manager, an app or service that syncs them securely across your devices, similar to how your photos or contacts stay available everywhere you're signed in.",
-      "Most people already have one. Android users have Google Password Manager or Samsung Pass, iPhone users typically have Apple Passwords, and Windows users may have Microsoft Password Manager. You can also use a third-party option like 1Password, Dashlane, or Bitwarden.",
+      "Most people already have one. Android users have Google Password Manager or Samsung Wallet (Pass), iPhone users typically have Apple Passwords, and Windows users may have Microsoft Password Manager. You can also use a third-party option like 1Password, Dashlane, or Bitwarden.",
       "The big benefit: create a passkey once, and it's available on all your devices. No need to set it up again on each device."
     ],
     "managers": {
@@ -243,6 +243,17 @@
       "lastpass": {
         "name": "LastPass",
         "description": "Independent credential manager with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
+      },
+      "samsungpass": {
+        "name": "Samsung Wallet (Pass)",
+        "description": "Samsung Pass is integrated into Samsung Wallet, which is built into Samsung Galaxy devices. Syncs across your Samsung Galaxy Android devices using your Samsung account."
+      },
+      "keepassxc": {
+        "name": "KeePassXC",
+        "description": "Independent, open-source, offline-first credential manager with passkey support. Works across Linux, macOS, and Windows, with community-built companion apps for Android and iOS.",
+        "caveats": {
+          "general": "KeePassXC isn't a service with built-in sync or sharing: it's an app that produces and consumes a database file, so features like E2EE, family sharing, and migration aren't provided by KeePassXC itself but depend entirely on how you choose to store and sync that file (e.g., a plain folder, a personal cloud drive, or a self-hosted solution). That flexibility is why it earns a neutral rating for some items: you get exactly the level of security and convenience you're willing to configure yourself."
+        }
       }
     },
     "scoring": {
@@ -261,6 +272,8 @@
       "lastUpdated": "Scores last updated September 2026.",
       "coreTag": "Core",
       "lowerTag": "Lower weight",
+      "caveatIndicatorLabel": "View caveat for",
+      "caveatsLabel": "Additional Info",
       "criteria": {
         "ecosystemAvailability": { "consumerLabel": "Works where you do", "technicalLabel": "Ecosystem Availability" },
         "nativePlatformIntegration": { "consumerLabel": "Works easily with websites & apps", "technicalLabel": "Native Platform Integration" },
