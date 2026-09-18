@@ -1,0 +1,806 @@
+{
+  "meta": {
+    "nativeName": "Français"
+  },
+  "site": {
+    "title": "Que sont les passkeys ?",
+    "description": "La méthode de connexion plus simple et plus sûre. Aucun mot de passe à retenir. Aucun code à attendre.",
+    "toggleConsumer": "De base",
+    "toggleTechnical": "Avancé",
+    "logoText": "Que sont les passkeys ?"
+  },
+  "common": {
+    "technicalDetail": "Détail technique",
+    "goDeeper": "En savoir plus",
+    "opensInNewTab": "(s'ouvre dans un nouvel onglet)",
+    "step": "Étape {number}"
+  },
+  "nav": {
+    "skipToContent": "Passer au contenu",
+    "language": "Langue",
+    "contentMode": "Mode d'affichage",
+    "jumpToSection": "Aller à la section",
+    "pageSections": "Sections de la page",
+    "copyLinkToSection": "Copier le lien vers la section « {section} »",
+    "linkCopied": "Lien copié !",
+    "sections": {
+      "hero": "Passkeys",
+      "whatIs": "Qu'est-ce qu'une passkey ?",
+      "howItWorks": "Comment ça marche",
+      "whyPasswordsFail": "Pourquoi les mots de passe échouent",
+      "phishing": "Hameçonnage",
+      "comparison": "Comparaison",
+      "credentialManagers": "Gestionnaires d'identifiants",
+      "sayGoodbye": "Dites adieu aux mots de passe",
+      "workPasskeys": "Les passkeys au travail",
+      "faq": "FAQ"
+    }
+  },
+  "hero": {
+    "headline": "Dites bonjour aux passkeys",
+    "subheadline": "La méthode de connexion plus simple et plus sûre. Aucun mot de passe à retenir. Aucun code à attendre. Connectez-vous simplement et revenez à l'essentiel.",
+    "scrollCta": "Découvrir le fonctionnement des passkeys",
+    "badge": "L'avenir de la connexion est là",
+    "illustrationAlt": "Illustration d'une passkey",
+    "scrollIndicator": "Faites défiler pour explorer",
+    "jumpLinks": {
+      "whatIs": "Qu'est-ce qu'une passkey ?",
+      "howItWorks": "Utiliser les passkeys",
+      "whyPasswordsFail": "Le problème des mots de passe",
+      "phishing": "Comprendre l'hameçonnage",
+      "comparison": "L'avantage des passkeys",
+      "credentialManagers": "Stocker les passkeys",
+      "workPasskeys": "Les passkeys au travail",
+      "faq": "FAQ"
+    }
+  },
+  "whatIsAPasskey": {
+    "sectionLabel": "Qu'est-ce qu'une passkey ?",
+    "headline": "Une passkey est une clé numérique unique qui remplace votre mot de passe.",
+    "body": "Les passkeys vous permettent de vous connecter rapidement et en toute sécurité, sans créer, mémoriser ou saisir de mot de passe. Lors de la connexion, votre appareil s'assure d'abord qu'il s'agit bien de vous grâce à votre visage, votre empreinte digitale ou le code PIN de l'appareil.",
+    "highlights": {
+      "staysWithYou": {
+        "title": "Une clé reste avec vous",
+        "body": "Votre appareil conserve l'une des clés en lieu sûr. Elle ne quitte jamais votre appareil."
+      },
+      "websiteGetsKey": {
+        "title": "Le site web reçoit la clé associée",
+        "body": "Le site web stocke la clé associée, mais celle-ci ne peut pas servir à se connecter à elle seule."
+      },
+      "workTogether": {
+        "title": "Elles fonctionnent ensemble",
+        "body": "Lorsque vous vous connectez, votre appareil utilise sa clé pour prouver votre identité. Aucun mot de passe n'est jamais envoyé ni stocké."
+      }
+    },
+    "techCallout": {
+      "headline": "Sous le capot : la cryptographie asymétrique",
+      "body": "Les passkeys reposent sur la cryptographie à clé publique, similaire aux clés SSH. La clé privée est générée dans un gestionnaire d'identifiants ou au sein de l'élément sécurisé d'un authentificateur matériel. La clé publique, accompagnée de métadonnées spécifiques à WebAuthn, est envoyée au serveur. Cependant, la clé publique est mathématiquement inutile sans la clé privée pour signer les défis. Le serveur ne voit ni ne stocke jamais aucun secret."
+    },
+    "illustrationAlt": "Illustration d'une paire de clés publique et privée",
+    "diagram": {
+      "title": "Deux clés. Une seule paire.",
+      "privateKeyLabel": "CLÉ PRIVÉE",
+      "publicKeyLabel": "CLÉ PUBLIQUE",
+      "linked": "associée",
+      "private": "Reste sur vos appareils. Jamais partagée",
+      "public": "Partagée avec le site web. Inutile sans la clé privée",
+      "device": {
+        "title": "Votre appareil",
+        "subtitle": "Gestionnaire d'identifiants"
+      },
+      "website": {
+        "title": "Serveur du site web",
+        "subtitle": "Stocke uniquement la clé publique"
+      }
+    }
+  },
+  "howItWorks": {
+    "sectionLabel": "Utiliser les passkeys",
+    "headline": "Comment se connecter avec une passkey",
+    "intro": "L'utilisation d'une passkey est simple. Une fois créée, la connexion ne prend que quelques secondes.",
+    "steps": {
+      "create": {
+        "label": "Créer une passkey",
+        "body": "Votre gestionnaire d'identifiants crée une paire de clés unique—votre passkey—pour le site web ou l'application. Une partie de la passkey est partagée avec le site web. L'autre reste stockée en toute sécurité dans votre gestionnaire d'identifiants sur votre appareil pour prouver votre identité. Votre partie n'est jamais partagée ni stockée par le site web ou l'application."
+      },
+      "confirm": {
+        "label": "Confirmez votre identité",
+        "body": "La prochaine fois que vous vous connectez, votre appareil vous invite à confirmer qu'il s'agit bien de vous à l'aide de votre visage, votre empreinte digitale ou le code PIN de l'appareil. Vos données biométriques, si elles sont utilisées, ne quittent jamais votre appareil et ne sont jamais partagées."
+      },
+      "signedIn": {
+        "label": "Vous êtes connecté",
+        "body": "Votre appareil prouve votre identité auprès du site web en toute sécurité, sans jamais envoyer de mot de passe sur Internet."
+      }
+    },
+    "uniqueness": {
+      "headline": "Chaque passkey est unique",
+      "body": [
+        "Chaque service que vous utilisez reçoit sa propre passkey unique. Une passkey créée pour votre banque fonctionne uniquement avec votre banque (site web ou application), et nulle part ailleurs. Une passkey créée pour vos e-mails fonctionne de la même manière, exclusivement pour votre messagerie. Comme chaque passkey n'appartient qu'à un seul service, il n'y a rien à dérober ni à réutiliser ailleurs.",
+        "Cela protège également votre vie privée : puisque chaque service ne voit que la passkey conçue pour lui, aucun identifiant commun ne peut être utilisé pour suivre ou relier vos activités sur différents sites."
+      ]
+    },
+    "techCallout": {
+      "headline": "La négociation cryptographique (handshake)",
+      "body": "Pour confirmer votre identité, le service (application ou site) envoie un défi au cours du processus de connexion. Le gestionnaire d'identifiants/l'authentificateur signe ce défi à l'aide de la clé privée de la passkey. La réponse signée comprend cette signature ainsi que des données contextuelles sur la session, comme l'origine et l'indication si la requête provient d'un contexte imbriqué (iframe). Le serveur vérifie que (1) l'origine correspond à la valeur attendue (par ex. bank.com et non fake-bank.com), (2) le défi correspond à celui émis, et (3) la signature est valide pour la clé publique stockée. La validation signée de l'origine est le principal mécanisme par lequel les passkeys (et les identifiants WebAuthn en général) résistent au hameçonnage.",
+      "additionalLinks": [
+        {
+          "label": "Schémas et explications approfondies sur MDN",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Authentication/Passkeys#sign_in"
+        }
+      ]
+    }
+  },
+  "whyPasswordsFail": {
+    "sectionLabel": "Le problème des mots de passe",
+    "headline": "Pourquoi les mots de passe continuent d'échouer",
+    "intro": "Les mots de passe existent depuis des décennies, mais ils n'ont pas été conçus pour l'Internet d'aujourd'hui. Face à l'évolution des cybermenaces, nous avons tenté de les sécuriser en ajoutant des codes par SMS, des liens par e-mail ou d'autres étapes supplémentaires pour prouver notre légitimité. Même si ces méthodes aident parfois, elles ne règlent pas le problème de fond : les mots de passe sont, par nature, un très mauvais moyen de prouver son identité.",
+    "outro": "Les passkeys ont été conçues pour remédier à ces problèmes.",
+    "cards": {
+      "reuse": {
+        "title": "Les mots de passe sont réutilisés",
+        "body": "De nombreuses personnes réutilisent le même mot de passe sur plusieurs comptes. Si un site web est compromis, les attaquants s'empressent de tester ce mot de passe sur d'autres plateformes."
+      },
+      "stolen": {
+        "title": "Les mots de passe peuvent être volés",
+        "body": "Les sites web conservent des données de mots de passe que les pirates ciblent lors de fuites de données. Une fois dérobés, les mots de passe peuvent être cassés puis exploités par ces attaquants."
+      },
+      "phishing": {
+        "title": "Les mots de passe peuvent être hameçonnés",
+        "body": "L'hameçonnage (phishing) est l'attaque la plus courante menant au vol de comptes et à l'usurpation d'identité. Les assaillants créent des sites frauduleux imitant des sites légitimes pour inciter les utilisateurs à divulguer leurs mots de passe et leurs codes de vérification."
+      },
+      "slow": {
+        "title": "Les mots de passe vous ralentissent",
+        "body": "Se souvenir des mots de passe, réinitialiser ceux qui sont oubliés, attendre un SMS ou consulter sa boîte de réception sont autant de frictions inutiles dans votre quotidien."
+      }
+    },
+    "techCallout": {
+      "headline": "Le problème fondamental",
+      "body": "Les mots de passe sont des secrets partagés : vous les connaissez, et le serveur les stocke. Ils peuvent donc être volés à deux endroits : chez vous (par hameçonnage) et sur le serveur (via des fuites de données). Tout système d'authentification fondé sur des secrets partagés souffre inévitablement de cette faille fondamentale.",
+      "additionalLinks": [
+        {
+          "label": "Rapport DBIR Verizon sur les fuites de données",
+          "url": "https://www.verizon.com/business/resources/reports/dbir/"
+        }
+      ]
+    }
+  },
+  "phishing": {
+    "sectionLabel": "Comprendre l'hameçonnage",
+    "headline": "Qu'est-ce que l'hameçonnage (phishing)?",
+    "body": "Les cybercriminels créent des sites web identiques à de vrais sites, comme votre banque, votre messagerie ou votre boutique préférée. Ils vous incitent à visiter ce faux site et à y taper votre mot de passe. Ensuite, ils utilisent votre mot de passe sur le vrai site pour se connecter à votre place. L'hameçonnage est la cause la plus fréquente de vol de compte et d'identité en ligne, et il fonctionne tout autant contre les mots de passe que contre les codes de vérification et les SMS.",
+    "example": {
+      "label": "Vrai site vs faux site",
+      "real": "bank.com",
+      "fake": "bank-secure-login.com"
+    },
+    "resistance": {
+      "headline": "Avec une passkey, l'attaque échoue !",
+      "body": "Votre passkey est liée de façon permanente au site web exact sur lequel vous l'avez créée. Elle refuse tout simplement d'interagir avec un site imitateur, qu'il s'agisse d'un nom de domaine trompeur (typosquattage) ou d'une redirection. N'ayant rien à saisir, l'attaquant n'a rien à voler.",
+      "fake": {
+        "label": "Faux site",
+        "result": "La passkey refuse de fonctionner"
+      },
+      "real": {
+        "label": "Vrai site",
+        "result": "La passkey fonctionne parfaitement"
+      }
+    },
+    "techCallout": {
+      "headline": "Pourquoi l'authentification multifacteur (MFA) traditionnelle ne protège pas totalement",
+      "body": [
+        "Les attaques par hameçonnage en temps réel (également appelées attaques de l'homme du milieu ou « adversary-in-the-middle ») peuvent intercepter instantanément les codes OTP par SMS, les codes TOTP et même les notifications push. Le site frauduleux de l'attaquant relaie vos identifiants au vrai site sans délai, y compris le second facteur. C'est précisément pour neutraliser ce risque que FIDO2/WebAuthn a été conçu. Les identifiants WebAuthn, dont les passkeys, sont limités à un domaine précis.",
+        "Lors de l'enregistrement, ce domaine est désigné comme l'identifiant de la partie de confiance (RP ID) et conservé avec la passkey dans le gestionnaire d'identifiants. Durant l'authentification, le RP ID permet au navigateur, à l'application ou au système d'exploitation de sélectionner la bonne passkey. Mais ce n'est pas le cœur de la protection anti-hameçonnage ! L'origine appelante du service est signée numériquement avec la clé privée de la passkey. Le service peut ensuite vérifier cette origine sur son serveur pour s'assurer qu'elle correspond à la valeur attendue. Si ce n'est pas le cas, la requête est rejetée et aucune session n'est ouverte. Cette origine correspond généralement à une URL web (par ex. https://login.example.com), mais peut aussi être l'identifiant d'une application native."
+      ],
+      "additionalLinks": [
+        {
+          "label": "Qu'est-ce qu'une origine ? sur MDN",
+          "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
+        },
+        {
+          "label": "Comment les parties de confiance vérifient l'origine sur MDN",
+          "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
+        }
+      ]
+    },
+    "illustrationAlt": "Illustration d'une attaque par hameçonnage montrant un faux site web volant un mot de passe",
+    "diagram": {
+      "youLabel": "Vous",
+      "fakeSiteLabel": "FAUX SITE",
+      "passwordPlaceholder": "Entrez votre mot de passe...",
+      "attackerLabel": "Attaquant",
+      "attackerCaption": "a votre mot de passe",
+      "realSiteLabel": "Vrai site",
+      "signedInAsYou": "Désormais connecté à votre place !",
+      "realBadge": "Vrai",
+      "fakeBadge": "Faux"
+    }
+  },
+  "whyPasskeysWin": {
+    "sectionLabel": "L'avantage des passkeys",
+    "headline": "Pourquoi les passkeys l'emportent",
+    "tagline": "Meilleures que les mots de passe avec SMS. Meilleures que les liens magiques.",
+    "categories": {
+      "passwordRequired": "Mot de passe requis ?",
+      "phishable": "Hameçonnable ?",
+      "stolenFromServer": "Volable sur le serveur ?",
+      "replayAttack": "Vulnérable aux attaques par rejeu ?",
+      "easiness": "Facilité d'utilisation"
+    },
+    "methods": {
+      "password": {
+        "name": "Mot de passe",
+        "passwordRequired": "Oui",
+        "phishable": "Oui",
+        "stolenFromServer": "Oui (empreinte/hash)",
+        "replayAttack": "Oui",
+        "easiness": "Difficile à mémoriser"
+      },
+      "passwordSms": {
+        "name": "Mot de passe + SMS",
+        "passwordRequired": "Oui",
+        "phishable": "Oui",
+        "stolenFromServer": "Oui (empreinte/hash)",
+        "replayAttack": "Partiellement",
+        "easiness": "Fastidieux"
+      },
+      "magicLink": {
+        "name": "Lien magique (Magic link)",
+        "passwordRequired": "Non",
+        "phishable": "Partiellement",
+        "stolenFromServer": "Partiellement",
+        "replayAttack": "Partiellement",
+        "easiness": "Nécessite d'accéder à ses e-mails"
+      },
+      "passkey": {
+        "name": "Passkey",
+        "passwordRequired": "Non",
+        "phishable": "Non",
+        "stolenFromServer": "Non",
+        "replayAttack": "Non",
+        "easiness": "Un simple coup d'œil ou effleurement"
+      }
+    },
+    "techCallout": {
+      "headline": "Bourrage d'identifiants et protection contre les failles de serveurs",
+      "body": "Lors d'une attaque par bourrage d'identifiants (credential stuffing), les pirates utilisent des couples identifiant/mot de passe issus de fuites antérieures pour tenter de s'introduire sur d'autres sites. Les passkeys éliminent radicalement ce risque : il n'y a aucun secret à réutiliser. Côté serveur, seule la clé publique est stockée. Même si un serveur est totalement compromis, l'attaquant ne met la main que sur une liste de clés publiques, qui sont mathématiquement inutilisables pour se connecter. La clé privée correspondante n'a jamais quitté votre gestionnaire d'identifiants."
+    }
+  },
+  "credentialManagers": {
+    "sectionLabel": "Stocker les passkeys",
+    "headline": "Où sont stockées mes passkeys ?",
+    "intro": [
+      "Vos passkeys sont conservées dans un gestionnaire d'identifiants : une application ou un service qui les synchronise de manière sécurisée sur tous vos appareils, un peu comme vos photos ou vos contacts restent accessibles partout où vous êtes connecté.",
+      "La plupart des utilisateurs en possèdent déjà un. Les utilisateurs Android disposent du Google Password Manager ou de Samsung Wallet (Pass), les utilisateurs d'iPhone utilisent généralement Apple Passwords, et les utilisateurs de Windows disposent du Microsoft Password Manager. Vous pouvez également opter pour une solution tierce comme 1Password, Dashlane ou Bitwarden.",
+      "Le grand avantage : vous créez une passkey une seule fois, et elle est disponible sur tous vos appareils. Inutile de la reconfigurer sur chacun d'eux."
+    ],
+    "managers": {
+      "apple": {
+        "name": "Apple Passwords",
+        "description": "Intégré à l'iPhone, l'iPad et au Mac. Synchronisé via le trousseau iCloud à l'aide de votre compte Apple."
+      },
+      "google": {
+        "name": "Google Password Manager",
+        "description": "Intégré à Android et Chrome. Synchronisé sur vos appareils via votre compte Google. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "1password": {
+        "name": "1Password",
+        "description": "Gestionnaire d'identifiants indépendant avec prise en charge des passkeys. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "bitwarden": {
+        "name": "Bitwarden",
+        "description": "Gestionnaire d'identifiants indépendant et open source avec prise en charge des passkeys. Versions gratuites et auto-hébergées disponibles. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "dashlane": {
+        "name": "Dashlane",
+        "description": "Gestionnaire d'identifiants indépendant avec prise en charge des passkeys. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "microsoft": {
+        "name": "Microsoft Password Manager",
+        "description": "Intégré à Microsoft Edge et Windows. Synchronisé sur vos appareils via votre compte Microsoft. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "nordpass": {
+        "name": "NordPass",
+        "description": "Gestionnaire d'identifiants indépendant développé par Nord Security avec prise en charge des passkeys. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "keeper": {
+        "name": "Keeper",
+        "description": "Gestionnaire d'identifiants indépendant pour les particuliers et les entreprises avec prise en charge des passkeys. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "protonpass": {
+        "name": "Proton Pass",
+        "description": "Gestionnaire d'identifiants indépendant et chiffré de bout en bout développé par Proton avec prise en charge des passkeys. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "lastpass": {
+        "name": "LastPass",
+        "description": "Gestionnaire d'identifiants indépendant avec prise en charge des passkeys. Fonctionne sur les appareils Android, iOS, Linux, macOS et Windows."
+      },
+      "samsungpass": {
+        "name": "Samsung Wallet (Pass)",
+        "description": "Samsung Pass est intégré à Samsung Wallet, lui-même inclus sur les appareils Samsung Galaxy. Synchronisé sur vos appareils Android Samsung Galaxy via votre compte Samsung."
+      },
+      "keepassxc": {
+        "name": "KeePassXC",
+        "description": "Gestionnaire d'identifiants indépendant, open source et hors ligne (offline-first) avec prise en charge des passkeys. Fonctionne sur Linux, macOS et Windows, avec des applications complémentaires créées par la communauté pour Android et iOS.",
+        "caveats": {
+          "general": "KeePassXC n'est pas un service doté d'une synchronisation ou d'un partage intégrés : il s'agit d'une application qui manipule un fichier de base de données. Ainsi, des fonctionnalités telles que le chiffrement de bout en bout (E2EE), le partage familial et la migration ne sont pas fournies par KeePassXC lui-même, mais dépendent entièrement de votre méthode de stockage et de synchronisation du fichier (par exemple, un dossier local, un service cloud personnel ou une solution auto-hébergée). Cette flexibilité explique pourquoi il obtient une note neutre sur certains critères : vous bénéficiez exactement du niveau de sécurité et de commodité que vous prenez le temps de configurer."
+        }
+      }
+    },
+    "scoring": {
+      "sectionLabel": "Choisir un gestionnaire d'identifiants",
+      "headline": "Quel gestionnaire d'identifiants me convient le mieux ?",
+      "intro": [
+        "Choisissez le gestionnaire d'identifiants adapté à vos besoins. Que vous préfériez celui intégré à vos appareils ou une application tierce, les passkeys reposent sur des standards ouverts : les sites web et applications peuvent ainsi fonctionner avec eux quel que soit le gestionnaire choisi.",
+        "Nous avons évalué ci-dessous chaque gestionnaire d'identifiants, classé de la note globale la plus haute à la plus basse. Consultez la section « Critères d'évaluation » pour découvrir l'intégralité de notre méthodologie."
+      ],
+      "coreGroupLabel": "Critères fondamentaux",
+      "lowerGroupLabel": "Également pris en compte",
+      "gradeLabel": "Note",
+      "scoreLabel5": "Excellent",
+      "scoreLabel3": "Partiel",
+      "scoreLabel1": "Limité",
+      "lastUpdated": "Notes mises à jour en septembre 2026.",
+      "coreTag": "Fondamental",
+      "lowerTag": "Pondération moindre",
+      "caveatIndicatorLabel": "Voir la réserve concernant",
+      "caveatsLabel": "Informations complémentaires",
+      "criteria": {
+        "ecosystemAvailability": { "consumerLabel": "Fonctionne partout où vous êtes", "technicalLabel": "Disponibilité de l'écosystème" },
+        "nativePlatformIntegration": { "consumerLabel": "S'intègre facilement aux sites et applications", "technicalLabel": "Intégration native à la plateforme" },
+        "e2eeVaultSecurity": { "consumerLabel": "Protège vos identifiants", "technicalLabel": "Sécurité du coffre-fort E2EE" },
+        "credentialExchange": { "consumerLabel": "Vous permet de changer de solution", "technicalLabel": "Échange d'identifiants" },
+        "specCompliance": { "consumerLabel": "Conçu pour l'avenir de la connexion", "technicalLabel": "Interopérabilité" },
+        "digitalInheritance": { "consumerLabel": "Protège votre héritage numérique", "technicalLabel": "Succession numérique" },
+        "familySharing": { "consumerLabel": "Partage avec vos proches et votre famille", "technicalLabel": "Partage familial" }
+      },
+      "criteriaDetails": {
+        "sectionLabel": "Critères d'évaluation",
+        "headline": "Ce que chaque critère mesure",
+        "intro": "Voici ce que nous évaluons concrètement derrière chaque score, et ce qui distingue une note maximale d'une note minimale.",
+        "items": {
+          "ecosystemAvailability": {
+            "consumerBody": "Pouvez-vous réellement utiliser ce gestionnaire partout où vous en avez besoin (téléphone, ordinateur, tablette, applications et navigateurs habituels) ? Une note maximale signifie qu'il dispose d'applications natives sur toutes les plateformes majeures et fonctionne parfaitement sur les principaux navigateurs. Une note basse indique qu'il est principalement confiné aux appareils d'un seul constructeur.",
+            "technicalBody": "Prise en charge d'applications natives sur les 4 principaux systèmes d'exploitation (Android, iOS, macOS, Windows) et extensions de navigateur pour les autres.",
+            "tier5": "Applications natives pour les 4 principaux OS, complétées par des extensions de navigateur pour les autres.",
+            "tier3": "Absence sur une plateforme clé ou limitations notables au niveau du navigateur.",
+            "tier1": "Essentiellement limité à un seul écosystème."
+          },
+          "nativePlatformIntegration": {
+            "consumerBody": "La connexion est-elle réellement fluide, ou devez-vous lutter avec une extension de navigateur ? Une note maximale signifie que les passkeys s'intègrent directement et naturellement à votre système d'exploitation. Une note basse indique que vous devez recourir à des réglages manuels et à des solutions de contournement.",
+            "technicalBody": "Niveau de prise en charge des API natives de la plateforme (par exemple, intégration du gestionnaire au niveau du système) par rapport à la dépendance aux extensions de navigateur ou à d'autres flux de travail manuels.",
+            "tier5": "Intégration native complète sur les plateformes majeures ; utilisation fluide des passkeys dans les navigateurs et applications natives.",
+            "tier3": "Intégration native sur certaines plateformes, mais forte dépendance aux extensions de navigateur.",
+            "tier1": "Intégration native faible voire inexistante."
+          },
+          "e2eeVaultSecurity": {
+            "consumerBody": "Même l'éditeur de l'application ne devrait jamais pouvoir déchiffrer vos mots de passe et vos passkeys. Une note maximale signifie que votre coffre-fort utilise un chiffrement de bout en bout assez robuste pour que vous soyez le seul à détenir la clé. Une note basse signifie que l'application n'atteint pas ce niveau d'exigence.",
+            "technicalBody": "Capacité du coffre-fort à répondre aux exigences de la sécurité « zéro connaissance » et du chiffrement de bout en bout, y compris l'emploi d'une cryptographie moderne robuste et le chiffrement des métadonnées sensibles (et pas seulement des valeurs secrètes).",
+            "tier5": "Répond aux critères de protection E2EE/zéro connaissance les plus stricts, incluant une cryptographie moderne robuste et le chiffrement des métadonnées sensibles.",
+            "tier3": "Protection E2EE/zéro connaissance solide, mais ne répondant pas à l'ensemble des critères du niveau supérieur.",
+            "tier1": "Ne répond pas aux exigences attendues de protection E2EE/zéro connaissance."
+          },
+          "credentialExchange": {
+            "consumerBody": "Si vous souhaitez un jour changer d'application de gestion d'identifiants, pouvez-vous réellement emporter vos passkeys ? Une note maximale garantit que vous pouvez exporter directement vos passkeys, vos mots de passe et le contenu de votre coffre-fort. Une note basse signifie que vos mots de passe pourront être exportés, mais que vos passkeys resteront prisonnières.",
+            "technicalBody": "Prise en charge du transfert direct et standardisé des mots de passe et des passkeys (par exemple, via le protocole FIDO Credential Exchange), par opposition à une prise en charge partielle ou à l'impossibilité totale d'exporter les passkeys.",
+            "tier5": "Transfert direct et standardisé des mots de passe et des passkeys.",
+            "tier3": "Transfert standardisé d'identifiants partiel ou limité.",
+            "tier1": "Les mots de passe peuvent être exportés, mais les passkeys restent bloquées."
+          },
+          "specCompliance": {
+            "consumerBody": "La technologie des passkeys évolue constamment. Une note maximale signifie que ce gestionnaire intègre les fonctionnalités les plus récentes, et pas seulement les bases d'il y a quelques années. Une note basse indique qu'il se contente du strict minimum.",
+            "technicalBody": "L'implémentation respecte la spécification WebAuthn L3, garantissant l'interopérabilité et la cohérence au sein de l'écosystème.",
+            "tier5": "Prise en charge avérée et conformité rigoureuse avec la spécification WebAuthn L3.",
+            "tier3": "Bonne prise en charge des passkeys, mais sans conformité complète avec WebAuthn L3.",
+            "tier1": "Prise en charge basique des passkeys uniquement, ou absence de respect de la spécification WebAuthn L3."
+          },
+          "digitalInheritance": {
+            "consumerBody": "S'il vous arrive quelque chose, une personne de confiance pourra-t-elle accéder à vos comptes ? Une note maximale signifie qu'il existe une option intégrée pour désigner un contact d'urgence ou légataire. Une note basse signifie qu'aucun moyen pratique n'est prévu pour permettre à vos proches d'y accéder.",
+            "technicalBody": "Présence d'un mécanisme dédié d'accès d'urgence/succession pour les passkeys, mots de passe et autres données du coffre-fort, par opposition à une planification manuelle ou à l'absence de tout moyen d'accès sécurisé.",
+            "tier5": "Accès d'urgence/successoral dédié aux passkeys, mots de passe et autres données du coffre.",
+            "tier3": "Accès envisageable mais avec des limites importantes ou nécessitant des démarches manuelles.",
+            "tier1": "Aucun mécanisme pratique d'accès de confiance pour les mots de passe et les passkeys."
+          },
+          "familySharing": {
+            "consumerBody": "Il arrive d'avoir besoin de partager des identifiants avec son partenaire ou un membre de sa famille. Une note maximale signifie que vous pouvez partager en toute sécurité à la fois vos mots de passe et vos passkeys avec des personnes de confiance. Une note basse indique que le partage de passkeys est impossible.",
+            "technicalBody": "Vérifie si le partage sécurisé s'étend aux passkeys (et pas seulement aux mots de passe) et évalue les restrictions éventuelles de ce partage.",
+            "tier5": "Partage sécurisé des mots de passe et des passkeys.",
+            "tier3": "Le partage de passkeys existe mais présente des restrictions notables.",
+            "tier1": "Aucun partage de passkeys."
+          }
+        }
+      }
+    },
+    "techCallout": {
+      "headline": "Passkeys synchronisées vs liées à l'appareil",
+      "body": "La plupart des appareils intègrent un gestionnaire qui génère des passkeys synchronisées : la clé privée est chiffrée et synchronisée sur tous vos appareils. Cette synchronisation est chiffrée de bout en bout ; le fournisseur du gestionnaire ne peut ni déchiffrer ni utiliser la clé privée. Les passkeys liées à l'appareil (device-bound) résident exclusivement sur un seul appareil. Elles offrent une sécurité accrue contre les piratages de services ou de clouds, mais sont moins pratiques : si vous perdez l'appareil, vous perdez la passkey. Elles ne sont pas activées par défaut et nécessitent un logiciel spécifique (un gestionnaire d'identifiants dédié) ou du matériel adapté. Les clés de sécurité physiques et Windows Hello sont des exemples d'authentificateurs générant des passkeys liées à l'appareil.",
+      "additionalLinks": [
+        {
+          "label": "Passkeys synchronisées sur passkeys.dev",
+          "url": "https://passkeys.dev/docs/reference/terms/#synced-passkey"
+        },
+        {
+          "label": "Passkeys liées à l'appareil sur passkeys.dev",
+          "url": "https://passkeys.dev/docs/reference/terms/#device-bound-passkey"
+        }
+      ]
+    }
+  },
+  "closingCTA": {
+    "sectionLabel": "Commencer à utiliser les passkeys",
+    "headline": "Commencez à dire adieu aux mots de passe, une connexion à la fois",
+    "body": "Vous avez fait la connaissance des passkeys. Il est maintenant temps de tourner la page des mots de passe.",
+    "detail": "Quelques secondes suffisent pour commencer. Ensuite, passez moins de temps à vous connecter et plus de temps à vous consacrer à l'essentiel.",
+    "examplesLabel": "EXEMPLES D'EXPÉRIENCES AVEC LES PASSKEYS",
+    "createLabel": "Créer une passkey",
+    "signInLabel": "Se connecter avec une passkey",
+    "createButtonCaption": "Bouton pour créer une passkey",
+    "signInButtonCaption": "Bouton pour se connecter avec une passkey",
+    "autofillCaption": "Remplissage automatique sur ordinateur",
+    "keyboardCaption": "Suggestion du clavier sur mobile",
+    "iconCalloutBody": "Repérez l'icône passkey sur les sites et applications que vous utilisez.",
+    "passkeyIconAlt": "Icône de passkey",
+    "applePasskeyIconAlt": "Icône de passkey Apple",
+    "googlePasskeyIconAlt": "Icône de passkey Google",
+    "usernameLabel": "Nom d'utilisateur",
+    "passkeyLabel": "Passkey",
+    "useAnotherDevice": "Utiliser la passkey d'un autre appareil",
+    "forDomain": "pour {domain}"
+  },
+  "workPasskeys": {
+    "sectionLabel": "Les passkeys au travail",
+    "headline": "Qu'est-ce qui change quand on utilise les passkeys au travail ?",
+    "intro": "Les passkeys fonctionnent généralement de la même manière au bureau que dans votre vie personnelle, mais l'environnement qui les encadre est souvent différent. Un seul compte professionnel compromis pouvant mettre en péril toute une entreprise, les employeurs imposent fréquemment des règles plus strictes que celles de votre quotidien.",
+    "highlights": {
+      "choice": {
+        "title": "Vous ne choisissez pas forcément votre gestionnaire d'identifiants",
+        "body": "Chez vous, vous choisissez l'application ou l'appareil qui vous convient. Au travail, les équipes informatiques et de sécurité décident souvent à votre place en imposant un gestionnaire d'identifiants spécifique, un appareil administré ou une clé de sécurité physique afin que chaque employé respecte le même niveau de sécurité."
+      },
+      "extraSteps": {
+        "title": "Des étapes supplémentaires peuvent être requises",
+        "body": "Certaines organisations exigent la saisie d'un code PIN, un contrôle biométrique ou l'utilisation d'un appareil administré avant d'autoriser l'emploi d'une passkey, en particulier pour les systèmes sensibles (finance, RH ou consoles d'administration)."
+      },
+      "differentLook": {
+        "title": "L'écran de connexion peut avoir une autre allure",
+        "body": "On peut vous demander d'insérer une clé de sécurité physique, afficher l'identité visuelle propre à votre entreprise, ou encore désactiver totalement l'option de passkey intégrée à votre appareil personnel."
+      }
+    },
+    "compare": {
+      "sectionLabel": "Deux mondes différents",
+      "headline": "Vie personnelle vs vie professionnelle",
+      "personal": {
+        "label": "Vos comptes personnels",
+        "caption": "Vous gardez le contrôle",
+        "items": [
+          "Choisissez le gestionnaire d'identifiants de votre choix",
+          "Synchronisez les passkeys sur vos propres appareils",
+          "Vous gérez vous-même les sauvegardes et la récupération"
+        ]
+      },
+      "work": {
+        "label": "Vos comptes professionnels",
+        "caption": "Le service informatique fixe les règles",
+        "items": [
+          "Le service informatique choisit le gestionnaire d'identifiants autorisé",
+          "Peut imposer une clé de sécurité physique ou un appareil administré",
+          "Souvent liées à l'appareil — pas de synchronisation sur le cloud personnel",
+          "Régies par la politique de sécurité et de conformité de l'entreprise"
+        ]
+      }
+    },
+    "examples": {
+      "sectionLabel": "Ce que vous pourriez rencontrer au travail",
+      "items": {
+        "managedDevice": { "label": "Gestionnaires d'identifiants administrés" },
+        "securityKey": { "label": "Clés de sécurité physiques" },
+        "brandedSignIn": { "label": "Connexion aux couleurs de l'entreprise" },
+        "deviceBound": { "label": "Passkeys liées à l'appareil uniquement" }
+      }
+    },
+    "techCallout": {
+      "headline": "Les contrôles d'entreprise en coulisses",
+      "body": [
+        "Les organisations ayant des exigences de sécurité particulières (comme l'obligation d'utiliser des passkeys matérielles, attestées et strictement liées à l'appareil) doivent fournir à leurs utilisateurs un authentificateur ou un gestionnaire d'identifiants répondant à ces critères. Il peut s'agir d'une ou plusieurs clés de sécurité matérielles ou d'une application de gestion d'identifiants d'entreprise spécifique, chacune pouvant appliquer des règles déterminées par les politiques internes.",
+        "Le principe est identique à celui du stockage de fichiers ou des outils d'IA : pour éviter que les employés n'utilisent des outils non vérifiés, l'entreprise fournit (et impose) une solution approuvée et conforme à ses règles. C'est tout l'intérêt des gestionnaires d'identifiants administrés prenant en charge les passkeys liées à l'appareil : ils permettent de faire respecter vos exigences de sécurité sans recourir à une gestion globale des appareils (MDM), puisque l'application des règles s'opère au niveau du gestionnaire et non du système d'exploitation."
+      ]
+    }
+  },
+  "faq": {
+    "sectionLabel": "FAQ",
+    "headline": "Questions fréquentes sur les passkeys",
+    "missingQuestion": "Une question manque à l'appel ?",
+    "missingQuestionLink": "Faites-le nous savoir",
+    "searchPlaceholder": "Rechercher des questions...",
+    "searchAriaLabel": "Rechercher dans la FAQ",
+    "noResults": "Aucune question correspondante trouvée. Essayez un autre terme de recherche.",
+    "categories": [
+      {
+        "name": "Les bases",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Qu'est-ce qu'une passkey, exactement ?",
+            "answer": "Une passkey est une clé numérique unique qui remplace votre mot de passe. Lorsque vous en créez une, deux clés numériques associées sont créées : l'une est stockée en lieu sûr dans votre gestionnaire d'identifiants, l'autre est transmise au site web ou à l'application. Lors de la connexion, votre appareil s'assure qu'il s'agit bien de vous grâce à votre visage, votre empreinte ou le code PIN de l'appareil, puis utilise votre part de la passkey pour prouver votre identité. Votre clé privée n'est jamais divulguée au site web."
+          },
+          {
+            "type": "basic",
+            "question": "En quoi une passkey est-elle différente d'un mot de passe ?",
+            "answer": "Un mot de passe est un secret que vous mémorisez et que vous devez taper sur un site web. Une passkey est une clé numérique unique conservée dans votre gestionnaire d'identifiants, que vous n'avez besoin ni de retenir ni de saisir. Chaque passkey est unique au site web ou à l'application pour lequel elle a été générée ; elle ne peut donc pas être devinée, hameçonnée ou réutilisée sur d'autres comptes, contrairement à un mot de passe."
+          },
+          {
+            "type": "basic",
+            "question": "En quoi une passkey diffère-t-elle de la double authentification (2FA, comme les SMS ou les applications d'authentification) ?",
+            "answer": "L'authentification à deux facteurs traditionnelle (2FA) impose généralement une étape supplémentaire après la saisie du mot de passe, comme un code reçu par SMS ou généré par une application. Une passkey peut remplacer à la fois le mot de passe et ces étapes intermédiaires en vérifiant en toute sécurité la présence de votre passkey et votre identité via votre visage, votre empreinte ou le code PIN de l'appareil. Certains sites peuvent toutefois demander une étape de vérification supplémentaire selon leur implémentation."
+          },
+          {
+            "type": "basic",
+            "question": "Qu'est-ce que FIDO2 et quel est son rapport avec les passkeys ?",
+            "answer": "FIDO2 est le standard technique sur lequel reposent les passkeys. Inutile d'en maîtriser tous les détails : retenez simplement que « passkey » est le nom grand public désignant ce que FIDO2 rend possible. C'est grâce à lui que les passkeys fonctionnent à l'identique d'un système d'exploitation, d'un site web, d'une application, d'un appareil ou d'un gestionnaire d'identifiants à l'autre."
+          },
+          {
+            "type": "basic",
+            "question": "Une passkey est-elle identique à une clé de sécurité physique (comme une YubiKey) ?",
+            "answer": "Une clé de sécurité physique peut héberger une passkey, mais elle n'est pas nécessaire pour les utiliser. La majorité des utilisateurs stockent leurs passkeys dans un gestionnaire d'identifiants sur leur téléphone, leur ordinateur ou leurs autres appareils. Les clés de sécurité physiques constituent simplement une option supplémentaire pratique pour ceux qui recherchent un moyen de connexion physique séparé."
+          },
+          {
+            "type": "basic",
+            "question": "L'utilisation d'une passkey implique-t-elle l'envoi de mon empreinte ou de mon scan facial au site web ?",
+            "answer": "Non. Votre empreinte digitale ou la reconnaissance faciale est traitée localement par votre appareil pour confirmer votre identité. Vos données biométriques ne quittent jamais votre appareil et ne sont jamais communiquées au site web ou à l'application."
+          },
+          {
+            "type": "basic",
+            "question": "De quoi ai-je réellement besoin pour me connecter avec une passkey ?",
+            "answer": "Vous avez besoin d'accéder à votre passkey via votre gestionnaire d'identifiants et d'un moyen de confirmer votre identité, comme votre visage, votre empreinte digitale ou le code PIN de l'appareil. La plupart du temps, aucun téléchargement n'est requis : votre téléphone ou votre ordinateur intègre déjà un gestionnaire d'identifiants."
+          },
+          {
+            "type": "basic",
+            "question": "Quelle est la différence entre le code PIN de mon appareil et mon ancien mot de passe ?",
+            "answer": "Un mot de passe est transmis au site web lors de la connexion. Le code PIN de votre appareil reste strictement local : il sert à prouver que c'est bien vous qui utilisez l'appareil et n'est jamais transmis au site web. Lors de l'usage d'une passkey, votre code PIN d'appareil peut servir à déverrouiller l'accès à la passkey. Votre code PIN ou code de déverrouillage n'est jamais transmis au site ou à l'application."
+          },
+          {
+            "type": "basic",
+            "question": "Où les passkeys sont-elles réellement stockées ?",
+            "answer": "Généralement à l'un de ces deux endroits : dans la zone de stockage sécurisée intégrée à votre appareil (une puce protégée et isolée du reste du système) ou dans votre gestionnaire d'identifiants habituel. Vous ne pouvez généralement pas « voir » la clé brute elle-même—de même qu'on ne voit pas le code source d'un mot de passe enregistré—mais vous pouvez visualiser et gérer la liste de vos passkeys dans les paramètres de votre compte ou de votre gestionnaire."
+          },
+          {
+            "type": "basic",
+            "question": "Google, Apple ou Microsoft possèdent-ils mes passkeys, et peuvent-ils me bloquer l'accès ?",
+            "answer": "Non, vos passkeys vous appartiennent et sont associées au site web concerné, et non à Google, Apple ou Microsoft. Ces entreprises offrent simplement un emplacement pour les conserver et les synchroniser (à la manière de vos photos). Gardez toutefois en tête que la perte d'accès à ce compte principal peut vous empêcher de récupérer vos passkeys sur un nouvel appareil. Si vous préférez éviter cette dépendance, vous pouvez opter pour un gestionnaire d'identifiants tiers indépendant."
+          }
+        ]
+      },
+      {
+        "name": "Configuration et usage au quotidien",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Comment configurer une passkey ?",
+            "answer": "Lorsqu'un site web ou une application propose les passkeys, cherchez une option du type « Créer une passkey » ou « Configurer une passkey » dans les paramètres de votre compte ou de sécurité. Votre appareil vous invitera à confirmer votre identité avec votre visage, votre empreinte ou le code PIN de l'appareil. Votre passkey sera ensuite générée et enregistrée dans votre gestionnaire d'identifiants. Certains services vous proposeront également d'en créer une juste après votre connexion."
+          },
+          {
+            "type": "basic",
+            "question": "Pourquoi un site me demande-t-il de créer une passkey alors que j'ai déjà un mot de passe ?",
+            "answer": "De nombreux sites et applications adoptent les passkeys pour offrir une alternative plus sûre et plus facile que le mot de passe traditionnel. En créer une vous permettra de l'utiliser à la place de la saisie de votre mot de passe lors de vos prochaines connexions. Selon le site, votre mot de passe pourra subsister comme méthode de secours ou de récupération."
+          },
+          {
+            "type": "basic",
+            "question": "Pourquoi le site me demande-t-il encore un mot de passe alors que j'ai configuré une passkey ?",
+            "answer": "Cela se produit généralement lorsque vous utilisez un nouvel appareil ou un nouveau navigateur qui n'a pas encore fait connaissance avec votre passkey. Dès qu'elle sera synchronisée ou configurée sur cet appareil, la demande cessera. Il s'agit d'un manque d'uniformité dans le déploiement actuel de certains sites, et non d'une anomalie de votre passkey."
+          },
+          {
+            "type": "basic",
+            "question": "Pourquoi certains sites demandent-ils encore un deuxième code après l'utilisation d'une passkey ?",
+            "answer": "Quelques services n'ont pas encore entièrement modernisé leur système d'authentification et continuent de réclamer une double authentification par précaution. Bien que redondante, cette étape est sans danger et disparaîtra à mesure que les déploiements s'achèveront."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je utiliser uniquement une passkey, sans aucun mot de passe ?",
+            "answer": "C'est la vocation première des passkeys. Cependant, certains sites continuent d'exiger la définition d'un mot de passe—même si vous vous connectez toujours par passkey—afin de conserver une procédure de secours pour la récupération de compte."
+          },
+          {
+            "type": "basic",
+            "question": "Pourquoi l'utilisation d'une passkey semble-t-elle parfois plus longue qu'un mot de passe ?",
+            "answer": "Actuellement, certains sites affichent des fenêtres de confirmation intermédiaires (comme « Voulez-vous utiliser une passkey ? ») le temps que les utilisateurs s'habituent à ce nouveau réflexe. Une fois la technologie pleinement généralisée, tout sera quasi instantané : confirmez votre identité avec votre visage, votre empreinte ou votre code PIN, et vous êtes connecté."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je nommer mes passkeys pour les différencier ?",
+            "answer": "Oui, beaucoup de sites web et d'applications vous permettent de donner un nom à chaque passkey. Cela permet d'identifier facilement laquelle supprimer si vous perdez un appareil. Gardez toutefois à l'esprit que la majorité des passkeys sont synchronisées sur l'ensemble de vos appareils : leur donner le nom d'un appareil particulier peut donc être trompeur. Beaucoup de sites renseignent automatiquement le nom du gestionnaire utilisé (par exemple Google Password Manager, Apple Passwords, Bitwarden). Si aucun libellé n'est proposé par défaut, privilégiez le nom de votre gestionnaire plutôt que celui de l'appareil."
+          },
+          {
+            "type": "basic",
+            "question": "Comment désactiver les invites du type « enregistrer une passkey ? » si je n'en veux pas ?",
+            "answer": "Ces notifications peuvent émaner du site web, du navigateur ou du gestionnaire d'identifiants. La démarche pour les couper dépend donc de leur origine. Examinez les réglages relatifs aux passkeys, aux connexions ou au remplissage automatique au sein de votre navigateur ou de votre gestionnaire."
+          }
+        ]
+      },
+      {
+        "name": "Appareils multiples et synchronisation",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Comment fonctionnent les passkeys si j'utilise un téléphone, un ordinateur et d'autres appareils (comme une console) ?",
+            "answer": "Tout dépend de l'endroit où votre passkey est enregistrée. De nombreux gestionnaires d'identifiants synchronisent vos passkeys de manière sécurisée entre vos appareils : une clé créée sur votre téléphone sera donc disponible sur votre ordinateur ou tablette. Certaines passkeys sont en revanche cantonnées à un appareil précis sans synchronisation. Si votre passkey n'est pas présente sur l'appareil que vous utilisez, vous pouvez généralement vous servir d'un autre appareil (comme votre téléphone) pour autoriser la connexion."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je synchroniser mes passkeys entre mon téléphone et mon ordinateur ?",
+            "answer": "Oui, à condition que votre gestionnaire d'identifiants prenne en charge ces deux appareils ainsi que la synchronisation des passkeys. Dans le cas contraire, les passkeys de chaque appareil demeurent séparées."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je transférer une passkey d'un gestionnaire d'identifiants à un autre ?",
+            "answer": "La prise en charge du transfert de passkeys entre gestionnaires progresse rapidement, mais elle n'est pas encore universelle. La possibilité de migrer vos passkeys dépend des gestionnaires concernés et des fonctionnalités qu'ils supportent. Notre tableau comparatif liste les gestionnaires compatibles : recherchez la mention « Échange d'identifiants »."
+          },
+          {
+            "type": "basic",
+            "question": "Pourquoi la synchronisation me demande-t-elle parfois un code PIN sans rapport (comme le code de mon téléphone) sur mon ordinateur portable ?",
+            "answer": "Cela survient lorsque votre ordinateur et votre téléphone sont associés pour la synchronisation des passkeys, et que le système cherche à s'assurer qu'il s'agit bien de vous en validant l'opération sur les deux appareils. Cela peut surprendre, mais ce fonctionnement est tout à fait normal."
+          },
+          {
+            "type": "basic",
+            "question": "Comment utiliser une passkey sur un appareil qui ne m'appartient pas (bibliothèque, ordinateur d'un ami) ?",
+            "answer": "Vous pouvez vous authentifier grâce à la passkey de votre smartphone ou tablette sans pour autant la stocker sur l'ordinateur tiers. Choisissez l'option du type « Utiliser un autre appareil » lors de la connexion. Un code QR s'affichera à l'écran : il vous suffira de le scanner avec votre téléphone pour finaliser l'accès."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je utiliser des passkeys sur différents systèmes d'exploitation, comme macOS et Windows ?",
+            "answer": "Oui, mais l'expérience n'est pas toujours entièrement fluide. Les passkeys stockées dans le gestionnaire d'une plateforme ne se synchronisent pas forcément de façon directe avec une autre plateforme. Par exemple, si votre passkey est stockée dans Apple Passwords et que vous vous connectez sur un PC Windows, vous devrez utiliser votre iPhone (en scannant un QR code par exemple). Si vous passez fréquemment d'un écosystème à l'autre, opter pour un gestionnaire d'identifiants multiplateforme simplifiera grandement votre quotidien. Consultez notre comparatif pour trouver les solutions les plus polyvalentes entre différents OS et navigateurs. Et si vous devez transférer des passkeys existantes, veillez à choisir un gestionnaire bien noté dans la catégorie Échange d'identifiants."
+          }
+        ]
+      },
+      {
+        "name": "Sauvegarde, perte et récupération",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Comment sauvegarder mes passkeys ?",
+            "answer": "Si vos passkeys sont synchronisées par votre gestionnaire d'identifiants, vous les retrouverez automatiquement en vous connectant à ce même gestionnaire sur un nouvel appareil. Si une passkey n'était enregistrée que localement sur un appareil perdu, vous devrez recourir à une méthode de secours pour vous connecter ou récupérer votre compte. C'est pourquoi l'usage d'un gestionnaire synchronisé est vivement recommandé pour ne jamais rester bloqué."
+          },
+          {
+            "type": "basic",
+            "question": "Que se passe-t-il si je perds mon téléphone ou si mon ordinateur tombe en panne ?",
+            "answer": "La récupération de vos passkeys dépend de votre gestionnaire d'identifiants et de sa configuration. Chaque gestionnaire applique sa propre méthode pour la sauvegarde, la récupération de compte et l'accès depuis un nouvel appareil : il est donc primordial d'anticiper ces options avant tout incident. Consultez nos évaluations pour comparer leur gestion de la sécurité, du dépannage et de la succession numérique. Si vous ne parvenez pas à récupérer vos passkeys, vous devrez passer par la procédure de récupération de compte propre à chaque site ou application."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je changer d'opérateur mobile ou perdre mon numéro de téléphone sans perdre mes passkeys ?",
+            "answer": "Oui. Les passkeys ne sont pas rattachées à votre numéro de ligne téléphonique, mais à votre compte de gestionnaire d'identifiants ou à votre matériel. Changer d'opérateur n'a donc aucun impact sur elles. Assurez-vous simplement que votre nouvel appareil a bien accès à votre gestionnaire d'identifiants avant de vous séparer de l'ancien."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je exporter et sauvegarder moi-même mes passkeys, sans dépendre d'une grande entreprise technologique ?",
+            "answer": "Certains gestionnaires le proposent d'ores et déjà, tandis que d'autres préparent cette fonctionnalité. Si la pleine maîtrise de vos sauvegardes est un critère déterminant pour vous, vérifiez les options d'exportation spécifiques de votre gestionnaire."
+          }
+        ]
+      },
+      {
+        "name": "Gérer plusieurs passkeys",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Dois-je configurer plus d'une passkey par compte ?",
+            "answer": "Cela dépend de votre méthode de stockage. Si votre gestionnaire d'identifiants synchronise vos passkeys sur vos appareils, une seule passkey par compte suffit amplement. Si votre passkey est liée à un appareil unique ou si vous désirez disposer d'un accès de secours supplémentaire, créer des passkeys additionnelles est une sage précaution."
+          },
+          {
+            "type": "basic",
+            "question": "Puis-je restreindre un compte à la passkey d'un seul appareil précis ?",
+            "answer": "Certains sites proposent ce paramètre de sécurité avancé dans les réglages de compte, même si cette pratique n'est pas encore universelle. Vérifiez directement dans les options de sécurité du service en question."
+          },
+          {
+            "type": "basic",
+            "question": "Dois-je utiliser une passkey comme seule méthode de connexion ou conserver un mot de passe en secours ?",
+            "answer": "Privilégiez la passkey dès qu'un site ou une application vous le permet. La suppression totale du mot de passe dépend des capacités de la plateforme : certaines gèrent les comptes 100 % passkey, tandis que d'autres conservent le mot de passe comme méthode secondaire de secours. Si vous choisissez de supprimer votre mot de passe, assurez-vous d'avoir configuré une méthode de secours fiable en cas de perte d'accès à votre passkey."
+          }
+        ]
+      },
+      {
+        "name": "Sécurité",
+        "types": ["basic", "advanced"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Les passkeys sont-elles plus sûres que les mots de passe et l'authentification 2FA classique ?",
+            "answer": "Oui. Les passkeys sont intrinsèquement conçues pour faire échec à l'hameçonnage (phishing) et aux attaques courantes qui dérobent identifiants et codes temporaires. Chaque passkey étant unique au service pour lequel elle a été créée, elle ne peut pas être devinée, réutilisée sur un autre service ni trompée par un site contrefait."
+          },
+          {
+            "type": "basic",
+            "question": "Si quelqu'un vole mon téléphone, peut-il accéder à mes comptes ?",
+            "answer": "Une personne malintentionnée ne pourrait exploiter vos passkeys qu'en parvenant également à déverrouiller votre appareil (via empreinte digitale, visage ou code PIN), cette étape étant requise pour chaque utilisation. C'est un obstacle bien plus difficile à franchir pour un pirate à distance que de dérober un mot de passe."
+          },
+          {
+            "type": "basic",
+            "question": "Un site web peut-il faire la différence entre une passkey de gestionnaire d'identifiants et une passkey sur clé de sécurité physique ?",
+            "answer": "Oui, c'est techniquement possible, même si pour la plupart des connexions quotidiennes cela n'a pas d'importance : les deux bénéficient du même niveau de confiance élevé."
+          },
+          {
+            "type": "basic",
+            "question": "Existe-t-il un risque de sécurité si mon gestionnaire d'identifiants ou mon fournisseur de compte se fait pirater ?",
+            "answer": "Oui, mais la nature du risque est bien différente de celle d'une fuite de mots de passe. Les passkeys ne constituent pas des secrets réutilisables : un attaquant ne peut donc pas se contenter de subtiliser une clé pour se connecter immédiatement à votre compte. De plus, vos passkeys sont protégées par le niveau de sécurité de votre gestionnaire et des appareils servant à y accéder. Voilà pourquoi le choix d'un bon gestionnaire est essentiel. Consultez nos évaluations pour comparer la robustesse des différentes solutions."
+          },
+          {
+            "type": "advanced",
+            "question": "Quels algorithmes cryptographiques sont utilisés par les passkeys ?",
+            "answer": "Les passkeys reposent sur la cryptographie asymétrique à clé publique, le plus fréquemment ECDSA avec la courbe P-256 (algorithme COSE -7), conformément aux spécifications WebAuthn. Certains authentificateurs prennent également en charge RS256 (RSASSA-PKCS1-v1_5) ou EdDSA. Lors de l'enregistrement, l'authentificateur génère une paire de clés et retourne la clé publique ainsi qu'un identifiant d'authentification (Credential ID) à la partie de confiance. Lors de l'authentification, il signe un défi généré par le serveur avec sa clé privée, signature que le serveur valide à l'aide de la clé publique enregistrée."
+          }
+        ]
+      },
+      {
+        "name": "Partage et accès familial",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Puis-je partager un compte protégé par passkey avec un proche ou un membre de ma famille ?",
+            "answer": "Parfois. Certains gestionnaires d'identifiants autorisent le partage sécurisé de passkeys avec des proches ou des contacts de confiance. Cela dépend du gestionnaire que vous utilisez et des autorisations accordées par le site ou l'application. Consultez notre comparatif des gestionnaires pour voir lesquels gèrent le partage familial."
+          },
+          {
+            "type": "basic",
+            "question": "Comment garantir que ma famille pourra accéder à mes comptes s'il m'arrive quelque chose ?",
+            "answer": "Tout dépend de votre gestionnaire d'identifiants. Certains mettent à disposition des mécanismes d'accès d'urgence, de contacts héritiers ou d'autres dispositifs de succession numérique permettant à vos proches d'accéder à vos identifiants en cas de force majeure. Si cette précaution compte pour vous, prenez soin de la paramétrer à l'avance. Consultez nos notes de gestionnaires pour découvrir comment chacun gère l'héritage numérique."
+          },
+          {
+            "type": "basic",
+            "question": "Si le compte de mon écosystème principal est suspendu, puis-je toujours me connecter ailleurs avec les passkeys qui y étaient stockées ?",
+            "answer": "Pas obligatoirement. Si vous perdez l'accès au compte dont dépend votre gestionnaire d'identifiants, vous risquez également de perdre l'accès aux passkeys qui y sont enregistrées ou synchronisées. Les conséquences dépendent du fournisseur et des mécanismes de secours prévus. C'est l'une des raisons pour lesquelles il est capital de bien comprendre comment votre solution gère la récupération de compte. Consultez nos évaluations pour bien choisir."
+          }
+        ]
+      },
+      {
+        "name": "Changement de gestionnaire et verrouillage propriétaire",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Suis-je enfermé dans un seul gestionnaire d'identifiants dès lors que j'utilise des passkeys ?",
+            "answer": "Ce n'est pas le but voulu par la norme. Dans la pratique, les gestionnaires ont mis un peu de temps à intégrer la migration, mais la majorité des applications courantes gèrent désormais le transfert sécurisé de vos identifiants et passkeys vers un autre service. La prise en charge du protocole d'échange d'identifiants (Credential Exchange) se développe activement dans l'écosystème. Consultez la catégorie « Vous permet de changer de solution » dans notre section d'évaluation des gestionnaires."
+          },
+          {
+            "type": "basic",
+            "question": "Pourquoi ne puis-je pas transférer librement mes passkeys entre tous mes appareils ou gestionnaires ?",
+            "answer": "La technologie sous-jacente le prévoit tout à fait, mais tous les éditeurs n'ont pas encore terminé le développement des outils conviviaux pour y parvenir facilement. Il s'agit d'un simple décalage d'implémentation logicielle, et non d'une limite inhérente aux passkeys."
+          }
+        ]
+      },
+      {
+        "name": "Confiance et adoption",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Pourquoi tant de sites expliquent-ils si mal les passkeys ?",
+            "answer": "C'est une critique tout à fait légitime. Comme les passkeys sont encore une nouveauté pour la plupart des gens, beaucoup de plateformes n'ont pas encore investi dans des explications simples et claires. C'est une lacune reconnue dans l'industrie, et c'est justement l'une des raisons d'être de ce site web !"
+          },
+          {
+            "type": "basic",
+            "question": "Pourquoi devrais-je m'en préoccuper si une technologie encore meilleure peut remplacer les passkeys l'an prochain ?",
+            "answer": "Les passkeys s'appuient sur une norme ouverte de l'industrie (FIDO2), soutenue conjointement par Apple, Google et Microsoft. Elles s'inscrivent donc comme une solution pérenne et non comme une mode éphémère. Les adopter dès aujourd'hui réduit immédiatement vos risques de piratage."
+          },
+          {
+            "type": "basic",
+            "question": "Les passkeys vont-elles continuer à fonctionner de la même manière pendant des années, ou devrai-je tout réapprendre ?",
+            "answer": "Le principe fondamental (déverrouiller son appareil pour se connecter à un site web) est fait pour rester inchangé sur le long terme. Ce qui continue d'évoluer et de se perfectionner, ce sont les mécanismes de synchronisation et de migration d'un gestionnaire à l'autre."
+          }
+        ]
+      }
+    ],
+    "advancedTag": "Avancé",
+    "resultsFound": {
+      "one": "{count} question trouvée",
+      "other": "{count} questions trouvées"
+    }
+  },
+  "footer": {
+    "madeWith": "Fait avec",
+    "by": "par la communauté passkey.",
+    "feedback": "Des remarques sur ce site ?",
+    "feedbackLink": "Faites-le nous savoir",
+    "licensePrefix": "Contenu sous licence",
+    "licenseName": "CC BY 4.0",
+    "viewSourceOnGitHub": "Voir la source sur GitHub"
+  }
+}

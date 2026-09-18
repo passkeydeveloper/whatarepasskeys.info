@@ -8,10 +8,11 @@ interface TechLink {
 
 interface Props {
   links?: TechLink[];
+  t: any;
   heading?: string;
 }
 
-const { links, heading = 'Go Deeper' } = Astro.props;
+const { links, t, heading = t.common.goDeeper } = Astro.props;
 ---
 {links && links.length > 0 && (
   <div class="mt-4 pt-4 border-t border-indigo-200">
@@ -26,7 +27,7 @@ const { links, heading = 'Go Deeper' } = Astro.props;
         >
           {link.label}
           <ExternalLink size={13} class="shrink-0" />
-          <span class="sr-only">(opens in a new tab)</span>
+          <span class="sr-only">{t.common.opensInNewTab}</span>
         </a>
       ))}
     </div>

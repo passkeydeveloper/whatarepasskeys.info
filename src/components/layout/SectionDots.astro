@@ -1,11 +1,12 @@
 ---
 interface Props {
   sections: { id: string; label: string }[];
+  t: any;
 }
 
-const { sections } = Astro.props;
+const { sections, t } = Astro.props;
 ---
-<nav id="section-dots" aria-label="Page sections" class="hidden md:flex">
+<nav id="section-dots" aria-label={t.nav.pageSections} class="hidden md:flex">
   {sections.map(s => (
     <a
       href={`#${s.id}`}
