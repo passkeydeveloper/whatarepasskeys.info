@@ -102,20 +102,20 @@
     "intro": "Using a passkey is simple. Once you've created one, signing in only takes a few seconds.",
     "steps": {
       "create": {
-        "label": "Create a Passkey",
+        "label": "Create a passkey",
         "body": "Your credential manager creates a unique pair of keys, your passkey, for the website or app. One part of the passkey is shared with the website. The other part remains securely stored in your credential manager on your device to prove it's you. Your part is never shared or stored by the website or app."
       },
       "confirm": {
-        "label": "Confirm It's You",
+        "label": "Confirm it's you",
         "body": "The next time you sign in, your device asks you to verify it's you using your face, fingerprint, or device PIN. Your biometric, if used, never leaves your device and is never shared."
       },
       "signedIn": {
-        "label": "You're Signed In",
+        "label": "You're signed in!",
         "body": "Your device securely proves it's you to the website, without ever sending a password over the internet."
       }
     },
     "uniqueness": {
-      "headline": "Every Passkey Is Unique",
+      "headline": "Every passkey is unique",
       "body": [
         "Every service you use gets its own unique passkey. A passkey created for your bank works with your bank (website or app) and nowhere else. A passkey created for your email works the same way, for your email only. Because each passkey belongs to one service, there's nothing to steal and reuse anywhere else.",
         "This also protects your privacy: since each service only ever sees the passkey made for it, there's no shared identifier that could be used to track or link your activity across different sites."
@@ -508,7 +508,7 @@
   },
   "faq": {
     "sectionLabel": "FAQ",
-    "headline": "Common Questions About Passkeys",
+    "headline": "Common questions about passkeys",
     "missingQuestion": "Missing a question?",
     "missingQuestionLink": "Let us know",
     "searchPlaceholder": "Search questions...",
