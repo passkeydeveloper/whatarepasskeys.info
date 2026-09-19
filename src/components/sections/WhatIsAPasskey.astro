@@ -173,6 +173,7 @@ const svgHeight = Math.max(340, labelBoxTop + labelBoxHeight + 22);
       <!-- Key pair illustration -->
       <div class="fade-in-section flex justify-center" style="transition-delay: 0.3s">
         <svg viewBox={`0 0 320 ${svgHeight}`} class="w-full max-w-xs" aria-label={w.illustrationAlt} role="img">
+          <title>{w.illustrationAlt}</title>
           <!-- Title -->
           <text x="160" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" class="fill-gray-500 dark:fill-gray-400">{w.diagram.title}</text>
 
