@@ -27,7 +27,7 @@
   }
 
   body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-family-display);
     -webkit-font-smoothing: antialiased;
     color: #1f2937;
     background: #ffffff;
