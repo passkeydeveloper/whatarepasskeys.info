@@ -295,11 +295,6 @@ main > section:not(#hero) {
 .mode-toggle-option.selected {
   background: #4f46e5;
   color: #ffffff;
-
-  @variant dark {
-    background: #6366f1;
-    color: #ffffff;
-  }
 }
 
 /* Theme toggle */
@@ -722,6 +717,14 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
 
 /* Copyable section headings */
 .section-link-heading {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
   cursor: pointer;
   width: fit-content;
   text-decoration-line: underline;

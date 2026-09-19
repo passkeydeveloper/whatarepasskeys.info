@@ -181,7 +181,6 @@ const sections = [
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
@@ -278,28 +277,18 @@ const sections = [
         const heading = section?.querySelector('h2');
         if (!heading) return;
 
-        heading.classList.add('section-link-heading');
-        heading.setAttribute('tabindex', '0');
-        heading.setAttribute('role', 'button');
-        heading.setAttribute('aria-label', copyLinkTemplate.replace('{section}', heading.textContent?.trim() ?? ''));
-
-        heading.addEventListener('click', () => copySectionLink(id));
-        // Match native <button> behavior: Enter triggers on keydown, Space
-        // triggers on keyup (keydown only prevents the page from scrolling).
-        heading.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            copySectionLink(id);
-          } else if (e.key === ' ') {
-            e.preventDefault();
-          }
-        });
-        heading.addEventListener('keyup', (e) => {
-          if (e.key === ' ') {
-            e.preventDefault();
-            copySectionLink(id);
-          }
-        });
+        // Wrap the heading text in a real <button> instead of putting
+        // role="button" on the <h2> itself: an explicit ARIA role on a
+        // heading element isn't allowed and strips its heading semantics
+        // from the accessibility tree, which also throws off heading-order
+        // checks for everything that follows it on the page.
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'section-link-heading';
+        button.setAttribute('aria-label', copyLinkTemplate.replace('{section}', heading.textContent?.trim() ?? ''));
+        button.append(...heading.childNodes);
+        button.addEventListener('click', () => copySectionLink(id));
+        heading.appendChild(button);
       });
 
       // Same-page navigation to a #section can land short: content-
