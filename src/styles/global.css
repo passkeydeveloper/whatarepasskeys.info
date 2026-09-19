@@ -264,6 +264,7 @@ main > section:not(#hero) {
 }
 
 .mode-toggle-option {
+  position: relative;
   padding: 0.1875rem 0.625rem;
   border-radius: 9999px;
   transition: all 0.2s;
@@ -272,6 +273,23 @@ main > section:not(#hero) {
   @variant dark {
     color: #9ca3af;
   }
+}
+
+/* Expands the tap target toward the WCAG-recommended ~44px without
+   visually growing this compact pill. Vertical-only: there's free space
+   above/below within the header (and the mobile menu panel) to expand
+   into, but the two options sit only 4px apart horizontally, so
+   expanding sideways would make their invisible tap zones overlap each
+   other. The 10px bottom expansion (vs. a less constrained top) is sized
+   to stay clear of whatever wraps onto the next row in the mobile menu,
+   which sits a fixed 14px below. */
+.mode-toggle-option::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  bottom: -10px;
+  left: 0;
+  right: 0;
 }
 
 .mode-toggle-option.selected {
@@ -286,6 +304,7 @@ main > section:not(#hero) {
 
 /* Theme toggle */
 .theme-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -303,6 +322,16 @@ main > section:not(#hero) {
     background: #1f2937;
     color: #d1d5db;
   }
+}
+
+/* Expands the tap target toward the WCAG-recommended ~44px without
+   growing the visible circle — it has clear room on every side (12px on
+   desktop, 14px in the mobile menu), so unlike .mode-toggle-option this
+   one can expand symmetrically. */
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
 }
 
 .theme-toggle:hover {
@@ -331,6 +360,7 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
    always beat the layered `sm:hidden` utility and the button would never
    hide on desktop. */
 .header-menu-toggle {
+  position: relative;
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
@@ -345,6 +375,15 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
     background: #1f2937;
     color: #d1d5db;
   }
+}
+
+/* Same tap-target expansion as .theme-toggle above — this one has room on
+   every side too (it's the only interactive element on this side of the
+   header when visible). */
+.header-menu-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
 }
 
 .header-menu-toggle:hover {
