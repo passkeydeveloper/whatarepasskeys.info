@@ -31,21 +31,24 @@ This project exists because most sites that offer passkeys explain them poorly, 
 ```sh
 git clone https://github.com/passkeydeveloper/whatarepasskeys.info.git
 cd whatarepasskeys.info
-npm install
+npm run setup
 ```
 
-Running `npm install` also wires up a native Git pre-commit hook (via the `prepare` script) that validates any staged `.json` files are syntactically valid before allowing a commit. The hook lives at `.githooks/pre-commit`.
+`npm run setup` runs `npm install` (which also wires up a native Git pre-commit hook via the `prepare` script — it validates any staged `.json` files are syntactically valid before allowing a commit; the hook lives at `.githooks/pre-commit`) and then installs the [cspell](https://cspell.org) language dictionaries used to spell-check translated content. Plain `npm install` works too — it installs the same dictionaries since they're regular dev dependencies; `setup` is just the documented, one-command entry point.
 
 ### Commands
 
 All commands are run from the root of the project:
 
-| Command             | Action                                        |
-| :------------------- | :--------------------------------------------- |
-| `npm run dev`         | Starts the local dev server at `localhost:4321` |
-| `npm run build`       | Builds the production site to `./dist/`        |
-| `npm run preview`     | Previews the production build locally          |
-| `npm run astro ...`   | Runs Astro CLI commands (e.g. `astro check`)   |
+| Command                  | Action                                                     |
+| :------------------------ | :----------------------------------------------------------- |
+| `npm run setup`            | One-time setup after cloning: installs deps, Git hooks, and cspell language dictionaries |
+| `npm run dev`               | Starts the local dev server at `localhost:4321`             |
+| `npm run build`             | Builds the production site to `./dist/`                    |
+| `npm run preview`           | Previews the production build locally                      |
+| `npm run astro ...`         | Runs Astro CLI commands (e.g. `astro check`)                |
+| `npm run spellcheck`        | Runs [cspell](https://cspell.org) against JSON/Markdown/YAML content |
+| `npm run setup:languages`   | (Re)installs the cspell language dictionaries (`setup` already does this) |
 
 ## Project Structure
 

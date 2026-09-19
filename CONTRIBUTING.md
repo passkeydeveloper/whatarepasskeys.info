@@ -27,8 +27,10 @@ If you'd rather just open a pull request directly, that's fine too, especially f
    ```sh
    git clone https://github.com/<your-username>/whatarepasskeys.info.git
    cd whatarepasskeys.info
-   npm install
+   npm run setup
    ```
+
+   `npm run setup` installs project dependencies, wires up the Git pre-commit hook, and installs the [cspell](https://cspell.org) language dictionaries used to spell-check translated content. Plain `npm install` also works — the dictionaries are regular dev dependencies, so it installs the same things.
 
 2. Start the dev server:
 
@@ -55,7 +57,9 @@ Almost all page copy — headlines, body text, FAQ questions and answers, and cr
 
 Content follows the site's two-tier structure: a **Basic** version for general readers, and an **Advanced** version (`techCallout` fields) that adds the underlying technical detail. When adding new content, try to match this pattern — plain-language first, technical detail as an addition, not a replacement.
 
-Spelling is checked with [cspell](https://cspell.org) against `.cspell/dict.txt`. If you use a legitimate term (a product name, a technical acronym) that isn't recognized, add it to that dictionary rather than working around it.
+Spelling is checked with [cspell](https://cspell.org) — run `npm run spellcheck` to check the whole repo. English content is checked against `.cspell/dict.txt`; if you use a legitimate term (a product name, a technical acronym) that isn't recognized, add it to that dictionary rather than working around it.
+
+Non-English locale files are checked against their own language dictionary (see `overrides` in `cspell.json`), installed via `npm run setup` / `npm run setup:languages`. Japanese (`ja.json`) is excluded from spellcheck — cspell has no Japanese dictionary package, since it checks whitespace-delimited words and Japanese doesn't tokenize that way. If you add a new locale that has a `@cspell/dict-<lang>` package available, add it to the `import` list and an `overrides` entry in `cspell.json`, and add its package to the `setup:languages` script in `package.json`.
 
 ### Translations
 

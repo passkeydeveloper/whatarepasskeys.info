@@ -1,7 +1,14 @@
 {
     "version": "0.2",
+    "language": "en-US",
+    "import": [
+      "@cspell/dict-es-es/cspell-ext.json",
+      "@cspell/dict-fr-fr/cspell-ext.json",
+      "@cspell/dict-de-de/cspell-ext.json"
+    ],
     "ignorePaths": [
-        "/.cspell/*"
+        "/.cspell/*",
+        "src/i18n/ja.json"
     ],
     "enabledFileTypes": {
       "*": false,
@@ -19,8 +26,27 @@
     "dictionaries": [
         "dict"
     ],
+    "overrides": [
+      {
+        "filename": "src/i18n/en.json",
+        "language": "en-US"
+      },
+      {
+        "filename": "src/i18n/es.json",
+        "language": "es",
+        "caseSensitive": true
+      },
+      {
+        "filename": "src/i18n/fr.json",
+        "language": "fr"
+      },
+      {
+        "filename": "src/i18n/de.json",
+        "language": "de",
+        "caseSensitive": true
+      }
+    ],
     "words": [],
     "ignoreWords": [],
-    "import": [],
     "ignoreRegExpList": []
 }

@@ -11,7 +11,10 @@
     "postbuild": "node scripts/generate-headers.mjs && node scripts/submit-indexnow.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true"
+    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
+    "spellcheck": "cspell --no-progress \"**/*.{json,md,yaml,yml}\"",
+    "setup:languages": "npm install --save-dev cspell @cspell/dict-es-es @cspell/dict-fr-fr @cspell/dict-de-de",
+    "setup": "npm install && npm run setup:languages"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -22,5 +25,11 @@
     "lucide-astro": "^0.556.0",
     "simple-icons": "^16.17.0",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@cspell/dict-de-de": "^4.1.2",
+    "@cspell/dict-es-es": "^3.0.8",
+    "@cspell/dict-fr-fr": "^2.3.2",
+    "cspell": "^10.3.3"
   }
 }
