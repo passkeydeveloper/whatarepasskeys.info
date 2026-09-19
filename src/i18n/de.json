@@ -106,7 +106,7 @@
     "steps": {
       "create": {
         "label": "Einen Passkey erstellen",
-        "body": "Ihr Passwort-Manager erstellt ein einzigartiges Schlüsselpaar – Ihren Passkey – für die Website oder App. Ein Teil des Passkeys wird mit der Website geteilt. Der andere Teil bleibt sicher in Ihrem Passwort-Manager auf Ihrem Gerät gespeichert, um Ihre Identität zu bestätigen. Ihr Teil wird niemals an die Website oder App übertragen oder dort gespeichert."
+        "body": "Ihr Passwort-Manager erstellt ein individuelles Schlüsselpaar – Ihren Passkey – für die Website oder App. Ein Teil des Passkeys wird mit der Website geteilt. Der andere Teil bleibt sicher in Ihrem Passwort-Manager auf Ihrem Gerät gespeichert, um Ihre Identität zu bestätigen. Ihr Teil wird niemals an die Website oder App übertragen oder dort gespeichert."
       },
       "confirm": {
         "label": "Bestätigen, dass Sie es sind",
@@ -120,7 +120,7 @@
     "uniqueness": {
       "headline": "Jeder Passkey ist einzigartig",
       "body": [
-        "Jeder genutzte Dienst erhält einen eigenen, einzigartigen Passkey. Ein für Ihre Bank erstellter Passkey funktioniert nur bei Ihrer Bank (Website oder App) und nirgendwo sonst. Ein für Ihre E-Mails erstellter Passkey funktioniert genauso, ausschließlich für diesen Dienst. Da jeder Passkey an einen einzelnen Dienst gebunden ist, gibt es nichts, das gestohlen und anderswo wiederverwendet werden könnte.",
+        "Jeder genutzte Dienst erhält einen eigenen, individuellen Passkey. Ein für Ihre Bank erstellter Passkey funktioniert nur bei Ihrer Bank (Website oder App) und nirgendwo sonst. Ein für Ihre E-Mails erstellter Passkey funktioniert genauso, ausschließlich für diesen Dienst. Da jeder Passkey an einen einzelnen Dienst gebunden ist, gibt es nichts, das gestohlen und anderswo wiederverwendet werden könnte.",
         "Dies schützt auch Ihre Privatsphäre: Da jeder Dienst immer nur den eigens für ihn erstellten Passkey sieht, existiert keine gemeinsame Kennung, über die Ihre Aktivitäten über verschiedene Websites hinweg verfolgt oder verknüpft werden könnten."
       ]
     },
@@ -138,7 +138,7 @@
   "whyPasswordsFail": {
     "sectionLabel": "Das Passwort-Problem",
     "headline": "Warum Passwörter immer wieder versagen",
-    "intro": "Passwörter gibt es seit Jahrzehnten, doch sie wurden nicht für das heutige Internet entwickelt. Als sich Online-Bedrohungen weiterentwickelten, versuchten wir, Passwörter sicherer zu machen – durch SMS-Codes, Bestätigungslinks per E-Mail und zusätzliche Verifizierungsschritte. All das kann situativ helfen, löst jedoch das eigentliche Grundproblem nicht: Passwörter selbst sind ungeeignet, um verlässlich zu beweisen, wer Sie sind.",
+    "intro": "Passwörter gibt es seit Jahrzehnten, doch sie wurden nicht für das heutige Internet entwickelt. Als sich Cyberangriffe weiterentwickelten, versuchten wir, Passwörter sicherer zu machen – durch SMS-Codes, Bestätigungslinks per E-Mail und zusätzliche Verifizierungsschritte. All das kann situativ helfen, löst jedoch das eigentliche Grundproblem nicht: Passwörter selbst sind ungeeignet, um verlässlich zu beweisen, wer Sie sind.",
     "outro": "Passkeys wurden entwickelt, um genau diese Probleme zu lösen.",
     "cards": {
       "reuse": {
@@ -223,7 +223,7 @@
   "whyPasskeysWin": {
     "sectionLabel": "Der Passkey-Vorteil",
     "headline": "Warum Passkeys überlegen sind",
-    "tagline": "Besser als Passwort mit SMS. Besser als Magic Links.",
+    "tagline": "Besser als Passwort mit SMS. Besser als Anmeldelink.",
     "categories": {
       "passwordRequired": "Passwort erforderlich?",
       "phishable": "Phishing-anfällig?",
@@ -249,7 +249,7 @@
         "easiness": "Umständlich"
       },
       "magicLink": {
-        "name": "Magic Link",
+        "name": "Anmeldelink",
         "passwordRequired": "Nein",
         "phishable": "Teilweise",
         "stolenFromServer": "Teilweise",
@@ -474,8 +474,8 @@
   },
   "workPasskeys": {
     "sectionLabel": "Passkeys am Arbeitsplatz",
-    "headline": "Was unterscheidet die Passkey-Nutzung im Beruf?",
-    "intro": "Im Arbeitsalltag funktionieren Passkeys technisch wie gewohnt, die Rahmenbedingungen weichen jedoch oft ab. Ein einzelnes kompromittiertes Unternehmenskonto kann die gesamte Organisation gefährden; Arbeitgeber setzen daher meist strengere Sicherheitsrichtlinien durch als im privaten Umfeld.",
+    "headline": "Was unterscheidet die Passkey-Nutzung bei der Arbeit?",
+    "intro": "Im Arbeitsalltag funktionieren Passkeys technisch wie gewohnt, die Rahmenbedingungen weichen jedoch oft ab. Ein einzelnes kompromittiertes Unternehmenskonto kann die gesamte Organisation gefährden; Unternehmen setzen daher meist strengere Sicherheitsrichtlinien durch als im privaten Umfeld.",
     "highlights": {
       "choice": {
         "title": "Sie wählen Ihren Passwort-Manager eventuell nicht selbst",
