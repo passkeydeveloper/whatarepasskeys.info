@@ -416,7 +416,7 @@
             "technicalBody": "La implementación se adhiere a la especificación WebAuthn L3, garantizando la interoperabilidad y consistencia a través de todo el ecosistema.",
             "tier5": "Demuestra compatibilidad comprobada y adhesión rigurosa a la especificación WebAuthn L3.",
             "tier3": "Buen soporte de passkeys, pero carece de compatibilidad plena o adhesión a WebAuthn L3.",
-            "tier1": "Soporte básico de passkeys únicamente, o ausencia de cumplimiento con WebAuthn L3."
+            "tier1": "Solo compatibilidad básica con llaves de paso (passkeys), o sin soporte ni cumplimiento de WebAuthn L3."
           },
           "digitalInheritance": {
             "consumerBody": "Si algo te ocurriera, ¿podría una persona de confianza acceder a tus cuentas? Una puntuación máxima significa que cuenta con una función nativa y diseñada para conceder acceso de emergencia o hereditario. Una puntuación baja significa que no hay forma práctica de que tus allegados puedan acceder.",

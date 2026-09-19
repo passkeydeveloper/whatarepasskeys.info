@@ -201,7 +201,7 @@
           "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
         },
         {
-          "label": "Wie Relying Parties die Origin prüfen bei MDN",
+          "label": "Wie Relying Parties die Origin prüfen bei W3C",
           "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
         }
       ]
@@ -416,7 +416,7 @@
             "technicalBody": "Die Implementierung folgt der WebAuthn-L3-Spezifikation, was herstellerübergreifende Interoperabilität und Konsistenz sicherstellt.",
             "tier5": "Nachgewiesene Unterstützung und Einhaltung der WebAuthn-L3-Spezifikation.",
             "tier3": "Gute Passkey-Unterstützung, lässt jedoch vollständige WebAuthn-L3-Konformität vermissen.",
-            "tier1": "Nur grundlegende Passkey-Unterstützung oder fehlende Einhaltung von WebAuthn L3."
+            "tier1": "Nur grundlegende Passkey-Unterstützung oder keine Unterstützung und Einhaltung von WebAuthn L3."
           },
           "digitalInheritance": {
             "consumerBody": "Kann eine Vertrauensperson auf Ihre Konten zugreifen, falls Ihnen etwas zustößt? Eine Top-Bewertung bedeutet, dass eine integrierte Funktion für Notfallzugriffe oder den digitalen Nachlass vorhanden ist. Eine niedrige Punktzahl bedeutet, dass es selbst für Angehörige keinen praktikablen Weg gibt.",

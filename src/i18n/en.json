@@ -201,7 +201,7 @@
           "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
         },
         {
-          "label": "How RP's check the origin @ MDN",
+          "label": "How RP's check the origin @ W3C",
           "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
         }
       ]
@@ -395,7 +395,7 @@
             "technicalBody": "The implementation adheres to the WebAuthn L3 specification, ensuring interoperability and consistency across the ecosystem.",
             "tier5": "Demonstrated support and adherence to the WebAuthn L3 specification.",
             "tier3": "Strong passkey support, but lacks full WebAuthn L3 support and adherence.",
-            "tier1": "Basic passkey support only, or no lack of WebAuthn L3 support and adherence."
+            "tier1": "Basic passkey support only, or no WebAuthn L3 support and adherence."
           },
           "digitalInheritance": {
             "consumerBody": "If something happens to you, can a trusted person get into your accounts? A top score means there's a real, built-in way to grant emergency or legacy access. A low score means there's no practical way for even loved ones to get in.",

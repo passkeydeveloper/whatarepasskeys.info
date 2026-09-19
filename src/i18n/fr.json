@@ -201,7 +201,7 @@
           "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
         },
         {
-          "label": "Comment les parties de confiance vérifient l'origine sur MDN",
+          "label": "Comment les parties de confiance vérifient l'origine sur W3C",
           "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
         }
       ]
@@ -395,7 +395,7 @@
             "technicalBody": "L'implémentation respecte la spécification WebAuthn L3, garantissant l'interopérabilité et la cohérence au sein de l'écosystème.",
             "tier5": "Prise en charge avérée et conformité rigoureuse avec la spécification WebAuthn L3.",
             "tier3": "Bonne prise en charge des passkeys, mais sans conformité complète avec WebAuthn L3.",
-            "tier1": "Prise en charge basique des passkeys uniquement, ou absence de respect de la spécification WebAuthn L3."
+            "tier1": "Prise en charge basique des clés d'accès uniquement, ou absence de prise en charge et de conformité à WebAuthn L3."
           },
           "digitalInheritance": {
             "consumerBody": "S'il vous arrive quelque chose, une personne de confiance pourra-t-elle accéder à vos comptes ? Une note maximale signifie qu'il existe une option intégrée pour désigner un contact d'urgence ou légataire. Une note basse signifie qu'aucun moyen pratique n'est prévu pour permettre à vos proches d'y accéder.",
