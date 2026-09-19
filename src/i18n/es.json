@@ -4,6 +4,7 @@
   },
   "site": {
     "title": "¿Qué son las passkeys?",
+    "pageTitle": "Passkeys explicadas: La forma más fácil y segura de iniciar sesión",
     "description": "Una passkey es una clave digital única que reemplaza a tu contraseña. Más fácil y segura de usar: sin contraseñas que recordar, sin códigos que esperar.",
     "toggleConsumer": "Básico",
     "toggleTechnical": "Avanzado",

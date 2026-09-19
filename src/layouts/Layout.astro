@@ -149,7 +149,7 @@ const sections = [
       }
     </script>
     <meta name="generator" content={Astro.generator} />
-    <title>{t.site.title}</title>
+    <title>{t.site.pageTitle}</title>
     <meta name="description" content={t.site.description} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
@@ -162,7 +162,7 @@ const sections = [
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content={t.site.title} />
-    <meta property="og:title" content={t.site.title} />
+    <meta property="og:title" content={t.site.pageTitle} />
     <meta property="og:description" content={t.site.description} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={ogImage} />
@@ -172,7 +172,7 @@ const sections = [
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={t.site.title} />
+    <meta name="twitter:title" content={t.site.pageTitle} />
     <meta name="twitter:description" content={t.site.description} />
     <meta name="twitter:image" content={ogImage} />
 

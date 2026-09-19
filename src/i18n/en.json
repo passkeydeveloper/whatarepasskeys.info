@@ -4,6 +4,7 @@
   },
   "site": {
     "title": "What are passkeys?",
+    "pageTitle": "Passkeys Explained: The Easier, Safer Way to Sign In",
     "description": "Passkeys replace your password with a unique digital key. Easier and safer to use — no passwords to remember, no codes to wait for.",
     "toggleConsumer": "Basic",
     "toggleTechnical": "Advanced",
