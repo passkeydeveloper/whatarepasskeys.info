@@ -82,6 +82,16 @@ main > section:not(#hero) {
   contain-intrinsic-size: auto 1600px;
 }
 
+/* Forces every section fully visible for the duration of a same-page jump
+   (see the matching jump-handling script in Layout.astro). Chrome only
+   force-renders content-visibility: auto elements that are ancestors of an
+   anchor-navigation target, not ones merely scrolled past on the way
+   there, so a jump spanning several unvisited sections can land short
+   without this. */
+.jump-in-progress main > section:not(#hero) {
+  content-visibility: visible !important;
+}
+
 /* Scroll reveal animations */
 .fade-in-section {
   opacity: 0;

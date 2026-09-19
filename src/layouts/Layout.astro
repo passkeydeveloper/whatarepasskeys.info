@@ -137,6 +137,16 @@ const sections = [
           }
         } catch (e) {}
       })();
+
+      // If the page is loading with a #section fragment already in the URL
+      // (e.g. a shared "copy link to section" link), keep every section
+      // fully rendered from the start so the browser's native
+      // scroll-to-fragment has accurate layout to land on. Removed once
+      // that scroll has settled — see the matching script at the end of
+      // <body>.
+      if (location.hash) {
+        document.documentElement.classList.add('jump-in-progress');
+      }
     </script>
     <meta name="generator" content={Astro.generator} />
     <title>{t.site.title}</title>
@@ -291,6 +301,61 @@ const sections = [
           }
         });
       });
+
+      // Same-page navigation to a #section can land short: content-
+      // visibility: auto sections (see global.css) between the current
+      // position and the target are still using their placeholder height
+      // until the browser has actually rendered them, and Chrome only
+      // force-renders elements that are ancestors of the jump target, not
+      // ones merely scrolled past on the way there. Keep every section
+      // fully rendered for the duration of the jump so it lands correctly.
+      const html = document.documentElement;
+
+      function settleAfterScroll(onSettled: () => void) {
+        let done = false;
+        function finish() {
+          if (done) return;
+          done = true;
+          window.removeEventListener('scrollend', finish);
+          onSettled();
+        }
+        window.addEventListener('scrollend', finish);
+        // Safari doesn't support scrollend as of this writing; fall back
+        // to a delay comfortably longer than any smooth-scroll animation.
+        setTimeout(finish, 1500);
+      }
+
+      function jumpToFragment(id: string): boolean {
+        const target = document.getElementById(id);
+        if (!target) return false;
+        html.classList.add('jump-in-progress');
+        target.scrollIntoView({ block: 'start' });
+        settleAfterScroll(() => html.classList.remove('jump-in-progress'));
+        return true;
+      }
+
+      // A page load that already has a #section in the URL (e.g. a shared
+      // "copy link to section" link) hits the same problem: the browser's
+      // native scroll-to-fragment runs on its own schedule around load,
+      // using whatever layout exists at that point. The <head> script
+      // above keeps sections rendered from the very start of parsing so
+      // that native scroll has accurate layout to land on; just wait for
+      // it to settle before handing sections back to content-visibility: auto.
+      if (location.hash && document.getElementById(location.hash.slice(1))) {
+        settleAfterScroll(() => html.classList.remove('jump-in-progress'));
+      }
+
+      document
+        .querySelectorAll<HTMLAnchorElement>('a[href^="#"]:not([href="#content"])')
+        .forEach((link) => {
+          link.addEventListener('click', (e) => {
+            const id = link.getAttribute('href')?.slice(1);
+            if (id && jumpToFragment(id)) {
+              e.preventDefault();
+              history.pushState(null, '', `#${id}`);
+            }
+          });
+        });
 
       // Scroll reveal. Where the browser supports native CSS scroll-driven
       // animations (see the matching @supports block in global.css), the
