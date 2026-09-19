@@ -87,8 +87,8 @@
       "privateKeyLabel": "PRIVATER SCHLÜSSEL",
       "publicKeyLabel": "ÖFFENTLICHER SCHLÜSSEL",
       "linked": "verknüpft",
-      "private": "Bleibt auf Ihren Geräten. Wird nie geteilt",
-      "public": "Mit der Website geteilt. Nutzlos ohne privaten Schlüssel",
+      "private": "Bleibt auf Ihren Geräten. Wird nie geteilt.",
+      "public": "Mit der Website geteilt. Nutzlos ohne privaten Schlüssel.",
       "device": {
         "title": "Ihr Gerät",
         "subtitle": "Passwort-Manager"

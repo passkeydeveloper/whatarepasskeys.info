@@ -87,8 +87,8 @@
       "privateKeyLabel": "PRIVATE KEY",
       "publicKeyLabel": "PUBLIC KEY",
       "linked": "linked",
-      "private": "Stays on your devices. Never shared",
-      "public": "Shared with the website. Useless without private key",
+      "private": "Stays on your devices. Never shared.",
+      "public": "Shared with the website. Useless without private key.",
       "device": {
         "title": "Your Device",
         "subtitle": "Credential Manager"

@@ -87,8 +87,8 @@
       "privateKeyLabel": "秘密鍵",
       "publicKeyLabel": "公開鍵",
       "linked": "ペア",
-      "private": "デバイス内に保持。共有されることはありません",
-      "public": "Webサイトと共有。秘密鍵がなければ無意味です",
+      "private": "デバイス内に保持。共有されることはありません。",
+      "public": "Webサイトと共有。秘密鍵がなければ無意味です。",
       "device": {
         "title": "お使いのデバイス",
         "subtitle": "クレデンシャルマネージャー"

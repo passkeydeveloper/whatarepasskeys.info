@@ -87,8 +87,8 @@
       "privateKeyLabel": "CLÉ PRIVÉE",
       "publicKeyLabel": "CLÉ PUBLIQUE",
       "linked": "associée",
-      "private": "Reste sur vos appareils. Jamais partagée",
-      "public": "Partagée avec le site web. Inutile sans la clé privée",
+      "private": "Reste sur vos appareils. Jamais partagée.",
+      "public": "Partagée avec le site web. Inutile sans la clé privée.",
       "device": {
         "title": "Votre appareil",
         "subtitle": "Gestionnaire d'identifiants"

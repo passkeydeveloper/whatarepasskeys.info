@@ -87,8 +87,8 @@
       "privateKeyLabel": "CLAVE PRIVADA",
       "publicKeyLabel": "CLAVE PÚBLICA",
       "linked": "vinculadas",
-      "private": "Permanece en tus dispositivos. Nunca se comparte",
-      "public": "Compartida con el sitio web. Inútil sin la clave privada",
+      "private": "Permanece en tus dispositivos. Nunca se comparte.",
+      "public": "Compartida con el sitio web. Inútil sin la clave privada.",
       "device": {
         "title": "Tu dispositivo",
         "subtitle": "Gestor de credenciales"
