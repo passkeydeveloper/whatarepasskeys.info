@@ -4,7 +4,7 @@
   },
   "site": {
     "title": "Was sind Passkeys?",
-    "description": "Die einfachere und sicherere Art der Anmeldung. Keine Passwörter merken. Nicht auf Codes warten.",
+    "description": "Ein Passkey ist ein eindeutiger digitaler Schlüssel, der Ihr Passwort ersetzt. Einfacher und sicherer in der Nutzung – keine Passwörter merken, nicht auf Codes warten.",
     "toggleConsumer": "Standard",
     "toggleTechnical": "Erweitert",
     "logoText": "Was sind Passkeys?"

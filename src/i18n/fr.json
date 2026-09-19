@@ -4,7 +4,7 @@
   },
   "site": {
     "title": "Que sont les passkeys ?",
-    "description": "La méthode de connexion plus simple et plus sûre. Aucun mot de passe à retenir. Aucun code à attendre.",
+    "description": "Une passkey est une clé numérique unique qui remplace votre mot de passe. Plus simple et plus sûre à utiliser : aucun mot de passe à retenir, aucun code à attendre.",
     "toggleConsumer": "De base",
     "toggleTechnical": "Avancé",
     "logoText": "Que sont les passkeys ?"
