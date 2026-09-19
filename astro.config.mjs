@@ -2,6 +2,7 @@
 import { readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // Every `<code>.json` in src/i18n becomes an active locale automatically,
@@ -23,6 +24,12 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  integrations: [
+    sitemap({
+      // /feedback is a noindex redirect to an external form, not a real page.
+      filter: (page) => !page.includes('/feedback'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

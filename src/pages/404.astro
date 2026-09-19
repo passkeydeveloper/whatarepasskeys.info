@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('passkeys-theme');
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+    <title>Page not found · What are passkeys?</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-6">
+    <div class="max-w-lg text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-4">404</p>
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">This page doesn't exist</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+        The link may be broken, or the page may have moved. Head back to the homepage to learn what passkeys are.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-6 py-3 text-base font-semibold text-white hover:bg-indigo-700 transition-colors"
+      >
+        Back to homepage
+      </a>
+    </div>
+  </body>
+</html>
