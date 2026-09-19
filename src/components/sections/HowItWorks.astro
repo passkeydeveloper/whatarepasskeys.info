@@ -31,10 +31,11 @@ const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
       <div class="space-y-8">
         {steps.map((step, i) => (
           <div
+            id={`hiw-row-${i}`}
             class={`flow-step relative flex gap-6 md:gap-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
             data-delay={String(i * 150)}
           >
-            <div class="shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 z-10">
+            <div id={`hiw-icon-${i}`} class="shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 z-10">
               <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-md bg-white dark:bg-gray-800 border-2 border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400">
                 <step.Icon size={20} />
               </div>
@@ -56,10 +57,10 @@ const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
           class="flow-step relative flex flex-col items-center text-center gap-4"
           data-delay={String(steps.length * 150)}
         >
-          <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-md bg-emerald-600 text-white z-10">
+          <div id="hiw-icon-end" class="w-12 h-12 rounded-full flex items-center justify-center shadow-md bg-emerald-600 text-white z-10">
             <signedIn.Icon size={20} />
           </div>
-          <div class="max-w-md bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-200 dark:border-emerald-800 rounded-2xl shadow-sm p-5">
+          <div class="max-w-md bg-emerald-50 dark:bg-emerald-950 border-2 border-emerald-200 dark:border-emerald-800 rounded-2xl shadow-sm p-5">
             <h3 class="text-lg font-bold text-emerald-900 dark:text-emerald-200 mb-1">
               {(h.steps as any)[signedIn.key].label}
             </h3>
@@ -90,3 +91,48 @@ const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
     </div>
   </div>
 </section>
+
+<script>
+  // Step 2's marker+card doesn't naturally land halfway between step 1's
+  // and the "signed in" marker, since its vertical position is centered on
+  // its own card and every card's height depends on its (translated) body
+  // copy length. Shift the whole step-2 row (marker and card together, so
+  // they stay paired) to that midpoint explicitly instead.
+  function alignMiddleTimelineRow() {
+    const first = document.getElementById('hiw-icon-0');
+    const middleIcon = document.getElementById('hiw-icon-1');
+    const middleRow = document.getElementById('hiw-row-1');
+    const last = document.getElementById('hiw-icon-end');
+    if (!first || !middleIcon || !middleRow || !last) return;
+
+    const desktop = window.matchMedia('(min-width: 768px)');
+
+    function centerY(el: HTMLElement) {
+      const rect = el.getBoundingClientRect();
+      return rect.top + rect.height / 2;
+    }
+
+    function reposition() {
+      // Reset first so the measurement below reflects the natural,
+      // CSS-centered-on-its-own-card position rather than a prior shift.
+      middleRow!.style.top = '';
+      if (!desktop.matches) return;
+      const midpoint = (centerY(first!) + centerY(last!)) / 2;
+      const natural = centerY(middleIcon!);
+      middleRow!.style.top = `${midpoint - natural}px`;
+    }
+
+    reposition();
+    window.addEventListener('resize', reposition);
+    desktop.addEventListener('change', reposition);
+    document.fonts?.ready?.then(reposition);
+    // The scroll-reveal transition (opacity/translateY) briefly shifts these
+    // elements; settle into the final position once it finishes.
+    document.querySelectorAll('.flow-step').forEach((el) => {
+      el.addEventListener('transitionend', reposition);
+    });
+    setTimeout(reposition, 700);
+  }
+
+  alignMiddleTimelineRow();
+</script>

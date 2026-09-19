@@ -3,7 +3,9 @@ import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import SectionDots from '../components/layout/SectionDots.astro';
 import Footer from '../components/layout/Footer.astro';
-import { useTranslations } from '../i18n/utils';
+import { useTranslations, locales, localeHref, bcp47Language } from '../i18n/utils';
+import { stripRichTextLinks } from '../i18n/richText';
+import { managerScores } from '../data/credentialManagers';
 
 interface Props {
   locale: string;
@@ -13,8 +15,24 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-const ogLocale = locale === 'en' ? 'en_US' : locale;
+// Open Graph requires language_TERRITORY locale codes (e.g. en_US), not the
+// bare BCP-47-ish codes used for routing/i18n.
+const ogTerritoryMap: Record<string, string> = {
+  en: 'US',
+  de: 'DE',
+  es: 'ES',
+  fr: 'FR',
+  ja: 'JP',
+};
+const ogLocale = `${bcp47Language(locale)}_${ogTerritoryMap[locale] ?? bcp47Language(locale).toUpperCase()}`;
 const ogImage = new URL('/og-image.png', Astro.site).toString();
+
+// hreflang alternates so search engines route users to the right locale
+// version directly, instead of relying on a client-side redirect.
+const hreflangLinks = locales.map((code) => ({
+  hreflang: bcp47Language(code),
+  href: new URL(localeHref(code), Astro.site).toString(),
+}));
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -26,9 +44,47 @@ const faqSchema = {
       name: item.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: item.answer,
+        text: stripRichTextLinks(item.answer),
       },
     })),
+};
+
+// Ranked comparison of third-party credential managers, published on this
+// page at #credential-managers. weightedScore (0-100, defined in
+// src/data/credentialManagers.json) is rescaled to schema.org's bounded
+// Rating scale; the letter grade is kept in reviewBody for transparency.
+const credentialManagersUrl = new URL('/#credential-managers', Astro.site).toString();
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: t.credentialManagers.headline,
+  url: credentialManagersUrl,
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  itemListElement: [...managerScores]
+    .sort((a, b) => b.weightedScore - a.weightedScore)
+    .map((m, i) => {
+      const data = (t.credentialManagers.managers as Record<string, { name: string; description: string }>)[m.key];
+      return {
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'SoftwareApplication',
+          name: data.name,
+          applicationCategory: 'SecurityApplication',
+          review: {
+            '@type': 'Review',
+            author: { '@type': 'Organization', name: t.site.title },
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: (m.weightedScore / 20).toFixed(1),
+              bestRating: '5',
+              worstRating: '1',
+            },
+            reviewBody: `Grade ${m.grade} (${m.weightedScore}/100). ${data.description}`,
+          },
+        },
+      };
+    }),
 };
 
 // CF_PAGES_BRANCH is set by Cloudflare Pages at build time; PROD alone is true
@@ -58,7 +114,7 @@ const sections = [
 ];
 ---
 <!doctype html>
-<html lang={locale} data-mode="consumer">
+<html lang={bcp47Language(locale)} data-mode="consumer">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -74,20 +130,39 @@ const sections = [
                 ? 'dark'
                 : 'light';
           document.documentElement.setAttribute('data-theme', theme);
+
+          var mode = localStorage.getItem('passkeys-mode');
+          if (mode === 'technical') {
+            document.documentElement.setAttribute('data-mode', 'technical');
+          }
         } catch (e) {}
       })();
+
+      // If the page is loading with a #section fragment already in the URL
+      // (e.g. a shared "copy link to section" link), keep every section
+      // fully rendered from the start so the browser's native
+      // scroll-to-fragment has accurate layout to land on. Removed once
+      // that scroll has settled — see the matching script at the end of
+      // <body>.
+      if (location.hash) {
+        document.documentElement.classList.add('jump-in-progress');
+      }
     </script>
     <meta name="generator" content={Astro.generator} />
-    <title>{t.site.title}</title>
+    <title>{t.site.pageTitle}</title>
     <meta name="description" content={t.site.description} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
+    {hreflangLinks.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).toString()} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content={t.site.title} />
-    <meta property="og:title" content={t.site.title} />
+    <meta property="og:title" content={t.site.pageTitle} />
     <meta property="og:description" content={t.site.description} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={ogImage} />
@@ -97,7 +172,7 @@ const sections = [
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={t.site.title} />
+    <meta name="twitter:title" content={t.site.pageTitle} />
     <meta name="twitter:description" content={t.site.description} />
     <meta name="twitter:image" content={ogImage} />
 
@@ -111,6 +186,7 @@ const sections = [
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
 
     <!-- Analytics (proxied through /metrics to avoid tracker blockers) -->
     {isProductionDeploy && (
@@ -118,14 +194,14 @@ const sections = [
     )}
   </head>
   <body data-link-copied-text={t.nav.linkCopied} data-copy-link-template={t.nav.copyLinkToSection}>
-    <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
+    <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">
       {t.nav.skipToContent}
     </a>
 
     <Header locale={locale} t={t} />
     <SectionDots sections={sections} t={t} />
 
-    <main>
+    <main id="content" tabindex="-1">
       <slot />
     </main>
 
@@ -150,7 +226,15 @@ const sections = [
         });
       }
 
-      window.addEventListener('scroll', updateActiveDot, { passive: true });
+      let scrollTicking = false;
+      window.addEventListener('scroll', () => {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+          updateActiveDot();
+          scrollTicking = false;
+        });
+      }, { passive: true });
       updateActiveDot();
 
       // Copy-link-to-section on heading click
@@ -200,28 +284,102 @@ const sections = [
         heading.setAttribute('aria-label', copyLinkTemplate.replace('{section}', heading.textContent?.trim() ?? ''));
 
         heading.addEventListener('click', () => copySectionLink(id));
+        // Match native <button> behavior: Enter triggers on keydown, Space
+        // triggers on keyup (keydown only prevents the page from scrolling).
         heading.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            copySectionLink(id);
+          } else if (e.key === ' ') {
+            e.preventDefault();
+          }
+        });
+        heading.addEventListener('keyup', (e) => {
+          if (e.key === ' ') {
             e.preventDefault();
             copySectionLink(id);
           }
         });
       });
 
-      // Scroll reveal
-      const fadeEls = document.querySelectorAll('.fade-in-section');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              e.target.classList.add('visible');
-              observer.unobserve(e.target);
+      // Same-page navigation to a #section can land short: content-
+      // visibility: auto sections (see global.css) between the current
+      // position and the target are still using their placeholder height
+      // until the browser has actually rendered them, and Chrome only
+      // force-renders elements that are ancestors of the jump target, not
+      // ones merely scrolled past on the way there. Keep every section
+      // fully rendered for the duration of the jump so it lands correctly.
+      const html = document.documentElement;
+
+      function settleAfterScroll(onSettled: () => void) {
+        let done = false;
+        function finish() {
+          if (done) return;
+          done = true;
+          window.removeEventListener('scrollend', finish);
+          onSettled();
+        }
+        window.addEventListener('scrollend', finish);
+        // Safari doesn't support scrollend as of this writing; fall back
+        // to a delay comfortably longer than any smooth-scroll animation.
+        setTimeout(finish, 1500);
+      }
+
+      function jumpToFragment(id: string): boolean {
+        const target = document.getElementById(id);
+        if (!target) return false;
+        html.classList.add('jump-in-progress');
+        target.scrollIntoView({ block: 'start' });
+        settleAfterScroll(() => html.classList.remove('jump-in-progress'));
+        return true;
+      }
+
+      // A page load that already has a #section in the URL (e.g. a shared
+      // "copy link to section" link) hits the same problem: the browser's
+      // native scroll-to-fragment runs on its own schedule around load,
+      // using whatever layout exists at that point. The <head> script
+      // above keeps sections rendered from the very start of parsing so
+      // that native scroll has accurate layout to land on; just wait for
+      // it to settle before handing sections back to content-visibility: auto.
+      if (location.hash && document.getElementById(location.hash.slice(1))) {
+        settleAfterScroll(() => html.classList.remove('jump-in-progress'));
+      }
+
+      document
+        .querySelectorAll<HTMLAnchorElement>('a[href^="#"]:not([href="#content"])')
+        .forEach((link) => {
+          link.addEventListener('click', (e) => {
+            const id = link.getAttribute('href')?.slice(1);
+            if (id && jumpToFragment(id)) {
+              e.preventDefault();
+              history.pushState(null, '', `#${id}`);
             }
           });
-        },
-        { threshold: 0.15 }
+        });
+
+      // Scroll reveal. Where the browser supports native CSS scroll-driven
+      // animations (see the matching @supports block in global.css), the
+      // .fade-in-section reveal is handled entirely by CSS and this
+      // IntersectionObserver fallback is skipped.
+      const supportsScrollDrivenAnimations = CSS.supports(
+        '(animation-timeline: view()) and (animation-range: 0% 100%)'
       );
-      fadeEls.forEach(el => observer.observe(el));
+
+      if (!supportsScrollDrivenAnimations) {
+        const fadeEls = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        fadeEls.forEach(el => observer.observe(el));
+      }
 
       // Flow step reveal
       const flowSteps = document.querySelectorAll('.flow-step');

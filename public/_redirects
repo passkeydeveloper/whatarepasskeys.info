@@ -1,0 +1,9 @@
+# /en/ used to be the canonical URL for the default locale; it's now served
+# unprefixed at /. Redirect so old links/bookmarks/search results still work.
+/en/*  /:splat  301
+/en    /         301
+
+# /jp/ was the old (non-BCP-47) routing code for Japanese; it's now served
+# at /ja/. Redirect so old links/bookmarks/search results still work.
+/jp/*  /ja/:splat  301
+/jp    /ja/        301

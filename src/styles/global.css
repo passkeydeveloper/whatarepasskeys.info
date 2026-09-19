@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 
 /* Manual light/dark override on top of the system preference: the theme
    toggle sets data-theme explicitly, and this variant is what every
@@ -26,7 +27,7 @@
   }
 
   body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-family-display);
     -webkit-font-smoothing: antialiased;
     color: #1f2937;
     background: #ffffff;
@@ -35,6 +36,10 @@
       color: #e5e7eb;
       background: #111827;
     }
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-family-display);
   }
 
   /* Technical mode content toggling */
@@ -51,6 +56,42 @@
   }
 }
 
+/* Defer rendering for below-the-fold sections on this long single-page
+   site. #hero stays eager since it's above the fold. contain-intrinsic-size
+   is a placeholder height (not exact) so the browser can reserve scroll
+   space before each section has been rendered. */
+main > section:not(#hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* #phishing runs well past the shared 800px estimate once its diagram and
+   two supporting cards stack into a single column on mobile (~1400px+),
+   so the 800px guess caused a large scroll-position jump the first time
+   the section was measured. A closer placeholder keeps that reflow small. */
+#phishing {
+  contain-intrinsic-size: auto 1400px;
+}
+
+/* #say-goodbye ("Start using passkeys") is the tallest section on the page:
+   an icon row, an examples row, and two device mockups that all stack to a
+   single column on mobile (~1700px+), far past the shared 800px estimate.
+   That mismatch caused the large scroll-position jump reported when
+   reaching this section. */
+#say-goodbye {
+  contain-intrinsic-size: auto 1600px;
+}
+
+/* Forces every section fully visible for the duration of a same-page jump
+   (see the matching jump-handling script in Layout.astro). Chrome only
+   force-renders content-visibility: auto elements that are ancestors of an
+   anchor-navigation target, not ones merely scrolled past on the way
+   there, so a jump spanning several unvisited sections can land short
+   without this. */
+.jump-in-progress main > section:not(#hero) {
+  content-visibility: visible !important;
+}
+
 /* Scroll reveal animations */
 .fade-in-section {
   opacity: 0;
@@ -63,22 +104,51 @@
   transform: translateY(0);
 }
 
+/* Where supported, drive the fade-in reveal natively off scroll position
+   instead of the IntersectionObserver + .visible class toggle below (see
+   Layout.astro, which skips setting up that observer when this is
+   supported). The `animation-range: 0% 100%` check filters out browsers
+   with only partial scroll-driven-animations support. This must test the
+   same timeline function (`view()`) that the rule below actually uses —
+   testing `scroll()` support here previously let this block activate (and
+   disabled the JS fallback) in browsers that support scroll() timelines
+   but not view() ones, permanently hiding this content. */
+@supports ((animation-timeline: view()) and (animation-range: 0% 100%)) {
+  .fade-in-section {
+    transition: none;
+    /* Deliberately not using the `animation` shorthand: the production
+       build's CSS minifier folds a separately-declared animation-timeline
+       into it (producing e.g. `animation: linear both fade-in-reveal
+       view()`), which real browsers silently reject as invalid, dropping
+       the whole animation and leaving this permanently hidden. */
+    animation-name: fade-in-reveal;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  @keyframes fade-in-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 /* Section dot navigation */
 #section-dots {
   position: fixed;
-  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 40;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  align-items: center;
 }
 
 #section-dots a {
   display: block;
-  width: 0.625rem;
-  height: 0.625rem;
   border-radius: 9999px;
   background: #d1d5db;
   transition: all 0.3s;
@@ -89,38 +159,87 @@
   }
 }
 
-#section-dots a::before {
-  content: attr(data-label);
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.75rem;
-  font-weight: 600;
-  white-space: nowrap;
-  background: #1f2937;
-  color: white;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-
-  @variant dark {
-    background: #374151;
-  }
-}
-
-#section-dots a:hover::before {
-  opacity: 1;
-}
-
 #section-dots a.active {
   background: #4f46e5;
-  transform: scale(1.35);
 
   @variant dark {
     background: #818cf8;
+  }
+}
+
+/* Mobile: dock the dots flush to the edge of the viewport, inside a small
+   pill, instead of floating over content at the same inset as on desktop. */
+@media (max-width: 767.98px) {
+  #section-dots {
+    right: 0;
+    gap: 0.5rem;
+    padding: 0.55rem 0.3rem;
+    border-radius: 9999px 0 0 9999px;
+    background: rgb(255 255 255 / 0.85);
+    box-shadow: -2px 0 8px rgb(0 0 0 / 0.08);
+    backdrop-filter: blur(4px);
+
+    @variant dark {
+      background: rgb(31 41 55 / 0.85);
+      box-shadow: -2px 0 8px rgb(0 0 0 / 0.35);
+    }
+  }
+
+  #section-dots a {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
+  #section-dots a.active {
+    transform: scale(1.35);
+  }
+
+  /* No hover on touch, and there's no room for a flyout label docked
+     at the edge of the screen. */
+  #section-dots a::before {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  #section-dots {
+    right: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  #section-dots a {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+
+  #section-dots a::before {
+    content: attr(data-label);
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background: #1f2937;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+
+    @variant dark {
+      background: #374151;
+    }
+  }
+
+  #section-dots a:hover::before {
+    opacity: 1;
+  }
+
+  #section-dots a.active {
+    transform: scale(1.35);
   }
 }
 
@@ -132,8 +251,8 @@
   border-radius: 9999px;
   border: 2px solid #e0e7ff;
   background: #ffffff;
-  padding: 0.25rem;
-  font-size: 0.875rem;
+  padding: 0.1875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
   user-select: none;
@@ -145,7 +264,8 @@
 }
 
 .mode-toggle-option {
-  padding: 0.25rem 0.75rem;
+  position: relative;
+  padding: 0.1875rem 0.625rem;
   border-radius: 9999px;
   transition: all 0.2s;
   color: #6b7280;
@@ -153,6 +273,23 @@
   @variant dark {
     color: #9ca3af;
   }
+}
+
+/* Expands the tap target toward the WCAG-recommended ~44px without
+   visually growing this compact pill. Vertical-only: there's free space
+   above/below within the header (and the mobile menu panel) to expand
+   into, but the two options sit only 4px apart horizontally, so
+   expanding sideways would make their invisible tap zones overlap each
+   other. The 10px bottom expansion (vs. a less constrained top) is sized
+   to stay clear of whatever wraps onto the next row in the mobile menu,
+   which sits a fixed 14px below. */
+.mode-toggle-option::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  bottom: -10px;
+  left: 0;
+  right: 0;
 }
 
 .mode-toggle-option.selected {
@@ -167,11 +304,12 @@
 
 /* Theme toggle */
 .theme-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 9999px;
   border: 2px solid #e0e7ff;
   background: #ffffff;
@@ -184,6 +322,16 @@
     background: #1f2937;
     color: #d1d5db;
   }
+}
+
+/* Expands the tap target toward the WCAG-recommended ~44px without
+   growing the visible circle — it has clear room on every side (12px on
+   desktop, 14px in the mobile menu), so unlike .mode-toggle-option this
+   one can expand symmetrically. */
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
 }
 
 .theme-toggle:hover {
@@ -206,6 +354,96 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
   display: block;
 }
 
+/* Mobile header menu toggle. display/alignment are set via Tailwind
+   utilities on the element (inline-flex items-center justify-center
+   sm:hidden) rather than here, since this unlayered class would otherwise
+   always beat the layered `sm:hidden` utility and the button would never
+   hide on desktop. */
+.header-menu-toggle {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 2px solid #e0e7ff;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  @variant dark {
+    border-color: #374151;
+    background: #1f2937;
+    color: #d1d5db;
+  }
+}
+
+/* Same tap-target expansion as .theme-toggle above — this one has room on
+   every side too (it's the only interactive element on this side of the
+   header when visible). */
+.header-menu-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
+
+.header-menu-toggle:hover {
+  border-color: #c7d2fe;
+
+  @variant dark {
+    border-color: #4b5563;
+  }
+}
+
+.header-menu-icon-close {
+  display: none;
+}
+
+.header-menu-toggle[aria-expanded='true'] .header-menu-icon-open {
+  display: none;
+}
+
+.header-menu-toggle[aria-expanded='true'] .header-menu-icon-close {
+  display: block;
+}
+
+/* Header controls (mode/theme/language). On mobile these collapse behind
+   the hamburger toggle above and open as a full-width dropdown panel;
+   from the sm breakpoint up they always show inline in the header. */
+.header-controls {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .header-controls {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .header-controls.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.875rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e7ff;
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    padding: 1rem 1.25rem 1.25rem;
+
+    @variant dark {
+      background: #1f2937;
+      border-color: #374151;
+      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+    }
+  }
+}
+
 /* Language menu */
 .lang-menu {
   position: relative;
@@ -214,12 +452,12 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
 .lang-menu-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
+  gap: 0.25rem;
   border-radius: 9999px;
   border: 2px solid #e0e7ff;
   background: #ffffff;
-  padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: #374151;
   cursor: pointer;
@@ -474,6 +712,7 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
     opacity: 1;
     transform: none;
     transition: none;
+    animation: none !important;
   }
 
   html {

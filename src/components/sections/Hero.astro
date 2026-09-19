@@ -17,7 +17,7 @@ const jumpLinks = [
   { id: 'faq', label: t.hero.jumpLinks.faq },
 ];
 ---
-<section id="hero" class="min-h-screen flex flex-col justify-center pt-14 px-6 bg-linear-to-br from-indigo-50 via-white to-emerald-50 dark:from-indigo-950 dark:via-gray-900 dark:to-emerald-950 relative overflow-hidden">
+<section id="hero" class="min-h-screen flex flex-col justify-center pt-24 sm:pt-20 px-6 bg-linear-to-br from-indigo-50 via-white to-emerald-50 dark:from-indigo-950 dark:via-gray-900 dark:to-emerald-950 relative overflow-hidden">
   <!-- Background decoration -->
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-100 dark:bg-indigo-600 rounded-full blur-3xl opacity-40 dark:opacity-20"></div>
@@ -51,6 +51,7 @@ const jumpLinks = [
       <!-- Hero illustration -->
       <div class="fade-in-section flex justify-center" style="transition-delay: 0.2s">
         <svg viewBox="0 0 400 400" class="w-full max-w-sm" aria-label={t.hero.illustrationAlt} role="img">
+          <title>{t.hero.illustrationAlt}</title>
           <!-- Phone -->
           <rect x="130" y="60" width="140" height="240" rx="20" fill="#4f46e5" opacity="0.12"/>
           <rect x="135" y="65" width="130" height="230" rx="17" fill="#f8f7ff"/>

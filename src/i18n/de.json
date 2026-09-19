@@ -4,7 +4,8 @@
   },
   "site": {
     "title": "Was sind Passkeys?",
-    "description": "Die einfachere und sicherere Art der Anmeldung. Keine Passwörter merken. Nicht auf Codes warten.",
+    "pageTitle": "Passkeys erklärt: Die einfachere, sicherere Art, sich anzumelden",
+    "description": "Ein Passkey ist ein eindeutiger digitaler Schlüssel, der Ihr Passwort ersetzt. Einfacher und sicherer in der Nutzung – keine Passwörter merken, nicht auf Codes warten.",
     "toggleConsumer": "Standard",
     "toggleTechnical": "Erweitert",
     "logoText": "Was sind Passkeys?"
@@ -21,6 +22,8 @@
     "contentMode": "Inhaltsmodus",
     "switchToLightMode": "Zum hellen Modus wechseln",
     "switchToDarkMode": "Zum dunklen Modus wechseln",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
     "jumpToSection": "Zum Abschnitt springen",
     "pageSections": "Seitenabschnitte",
     "copyLinkToSection": "Link zum Abschnitt \"{section}\" kopieren",
@@ -199,7 +202,7 @@
           "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
         },
         {
-          "label": "Wie Relying Parties die Origin prüfen bei MDN",
+          "label": "Wie Relying Parties die Origin prüfen bei W3C",
           "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
         }
       ]
@@ -414,7 +417,7 @@
             "technicalBody": "Die Implementierung folgt der WebAuthn-L3-Spezifikation, was herstellerübergreifende Interoperabilität und Konsistenz sicherstellt.",
             "tier5": "Nachgewiesene Unterstützung und Einhaltung der WebAuthn-L3-Spezifikation.",
             "tier3": "Gute Passkey-Unterstützung, lässt jedoch vollständige WebAuthn-L3-Konformität vermissen.",
-            "tier1": "Nur grundlegende Passkey-Unterstützung oder fehlende Einhaltung von WebAuthn L3."
+            "tier1": "Nur grundlegende Passkey-Unterstützung oder keine Unterstützung und Einhaltung von WebAuthn L3."
           },
           "digitalInheritance": {
             "consumerBody": "Kann eine Vertrauensperson auf Ihre Konten zugreifen, falls Ihnen etwas zustößt? Eine Top-Bewertung bedeutet, dass eine integrierte Funktion für Notfallzugriffe oder den digitalen Nachlass vorhanden ist. Eine niedrige Punktzahl bedeutet, dass es selbst für Angehörige keinen praktikablen Weg gibt.",
@@ -669,7 +672,7 @@
           {
             "type": "basic",
             "question": "Kann ich einen Passkey von einem Passwort-Manager zu einem anderen übertragen?",
-            "answer": "Die Unterstützung für die Migration von Passkeys wird kontinuierlich ausgebaut, ist jedoch noch nicht flächendeckend etabliert. Ob ein Wechsel klappt, hängt von den beteiligten Passwort-Managern ab; unsere Übersicht zeigt den aktuellen Funktionsstand. Achten Sie auf das Kriterium „Zugangsdatenaustausch“."
+            "answer": "Die Unterstützung für die Migration von Passkeys wird kontinuierlich ausgebaut, ist jedoch noch nicht flächendeckend etabliert. Ob ein Wechsel klappt, hängt von den beteiligten Passwort-Managern ab; [unsere Übersicht](#credential-managers) zeigt den aktuellen Funktionsstand. Achten Sie auf das Kriterium „Zugangsdatenaustausch“."
           },
           {
             "type": "basic",
@@ -684,7 +687,7 @@
           {
             "type": "basic",
             "question": "Funktionieren Passkeys plattformübergreifend, etwa zwischen macOS und Windows?",
-            "answer": "Ja, auch wenn es nicht immer völlig nahtlos abläuft. In plattformgebundenen Managern gespeicherte Passkeys synchronisieren sich nicht automatisch auf Fremdsysteme. Liegt Ihr Passkey beispielsweise bei Apple Passwörter und Sie möchten sich unter Windows anmelden, nutzen Sie Ihr iPhone zur Freigabe (z. B. durch Scannen eines QR-Codes). Wer regelmäßig zwischen unterschiedlichen Ökosystemen wechselt, greift am besten zu einem plattformübergreifenden Passwort-Manager. Nutzen Sie unsere Bewertungsübersicht für den Vergleich und achten Sie beim geplanten Wechsel auf hohe Punktzahlen beim „Zugangsdatenaustausch“."
+            "answer": "Ja, auch wenn es nicht immer völlig nahtlos abläuft. In plattformgebundenen Managern gespeicherte Passkeys synchronisieren sich nicht automatisch auf Fremdsysteme. Liegt Ihr Passkey beispielsweise bei Apple Passwörter und Sie möchten sich unter Windows anmelden, nutzen Sie Ihr iPhone zur Freigabe (z. B. durch Scannen eines QR-Codes). Wer regelmäßig zwischen unterschiedlichen Ökosystemen wechselt, greift am besten zu einem plattformübergreifenden Passwort-Manager. Nutzen Sie [unsere Bewertungsübersicht](#credential-managers) für den Vergleich und achten Sie beim geplanten Wechsel auf hohe Punktzahlen beim „Zugangsdatenaustausch“."
           }
         ]
       },
@@ -702,7 +705,7 @@
           {
             "type": "basic",
             "question": "Was passiert, wenn ich mein Smartphone verliere oder mein Computer kaputtgeht?",
-            "answer": "Die Wiederherstellungschancen hängen von Ihrem Passwort-Manager und dessen Konfiguration ab. Die Anbieter nutzen unterschiedliche Verfahren für Kontowiederherstellung, Datensicherung und Gerätezugriff – informieren Sie sich daher frühzeitig über Ihre Optionen. In unserer Bewertungstabelle sehen Sie, wie die Dienste bei Sicherheit, Wiederherstellung und digitalem Nachlass abschneiden. Ohne Passkey-Zugriff greift der reguläre Konto-Wiederherstellungsprozess des jeweiligen Anbieters."
+            "answer": "Die Wiederherstellungschancen hängen von Ihrem Passwort-Manager und dessen Konfiguration ab. Die Anbieter nutzen unterschiedliche Verfahren für Kontowiederherstellung, Datensicherung und Gerätezugriff – informieren Sie sich daher frühzeitig über Ihre Optionen. In [unserer Bewertungstabelle](#credential-managers) sehen Sie, wie die Dienste bei Sicherheit, Wiederherstellung und digitalem Nachlass abschneiden. Ohne Passkey-Zugriff greift der reguläre Konto-Wiederherstellungsprozess des jeweiligen Anbieters."
           },
           {
             "type": "basic",
@@ -764,7 +767,7 @@
           {
             "type": "basic",
             "question": "Besteht ein Sicherheitsrisiko, wenn mein Passwort-Manager oder Plattform-Anbieter gehackt wird?",
-            "answer": "Ja, allerdings unterscheidet sich das Risiko deutlich von einem Passwort-Leak. Passkeys sind keine wiederverwendbaren Geheimnisse; Angreifer können nicht einfach Schlüssel kopieren und sich damit anmelden. Zudem schützt die lokale Absicherung Ihrer Geräte den Zugriff. Die Wahl eines vertrauenswürdigen Passwort-Managers bleibt dennoch zentral – werfen Sie einen Blick auf unsere Bewertungskriterien zum Thema Tresorsicherheit."
+            "answer": "Ja, allerdings unterscheidet sich das Risiko deutlich von einem Passwort-Leak. Passkeys sind keine wiederverwendbaren Geheimnisse; Angreifer können nicht einfach Schlüssel kopieren und sich damit anmelden. Zudem schützt die lokale Absicherung Ihrer Geräte den Zugriff. Die Wahl eines vertrauenswürdigen Passwort-Managers bleibt dennoch zentral – werfen Sie einen Blick auf [unsere Bewertungskriterien](#credential-managers) zum Thema Tresorsicherheit."
           },
           {
             "type": "advanced",
@@ -782,17 +785,17 @@
           {
             "type": "basic",
             "question": "Kann ich ein passkey-geschütztes Konto mit Familienmitgliedern teilen?",
-            "answer": "Unter bestimmten Voraussetzungen: Einige Passwort-Manager erlauben das sichere Teilen von Passkeys mit Angehörigen oder Vertrauenspersonen. Ob dies gelingt, hängt vom genutzten Manager sowie den Vorgaben des jeweiligen Webdienstes ab. Vergleichen Sie unsere Übersicht zu Managern mit Familienfreigabe."
+            "answer": "Unter bestimmten Voraussetzungen: Einige Passwort-Manager erlauben das sichere Teilen von Passkeys mit Angehörigen oder Vertrauenspersonen. Ob dies gelingt, hängt vom genutzten Manager sowie den Vorgaben des jeweiligen Webdienstes ab. Vergleichen Sie [unsere Übersicht](#credential-managers) zu Managern mit Familienfreigabe."
           },
           {
             "type": "basic",
             "question": "Wie stelle ich sicher, dass meine Familie im Notfall an meine Konten herankommt?",
-            "answer": "Dies richtet sich nach den Funktionen Ihres Passwort-Managers. Einige Anbieter bieten Notfallkontakte, Nachlassverwaltung oder Treuhandfunktionen, über die Vertrauenspersonen im Ernstfall Zugriff erhalten. Richten Sie diese Optionen rechtzeitig ein. In unserem Bewertungsbereich sehen Sie, welche Dienste den digitalen Nachlass unterstützen."
+            "answer": "Dies richtet sich nach den Funktionen Ihres Passwort-Managers. Einige Anbieter bieten Notfallkontakte, Nachlassverwaltung oder Treuhandfunktionen, über die Vertrauenspersonen im Ernstfall Zugriff erhalten. Richten Sie diese Optionen rechtzeitig ein. In [unserem Bewertungsbereich](#credential-managers) sehen Sie, welche Dienste den digitalen Nachlass unterstützen."
           },
           {
             "type": "basic",
             "question": "Kann ich mich bei Sperrung meines Plattformkontos noch anderweitig mit dort hinterlegten Passkeys anmelden?",
-            "answer": "Nicht zwingend. Verlieren Sie den Zugang zum Basiskonto Ihres Plattform-Ökosystems, kann der Zugriff auf die synchronisierten Passkeys verloren gehen. Das hängt vom jeweiligen Anbieter und den hinterlegten Notfalloptionen ab. Informieren Sie sich vorab genau über die Kontowiederherstellung Ihres Anbieters – unsere Vergleichstabelle bietet hierzu Orientierung."
+            "answer": "Nicht zwingend. Verlieren Sie den Zugang zum Basiskonto Ihres Plattform-Ökosystems, kann der Zugriff auf die synchronisierten Passkeys verloren gehen. Das hängt vom jeweiligen Anbieter und den hinterlegten Notfalloptionen ab. Informieren Sie sich vorab genau über die Kontowiederherstellung Ihres Anbieters – [unsere Vergleichstabelle](#credential-managers) bietet hierzu Orientierung."
           }
         ]
       },
@@ -805,7 +808,7 @@
           {
             "type": "basic",
             "question": "Bin ich an einen bestimmten Passwort-Manager gebunden, sobald ich Passkeys nutze?",
-            "answer": "Vom Konzept her nicht. In der Praxis holen viele Manager beim Thema Passkey-Migration derzeit auf; die meisten etablierten Lösungen unterstützen den sicheren Umzug von Zugangsdaten mittlerweile jedoch. Die Unterstützung für standardisierten Credential Exchange wächst stetig. Details finden Sie in unserer Bewertungskategorie „Ermöglicht den Anbieterwechsel“."
+            "answer": "Vom Konzept her nicht. In der Praxis holen viele Manager beim Thema Passkey-Migration derzeit auf; die meisten etablierten Lösungen unterstützen den sicheren Umzug von Zugangsdaten mittlerweile jedoch. Die Unterstützung für standardisierten Credential Exchange wächst stetig. Details finden Sie in [unserer Bewertungskategorie](#credential-managers) „Ermöglicht den Anbieterwechsel“."
           },
           {
             "type": "basic",

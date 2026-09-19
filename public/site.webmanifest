@@ -2,7 +2,7 @@
   "name": "What Are Passkeys?",
   "short_name": "Passkeys",
   "description": "Passkeys are the simple, safe way to sign in. No passwords to remember. No texts to wait for.",
-  "start_url": "/en/",
+  "start_url": "/",
   "display": "browser",
   "background_color": "#4f46e5",
   "theme_color": "#4f46e5",

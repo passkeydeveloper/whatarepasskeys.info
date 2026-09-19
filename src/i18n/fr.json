@@ -4,7 +4,8 @@
   },
   "site": {
     "title": "Que sont les passkeys ?",
-    "description": "La méthode de connexion plus simple et plus sûre. Aucun mot de passe à retenir. Aucun code à attendre.",
+    "pageTitle": "Les passkeys expliquées : la façon plus simple et sûre de se connecter",
+    "description": "Une passkey est une clé numérique unique qui remplace votre mot de passe. Plus simple et plus sûre à utiliser : aucun mot de passe à retenir, aucun code à attendre.",
     "toggleConsumer": "De base",
     "toggleTechnical": "Avancé",
     "logoText": "Que sont les passkeys ?"
@@ -21,6 +22,8 @@
     "contentMode": "Mode d'affichage",
     "switchToLightMode": "Passer au mode clair",
     "switchToDarkMode": "Passer au mode sombre",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
     "jumpToSection": "Aller à la section",
     "pageSections": "Sections de la page",
     "copyLinkToSection": "Copier le lien vers la section « {section} »",
@@ -199,7 +202,7 @@
           "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
         },
         {
-          "label": "Comment les parties de confiance vérifient l'origine sur MDN",
+          "label": "Comment les parties de confiance vérifient l'origine sur W3C",
           "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
         }
       ]
@@ -393,7 +396,7 @@
             "technicalBody": "L'implémentation respecte la spécification WebAuthn L3, garantissant l'interopérabilité et la cohérence au sein de l'écosystème.",
             "tier5": "Prise en charge avérée et conformité rigoureuse avec la spécification WebAuthn L3.",
             "tier3": "Bonne prise en charge des passkeys, mais sans conformité complète avec WebAuthn L3.",
-            "tier1": "Prise en charge basique des passkeys uniquement, ou absence de respect de la spécification WebAuthn L3."
+            "tier1": "Prise en charge basique des clés d'accès uniquement, ou absence de prise en charge et de conformité à WebAuthn L3."
           },
           "digitalInheritance": {
             "consumerBody": "S'il vous arrive quelque chose, une personne de confiance pourra-t-elle accéder à vos comptes ? Une note maximale signifie qu'il existe une option intégrée pour désigner un contact d'urgence ou légataire. Une note basse signifie qu'aucun moyen pratique n'est prévu pour permettre à vos proches d'y accéder.",
@@ -634,7 +637,7 @@
           {
             "type": "basic",
             "question": "Puis-je transférer une passkey d'un gestionnaire d'identifiants à un autre ?",
-            "answer": "La prise en charge du transfert de passkeys entre gestionnaires progresse rapidement, mais elle n'est pas encore universelle. La possibilité de migrer vos passkeys dépend des gestionnaires concernés et des fonctionnalités qu'ils supportent. Notre tableau comparatif liste les gestionnaires compatibles : recherchez la mention « Échange d'identifiants »."
+            "answer": "La prise en charge du transfert de passkeys entre gestionnaires progresse rapidement, mais elle n'est pas encore universelle. La possibilité de migrer vos passkeys dépend des gestionnaires concernés et des fonctionnalités qu'ils supportent. [Notre tableau comparatif](#credential-managers) liste les gestionnaires compatibles : recherchez la mention « Échange d'identifiants »."
           },
           {
             "type": "basic",
@@ -649,7 +652,7 @@
           {
             "type": "basic",
             "question": "Puis-je utiliser des passkeys sur différents systèmes d'exploitation, comme macOS et Windows ?",
-            "answer": "Oui, mais l'expérience n'est pas toujours entièrement fluide. Les passkeys stockées dans le gestionnaire d'une plateforme ne se synchronisent pas forcément de façon directe avec une autre plateforme. Par exemple, si votre passkey est stockée dans Apple Passwords et que vous vous connectez sur un PC Windows, vous devrez utiliser votre iPhone (en scannant un QR code par exemple). Si vous passez fréquemment d'un écosystème à l'autre, opter pour un gestionnaire d'identifiants multiplateforme simplifiera grandement votre quotidien. Consultez notre comparatif pour trouver les solutions les plus polyvalentes entre différents OS et navigateurs. Et si vous devez transférer des passkeys existantes, veillez à choisir un gestionnaire bien noté dans la catégorie Échange d'identifiants."
+            "answer": "Oui, mais l'expérience n'est pas toujours entièrement fluide. Les passkeys stockées dans le gestionnaire d'une plateforme ne se synchronisent pas forcément de façon directe avec une autre plateforme. Par exemple, si votre passkey est stockée dans Apple Passwords et que vous vous connectez sur un PC Windows, vous devrez utiliser votre iPhone (en scannant un QR code par exemple). Si vous passez fréquemment d'un écosystème à l'autre, opter pour un gestionnaire d'identifiants multiplateforme simplifiera grandement votre quotidien. Consultez [notre comparatif](#credential-managers) pour trouver les solutions les plus polyvalentes entre différents OS et navigateurs. Et si vous devez transférer des passkeys existantes, veillez à choisir un gestionnaire bien noté dans la catégorie Échange d'identifiants."
           }
         ]
       },
@@ -665,7 +668,7 @@
           {
             "type": "basic",
             "question": "Que se passe-t-il si je perds mon téléphone ou si mon ordinateur tombe en panne ?",
-            "answer": "La récupération de vos passkeys dépend de votre gestionnaire d'identifiants et de sa configuration. Chaque gestionnaire applique sa propre méthode pour la sauvegarde, la récupération de compte et l'accès depuis un nouvel appareil : il est donc primordial d'anticiper ces options avant tout incident. Consultez nos évaluations pour comparer leur gestion de la sécurité, du dépannage et de la succession numérique. Si vous ne parvenez pas à récupérer vos passkeys, vous devrez passer par la procédure de récupération de compte propre à chaque site ou application."
+            "answer": "La récupération de vos passkeys dépend de votre gestionnaire d'identifiants et de sa configuration. Chaque gestionnaire applique sa propre méthode pour la sauvegarde, la récupération de compte et l'accès depuis un nouvel appareil : il est donc primordial d'anticiper ces options avant tout incident. Consultez [nos évaluations](#credential-managers) pour comparer leur gestion de la sécurité, du dépannage et de la succession numérique. Si vous ne parvenez pas à récupérer vos passkeys, vous devrez passer par la procédure de récupération de compte propre à chaque site ou application."
           },
           {
             "type": "basic",
@@ -722,7 +725,7 @@
           {
             "type": "basic",
             "question": "Existe-t-il un risque de sécurité si mon gestionnaire d'identifiants ou mon fournisseur de compte se fait pirater ?",
-            "answer": "Oui, mais la nature du risque est bien différente de celle d'une fuite de mots de passe. Les passkeys ne constituent pas des secrets réutilisables : un attaquant ne peut donc pas se contenter de subtiliser une clé pour se connecter immédiatement à votre compte. De plus, vos passkeys sont protégées par le niveau de sécurité de votre gestionnaire et des appareils servant à y accéder. Voilà pourquoi le choix d'un bon gestionnaire est essentiel. Consultez nos évaluations pour comparer la robustesse des différentes solutions."
+            "answer": "Oui, mais la nature du risque est bien différente de celle d'une fuite de mots de passe. Les passkeys ne constituent pas des secrets réutilisables : un attaquant ne peut donc pas se contenter de subtiliser une clé pour se connecter immédiatement à votre compte. De plus, vos passkeys sont protégées par le niveau de sécurité de votre gestionnaire et des appareils servant à y accéder. Voilà pourquoi le choix d'un bon gestionnaire est essentiel. Consultez [nos évaluations](#credential-managers) pour comparer la robustesse des différentes solutions."
           },
           {
             "type": "advanced",
@@ -738,17 +741,17 @@
           {
             "type": "basic",
             "question": "Puis-je partager un compte protégé par passkey avec un proche ou un membre de ma famille ?",
-            "answer": "Parfois. Certains gestionnaires d'identifiants autorisent le partage sécurisé de passkeys avec des proches ou des contacts de confiance. Cela dépend du gestionnaire que vous utilisez et des autorisations accordées par le site ou l'application. Consultez notre comparatif des gestionnaires pour voir lesquels gèrent le partage familial."
+            "answer": "Parfois. Certains gestionnaires d'identifiants autorisent le partage sécurisé de passkeys avec des proches ou des contacts de confiance. Cela dépend du gestionnaire que vous utilisez et des autorisations accordées par le site ou l'application. Consultez [notre comparatif des gestionnaires](#credential-managers) pour voir lesquels gèrent le partage familial."
           },
           {
             "type": "basic",
             "question": "Comment garantir que ma famille pourra accéder à mes comptes s'il m'arrive quelque chose ?",
-            "answer": "Tout dépend de votre gestionnaire d'identifiants. Certains mettent à disposition des mécanismes d'accès d'urgence, de contacts héritiers ou d'autres dispositifs de succession numérique permettant à vos proches d'accéder à vos identifiants en cas de force majeure. Si cette précaution compte pour vous, prenez soin de la paramétrer à l'avance. Consultez nos notes de gestionnaires pour découvrir comment chacun gère l'héritage numérique."
+            "answer": "Tout dépend de votre gestionnaire d'identifiants. Certains mettent à disposition des mécanismes d'accès d'urgence, de contacts héritiers ou d'autres dispositifs de succession numérique permettant à vos proches d'accéder à vos identifiants en cas de force majeure. Si cette précaution compte pour vous, prenez soin de la paramétrer à l'avance. Consultez [nos notes de gestionnaires](#credential-managers) pour découvrir comment chacun gère l'héritage numérique."
           },
           {
             "type": "basic",
             "question": "Si le compte de mon écosystème principal est suspendu, puis-je toujours me connecter ailleurs avec les passkeys qui y étaient stockées ?",
-            "answer": "Pas obligatoirement. Si vous perdez l'accès au compte dont dépend votre gestionnaire d'identifiants, vous risquez également de perdre l'accès aux passkeys qui y sont enregistrées ou synchronisées. Les conséquences dépendent du fournisseur et des mécanismes de secours prévus. C'est l'une des raisons pour lesquelles il est capital de bien comprendre comment votre solution gère la récupération de compte. Consultez nos évaluations pour bien choisir."
+            "answer": "Pas obligatoirement. Si vous perdez l'accès au compte dont dépend votre gestionnaire d'identifiants, vous risquez également de perdre l'accès aux passkeys qui y sont enregistrées ou synchronisées. Les conséquences dépendent du fournisseur et des mécanismes de secours prévus. C'est l'une des raisons pour lesquelles il est capital de bien comprendre comment votre solution gère la récupération de compte. Consultez [nos évaluations](#credential-managers) pour bien choisir."
           }
         ]
       },
@@ -759,7 +762,7 @@
           {
             "type": "basic",
             "question": "Suis-je enfermé dans un seul gestionnaire d'identifiants dès lors que j'utilise des passkeys ?",
-            "answer": "Ce n'est pas le but voulu par la norme. Dans la pratique, les gestionnaires ont mis un peu de temps à intégrer la migration, mais la majorité des applications courantes gèrent désormais le transfert sécurisé de vos identifiants et passkeys vers un autre service. La prise en charge du protocole d'échange d'identifiants (Credential Exchange) se développe activement dans l'écosystème. Consultez la catégorie « Vous permet de changer de solution » dans notre section d'évaluation des gestionnaires."
+            "answer": "Ce n'est pas le but voulu par la norme. Dans la pratique, les gestionnaires ont mis un peu de temps à intégrer la migration, mais la majorité des applications courantes gèrent désormais le transfert sécurisé de vos identifiants et passkeys vers un autre service. La prise en charge du protocole d'échange d'identifiants (Credential Exchange) se développe activement dans l'écosystème. Consultez la catégorie « Vous permet de changer de solution » dans [notre section d'évaluation des gestionnaires](#credential-managers)."
           },
           {
             "type": "basic",
