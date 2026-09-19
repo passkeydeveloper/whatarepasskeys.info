@@ -45,17 +45,29 @@ If you'd rather just open a pull request directly, that's fine too, especially f
    npm run preview
    ```
 
-See the [README](README.md#project-structure) for an overview of where things live. Most content changes only touch `src/i18n/en.json`.
+See the [README](README.md#project-structure) for an overview of where things live. Most content changes only touch `src/i18n/en.json`; translation changes touch the corresponding `src/i18n/<code>.json`.
 
 ## Making Changes
 
 ### Content
 
-Almost all page copy — headlines, body text, FAQ questions and answers, and credential manager descriptions — lives in `src/i18n/en.json`. If you're fixing wording or adding an FAQ entry, edit that file directly rather than the `.astro` components.
+Almost all page copy — headlines, body text, FAQ questions and answers, and credential manager descriptions — lives in `src/i18n/en.json`, which is the English source of truth. If you're fixing wording or adding an FAQ entry, edit that file directly rather than the `.astro` components. New content should be added to `en.json` first — other locales fall back to English for anything they don't yet have translated.
 
 Content follows the site's two-tier structure: a **Basic** version for general readers, and an **Advanced** version (`techCallout` fields) that adds the underlying technical detail. When adding new content, try to match this pattern — plain-language first, technical detail as an addition, not a replacement.
 
 Spelling is checked with [cspell](https://cspell.org) against `.cspell/dict.txt`. If you use a legitimate term (a product name, a technical acronym) that isn't recognized, add it to that dictionary rather than working around it.
+
+### Translations
+
+See the [README](README.md#localization) for how localization works — each language is a `src/i18n/<code>.json` file, and adding one is enough to make it live, with no other file to register it in.
+
+When translating or updating a locale file:
+
+- Match the structure of `en.json` exactly (same keys, same nesting) — that's what `en.json` is: the reference to translate against, and it should stay in sync with it.
+- Set `meta.nativeName` to how the language names itself (e.g. `"Español"`, not "Spanish") — that's what shows up in the language switcher.
+- Keep the `[label](url)` inline-link syntax (see `src/i18n/richText.ts`) rather than adding HTML or Markdown links.
+- Don't change `credentialManagers` scores as part of a translation — those should stay consistent with `en.json`; propose a score change separately (see below).
+- If you're adding a brand-new locale, open an **Internationalization** issue first so it can be discussed before a full-file PR.
 
 ### Credential Manager Scores
 
