@@ -1,5 +1,6 @@
 ---
 import { ChevronDown, Search } from 'lucide-astro';
+import RichText from '../RichText.astro';
 
 interface Props {
   t: any;
@@ -65,9 +66,7 @@ const faq = t.faq;
                   </span>
                   <ChevronDown size={20} class="faq-chevron" />
                 </summary>
-                <p class="pb-5 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {item.answer}
-                </p>
+                <RichText class="pb-5 text-gray-600 dark:text-gray-400 leading-relaxed" text={item.answer} />
               </details>
             ))}
           </div>

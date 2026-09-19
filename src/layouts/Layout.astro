@@ -4,6 +4,8 @@ import Header from '../components/layout/Header.astro';
 import SectionDots from '../components/layout/SectionDots.astro';
 import Footer from '../components/layout/Footer.astro';
 import { useTranslations, locales, localeHref, bcp47Language } from '../i18n/utils';
+import { stripRichTextLinks } from '../i18n/richText';
+import { managerScores } from '../data/credentialManagers';
 
 interface Props {
   locale: string;
@@ -42,9 +44,47 @@ const faqSchema = {
       name: item.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: item.answer,
+        text: stripRichTextLinks(item.answer),
       },
     })),
+};
+
+// Ranked comparison of third-party credential managers, published on this
+// page at #credential-managers. weightedScore (0-100, defined in
+// src/data/credentialManagers.json) is rescaled to schema.org's bounded
+// Rating scale; the letter grade is kept in reviewBody for transparency.
+const credentialManagersUrl = new URL('/#credential-managers', Astro.site).toString();
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: t.credentialManagers.headline,
+  url: credentialManagersUrl,
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  itemListElement: [...managerScores]
+    .sort((a, b) => b.weightedScore - a.weightedScore)
+    .map((m, i) => {
+      const data = (t.credentialManagers.managers as Record<string, { name: string; description: string }>)[m.key];
+      return {
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'SoftwareApplication',
+          name: data.name,
+          applicationCategory: 'SecurityApplication',
+          review: {
+            '@type': 'Review',
+            author: { '@type': 'Organization', name: t.site.title },
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: (m.weightedScore / 20).toFixed(1),
+              bestRating: '5',
+              worstRating: '1',
+            },
+            reviewBody: `Grade ${m.grade} (${m.weightedScore}/100). ${data.description}`,
+          },
+        },
+      };
+    }),
 };
 
 // CF_PAGES_BRANCH is set by Cloudflare Pages at build time; PROD alone is true
@@ -136,6 +176,7 @@ const sections = [
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
 
     <!-- Analytics (proxied through /metrics to avoid tracker blockers) -->
     {isProductionDeploy && (

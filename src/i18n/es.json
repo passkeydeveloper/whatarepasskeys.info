@@ -671,7 +671,7 @@
           {
             "type": "basic",
             "question": "¿Puedo transferir una passkey de un gestor de credenciales a otro?",
-            "answer": "La posibilidad de migrar passkeys entre gestores está avanzando, aunque no está disponible en todas partes. Que puedas trasladarlas depende de los gestores implicados y de las funciones que admitan actualmente; nuestra guía de puntuación detalla cuáles gestores lo permiten hoy en día. Busca la característica \"Intercambio de credenciales\"."
+            "answer": "La posibilidad de migrar passkeys entre gestores está avanzando, aunque no está disponible en todas partes. Que puedas trasladarlas depende de los gestores implicados y de las funciones que admitan actualmente; [nuestra guía de puntuación](#credential-managers) detalla cuáles gestores lo permiten hoy en día. Busca la característica \"Intercambio de credenciales\"."
           },
           {
             "type": "basic",
@@ -686,7 +686,7 @@
           {
             "type": "basic",
             "question": "¿Puedo usar passkeys en distintos sistemas operativos, como macOS y Windows?",
-            "answer": "Sí, aunque la experiencia no siempre es directa. Las passkeys guardadas en el gestor de una plataforma no siempre se sincronizan de forma automática con otra. Por ejemplo, si tu passkey está guardada en Apple Passwords y accedes desde una computadora con Windows, quizá debas usar tu iPhone para autenticarte escaneando un código QR. Si utilizas habitualmente dispositivos y navegadores de distintos ecosistemas, elegir un gestor multiplataforma simplificará mucho el proceso. Revisa nuestras puntuaciones de gestores de credenciales para comprobar cuáles ofrecen la mejor compatibilidad entre dispositivos, sistemas y navegadores. Y si necesitas mover passkeys preexistentes, asegúrate de que tu próximo gestor obtenga una puntuación alta en Intercambio de credenciales."
+            "answer": "Sí, aunque la experiencia no siempre es directa. Las passkeys guardadas en el gestor de una plataforma no siempre se sincronizan de forma automática con otra. Por ejemplo, si tu passkey está guardada en Apple Passwords y accedes desde una computadora con Windows, quizá debas usar tu iPhone para autenticarte escaneando un código QR. Si utilizas habitualmente dispositivos y navegadores de distintos ecosistemas, elegir un gestor multiplataforma simplificará mucho el proceso. Revisa [nuestras puntuaciones de gestores de credenciales](#credential-managers) para comprobar cuáles ofrecen la mejor compatibilidad entre dispositivos, sistemas y navegadores. Y si necesitas mover passkeys preexistentes, asegúrate de que tu próximo gestor obtenga una puntuación alta en Intercambio de credenciales."
           }
         ]
       },
@@ -704,7 +704,7 @@
           {
             "type": "basic",
             "question": "¿Qué ocurre si pierdo mi teléfono o se me rompe la computadora?",
-            "answer": "Poder recuperar tus passkeys dependerá de tu gestor de credenciales y de cómo lo hayas configurado. Cada gestor ofrece distintas opciones para la recuperación de cuentas, respaldos y acceso desde nuevos equipos, por lo que conviene revisar tus mecanismos de contingencia con anticipación. Consulta nuestras valoraciones de gestores para comparar cómo resuelven la seguridad, la recuperación y el legado digital. Si no puedes restaurar tus passkeys, deberás recurrir al proceso de recuperación particular que ofrezca cada sitio web o app."
+            "answer": "Poder recuperar tus passkeys dependerá de tu gestor de credenciales y de cómo lo hayas configurado. Cada gestor ofrece distintas opciones para la recuperación de cuentas, respaldos y acceso desde nuevos equipos, por lo que conviene revisar tus mecanismos de contingencia con anticipación. Consulta [nuestras valoraciones de gestores](#credential-managers) para comparar cómo resuelven la seguridad, la recuperación y el legado digital. Si no puedes restaurar tus passkeys, deberás recurrir al proceso de recuperación particular que ofrezca cada sitio web o app."
           },
           {
             "type": "basic",
@@ -766,7 +766,7 @@
           {
             "type": "basic",
             "question": "¿Existe riesgo para mi seguridad si hackean a mi gestor de credenciales o proveedor de cuenta?",
-            "answer": "Sí, aunque las consecuencias son muy distintas a las de una filtración de contraseñas. Las passkeys no son secretos compartidos que puedan reutilizarse; un atacante no puede simplemente sustraer una passkey y usarla para entrar a tu cuenta. Adicionalmente, tus passkeys se encuentran resguardadas por los mecanismos de seguridad de tu gestor y los dispositivos que utilizas para acceder a él. De ahí la importancia de recurrir a un gestor confiable. Revisa nuestras evaluaciones de gestores para comparar cómo protege cada solución tus credenciales y tu cuenta."
+            "answer": "Sí, aunque las consecuencias son muy distintas a las de una filtración de contraseñas. Las passkeys no son secretos compartidos que puedan reutilizarse; un atacante no puede simplemente sustraer una passkey y usarla para entrar a tu cuenta. Adicionalmente, tus passkeys se encuentran resguardadas por los mecanismos de seguridad de tu gestor y los dispositivos que utilizas para acceder a él. De ahí la importancia de recurrir a un gestor confiable. Revisa [nuestras evaluaciones de gestores](#credential-managers) para comparar cómo protege cada solución tus credenciales y tu cuenta."
           },
           {
             "type": "advanced",
@@ -784,17 +784,17 @@
           {
             "type": "basic",
             "question": "¿Puedo compartir una cuenta protegida con passkey con un familiar?",
-            "answer": "En ocasiones sí. Ciertos gestores de credenciales permiten compartir passkeys con familiares u otras personas de confianza con total seguridad. Que puedas hacerlo dependerá del gestor que elijas y de si el sitio web o la app lo autoriza. Echa un vistazo a nuestras puntuaciones de gestores de credenciales para comprobar cuáles cuentan con opciones de uso compartido familiar."
+            "answer": "En ocasiones sí. Ciertos gestores de credenciales permiten compartir passkeys con familiares u otras personas de confianza con total seguridad. Que puedas hacerlo dependerá del gestor que elijas y de si el sitio web o la app lo autoriza. Echa un vistazo a [nuestras puntuaciones de gestores de credenciales](#credential-managers) para comprobar cuáles cuentan con opciones de uso compartido familiar."
           },
           {
             "type": "basic",
             "question": "¿Cómo garantizo que mi familia pueda acceder a mis cuentas ante cualquier imprevisto?",
-            "answer": "Esto depende de las opciones de tu gestor de credenciales. Varios incluyen funciones como acceso de emergencia, contactos de legado u otras herramientas de herencia digital para que personas autorizadas puedan recuperar tus cuentas o credenciales en caso necesario. Si esto es una prioridad para ti, configúralo cuanto antes. Consulta nuestra tabla comparativa para conocer cómo respalda cada gestor tu legado digital."
+            "answer": "Esto depende de las opciones de tu gestor de credenciales. Varios incluyen funciones como acceso de emergencia, contactos de legado u otras herramientas de herencia digital para que personas autorizadas puedan recuperar tus cuentas o credenciales en caso necesario. Si esto es una prioridad para ti, configúralo cuanto antes. Consulta [nuestra tabla comparativa](#credential-managers) para conocer cómo respalda cada gestor tu legado digital."
           },
           {
             "type": "basic",
             "question": "Si mi cuenta de plataforma se suspende, ¿podré seguir iniciando sesión en otros sitios con una passkey guardada allí?",
-            "answer": "No necesariamente. Si pierdes el control de la cuenta principal de la que depende tu gestor de credenciales, podrías perder igualmente el acceso a las passkeys alojadas o sincronizadas en dicho servicio. El resultado dependerá de las directivas del proveedor y de las opciones de respaldo que hayas establecido. Por ello resulta esencial comprender cómo gestiona tu proveedor el restablecimiento y acceso a las cuentas. Revisa nuestras evaluaciones para contrastar las distintas alternativas."
+            "answer": "No necesariamente. Si pierdes el control de la cuenta principal de la que depende tu gestor de credenciales, podrías perder igualmente el acceso a las passkeys alojadas o sincronizadas en dicho servicio. El resultado dependerá de las directivas del proveedor y de las opciones de respaldo que hayas establecido. Por ello resulta esencial comprender cómo gestiona tu proveedor el restablecimiento y acceso a las cuentas. Revisa [nuestras evaluaciones](#credential-managers) para contrastar las distintas alternativas."
           }
         ]
       },
@@ -807,7 +807,7 @@
           {
             "type": "basic",
             "question": "¿Quedo atrapado en un único gestor de credenciales al comenzar a usar passkeys?",
-            "answer": "No por definición. En la práctica, aunque los gestores aún se encuentran adaptándose a la migración de passkeys, las soluciones más reconocidas ya permiten la exportación e importación segura de credenciales, passkeys incluidas, hacia otros servicios. La compatibilidad con el Intercambio de Credenciales se está expandiendo con rapidez en todo el sector. Consulta la categoría \"Te permite marcharte\" en nuestra sección de calificaciones de gestores."
+            "answer": "No por definición. En la práctica, aunque los gestores aún se encuentran adaptándose a la migración de passkeys, las soluciones más reconocidas ya permiten la exportación e importación segura de credenciales, passkeys incluidas, hacia otros servicios. La compatibilidad con el Intercambio de Credenciales se está expandiendo con rapidez en todo el sector. Consulta la categoría \"Te permite marcharte\" en [nuestra sección de calificaciones de gestores](#credential-managers)."
           },
           {
             "type": "basic",

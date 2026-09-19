@@ -636,7 +636,7 @@
           {
             "type": "basic",
             "question": "Can I move a passkey from one credential manager to another?",
-            "answer": "Support for moving passkeys between credential managers is improving, but it isn't available everywhere yet. Whether you can move your passkeys depends on the credential managers you are moving between and the features they currently support; our credential manager scoring guide lists what managers currently support this. Look for the “Credential Exchange” feature."
+            "answer": "Support for moving passkeys between credential managers is improving, but it isn't available everywhere yet. Whether you can move your passkeys depends on the credential managers you are moving between and the features they currently support; [our credential manager scoring guide](#credential-managers) lists what managers currently support this. Look for the “Credential Exchange” feature."
           },
           {
             "type": "basic",
@@ -651,7 +651,7 @@
           {
             "type": "basic",
             "question": "Can I use passkeys across different operating systems, like macOS and Windows?",
-            "answer": "Yes, but the experience isn't always seamless. Passkeys stored in one platform's credential manager don't necessarily sync directly to another platform. For example, if your passkey is stored with Apple Passwords and you're signing in on a Windows computer, you may need to use your iPhone to sign in, such as by scanning a QR code. If you regularly use devices and browsers from different ecosystems, choosing a credential manager that works well across all of them can make using passkeys much easier. See our credential manager scores to compare which options offer the best support across devices, operating systems and browsers. And if you need to move existing passkeys to another credential manager, make sure your next credential manager scores high in the Credential Exchange Support category."
+            "answer": "Yes, but the experience isn't always seamless. Passkeys stored in one platform's credential manager don't necessarily sync directly to another platform. For example, if your passkey is stored with Apple Passwords and you're signing in on a Windows computer, you may need to use your iPhone to sign in, such as by scanning a QR code. If you regularly use devices and browsers from different ecosystems, choosing a credential manager that works well across all of them can make using passkeys much easier. See [our credential manager scores](#credential-managers) to compare which options offer the best support across devices, operating systems and browsers. And if you need to move existing passkeys to another credential manager, make sure your next credential manager scores high in the Credential Exchange Support category."
           }
         ]
       },
@@ -667,7 +667,7 @@
           {
             "type": "basic",
             "question": "What happens if I lose my phone or my computer breaks?",
-            "answer": "Being able to recover your passkeys depends on your credential manager and how you have it set up. Credential managers have different approaches to account recovery, backup and access from a new device, so it's important to understand your recovery options before you need them. See our credential manager scores to compare how different options handle security, recovery and digital legacy. If you can't recover your passkeys, you may need to use the account recovery process provided by each website or app."
+            "answer": "Being able to recover your passkeys depends on your credential manager and how you have it set up. Credential managers have different approaches to account recovery, backup and access from a new device, so it's important to understand your recovery options before you need them. See [our credential manager scores](#credential-managers) to compare how different options handle security, recovery and digital legacy. If you can't recover your passkeys, you may need to use the account recovery process provided by each website or app."
           },
           {
             "type": "basic",
@@ -724,7 +724,7 @@
           {
             "type": "basic",
             "question": "Is there a security risk if my credential manager or account provider is hacked?",
-            "answer": "Yes, but the risk is different from a password breach. Passkeys aren't reusable secrets like passwords, so an attacker can't simply steal a passkey and use it to sign in to your account. Your passkeys are also protected by the security of your credential manager and the devices you use to access it. This is why choosing a secure credential manager matters. See our credential manager scores to compare how different options protect your passkeys and account."
+            "answer": "Yes, but the risk is different from a password breach. Passkeys aren't reusable secrets like passwords, so an attacker can't simply steal a passkey and use it to sign in to your account. Your passkeys are also protected by the security of your credential manager and the devices you use to access it. This is why choosing a secure credential manager matters. See [our credential manager scores](#credential-managers) to compare how different options protect your passkeys and account."
           },
           {
             "type": "advanced",
@@ -740,17 +740,17 @@
           {
             "type": "basic",
             "question": "Can I share a passkey-protected account with a family member?",
-            "answer": "Sometimes. Some credential managers let you securely share passkeys with family members or other trusted people. Whether you can share a passkey depends on the credential manager you use and whether the website or app allows the passkey to be shared. See our credential manager scores to compare which options support family sharing."
+            "answer": "Sometimes. Some credential managers let you securely share passkeys with family members or other trusted people. Whether you can share a passkey depends on the credential manager you use and whether the website or app allows the passkey to be shared. See [our credential manager scores](#credential-managers) to compare which options support family sharing."
           },
           {
             "type": "basic",
             "question": "How do I make sure my family can access my accounts if something happens to me?",
-            "answer": "This depends on your credential manager. Some offer features such as emergency access, legacy contacts or other digital inheritance features that can help trusted people access your accounts or credentials if something happens to you. If this is important to you, set it up in advance. See our credential manager scores to compare how different options support your digital legacy."
+            "answer": "This depends on your credential manager. Some offer features such as emergency access, legacy contacts or other digital inheritance features that can help trusted people access your accounts or credentials if something happens to you. If this is important to you, set it up in advance. See [our credential manager scores](#credential-managers) to compare how different options support your digital legacy."
           },
           {
             "type": "basic",
             "question": "If my platform account gets suspended, can I still log in elsewhere with a passkey stored there?",
-            "answer": "Not necessarily. If you lose access to the account that your credential manager depends on, you may also lose access to passkeys stored or synced through that credential manager. What happens depends on the provider and the recovery options you have set up. This is one reason it's important to understand how your credential manager handles account recovery and access. See our credential manager scores to compare your options."
+            "answer": "Not necessarily. If you lose access to the account that your credential manager depends on, you may also lose access to passkeys stored or synced through that credential manager. What happens depends on the provider and the recovery options you have set up. This is one reason it's important to understand how your credential manager handles account recovery and access. See [our credential manager scores](#credential-managers) to compare your options."
           }
         ]
       },
@@ -761,7 +761,7 @@
           {
             "type": "basic",
             "question": "Am I locked into one credential manager once I start using passkeys?",
-            "answer": "Not by design. In practice, though, credential managers are still catching up to support passkey migration, but most popular credential managers do now support secure credential migration, including passkeys, to another service. Support for Credential Exchange is actively expanding throughout the ecosystem. See the \"Let's you leave\" category in the credential manager scores section."
+            "answer": "Not by design. In practice, though, credential managers are still catching up to support passkey migration, but most popular credential managers do now support secure credential migration, including passkeys, to another service. Support for Credential Exchange is actively expanding throughout the ecosystem. See the \"Let's you leave\" category in [the credential manager scores section](#credential-managers)."
           },
           {
             "type": "basic",

@@ -1,4 +1,6 @@
 ---
+import { parseRichText } from '../i18n/richText';
+
 interface Props {
   text: string | string[];
   class?: string;
@@ -8,5 +10,18 @@ const { text, class: className = '' } = Astro.props;
 const paragraphs = Array.isArray(text) ? text : [text];
 ---
 {paragraphs.map((paragraph, i) => (
-  <p class:list={[className, { 'mt-3': i > 0 }]}>{paragraph}</p>
+  <p class:list={[className, { 'mt-3': i > 0 }]}>
+    {parseRichText(paragraph).map((segment) =>
+      'link' in segment ? (
+        <a
+          href={segment.href}
+          class="underline decoration-dotted underline-offset-2 hover:text-indigo-600 dark:hover:text-indigo-400"
+        >
+          {segment.link}
+        </a>
+      ) : (
+        segment.text
+      )
+    )}
+  </p>
 ))}
