@@ -47,9 +47,9 @@ const faq = t.faq;
     </div>
 
     <div class="space-y-12" id="faq-categories">
-      {faq.categories.map((category: { name: string; types: string[]; items: { type: 'basic' | 'advanced'; question: string; answer: string }[] }) => (
+      {faq.categories.map((category: { name: string; types: string[]; items: { type: 'basic' | 'advanced'; question: string; answer: string }[] }, i: number) => (
         <div class="faq-category fade-in-section">
-          <h3 class="text-sm font-semibold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-2">
+          <h3 id={`faq-category-${i}`} class="text-sm font-semibold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-2 scroll-mt-24">
             {category.name}
           </h3>
           <div class="space-y-0 divide-y divide-gray-100 dark:divide-gray-800">
