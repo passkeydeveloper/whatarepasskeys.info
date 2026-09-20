@@ -344,7 +344,7 @@
       "scoreLabel5": "優秀",
       "scoreLabel3": "一部対応",
       "scoreLabel1": "限定的",
-      "lastUpdated": "スコアの最終更新日：2026年9月",
+      "lastUpdated": "スコアの最終更新日：{date}",
       "coreTag": "重要",
       "lowerTag": "補助的",
       "caveatIndicatorLabel": "注意事項を表示：",
@@ -802,10 +802,11 @@
   "footer": {
     "madeWith": "作成：",
     "by": "パスキーコミュニティによる制作",
-    "feedback": "当サイトへのご意見・ご感想はこちら",
+    "feedback": "ご意見・ご感想はこちら",
     "feedbackLink": "フィードバックを送る",
     "licensePrefix": "コンテンツライセンス：",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "GitHubでソースコードを見る"
+    "viewSourceOnGitHub": "GitHubでソースコードを見る",
+    "contentUpdated": "コンテンツの最終更新日：{date}"
   }
 }

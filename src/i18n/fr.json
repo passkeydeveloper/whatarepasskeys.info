@@ -344,7 +344,7 @@
       "scoreLabel5": "Excellent",
       "scoreLabel3": "Partiel",
       "scoreLabel1": "Limité",
-      "lastUpdated": "Notes mises à jour en septembre 2026.",
+      "lastUpdated": "Notes mises à jour le {date}.",
       "coreTag": "Fondamental",
       "lowerTag": "Pondération moindre",
       "caveatIndicatorLabel": "Voir la réserve concernant",
@@ -802,10 +802,11 @@
   "footer": {
     "madeWith": "Fait avec",
     "by": "par la communauté passkey.",
-    "feedback": "Des remarques sur ce site ?",
+    "feedback": "Des remarques ?",
     "feedbackLink": "Faites-le nous savoir",
     "licensePrefix": "Contenu sous licence",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "Voir la source sur GitHub"
+    "viewSourceOnGitHub": "Voir la source sur GitHub",
+    "contentUpdated": "Contenu mis à jour le {date}."
   }
 }

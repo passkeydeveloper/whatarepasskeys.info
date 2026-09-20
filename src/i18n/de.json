@@ -344,7 +344,7 @@
       "scoreLabel5": "Hervorragend",
       "scoreLabel3": "Teilweise",
       "scoreLabel1": "Eingeschränkt",
-      "lastUpdated": "Bewertungen zuletzt aktualisiert im September 2026.",
+      "lastUpdated": "Bewertungen zuletzt aktualisiert am {date}.",
       "coreTag": "Kernkriterium",
       "lowerTag": "Geringere Gewichtung",
       "caveatIndicatorLabel": "Hinweis anzeigen für",
@@ -850,10 +850,11 @@
   "footer": {
     "madeWith": "Erstellt mit",
     "by": "von der Passkey-Community.",
-    "feedback": "Feedback zu dieser Website?",
+    "feedback": "Feedback?",
     "feedbackLink": "Geben Sie uns Feedback",
     "licensePrefix": "Inhalte lizenziert unter",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "Quellcode auf GitHub ansehen"
+    "viewSourceOnGitHub": "Quellcode auf GitHub ansehen",
+    "contentUpdated": "Inhalt zuletzt aktualisiert am {date}."
   }
 }

@@ -6,6 +6,7 @@ import Footer from '../components/layout/Footer.astro';
 import { useTranslations, locales, localeHref, bcp47Language } from '../i18n/utils';
 import { stripRichTextLinks } from '../i18n/richText';
 import { managerScores } from '../data/credentialManagers';
+import { lastGitCommitDate } from '../utils/gitDate';
 
 interface Props {
   locale: string;
@@ -49,6 +50,28 @@ const faqSchema = {
     })),
 };
 
+// A stable, named publisher entity for the WebSite and the credential
+// manager reviews below — this project is community-maintained (see
+// README/CONTRIBUTING), so "Organization" here represents that open-source
+// project/community, not a fabricated individual author.
+const organizationId = new URL('#organization', Astro.site).toString();
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': organizationId,
+  name: 'Passkey Developer Resources',
+  url: Astro.site?.toString(),
+  logo: new URL('/apple-touch-icon.png', Astro.site).toString(),
+  sameAs: ['https://github.com/passkeydeveloper/whatarepasskeys.info'],
+};
+
+// Real freshness signals derived from actual content changes, rather than a
+// hand-maintained date string that would quietly go stale. Two distinct
+// dates on purpose: the credential manager scores are edited independently
+// of (and far less often than) the rest of the page content.
+const pageContentUpdated = lastGitCommitDate(`src/i18n/${locale}.json`);
+const credentialManagersUpdated = lastGitCommitDate('src/data/credentialManagers.json');
+
 // Ranked comparison of third-party credential managers, published on this
 // page at #credential-managers. weightedScore (0-100, defined in
 // src/data/credentialManagers.json) is rescaled to schema.org's bounded
@@ -60,6 +83,7 @@ const itemListSchema = {
   name: t.credentialManagers.headline,
   url: credentialManagersUrl,
   itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  ...(credentialManagersUpdated ? { dateModified: credentialManagersUpdated } : {}),
   itemListElement: [...managerScores]
     .sort((a, b) => b.weightedScore - a.weightedScore)
     .map((m, i) => {
@@ -73,7 +97,7 @@ const itemListSchema = {
           applicationCategory: 'SecurityApplication',
           review: {
             '@type': 'Review',
-            author: { '@type': 'Organization', name: t.site.title },
+            author: { '@id': organizationId },
             reviewRating: {
               '@type': 'Rating',
               ratingValue: (m.weightedScore / 20).toFixed(1),
@@ -98,6 +122,8 @@ const websiteSchema = {
   name: t.site.title,
   description: t.site.description,
   url: Astro.site?.toString(),
+  publisher: { '@id': organizationId },
+  ...(pageContentUpdated ? { dateModified: pageContentUpdated } : {}),
 };
 
 const sections = [
@@ -183,6 +209,7 @@ const sections = [
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />

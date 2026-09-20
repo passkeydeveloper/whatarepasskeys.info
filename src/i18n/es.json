@@ -344,7 +344,7 @@
       "scoreLabel5": "Excelente",
       "scoreLabel3": "Parcial",
       "scoreLabel1": "Limitado",
-      "lastUpdated": "Puntuaciones actualizadas por última vez en septiembre de 2026.",
+      "lastUpdated": "Puntuaciones actualizadas por última vez el {date}.",
       "coreTag": "Principal",
       "lowerTag": "Menor peso",
       "caveatIndicatorLabel": "Ver salvedad sobre",
@@ -850,10 +850,11 @@
   "footer": {
     "madeWith": "Hecho con",
     "by": "por la comunidad de passkeys.",
-    "feedback": "¿Tienes comentarios sobre este sitio?",
+    "feedback": "¿Tienes comentarios?",
     "feedbackLink": "Cuéntanoslo",
     "licensePrefix": "Contenido bajo licencia",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "Ver código fuente en GitHub"
+    "viewSourceOnGitHub": "Ver código fuente en GitHub",
+    "contentUpdated": "Contenido actualizado por última vez el {date}."
   }
 }
