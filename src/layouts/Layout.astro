@@ -7,6 +7,11 @@ import { useTranslations, locales, localeHref, bcp47Language } from '../i18n/uti
 import { stripRichTextLinks } from '../i18n/richText';
 import { managerScores } from '../data/credentialManagers';
 import { lastGitCommitDate } from '../utils/gitDate';
+// The specific woff2 subset @fontsource-variable/inter's default CSS uses
+// for normal-style Latin text (see its index.css) — i.e. the one the LCP
+// element (hero text) actually needs. `?url` gets Vite's final built/hashed
+// URL so this stays correct across builds without duplicating the file.
+import interLatinWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 
 interface Props {
   locale: string;
@@ -145,6 +150,7 @@ const sections = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <link rel="preload" as="font" type="font/woff2" href={interLatinWoff2} crossorigin />
     <script is:inline>
       (function () {
         try {
