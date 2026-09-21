@@ -1,0 +1,23 @@
+# What are passkeys?
+
+> Passkeys replace your password with a unique digital key. This site explains what passkeys are, how they work, why passwords fail, how passkeys resist phishing, how they compare to passwords, how to pick a credential manager, and how they work in a managed/work environment.
+
+Content is written for a general consumer audience by default, with an Advanced mode (toggle in the site header) that adds technical detail and citations to MDN, W3C, and the Verizon DBIR for readers who want the underlying standards (WebAuthn/FIDO2). Content is CC BY 4.0 licensed and open source; see the repository for scoring methodology, translations, and contribution guidelines.
+
+- Source and contribution guide: https://github.com/passkeydeveloper/whatarepasskeys.info
+
+## Sections
+
+- [What is a passkey?](https://whatarepasskeys.info/#what-is): Definition and how the public/private key pair works.
+- [How it works](https://whatarepasskeys.info/#how-it-works): The create → confirm → signed-in flow.
+- [Why passwords fail](https://whatarepasskeys.info/#why-passwords-fail): Password reuse, credential theft, phishing, and slow sign-in.
+- [Phishing](https://whatarepasskeys.info/#phishing): Why passkeys can't be phished, with a worked fake-site example.
+- [Why passkeys win](https://whatarepasskeys.info/#comparison): Side-by-side comparison against passwords, password+SMS, and magic links.
+- [Credential manager comparison](https://whatarepasskeys.info/#credential-managers): Scored, criteria-based comparison of 1Password, Apple, Bitwarden, Dashlane, Google, KeePassXC, Keeper, LastPass, Microsoft, NordPass, Proton Pass, and Samsung Pass.
+- [Passkeys at work](https://whatarepasskeys.info/#work-passkeys): Personal vs. managed/work use, device-bound passkeys, and IT policy considerations.
+- [FAQ](https://whatarepasskeys.info/#faq): 44 questions across 9 categories — setup, syncing, backup and recovery, managing multiple passkeys, security, family sharing, switching credential managers, and trust/adoption.
+
+## Optional
+
+- [Feedback](https://whatarepasskeys.info/feedback): Report an issue or suggest a fix.
+- Also available in German (/de/), Spanish (/es/), French (/fr/), and Japanese (/ja/).
