@@ -45,7 +45,7 @@
     "headline": "Say hello to passkeys",
     "subheadline": "The easier and safer way to sign in. No passwords to remember. No codes to wait for. Just sign in and get back to what matters.",
     "scrollCta": "See how passkeys work",
-    "badge": "The future of sign-in is here",
+    "eyebrow": "What is a passkey?",
     "illustrationAlt": "Passkey illustration",
     "scrollIndicator": "Scroll to explore",
     "jumpLinks": {
@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "One key stays with you",
-        "body": "Your device securely keeps one of the keys. It never leaves your device."
+        "body": "Your device securely keeps one of the keys. That key never leaves your device."
       },
       "websiteGetsKey": {
         "title": "The website gets the linked key",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "With a passkey, this doesn't work!",
-      "body": "Your passkey is permanently tied to the exact website where you created it. It simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing the attacker can steal.",
+      "body": "Your passkey is permanently tied to the exact website where you created it, so it simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing the attacker can steal.",
       "fake": {
         "label": "Fake site",
         "result": "Passkey refuses to work"
@@ -344,7 +344,7 @@
       "scoreLabel5": "Excellent",
       "scoreLabel3": "Partial",
       "scoreLabel1": "Limited",
-      "lastUpdated": "Scores last updated September 2026.",
+      "lastUpdated": "Scores last updated {date}.",
       "coreTag": "Core",
       "lowerTag": "Lower weight",
       "caveatIndicatorLabel": "View caveat for",
@@ -361,7 +361,7 @@
       "criteriaDetails": {
         "sectionLabel": "Scoring criteria",
         "headline": "What each criterion measures",
-        "intro": "Here's what we're actually looking at behind each score, and what separates a top score from a low one.",
+        "intro": "Here's what we're actually looking at behind each score, and what separates a top score from a low one. Scores combine hands-on testing with each vendor's public documentation. Features that require an organizational or managed deployment (not practical to test directly) are assessed from published documentation instead.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "Can you actually use this credential manager everywhere you need it, like on your phone, your computer, your tablet, and in the apps and browsers you use? A top score means it has native apps for all the major platforms and works smoothly in all the major browsers. A low score means it's mostly locked to one company's devices.",
@@ -802,10 +802,11 @@
   "footer": {
     "madeWith": "Made with",
     "by": "by the passkey community.",
-    "feedback": "Have feedback on this site?",
+    "feedback": "Have feedback?",
     "feedbackLink": "Let us know",
     "licensePrefix": "Content licensed under",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "View source on GitHub"
+    "viewSourceOnGitHub": "View source on GitHub",
+    "contentUpdated": "Content last updated {date}."
   }
 }

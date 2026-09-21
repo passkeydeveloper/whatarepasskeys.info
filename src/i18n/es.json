@@ -45,7 +45,7 @@
     "headline": "Dile hola a las passkeys",
     "subheadline": "La forma más fácil y segura de iniciar sesión. Sin contraseñas que recordar. Sin códigos que esperar. Simplemente inicia sesión y vuelve a lo que importa.",
     "scrollCta": "Descubre cómo funcionan las passkeys",
-    "badge": "El futuro del inicio de sesión ya está aquí",
+    "eyebrow": "¿Qué es una passkey?",
     "illustrationAlt": "Ilustración de passkey",
     "scrollIndicator": "Desplázate para explorar",
     "jumpLinks": {
@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Una clave se queda contigo",
-        "body": "Tu dispositivo guarda una de las claves de forma segura. Nunca sale de tu dispositivo."
+        "body": "Tu dispositivo guarda una de las claves de forma segura. Esa clave nunca sale de tu dispositivo."
       },
       "websiteGetsKey": {
         "title": "El sitio web recibe la clave vinculada",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "¡Con una passkey, esto no funciona!",
-      "body": "Tu passkey está vinculada de manera permanente y exclusiva al sitio web exacto donde fue creada. Simplemente se negará a funcionar en un sitio impostor, sin importar si usa typosquatting o redirecciones. Al no haber nada que escribir, no hay nada que el atacante pueda robar.",
+      "body": "Tu passkey está vinculada de manera permanente y exclusiva al sitio web exacto donde fue creada, por lo que simplemente se negará a funcionar en un sitio impostor, sin importar si usa typosquatting o redirecciones. Al no haber nada que escribir, no hay nada que el atacante pueda robar.",
       "fake": {
         "label": "Sitio falso",
         "result": "La passkey se niega a funcionar"
@@ -344,7 +344,7 @@
       "scoreLabel5": "Excelente",
       "scoreLabel3": "Parcial",
       "scoreLabel1": "Limitado",
-      "lastUpdated": "Puntuaciones actualizadas por última vez en septiembre de 2026.",
+      "lastUpdated": "Puntuaciones actualizadas por última vez el {date}.",
       "coreTag": "Principal",
       "lowerTag": "Menor peso",
       "caveatIndicatorLabel": "Ver salvedad sobre",
@@ -382,7 +382,7 @@
       "criteriaDetails": {
         "sectionLabel": "Criterios de evaluación",
         "headline": "Qué mide cada criterio",
-        "intro": "Aquí explicamos qué analizamos realmente detrás de cada puntuación y qué diferencia una calificación excelente de una baja.",
+        "intro": "Aquí explicamos qué analizamos realmente detrás de cada puntuación y qué diferencia una calificación excelente de una baja. Las puntuaciones combinan pruebas prácticas con la documentación pública de cada proveedor; las funciones que requieren un entorno empresarial o gestionado, y que no se pueden probar directamente, se evalúan a partir de la documentación publicada por el proveedor.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "¿Puedes usar realmente este gestor de credenciales en todos los lugares donde lo necesitas, como tu teléfono, computadora, tableta y en las apps y navegadores habituales? Una puntuación máxima significa que cuenta con apps nativas para las principales plataformas y funciona con fluidez en los navegadores clave. Una puntuación baja significa que está prácticamente restringido a los dispositivos de una sola empresa.",
@@ -850,10 +850,11 @@
   "footer": {
     "madeWith": "Hecho con",
     "by": "por la comunidad de passkeys.",
-    "feedback": "¿Tienes comentarios sobre este sitio?",
+    "feedback": "¿Tienes comentarios?",
     "feedbackLink": "Cuéntanoslo",
     "licensePrefix": "Contenido bajo licencia",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "Ver código fuente en GitHub"
+    "viewSourceOnGitHub": "Ver código fuente en GitHub",
+    "contentUpdated": "Contenido actualizado por última vez el {date}."
   }
 }

@@ -2,6 +2,7 @@
 import { KeyRound, ScanFace, ShieldCheck, Sparkles, Code2 } from 'lucide-astro';
 import TechCalloutLinks from '../TechCalloutLinks.astro';
 import RichText from '../RichText.astro';
+import { camelToKebab } from '../../utils/slug';
 
 interface Props {
   t: any;
@@ -44,7 +45,7 @@ const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
             <div class={`md:w-5/12 ${i % 2 === 0 ? 'md:pr-16' : 'md:pl-16 md:ml-auto'}`}>
               <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm p-5 hover:shadow-md transition-shadow">
                 <span class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">{t.common.step.replace('{number}', String(i + 1))}</span>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50 mt-1 mb-1">
+                <h3 id={`how-it-works-${camelToKebab(step.key)}`} class="text-lg font-bold text-gray-900 dark:text-gray-50 mt-1 mb-1 scroll-mt-24">
                   {(h.steps as any)[step.key].label}
                 </h3>
                 <RichText class="text-gray-600 dark:text-gray-400" text={(h.steps as any)[step.key].body} />
@@ -61,7 +62,7 @@ const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
             <signedIn.Icon size={20} />
           </div>
           <div class="max-w-md bg-emerald-50 dark:bg-emerald-950 border-2 border-emerald-200 dark:border-emerald-800 rounded-2xl shadow-sm p-5">
-            <h3 class="text-lg font-bold text-emerald-900 dark:text-emerald-200 mb-1">
+            <h3 id={`how-it-works-${camelToKebab(signedIn.key)}`} class="text-lg font-bold text-emerald-900 dark:text-emerald-200 mb-1 scroll-mt-24">
               {(h.steps as any)[signedIn.key].label}
             </h3>
             <RichText class="text-emerald-800 dark:text-emerald-300" text={(h.steps as any)[signedIn.key].body} />
@@ -75,7 +76,7 @@ const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
         <Sparkles size={20} />
       </div>
       <div>
-        <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-200 mb-2">{h.uniqueness.headline}</h3>
+        <h3 id="how-it-works-uniqueness" class="text-xl font-bold text-emerald-900 dark:text-emerald-200 mb-2 scroll-mt-24">{h.uniqueness.headline}</h3>
         <RichText class="text-emerald-800 dark:text-emerald-300 leading-relaxed" text={h.uniqueness.body} />
       </div>
     </div>
@@ -85,7 +86,7 @@ const signedIn = { key: 'signedIn', Icon: ShieldCheck } as const;
         <Code2 size={16} />
         {t.common.technicalDetail}
       </p>
-      <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-200 mb-3">{h.techCallout.headline}</h3>
+      <h3 id="how-it-works-tech-callout" class="text-xl font-bold text-indigo-900 dark:text-indigo-200 mb-3 scroll-mt-24">{h.techCallout.headline}</h3>
       <RichText class="text-indigo-800 dark:text-indigo-300 leading-relaxed" text={h.techCallout.body} />
       <TechCalloutLinks links={h.techCallout.additionalLinks} t={t} />
     </div>

@@ -45,7 +45,7 @@
     "headline": "Dites bonjour aux passkeys",
     "subheadline": "La méthode de connexion plus simple et plus sûre. Aucun mot de passe à retenir. Aucun code à attendre. Connectez-vous simplement et revenez à l'essentiel.",
     "scrollCta": "Découvrir le fonctionnement des passkeys",
-    "badge": "L'avenir de la connexion est là",
+    "eyebrow": "Qu'est-ce qu'une passkey ?",
     "illustrationAlt": "Illustration d'une passkey",
     "scrollIndicator": "Faites défiler pour explorer",
     "jumpLinks": {
@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Une clé reste avec vous",
-        "body": "Votre appareil conserve l'une des clés en lieu sûr. Elle ne quitte jamais votre appareil."
+        "body": "Votre appareil conserve l'une des clés en lieu sûr. Cette clé ne quitte jamais votre appareil."
       },
       "websiteGetsKey": {
         "title": "Le site web reçoit la clé associée",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "Avec une passkey, l'attaque échoue !",
-      "body": "Votre passkey est liée de façon permanente au site web exact sur lequel vous l'avez créée. Elle refuse tout simplement d'interagir avec un site imitateur, qu'il s'agisse d'un nom de domaine trompeur (typosquattage) ou d'une redirection. N'ayant rien à saisir, l'attaquant n'a rien à voler.",
+      "body": "Votre passkey est liée de façon permanente au site web exact sur lequel vous l'avez créée, et elle refuse donc tout simplement d'interagir avec un site imitateur, qu'il s'agisse d'un nom de domaine trompeur (typosquattage) ou d'une redirection. N'ayant rien à saisir, l'attaquant n'a rien à voler.",
       "fake": {
         "label": "Faux site",
         "result": "La passkey refuse de fonctionner"
@@ -344,7 +344,7 @@
       "scoreLabel5": "Excellent",
       "scoreLabel3": "Partiel",
       "scoreLabel1": "Limité",
-      "lastUpdated": "Notes mises à jour en septembre 2026.",
+      "lastUpdated": "Notes mises à jour le {date}.",
       "coreTag": "Fondamental",
       "lowerTag": "Pondération moindre",
       "caveatIndicatorLabel": "Voir la réserve concernant",
@@ -361,7 +361,7 @@
       "criteriaDetails": {
         "sectionLabel": "Critères d'évaluation",
         "headline": "Ce que chaque critère mesure",
-        "intro": "Voici ce que nous évaluons concrètement derrière chaque score, et ce qui distingue une note maximale d'une note minimale.",
+        "intro": "Voici ce que nous évaluons concrètement derrière chaque score, et ce qui distingue une note maximale d'une note minimale. Les notes combinent des tests pratiques et la documentation publique de chaque fournisseur ; les fonctionnalités nécessitant un déploiement en entreprise ou géré, impossibles à tester directement, sont évaluées à partir de la documentation publiée par l'éditeur.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "Pouvez-vous réellement utiliser ce gestionnaire partout où vous en avez besoin (téléphone, ordinateur, tablette, applications et navigateurs habituels) ? Une note maximale signifie qu'il dispose d'applications natives sur toutes les plateformes majeures et fonctionne parfaitement sur les principaux navigateurs. Une note basse indique qu'il est principalement confiné aux appareils d'un seul constructeur.",
@@ -802,10 +802,11 @@
   "footer": {
     "madeWith": "Fait avec",
     "by": "par la communauté passkey.",
-    "feedback": "Des remarques sur ce site ?",
+    "feedback": "Des remarques ?",
     "feedbackLink": "Faites-le nous savoir",
     "licensePrefix": "Contenu sous licence",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "Voir la source sur GitHub"
+    "viewSourceOnGitHub": "Voir la source sur GitHub",
+    "contentUpdated": "Contenu mis à jour le {date}."
   }
 }

@@ -45,7 +45,7 @@
     "headline": "Begrüßen Sie Passkeys",
     "subheadline": "Die einfachere und sicherere Art der Anmeldung. Keine Passwörter merken. Nicht auf Codes warten. Einfach anmelden und sich auf das Wesentliche konzentrieren.",
     "scrollCta": "Sehen, wie Passkeys funktionieren",
-    "badge": "Die Zukunft der Anmeldung ist da",
+    "eyebrow": "Was ist ein Passkey?",
     "illustrationAlt": "Passkey-Illustration",
     "scrollIndicator": "Scrollen zum Erkunden",
     "jumpLinks": {
@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Ein Schlüssel bleibt bei Ihnen",
-        "body": "Ihr Gerät bewahrt einen der Schlüssel sicher auf. Er verlässt Ihr Gerät niemals."
+        "body": "Ihr Gerät bewahrt einen der Schlüssel sicher auf. Dieser Schlüssel verlässt Ihr Gerät niemals."
       },
       "websiteGetsKey": {
         "title": "Die Website erhält den verknüpften Schlüssel",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "Mit einem Passkey funktioniert das nicht!",
-      "body": "Ihr Passkey ist fest an die exakte Website gebunden, auf der er erstellt wurde. Auf einer Nachahmung reagiert er schlichtweg nicht – weder bei Tippfehlern in der Domain noch bei Weiterleitungen. Da nichts eingegeben werden muss, können Angreifer auch nichts abfangen.",
+      "body": "Ihr Passkey ist fest an die exakte Website gebunden, auf der er erstellt wurde, und reagiert deshalb auf einer Nachahmung schlichtweg nicht – weder bei Tippfehlern in der Domain noch bei Weiterleitungen. Da nichts eingegeben werden muss, können Angreifer auch nichts abfangen.",
       "fake": {
         "label": "Gefälschte Website",
         "result": "Passkey verweigert die Funktion"
@@ -344,7 +344,7 @@
       "scoreLabel5": "Hervorragend",
       "scoreLabel3": "Teilweise",
       "scoreLabel1": "Eingeschränkt",
-      "lastUpdated": "Bewertungen zuletzt aktualisiert im September 2026.",
+      "lastUpdated": "Bewertungen zuletzt aktualisiert am {date}.",
       "coreTag": "Kernkriterium",
       "lowerTag": "Geringere Gewichtung",
       "caveatIndicatorLabel": "Hinweis anzeigen für",
@@ -382,7 +382,7 @@
       "criteriaDetails": {
         "sectionLabel": "Bewertungskriterien",
         "headline": "Was die einzelnen Kriterien messen",
-        "intro": "Hier erfahren Sie, worauf wir bei jeder Bewertung konkret achten und was eine Spitzenbewertung von einer niedrigen Punktzahl unterscheidet.",
+        "intro": "Hier erfahren Sie, worauf wir bei jeder Bewertung konkret achten und was eine Spitzenbewertung von einer niedrigen Punktzahl unterscheidet. Die Bewertungen beruhen auf einer Kombination aus eigenen praktischen Tests und der öffentlichen Dokumentation der jeweiligen Anbieter – Funktionen, die eine Unternehmens- oder Verwaltungsumgebung voraussetzen und sich nicht direkt testen lassen, bewerten wir anhand der veröffentlichten Anbieterdokumentation.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "Können Sie diesen Passwort-Manager wirklich überall dort nutzen, wo Sie ihn benötigen – auf Smartphone, Computer, Tablet sowie in den von Ihnen genutzten Browsern und Apps? Eine Spitzenbewertung setzt native Apps für alle wichtigen Plattformen und einwandfreie Browserunterstützung voraus. Eine niedrige Punktzahl bedeutet meist eine Bindung an die Geräte eines einzelnen Herstellers.",
@@ -850,10 +850,11 @@
   "footer": {
     "madeWith": "Erstellt mit",
     "by": "von der Passkey-Community.",
-    "feedback": "Feedback zu dieser Website?",
+    "feedback": "Feedback?",
     "feedbackLink": "Geben Sie uns Feedback",
     "licensePrefix": "Inhalte lizenziert unter",
     "licenseName": "CC BY 4.0",
-    "viewSourceOnGitHub": "Quellcode auf GitHub ansehen"
+    "viewSourceOnGitHub": "Quellcode auf GitHub ansehen",
+    "contentUpdated": "Inhalt zuletzt aktualisiert am {date}."
   }
 }

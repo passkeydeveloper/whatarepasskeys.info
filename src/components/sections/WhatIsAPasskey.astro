@@ -2,6 +2,7 @@
 import { Code2 } from 'lucide-astro';
 import TechCalloutLinks from '../TechCalloutLinks.astro';
 import RichText from '../RichText.astro';
+import { camelToKebab } from '../../utils/slug';
 
 interface Props {
   t: any;
@@ -163,7 +164,7 @@ const svgHeight = Math.max(340, labelBoxTop + labelBoxHeight + 22);
               {i + 1}
             </div>
             <div>
-              <h3 class="font-bold text-gray-900 dark:text-gray-50 mb-1">{w.highlights[key].title}</h3>
+              <h3 id={`what-is-${camelToKebab(key)}`} class="font-bold text-gray-900 dark:text-gray-50 mb-1 scroll-mt-24">{w.highlights[key].title}</h3>
               <RichText class="text-gray-600 dark:text-gray-400 leading-relaxed" text={w.highlights[key].body} />
             </div>
           </div>
@@ -282,7 +283,7 @@ const svgHeight = Math.max(340, labelBoxTop + labelBoxHeight + 22);
         <Code2 size={16} />
         {t.common.technicalDetail}
       </p>
-      <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-200 mb-3">{w.techCallout.headline}</h3>
+      <h3 id="what-is-tech-callout" class="text-xl font-bold text-indigo-900 dark:text-indigo-200 mb-3 scroll-mt-24">{w.techCallout.headline}</h3>
       <RichText class="text-indigo-800 dark:text-indigo-300 leading-relaxed" text={w.techCallout.body} />
       <TechCalloutLinks links={w.techCallout.additionalLinks} t={t} />
     </div>

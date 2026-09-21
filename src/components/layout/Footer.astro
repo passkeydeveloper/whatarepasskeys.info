@@ -1,10 +1,24 @@
 ---
+import { lastGitCommitDate } from '../../utils/gitDate';
+import { bcp47Language } from '../../i18n/utils';
+
 interface Props {
   locale: string;
   t: any;
 }
 
-const { t } = Astro.props;
+const { locale, t } = Astro.props;
+
+// Any change to this locale's content file counts as a page update — this
+// is the whole page's freshness signal, distinct from the credential
+// manager scores' own last-updated date (see CredentialManagers.astro),
+// which changes independently and far less often.
+const contentUpdated = lastGitCommitDate(`src/i18n/${locale}.json`);
+const contentUpdatedFormatted = contentUpdated
+  ? new Intl.DateTimeFormat(bcp47Language(locale), { year: 'numeric', month: 'short', day: 'numeric' }).format(
+      new Date(contentUpdated)
+    )
+  : null;
 ---
 <footer class="bg-gray-900 text-gray-400 py-12 px-6">
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
@@ -12,6 +26,9 @@ const { t } = Astro.props;
       {t.footer.madeWith} ❤️ {t.footer.by}
     </p>
     <p>
+      {contentUpdatedFormatted && (
+        <>{t.footer.contentUpdated.replace('{date}', contentUpdatedFormatted)}<br /></>
+      )}
       {t.footer.feedback}
       <a
         href="/feedback"

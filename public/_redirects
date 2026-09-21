@@ -7,3 +7,11 @@
 # at /ja/. Redirect so old links/bookmarks/search results still work.
 /jp/*  /ja/:splat  301
 /jp    /ja/        301
+
+# Locale pages are only ever generated as /<locale>/ (trailing slash). Without
+# these, Cloudflare Pages serves the same content at /<locale> (no slash) with
+# a 200, producing a duplicate URL that self-canonicalizes to the wrong path.
+/de    /de/  301
+/es    /es/  301
+/fr    /fr/  301
+/ja    /ja/  301
