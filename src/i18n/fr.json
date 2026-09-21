@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Une clé reste avec vous",
-        "body": "Votre appareil conserve l'une des clés en lieu sûr. Cette clé ne quitte jamais votre appareil."
+        "body": "Cette clé reste avec vous et n'est pas partagée avec le site web."
       },
       "websiteGetsKey": {
         "title": "Le site web reçoit la clé associée",

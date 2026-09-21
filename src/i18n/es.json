@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Una clave se queda contigo",
-        "body": "Tu dispositivo guarda una de las claves de forma segura. Esa clave nunca sale de tu dispositivo."
+        "body": "Esa clave se queda contigo y no se comparte con el sitio web."
       },
       "websiteGetsKey": {
         "title": "El sitio web recibe la clave vinculada",
