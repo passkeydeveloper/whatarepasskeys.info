@@ -83,9 +83,11 @@ const pageContentUpdated = lastGitCommitDate(`src/i18n/${locale}.json`);
 const credentialManagersUpdated = lastGitCommitDate('src/data/credentialManagers.json');
 
 // Ranked comparison of third-party credential managers, published on this
-// page at #credential-managers. weightedScore (0-100, defined in
-// src/data/credentialManagers.json) is rescaled to schema.org's bounded
-// Rating scale; the letter grade is kept in reviewBody for transparency.
+// page at #credential-managers. Deliberately no Review/Rating here: Google
+// excludes multi-item comparison/listicle pages from review rich-result
+// eligibility, so a Review node per manager would be non-compliant
+// structured data regardless of how it's attributed. The visible grades
+// stay in the UI; see the on-page methodology note next to them instead.
 const credentialManagersUrl = new URL('/#credential-managers', Astro.site).toString();
 const itemListSchema = {
   '@context': 'https://schema.org',
@@ -105,17 +107,7 @@ const itemListSchema = {
           '@type': 'SoftwareApplication',
           name: data.name,
           applicationCategory: 'SecurityApplication',
-          review: {
-            '@type': 'Review',
-            author: { '@id': organizationId },
-            reviewRating: {
-              '@type': 'Rating',
-              ratingValue: (m.weightedScore / 20).toFixed(1),
-              bestRating: '5',
-              worstRating: '1',
-            },
-            reviewBody: `Grade ${m.grade} (${m.weightedScore}/100). ${data.description}`,
-          },
+          description: `Grade ${m.grade} (${m.weightedScore}/100). ${data.description}`,
         },
       };
     }),

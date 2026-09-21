@@ -382,7 +382,7 @@
       "criteriaDetails": {
         "sectionLabel": "Bewertungskriterien",
         "headline": "Was die einzelnen Kriterien messen",
-        "intro": "Hier erfahren Sie, worauf wir bei jeder Bewertung konkret achten und was eine Spitzenbewertung von einer niedrigen Punktzahl unterscheidet.",
+        "intro": "Hier erfahren Sie, worauf wir bei jeder Bewertung konkret achten und was eine Spitzenbewertung von einer niedrigen Punktzahl unterscheidet. Die Bewertungen beruhen auf einer Kombination aus eigenen praktischen Tests und der öffentlichen Dokumentation der jeweiligen Anbieter – Funktionen, die eine Unternehmens- oder Verwaltungsumgebung voraussetzen und sich nicht direkt testen lassen, bewerten wir anhand der veröffentlichten Anbieterdokumentation.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "Können Sie diesen Passwort-Manager wirklich überall dort nutzen, wo Sie ihn benötigen – auf Smartphone, Computer, Tablet sowie in den von Ihnen genutzten Browsern und Apps? Eine Spitzenbewertung setzt native Apps für alle wichtigen Plattformen und einwandfreie Browserunterstützung voraus. Eine niedrige Punktzahl bedeutet meist eine Bindung an die Geräte eines einzelnen Herstellers.",

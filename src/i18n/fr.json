@@ -361,7 +361,7 @@
       "criteriaDetails": {
         "sectionLabel": "Critères d'évaluation",
         "headline": "Ce que chaque critère mesure",
-        "intro": "Voici ce que nous évaluons concrètement derrière chaque score, et ce qui distingue une note maximale d'une note minimale.",
+        "intro": "Voici ce que nous évaluons concrètement derrière chaque score, et ce qui distingue une note maximale d'une note minimale. Les notes combinent des tests pratiques et la documentation publique de chaque fournisseur ; les fonctionnalités nécessitant un déploiement en entreprise ou géré, impossibles à tester directement, sont évaluées à partir de la documentation publiée par l'éditeur.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "Pouvez-vous réellement utiliser ce gestionnaire partout où vous en avez besoin (téléphone, ordinateur, tablette, applications et navigateurs habituels) ? Une note maximale signifie qu'il dispose d'applications natives sur toutes les plateformes majeures et fonctionne parfaitement sur les principaux navigateurs. Une note basse indique qu'il est principalement confiné aux appareils d'un seul constructeur.",

@@ -382,7 +382,7 @@
       "criteriaDetails": {
         "sectionLabel": "Criterios de evaluación",
         "headline": "Qué mide cada criterio",
-        "intro": "Aquí explicamos qué analizamos realmente detrás de cada puntuación y qué diferencia una calificación excelente de una baja.",
+        "intro": "Aquí explicamos qué analizamos realmente detrás de cada puntuación y qué diferencia una calificación excelente de una baja. Las puntuaciones combinan pruebas prácticas con la documentación pública de cada proveedor; las funciones que requieren un entorno empresarial o gestionado, y que no se pueden probar directamente, se evalúan a partir de la documentación publicada por el proveedor.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "¿Puedes usar realmente este gestor de credenciales en todos los lugares donde lo necesitas, como tu teléfono, computadora, tableta y en las apps y navegadores habituales? Una puntuación máxima significa que cuenta con apps nativas para las principales plataformas y funciona con fluidez en los navegadores clave. Una puntuación baja significa que está prácticamente restringido a los dispositivos de una sola empresa.",

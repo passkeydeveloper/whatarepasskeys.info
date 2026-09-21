@@ -361,7 +361,7 @@
       "criteriaDetails": {
         "sectionLabel": "Scoring criteria",
         "headline": "What each criterion measures",
-        "intro": "Here's what we're actually looking at behind each score, and what separates a top score from a low one.",
+        "intro": "Here's what we're actually looking at behind each score, and what separates a top score from a low one. Scores combine hands-on testing with each vendor's public documentation. Features that require an organizational or managed deployment (not practical to test directly) are assessed from published documentation instead.",
         "items": {
           "ecosystemAvailability": {
             "consumerBody": "Can you actually use this credential manager everywhere you need it, like on your phone, your computer, your tablet, and in the apps and browsers you use? A top score means it has native apps for all the major platforms and works smoothly in all the major browsers. A low score means it's mostly locked to one company's devices.",
