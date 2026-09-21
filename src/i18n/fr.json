@@ -807,6 +807,7 @@
     "licensePrefix": "Contenu sous licence",
     "licenseName": "CC BY 4.0",
     "viewSourceOnGitHub": "Voir la source sur GitHub",
+    "viewOnBluesky": "Suivez-nous sur Bluesky",
     "contentUpdated": "Contenu mis à jour le {date}."
   }
 }

@@ -855,6 +855,7 @@
     "licensePrefix": "Contenido bajo licencia",
     "licenseName": "CC BY 4.0",
     "viewSourceOnGitHub": "Ver código fuente en GitHub",
+    "viewOnBluesky": "Síguenos en Bluesky",
     "contentUpdated": "Contenido actualizado por última vez el {date}."
   }
 }

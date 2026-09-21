@@ -807,6 +807,7 @@
     "licensePrefix": "コンテンツライセンス：",
     "licenseName": "CC BY 4.0",
     "viewSourceOnGitHub": "GitHubでソースコードを見る",
+    "viewOnBluesky": "Blueskyでフォローする",
     "contentUpdated": "コンテンツの最終更新日：{date}"
   }
 }
