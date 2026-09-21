@@ -43,8 +43,13 @@ const hreflangLinks = locales.map((code) => ({
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  // 'advanced' items (currently just the crypto-algorithms question) are
+  // CSS-hidden in default consumer mode — Google requires structured data
+  // to match visible content, so they're excluded here rather than shown
+  // to search engines but not to most site visitors.
   mainEntity: t.faq.categories
-    .flatMap((category: { items: { question: string; answer: string }[] }) => category.items)
+    .flatMap((category: { items: { type: 'basic' | 'advanced'; question: string; answer: string }[] }) => category.items)
+    .filter((item: { type: 'basic' | 'advanced' }) => item.type !== 'advanced')
     .map((item: { question: string; answer: string }) => ({
       '@type': 'Question',
       name: item.question,
