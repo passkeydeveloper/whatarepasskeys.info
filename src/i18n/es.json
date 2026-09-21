@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Una clave se queda contigo",
-        "body": "Tu dispositivo guarda una de las claves de forma segura. Nunca sale de tu dispositivo."
+        "body": "Tu dispositivo guarda una de las claves de forma segura. Esa clave nunca sale de tu dispositivo."
       },
       "websiteGetsKey": {
         "title": "El sitio web recibe la clave vinculada",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "¡Con una passkey, esto no funciona!",
-      "body": "Tu passkey está vinculada de manera permanente y exclusiva al sitio web exacto donde fue creada. Simplemente se negará a funcionar en un sitio impostor, sin importar si usa typosquatting o redirecciones. Al no haber nada que escribir, no hay nada que el atacante pueda robar.",
+      "body": "Tu passkey está vinculada de manera permanente y exclusiva al sitio web exacto donde fue creada, por lo que simplemente se negará a funcionar en un sitio impostor, sin importar si usa typosquatting o redirecciones. Al no haber nada que escribir, no hay nada que el atacante pueda robar.",
       "fake": {
         "label": "Sitio falso",
         "result": "La passkey se niega a funcionar"

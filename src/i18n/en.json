@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "One key stays with you",
-        "body": "Your device securely keeps one of the keys. It never leaves your device."
+        "body": "Your device securely keeps one of the keys. That key never leaves your device."
       },
       "websiteGetsKey": {
         "title": "The website gets the linked key",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "With a passkey, this doesn't work!",
-      "body": "Your passkey is permanently tied to the exact website where you created it. It simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing the attacker can steal.",
+      "body": "Your passkey is permanently tied to the exact website where you created it, so it simply won't respond on a lookalike site — not a typosquat, not a redirect. There's nothing to type, so there's nothing the attacker can steal.",
       "fake": {
         "label": "Fake site",
         "result": "Passkey refuses to work"

@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Une clé reste avec vous",
-        "body": "Votre appareil conserve l'une des clés en lieu sûr. Elle ne quitte jamais votre appareil."
+        "body": "Votre appareil conserve l'une des clés en lieu sûr. Cette clé ne quitte jamais votre appareil."
       },
       "websiteGetsKey": {
         "title": "Le site web reçoit la clé associée",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "Avec une passkey, l'attaque échoue !",
-      "body": "Votre passkey est liée de façon permanente au site web exact sur lequel vous l'avez créée. Elle refuse tout simplement d'interagir avec un site imitateur, qu'il s'agisse d'un nom de domaine trompeur (typosquattage) ou d'une redirection. N'ayant rien à saisir, l'attaquant n'a rien à voler.",
+      "body": "Votre passkey est liée de façon permanente au site web exact sur lequel vous l'avez créée, et elle refuse donc tout simplement d'interagir avec un site imitateur, qu'il s'agisse d'un nom de domaine trompeur (typosquattage) ou d'une redirection. N'ayant rien à saisir, l'attaquant n'a rien à voler.",
       "fake": {
         "label": "Faux site",
         "result": "La passkey refuse de fonctionner"

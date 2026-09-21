@@ -69,12 +69,12 @@ function cellResult(value: string, method: string): CellResult {
       <table class="w-full border-collapse">
         <thead>
           <tr>
-            <th class="text-left py-3 px-4 text-sm text-gray-500 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-700 w-1/4"></th>
+            <th scope="col" class="text-left py-3 px-4 text-sm text-gray-500 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-700 w-1/4"></th>
             {methods.map(method => {
               const m = (c.methods as any)[method];
               const isPasskey = method === 'passkey';
               return (
-                <th class={`text-center py-3 px-4 text-sm font-bold border-b ${isPasskey ? 'text-indigo-700 dark:text-indigo-300 comparison-passkey-col rounded-t-xl border-indigo-200 dark:border-indigo-800' : 'text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700'}`}>
+                <th scope="col" class={`text-center py-3 px-4 text-sm font-bold border-b ${isPasskey ? 'text-indigo-700 dark:text-indigo-300 comparison-passkey-col rounded-t-xl border-indigo-200 dark:border-indigo-800' : 'text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700'}`}>
                   <span class="inline-flex items-center justify-center gap-1.5">
                     {isPasskey && <Trophy size={14} />}
                     {m.name}
@@ -87,9 +87,9 @@ function cellResult(value: string, method: string): CellResult {
         <tbody>
           {categories.map((cat, ri) => (
             <tr class={ri % 2 === 0 ? 'bg-gray-50/50 dark:bg-gray-800/50' : 'bg-white dark:bg-gray-900'}>
-              <td class="py-3 px-4 text-sm text-gray-600 dark:text-gray-300 font-medium border-b border-gray-100 dark:border-gray-800">
+              <th scope="row" class="py-3 px-4 text-sm text-gray-600 dark:text-gray-300 font-medium border-b border-gray-100 dark:border-gray-800 text-left">
                 {(c.categories as any)[cat]}
-              </td>
+              </th>
               {methods.map(method => {
                 const val = (c.methods as any)[method][cat];
                 const result = cellResult(val, method);

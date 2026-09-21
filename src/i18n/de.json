@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Ein Schlüssel bleibt bei Ihnen",
-        "body": "Ihr Gerät bewahrt einen der Schlüssel sicher auf. Er verlässt Ihr Gerät niemals."
+        "body": "Ihr Gerät bewahrt einen der Schlüssel sicher auf. Dieser Schlüssel verlässt Ihr Gerät niemals."
       },
       "websiteGetsKey": {
         "title": "Die Website erhält den verknüpften Schlüssel",
@@ -180,7 +180,7 @@
     },
     "resistance": {
       "headline": "Mit einem Passkey funktioniert das nicht!",
-      "body": "Ihr Passkey ist fest an die exakte Website gebunden, auf der er erstellt wurde. Auf einer Nachahmung reagiert er schlichtweg nicht – weder bei Tippfehlern in der Domain noch bei Weiterleitungen. Da nichts eingegeben werden muss, können Angreifer auch nichts abfangen.",
+      "body": "Ihr Passkey ist fest an die exakte Website gebunden, auf der er erstellt wurde, und reagiert deshalb auf einer Nachahmung schlichtweg nicht – weder bei Tippfehlern in der Domain noch bei Weiterleitungen. Da nichts eingegeben werden muss, können Angreifer auch nichts abfangen.",
       "fake": {
         "label": "Gefälschte Website",
         "result": "Passkey verweigert die Funktion"
