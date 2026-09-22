@@ -70,6 +70,7 @@ When translating or updating a locale file:
 - Match the structure of `en.json` exactly (same keys, same nesting) — that's what `en.json` is: the reference to translate against, and it should stay in sync with it.
 - Set `meta.nativeName` to how the language names itself (e.g. `"Español"`, not "Spanish") — that's what shows up in the language switcher.
 - Keep the `[label](url)` inline-link syntax (see `src/i18n/richText.ts`) rather than adding HTML or Markdown links.
+- Cells in the `whyPasskeysWin` comparison table are objects: `{ "text": "No", "icon": "check", "bold": true }`. Translate `text` only, and copy `icon` (`check` or `cross`, omitted for a cell with no icon) and `bold` from `en.json` unchanged — the icon is stated explicitly so it doesn't depend on the translated wording.
 - Don't change `credentialManagers` scores as part of a translation — those should stay consistent with `en.json`; propose a score change separately (see below).
 - If you're adding a brand-new locale, open an **Internationalization** issue first so it can be discussed before a full-file PR.
 
