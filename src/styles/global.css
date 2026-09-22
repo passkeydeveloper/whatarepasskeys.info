@@ -125,7 +125,7 @@ main > section:not(#hero) {
     animation-timing-function: linear;
     animation-fill-mode: both;
     animation-timeline: view();
-    animation-range: entry 0% cover 30%;
+    animation-range: entry 0% entry 100%;
   }
 
   @keyframes fade-in-reveal {
@@ -271,7 +271,7 @@ main > section:not(#hero) {
   color: #6b7280;
 
   @variant dark {
-    color: #9ca3af;
+    color: #d1d5db;
   }
 }
 
@@ -627,12 +627,14 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
   }
 }
 
-.faq-search-input:focus {
-  outline: none;
+.faq-search-input:focus-visible {
   border-color: #4f46e5;
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
 
   @variant dark {
     border-color: #818cf8;
+    outline-color: #818cf8;
   }
 }
 
@@ -764,18 +766,25 @@ html[data-theme="dark"] .theme-toggle-icon-dark {
   border-radius: 9999px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
   z-index: 100;
 }
 
 .copy-toast.visible {
   opacity: 1;
+  visibility: visible;
   transform: translate(-50%, 0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .copy-toast {
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  .copy-toast.visible {
     transition: opacity 0.25s ease;
   }
 }

@@ -224,6 +224,7 @@
     "sectionLabel": "パスキーのメリット",
     "headline": "なぜパスキーが優れているのか",
     "tagline": "パスワード＋SMSよりも安全。マジックリンクよりも手軽。",
+    "criteriaLabel": "比較項目",
     "categories": {
       "passwordRequired": "パスワードが必要？",
       "phishable": "フィッシング可能？",
@@ -339,6 +340,7 @@
         "以下では各クレデンシャルマネージャーを総合評価順に採点・ランク付けしています。詳細な評価方法については「評価基準」セクションをご覧ください。"
       ],
       "coreGroupLabel": "主要基準",
+      "managerColumnLabel": "クレデンシャルマネージャー",
       "lowerGroupLabel": "追加の考慮事項",
       "gradeLabel": "評価",
       "scoreLabel5": "優秀",

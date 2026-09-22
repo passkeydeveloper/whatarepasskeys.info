@@ -52,8 +52,8 @@ function cellResult(value: string, method: string): CellResult {
                 <div class="flex justify-between items-center py-1.5 text-sm border-b border-gray-100 dark:border-gray-700 last:border-0">
                   <span class="text-gray-500 dark:text-gray-400">{(c.categories as any)[cat]}</span>
                   <span class={`flex items-center gap-1 ${result.type === 'check' ? 'text-emerald-700 dark:text-emerald-400' : result.type === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
-                    {result.type === 'check' && <Check size={14} />}
-                    {result.type === 'cross' && <X size={14} />}
+                    {result.type === 'check' && <Check size={14} aria-hidden="true" />}
+                    {result.type === 'cross' && <X size={14} aria-hidden="true" />}
                     {val}
                   </span>
                 </div>
@@ -69,7 +69,9 @@ function cellResult(value: string, method: string): CellResult {
       <table class="w-full border-collapse">
         <thead>
           <tr>
-            <th scope="col" class="text-left py-3 px-4 text-sm text-gray-500 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-700 w-1/4"></th>
+            <th scope="col" class="text-left py-3 px-4 text-sm text-gray-500 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-700 w-1/4">
+              <span class="sr-only">{c.criteriaLabel}</span>
+            </th>
             {methods.map(method => {
               const m = (c.methods as any)[method];
               const isPasskey = method === 'passkey';
@@ -97,8 +99,8 @@ function cellResult(value: string, method: string): CellResult {
                 return (
                   <td class={`py-3 px-4 text-center text-sm border-b border-gray-100 dark:border-gray-800 ${isPasskey ? 'comparison-passkey-col border-indigo-100 dark:border-indigo-800' : ''}`}>
                     <span class={`inline-flex items-center justify-center gap-1 ${result.type === 'check' ? 'text-emerald-700 dark:text-emerald-400' : result.type === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
-                      {result.type === 'check' && <Check size={14} />}
-                      {result.type === 'cross' && <X size={14} />}
+                      {result.type === 'check' && <Check size={14} aria-hidden="true" />}
+                      {result.type === 'cross' && <X size={14} aria-hidden="true" />}
                       {val}
                     </span>
                   </td>
