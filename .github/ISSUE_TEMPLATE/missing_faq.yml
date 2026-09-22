@@ -1,6 +1,6 @@
 name: Missing FAQ Item
 description: Propose a new question and answer to be added to the FAQ.
-title: "[FAQ]: "
+title: "[FAQ] "
 labels: ["triage", "faq"]
 body:
   - type: textarea

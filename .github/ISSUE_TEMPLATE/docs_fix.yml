@@ -1,6 +1,6 @@
 name: Content Fix
 description: Report typos, broken links, or other content issues
-title: "[Content Issue]: "
+title: "[Content Issue] "
 labels: ["triage", "content"]
 body:
   - type: input

@@ -1,6 +1,6 @@
 name: Content Request
 description: Propose new content
-title: "[Content Request]: "
+title: "[Content Request] "
 labels: ["triage", "content"]
 body:
   - type: textarea

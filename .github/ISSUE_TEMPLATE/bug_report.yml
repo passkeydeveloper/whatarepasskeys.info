@@ -1,6 +1,6 @@
 name: Bug Report
 description: Report a broken feature, UI glitch, or functional error on the site.
-title: "[Bug]: "
+title: "[Bug] "
 labels: ["triage", "bug"]
 body:
   - type: markdown
