@@ -858,6 +858,7 @@
     "licenseName": "CC BY 4.0",
     "viewSourceOnGitHub": "Ver código fuente en GitHub",
     "viewOnBluesky": "Síguenos en Bluesky",
+    "viewOnMastodon": "Síguenos en Mastodon",
     "contentUpdated": "Contenido actualizado por última vez el {date}."
   }
 }

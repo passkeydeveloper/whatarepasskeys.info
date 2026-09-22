@@ -810,6 +810,7 @@
     "licenseName": "CC BY 4.0",
     "viewSourceOnGitHub": "GitHubでソースコードを見る",
     "viewOnBluesky": "Blueskyでフォローする",
+    "viewOnMastodon": "Mastodonでフォローする",
     "contentUpdated": "コンテンツの最終更新日：{date}"
   }
 }
