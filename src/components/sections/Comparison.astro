@@ -69,7 +69,9 @@ function cellResult(value: string, method: string): CellResult {
       <table class="w-full border-collapse">
         <thead>
           <tr>
-            <th scope="col" class="text-left py-3 px-4 text-sm text-gray-500 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-700 w-1/4"></th>
+            <th scope="col" class="text-left py-3 px-4 text-sm text-gray-500 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-700 w-1/4">
+              <span class="sr-only">{c.criteriaLabel}</span>
+            </th>
             {methods.map(method => {
               const m = (c.methods as any)[method];
               const isPasskey = method === 'passkey';

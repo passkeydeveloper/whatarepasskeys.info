@@ -224,6 +224,7 @@
     "sectionLabel": "Der Passkey-Vorteil",
     "headline": "Warum Passkeys überlegen sind",
     "tagline": "Besser als Passwort mit SMS. Besser als Anmeldelink.",
+    "criteriaLabel": "Vergleichskriterien",
     "categories": {
       "passwordRequired": "Passwort erforderlich?",
       "phishable": "Phishing-anfällig?",
@@ -339,6 +340,7 @@
         "Wir haben die Passwort-Manager nachfolgend bewertet, sortiert von der höchsten zur niedrigsten Gesamtnote. Einzelheiten zu unserer Methodik finden Sie im Abschnitt Bewertungskriterien."
       ],
       "coreGroupLabel": "Hauptkriterien",
+      "managerColumnLabel": "Credential-Manager",
       "lowerGroupLabel": "Zusätzliche Kriterien",
       "gradeLabel": "Note",
       "scoreLabel5": "Hervorragend",

@@ -224,6 +224,7 @@
     "sectionLabel": "The passkey advantage",
     "headline": "Why passkeys win",
     "tagline": "Better than password with SMS. Better than magic links.",
+    "criteriaLabel": "Comparison criteria",
     "categories": {
       "passwordRequired": "Password required?",
       "phishable": "Can be phished?",
@@ -340,6 +341,7 @@
       ],
       "coreGroupLabel": "Core criteria",
       "lowerGroupLabel": "Also considered",
+      "managerColumnLabel": "Credential manager",
       "gradeLabel": "Grade",
       "scoreLabel5": "Excellent",
       "scoreLabel3": "Partial",

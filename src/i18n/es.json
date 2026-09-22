@@ -224,6 +224,7 @@
     "sectionLabel": "La ventaja de las passkeys",
     "headline": "Por qué ganan las passkeys",
     "tagline": "Mejor que contraseña con SMS. Mejor que enlaces mágicos.",
+    "criteriaLabel": "Criterios de comparación",
     "categories": {
       "passwordRequired": "¿Requiere contraseña?",
       "phishable": "¿Vulnerable a phishing?",
@@ -339,6 +340,7 @@
         "A continuación hemos evaluado cada gestor de credenciales, ordenados de mayor a menor según su calificación global. Consulta la sección Criterios de evaluación para conocer nuestra metodología completa."
       ],
       "coreGroupLabel": "Criterios principales",
+      "managerColumnLabel": "Gestor de credenciales",
       "lowerGroupLabel": "Otros aspectos evaluados",
       "gradeLabel": "Calificación",
       "scoreLabel5": "Excelente",

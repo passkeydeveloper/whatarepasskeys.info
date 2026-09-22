@@ -224,6 +224,7 @@
     "sectionLabel": "L'avantage des passkeys",
     "headline": "Pourquoi les passkeys l'emportent",
     "tagline": "Meilleures que les mots de passe avec SMS. Meilleures que les liens magiques.",
+    "criteriaLabel": "Critères de comparaison",
     "categories": {
       "passwordRequired": "Mot de passe requis ?",
       "phishable": "Hameçonnable ?",
@@ -339,6 +340,7 @@
         "Nous avons évalué ci-dessous chaque gestionnaire d'identifiants, classé de la note globale la plus haute à la plus basse. Consultez la section « Critères d'évaluation » pour découvrir l'intégralité de notre méthodologie."
       ],
       "coreGroupLabel": "Critères fondamentaux",
+      "managerColumnLabel": "Gestionnaire d'identifiants",
       "lowerGroupLabel": "Également pris en compte",
       "gradeLabel": "Note",
       "scoreLabel5": "Excellent",
