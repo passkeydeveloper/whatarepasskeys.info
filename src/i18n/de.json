@@ -235,35 +235,35 @@
     "methods": {
       "password": {
         "name": "Passwort",
-        "passwordRequired": "Ja",
-        "phishable": "Ja",
-        "stolenFromServer": "Ja (Hash)",
-        "replayAttack": "Ja",
-        "easiness": "Schwer zu merken"
+        "passwordRequired": { "text": "Ja", "icon": "cross" },
+        "phishable": { "text": "Ja", "icon": "cross" },
+        "stolenFromServer": { "text": "Ja (Hash)" },
+        "replayAttack": { "text": "Ja", "icon": "cross" },
+        "easiness": { "text": "Schwer zu merken" }
       },
       "passwordSms": {
         "name": "Passwort + SMS",
-        "passwordRequired": "Ja",
-        "phishable": "Ja",
-        "stolenFromServer": "Ja (Hash)",
-        "replayAttack": "Teilweise",
-        "easiness": "Umständlich"
+        "passwordRequired": { "text": "Ja", "icon": "cross" },
+        "phishable": { "text": "Ja", "icon": "cross" },
+        "stolenFromServer": { "text": "Ja (Hash)" },
+        "replayAttack": { "text": "Teilweise" },
+        "easiness": { "text": "Umständlich" }
       },
       "magicLink": {
         "name": "Anmeldelink",
-        "passwordRequired": "Nein",
-        "phishable": "Teilweise",
-        "stolenFromServer": "Teilweise",
-        "replayAttack": "Teilweise",
-        "easiness": "Erfordert E-Mail-Zugriff"
+        "passwordRequired": { "text": "Nein", "icon": "check" },
+        "phishable": { "text": "Teilweise" },
+        "stolenFromServer": { "text": "Teilweise" },
+        "replayAttack": { "text": "Teilweise" },
+        "easiness": { "text": "Erfordert E-Mail-Zugriff" }
       },
       "passkey": {
         "name": "Passkey",
-        "passwordRequired": "Nein",
-        "phishable": "Nein",
-        "stolenFromServer": "Nein",
-        "replayAttack": "Nein",
-        "easiness": "Ein kurzer Blick oder Fingertipp"
+        "passwordRequired": { "text": "Nein", "icon": "check", "bold": true },
+        "phishable": { "text": "Nein", "icon": "check", "bold": true },
+        "stolenFromServer": { "text": "Nein", "icon": "check", "bold": true },
+        "replayAttack": { "text": "Nein", "icon": "check", "bold": true },
+        "easiness": { "text": "Ein kurzer Blick oder Fingertipp" }
       }
     },
     "techCallout": {

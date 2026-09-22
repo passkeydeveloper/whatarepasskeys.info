@@ -235,35 +235,35 @@
     "methods": {
       "password": {
         "name": "Contraseña",
-        "passwordRequired": "Sí",
-        "phishable": "Sí",
-        "stolenFromServer": "Sí (hash)",
-        "replayAttack": "Sí",
-        "easiness": "Difícil de recordar"
+        "passwordRequired": { "text": "Sí", "icon": "cross" },
+        "phishable": { "text": "Sí", "icon": "cross" },
+        "stolenFromServer": { "text": "Sí (hash)" },
+        "replayAttack": { "text": "Sí", "icon": "cross" },
+        "easiness": { "text": "Difícil de recordar" }
       },
       "passwordSms": {
         "name": "Contraseña + SMS",
-        "passwordRequired": "Sí",
-        "phishable": "Sí",
-        "stolenFromServer": "Sí (hash)",
-        "replayAttack": "Parcialmente",
-        "easiness": "Molesto"
+        "passwordRequired": { "text": "Sí", "icon": "cross" },
+        "phishable": { "text": "Sí", "icon": "cross" },
+        "stolenFromServer": { "text": "Sí (hash)" },
+        "replayAttack": { "text": "Parcialmente" },
+        "easiness": { "text": "Molesto" }
       },
       "magicLink": {
         "name": "Enlace mágico",
-        "passwordRequired": "No",
-        "phishable": "Parcialmente",
-        "stolenFromServer": "Parcialmente",
-        "replayAttack": "Parcialmente",
-        "easiness": "Requiere acceso al correo"
+        "passwordRequired": { "text": "No", "icon": "check" },
+        "phishable": { "text": "Parcialmente" },
+        "stolenFromServer": { "text": "Parcialmente" },
+        "replayAttack": { "text": "Parcialmente" },
+        "easiness": { "text": "Requiere acceso al correo" }
       },
       "passkey": {
         "name": "Passkey",
-        "passwordRequired": "No",
-        "phishable": "No",
-        "stolenFromServer": "No",
-        "replayAttack": "No",
-        "easiness": "Solo una mirada o un toque"
+        "passwordRequired": { "text": "No", "icon": "check", "bold": true },
+        "phishable": { "text": "No", "icon": "check", "bold": true },
+        "stolenFromServer": { "text": "No", "icon": "check", "bold": true },
+        "replayAttack": { "text": "No", "icon": "check", "bold": true },
+        "easiness": { "text": "Solo una mirada o un toque" }
       }
     },
     "techCallout": {
