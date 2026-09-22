@@ -13,15 +13,19 @@ const c = t.whyPasskeysWin;
 const methods = ['password', 'passwordSms', 'magicLink', 'passkey'] as const;
 const categories = ['passwordRequired', 'phishable', 'stolenFromServer', 'replayAttack', 'easiness'] as const;
 
-type CellResult =
-  | { type: 'check'; bold: boolean }
-  | { type: 'cross'; bold: boolean }
-  | { type: 'text' };
+// Each comparison cell in i18n is { text, icon?, bold? } — the icon is stated
+// outright rather than inferred from the text, since the text is translated
+// ("Nein", "Non", "不要") and no string match survives that.
+interface Cell {
+  text: string;
+  icon?: 'check' | 'cross';
+  bold?: boolean;
+}
 
-function cellResult(value: string, method: string): CellResult {
-  if (value === 'No') return { type: 'check', bold: method === 'passkey' };
-  if (value === 'Yes') return { type: 'cross', bold: method === 'passkey' };
-  return { type: 'text' };
+// Tolerates a bare string for a locale that hasn't been converted yet: it
+// renders as a plain, icon-less cell rather than blowing up the table.
+function cell(value: Cell | string): Cell {
+  return typeof value === 'string' ? { text: value } : value;
 }
 ---
 <section id="comparison" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-linear-to-br from-emerald-50 to-white dark:from-emerald-950 dark:to-gray-900">
@@ -46,15 +50,14 @@ function cellResult(value: string, method: string): CellResult {
               {m.name}
             </h3>
             {categories.map(cat => {
-              const val = m[cat];
-              const result = cellResult(val, method);
+              const { text, icon, bold } = cell(m[cat]);
               return (
                 <div class="flex justify-between items-center py-1.5 text-sm border-b border-gray-100 dark:border-gray-700 last:border-0">
                   <span class="text-gray-500 dark:text-gray-400">{(c.categories as any)[cat]}</span>
-                  <span class={`flex items-center gap-1 ${result.type === 'check' ? 'text-emerald-700 dark:text-emerald-400' : result.type === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
-                    {result.type === 'check' && <Check size={14} aria-hidden="true" />}
-                    {result.type === 'cross' && <X size={14} aria-hidden="true" />}
-                    {val}
+                  <span class={`flex items-center gap-1 ${icon === 'check' ? 'text-emerald-700 dark:text-emerald-400' : icon === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${bold ? 'font-bold' : ''}`}>
+                    {icon === 'check' && <Check size={14} aria-hidden="true" />}
+                    {icon === 'cross' && <X size={14} aria-hidden="true" />}
+                    {text}
                   </span>
                 </div>
               );
@@ -93,15 +96,14 @@ function cellResult(value: string, method: string): CellResult {
                 {(c.categories as any)[cat]}
               </th>
               {methods.map(method => {
-                const val = (c.methods as any)[method][cat];
-                const result = cellResult(val, method);
+                const { text, icon, bold } = cell((c.methods as any)[method][cat]);
                 const isPasskey = method === 'passkey';
                 return (
                   <td class={`py-3 px-4 text-center text-sm border-b border-gray-100 dark:border-gray-800 ${isPasskey ? 'comparison-passkey-col border-indigo-100 dark:border-indigo-800' : ''}`}>
-                    <span class={`inline-flex items-center justify-center gap-1 ${result.type === 'check' ? 'text-emerald-700 dark:text-emerald-400' : result.type === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${result.type !== 'text' && result.bold ? 'font-bold' : ''}`}>
-                      {result.type === 'check' && <Check size={14} aria-hidden="true" />}
-                      {result.type === 'cross' && <X size={14} aria-hidden="true" />}
-                      {val}
+                    <span class={`inline-flex items-center justify-center gap-1 ${icon === 'check' ? 'text-emerald-700 dark:text-emerald-400' : icon === 'cross' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-300'} ${bold ? 'font-bold' : ''}`}>
+                      {icon === 'check' && <Check size={14} aria-hidden="true" />}
+                      {icon === 'cross' && <X size={14} aria-hidden="true" />}
+                      {text}
                     </span>
                   </td>
                 );

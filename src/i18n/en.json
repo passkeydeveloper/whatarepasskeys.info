@@ -235,35 +235,35 @@
     "methods": {
       "password": {
         "name": "Password",
-        "passwordRequired": "Yes",
-        "phishable": "Yes",
-        "stolenFromServer": "Yes (hash)",
-        "replayAttack": "Yes",
-        "easiness": "Hard to remember"
+        "passwordRequired": { "text": "Yes", "icon": "cross" },
+        "phishable": { "text": "Yes", "icon": "cross" },
+        "stolenFromServer": { "text": "Yes (hash)" },
+        "replayAttack": { "text": "Yes", "icon": "cross" },
+        "easiness": { "text": "Hard to remember" }
       },
       "passwordSms": {
         "name": "Password + SMS",
-        "passwordRequired": "Yes",
-        "phishable": "Yes",
-        "stolenFromServer": "Yes (hash)",
-        "replayAttack": "Partially",
-        "easiness": "Annoying"
+        "passwordRequired": { "text": "Yes", "icon": "cross" },
+        "phishable": { "text": "Yes", "icon": "cross" },
+        "stolenFromServer": { "text": "Yes (hash)" },
+        "replayAttack": { "text": "Partially" },
+        "easiness": { "text": "Annoying" }
       },
       "magicLink": {
         "name": "Magic Link",
-        "passwordRequired": "No",
-        "phishable": "Partially",
-        "stolenFromServer": "Partially",
-        "replayAttack": "Partially",
-        "easiness": "Requires email access"
+        "passwordRequired": { "text": "No", "icon": "check" },
+        "phishable": { "text": "Partially" },
+        "stolenFromServer": { "text": "Partially" },
+        "replayAttack": { "text": "Partially" },
+        "easiness": { "text": "Requires email access" }
       },
       "passkey": {
         "name": "Passkey",
-        "passwordRequired": "No",
-        "phishable": "No",
-        "stolenFromServer": "No",
-        "replayAttack": "No",
-        "easiness": "Just a glance or touch"
+        "passwordRequired": { "text": "No", "icon": "check", "bold": true },
+        "phishable": { "text": "No", "icon": "check", "bold": true },
+        "stolenFromServer": { "text": "No", "icon": "check", "bold": true },
+        "replayAttack": { "text": "No", "icon": "check", "bold": true },
+        "easiness": { "text": "Just a glance or touch" }
       }
     },
     "techCallout": {
