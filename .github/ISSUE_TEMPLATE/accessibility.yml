@@ -1,7 +1,7 @@
 name: Accessibility (a11y) Issue
 description: Report barriers affecting keyboard navigation, screen readers, or contrast.
 title: "[A11y]: "
-labels: ["triage", "accessibility"]
+labels: ["triage", "A11y"]
 body:
   - type: input
     id: a11y-url
