@@ -68,7 +68,6 @@ const { locale, t } = Astro.props;
             type="button"
             class="lang-menu-button"
             id="lang-menu-button"
-            aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="lang-menu-list"
             aria-label={t.nav.language}
@@ -77,12 +76,11 @@ const { locale, t } = Astro.props;
             <span class="lang-menu-current">{locale.toUpperCase()}</span>
             <ChevronDown size={14} aria-hidden="true" class="lang-menu-chevron" />
           </button>
-          <ul class="lang-menu-list" id="lang-menu-list" role="menu" aria-label={t.nav.language} hidden>
+          <ul class="lang-menu-list" id="lang-menu-list" aria-label={t.nav.language} hidden>
             {locales.map((code) => (
-              <li role="none">
+              <li>
                 <a
                   href={localeHref(code)}
-                  role="menuitem"
                   class:list={['lang-menu-item', { selected: code === locale }]}
                   aria-current={code === locale ? 'true' : undefined}
                   data-locale={code}
