@@ -1,3 +1,25 @@
+# Flags translation drift between locale files: when a string value changes in one
+# locale's JSON but the same key isn't touched in the others, it's almost always a
+# forgotten translation update rather than an intentional change.
+#
+# This is NOT a plain JSON diff between locale files. A raw diff would either compare
+# each locale file only against its own previous version (missing the fact that other
+# locales didn't follow suit) or compare locale files against each other directly
+# (which is useless, since translated strings are supposed to differ). Instead, this
+# check:
+#   - Flattens each locale file to dotted key paths (e.g. "nav.home") so it can compare
+#     by key regardless of nesting/ordering/formatting changes in the JSON.
+#   - For every key, compares its value at the PR base SHA vs the head SHA, per locale
+#     file, using `git show <sha>:<file>` to read historical content without checking
+#     out other commits.
+#   - Only flags a key when it changed in at least one locale file but was left
+#     unchanged in another locale file that also has that key — i.e. a partial update.
+#   - Treats keys in brand-new locale files as non-changes, so adding a whole new
+#     language doesn't get flagged against every other locale.
+#   - Skips keys listed in .github/i18n-ignore.json, for values that are intentionally
+#     identical across locales (URLs, brand names, etc.).
+#
+# See .github/scripts/check-i18n-parity.js for the implementation.
 name: Check PRs for translation parity
 
 on:
