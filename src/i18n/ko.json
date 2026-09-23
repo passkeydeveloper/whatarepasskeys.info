@@ -1,0 +1,816 @@
+{
+  "meta": {
+    "nativeName": "한국어"
+  },
+  "site": {
+    "title": "passkey란 무엇인가요?",
+    "pageTitle": "Passkeys 상세 설명: 더 쉽고 안전하게 로그인하는 방법",
+    "description": "passkey는 비밀번호를 고유한 디지털 키로 대체합니다. 기억해야 할 비밀번호나 기다려야 할 인증 코드 없이 더 쉽고 안전하게 사용할 수 있습니다.",
+    "toggleConsumer": "기본",
+    "toggleTechnical": "고급",
+    "logoText": "passkey란 무엇인가요?"
+  },
+  "common": {
+    "technicalDetail": "기술 세부정보",
+    "goDeeper": "더 자세히 알아보기",
+    "opensInNewTab": "(새 탭에서 열림)",
+    "step": "{number}단계"
+  },
+  "nav": {
+    "skipToContent": "본문으로 건너뛰기",
+    "language": "언어",
+    "contentMode": "콘텐츠 모드",
+    "switchToLightMode": "라이트 모드로 전환",
+    "switchToDarkMode": "다크 모드로 전환",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "jumpToSection": "섹션으로 이동",
+    "pageSections": "페이지 섹션",
+    "copyLinkToSection": "\"{section}\" 섹션 링크 복사",
+    "linkCopied": "링크가 복사되었습니다!",
+    "sections": {
+      "hero": "Passkeys",
+      "whatIs": "passkey란 무엇인가요?",
+      "howItWorks": "작동 방식",
+      "whyPasswordsFail": "비밀번호가 실패하는 이유",
+      "phishing": "피싱",
+      "comparison": "비교",
+      "credentialManagers": "자격 증명 관리자",
+      "sayGoodbye": "비밀번호와 작별하기",
+      "workPasskeys": "직장에서의 passkey",
+      "faq": "자주 묻는 질문"
+    }
+  },
+  "hero": {
+    "headline": "passkey를 만나보세요",
+    "subheadline": "더 쉽고 안전하게 로그인하는 방법. 기억해야 할 비밀번호도, 기다려야 할 인증 코드도 없습니다. 바로 로그인하고 중요한 일에 집중하세요.",
+    "scrollCta": "passkey 작동 방식 보기",
+    "eyebrow": "passkey란 무엇인가요?",
+    "illustrationAlt": "passkey 일러스트레이션",
+    "scrollIndicator": "스크롤하여 둘러보기",
+    "jumpLinks": {
+      "whatIs": "passkey란 무엇인가요?",
+      "howItWorks": "passkey 사용하기",
+      "whyPasswordsFail": "비밀번호의 문제점",
+      "phishing": "피싱의 이해",
+      "comparison": "passkey의 장점",
+      "credentialManagers": "passkey 저장하기",
+      "workPasskeys": "직장에서의 passkey",
+      "faq": "자주 묻는 질문"
+    }
+  },
+  "whatIsAPasskey": {
+    "sectionLabel": "passkey란 무엇인가요?",
+    "headline": "passkey는 비밀번호를 대체하는 고유한 디지털 키입니다.",
+    "body": "passkey를 사용하면 비밀번호를 만들거나 기억하거나 입력할 필요 없이 빠르고 안전하게 로그인할 수 있습니다. passkey로 로그인할 때 기기는 먼저 얼굴, 지문 또는 기기 PIN을 사용하여 본인 여부를 확인합니다.",
+    "highlights": {
+      "staysWithYou": {
+        "title": "하나의 키는 사용자에게 보관됩니다",
+        "body": "해당 키는 사용자 곁에 머물며 웹사이트와 공유되지 않습니다."
+      },
+      "websiteGetsKey": {
+        "title": "웹사이트는 연결된 키를 받습니다",
+        "body": "웹사이트는 연결된 키를 저장하지만, 이 키만으로는 단독 로그인이 불가능합니다."
+      },
+      "workTogether": {
+        "title": "두 키가 함께 작동합니다",
+        "body": "로그인할 때 기기는 보관 중인 키를 사용하여 실제 본인임을 증명합니다. 비밀번호는 절대 전송되거나 저장되지 않습니다."
+      }
+    },
+    "techCallout": {
+      "headline": "내부 구조: 비대칭 암호화",
+      "body": "passkeys는 SSH 키와 유사한 공개 키 암호화 방식을 사용합니다. 개인 키는 자격 증명 관리자 또는 하드웨어 인증 장치의 보안 요소 내에서 생성됩니다. 공개 키는 일부 추가적인 WebAuthn 관련 메타데이터와 함께 서버로 전송됩니다. 그러나 공개 키는 챌린지에 서명할 개인 키 없이는 수학적으로 아무런 쓸모가 없습니다. 서버는 어떠한 비밀 정보도 보거나 저장하지 않습니다."
+    },
+    "illustrationAlt": "공개 키 및 개인 키 쌍 일러스트레이션",
+    "diagram": {
+      "title": "두 개의 키. 하나의 쌍.",
+      "privateKeyLabel": "개인 키",
+      "publicKeyLabel": "공개 키",
+      "linked": "연결됨",
+      "private": "내 기기에 보관됩니다. 절대 공유되지 않습니다.",
+      "public": "웹사이트와 공유됩니다. 개인 키 없이는 쓸모가 없습니다.",
+      "device": {
+        "title": "내 기기",
+        "subtitle": "자격 증명 관리자"
+      },
+      "website": {
+        "title": "웹사이트 서버",
+        "subtitle": "공개 키만 저장"
+      }
+    }
+  },
+  "howItWorks": {
+    "sectionLabel": "passkey 사용하기",
+    "headline": "passkey를 사용해 로그인하는 방법",
+    "intro": "passkey 사용은 간단합니다. 한 번 생성하고 나면 로그인하는 데 몇 초밖에 걸리지 않습니다.",
+    "steps": {
+      "create": {
+        "label": "passkey 생성",
+        "body": "자격 증명 관리자가 웹사이트나 앱을 위한 고유한 키 쌍인 passkey를 생성합니다. passkey의 한 부분은 웹사이트와 공유됩니다. 다른 한 부분은 본인임을 증명하기 위해 기기의 자격 증명 관리자에 안전하게 저장됩니다. 사용자의 키 부분은 웹사이트나 앱과 절대 공유되거나 저장되지 않습니다."
+      },
+      "confirm": {
+        "label": "본인 확인",
+        "body": "다음에 로그인할 때 기기는 얼굴, 지문 또는 기기 PIN을 사용해 본인 확인을 요청합니다. 생체 정보를 사용할 경우, 이는 절대 기기 외부로 유출되거나 공유되지 않습니다."
+      },
+      "signedIn": {
+        "label": "로그인 완료!",
+        "body": "인터넷을 통해 비밀번호를 전송하지 않고도 기기가 웹사이트에 본인임을 안전하게 증명합니다."
+      }
+    },
+    "uniqueness": {
+      "headline": "모든 passkey는 고유합니다",
+      "body": [
+        "사용하는 모든 서비스는 각자 고유한 passkey를 갖습니다. 은행용으로 생성된 passkey는 해당 은행(웹사이트 또는 앱)에서만 작동하며 다른 곳에서는 작동하지 않습니다. 이메일용으로 생성된 passkey도 마찬가지로 해당 이메일에서만 작동합니다. 각 passkey는 하나의 서비스에만 귀속되므로 도난당하거나 다른 곳에서 재사용될 위험이 없습니다.",
+        "이는 개인정보 보호에도 도움이 됩니다. 각 서비스는 자신을 위해 생성된 passkey만 볼 수 있으므로, 서로 다른 사이트에 걸쳐 사용자의 활동을 추적하거나 연결하는 데 사용할 수 있는 공통 식별자가 존재하지 않습니다."
+      ]
+    },
+    "techCallout": {
+      "headline": "암호화 핸드셰이크",
+      "body": "본인 확인을 위해 서비스(앱 또는 사이트)는 로그인 과정에서 챌린지를 전송합니다. 자격 증명 관리자/인증 장치는 passkey의 개인 키를 사용하여 이 챌린지에 서명합니다. 서명된 응답에는 이 서명과 함께 오리진(origin) 정보 및 요청이 임베디드 컨텍스트(iframe)에서 이루어졌는지 여부와 같은 세션 관련 추가 컨텍스트가 포함됩니다. 서버는 (1) 오리진이 예상된 값인지(예: fake-bank.com이 아닌 bank.com), (2) 챌린지가 서버에서 발행한 것과 일치하는지, (3) 저장된 공개 키에 대해 서명이 유효한지 확인합니다. 서명된 오리진 일치 여부 확인은 passkeys(및 일반적인 WebAuthn 자격 증명)가 피싱에 저항하는 핵심 방식입니다.",
+      "additionalLinks": [
+        {
+          "label": "MDN의 다이어그램 및 심층 설명",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Authentication/Passkeys#sign_in"
+        }
+      ]
+    }
+  },
+  "whyPasswordsFail": {
+    "sectionLabel": "비밀번호의 문제점",
+    "headline": "비밀번호가 계속해서 실패하는 이유",
+    "intro": "비밀번호는 수십 년 동안 사용되어 왔지만, 오늘날의 인터넷 환경에 맞게 설계된 것은 아닙니다. 온라인 위협이 진화함에 따라 입력해야 할 문자 메시지 코드나 클릭해야 할 이메일 링크를 추가하고, 로그인 권한이 있음을 증명하기 위한 추가 단계를 요구하는 방식으로 비밀번호의 보안을 강화하려고 시도해 왔습니다. 이러한 방법이 특정 상황에서는 도움이 될 수 있지만 근본적인 문제를 해결하지는 못합니다. 비밀번호 자체는 본인이 누구인지 증명하기에 매우 취약한 방식이기 때문입니다.",
+    "outro": "passkeys는 이러한 문제를 해결하기 위해 고안되었습니다.",
+    "cards": {
+      "reuse": {
+        "title": "비밀번호의 재사용",
+        "body": "많은 사람들이 여러 계정에서 동일한 비밀번호를 재사용합니다. 한 웹사이트가 침해당하면 공격자는 다른 웹사이트에서도 동일한 비밀번호로 로그인을 시도하는 경우가 많습니다."
+      },
+      "stolen": {
+        "title": "비밀번호 도난 위험",
+        "body": "웹사이트는 비밀번호 정보를 저장하며, 이는 데이터 유출 시 공격자의 표적이 됩니다. 도난당한 비밀번호는 암호 해독을 거쳐 공격자들에 의해 악용될 수 있습니다."
+      },
+      "phishing": {
+        "title": "피싱에 취약한 비밀번호",
+        "body": "피싱은 계정 도용 및 신원 도용으로 이어지는 가장 흔한 공격입니다. 공격자는 실제 웹사이트와 똑같이 생긴 가짜 사이트를 만들어 사용자가 비밀번호는 물론 인증 코드까지 입력하도록 속입니다."
+      },
+      "slow": {
+        "title": "사용성을 저하시키는 비밀번호",
+        "body": "비밀번호를 기억하고, 잊어버린 비밀번호를 재설정하고, 문자 메시지를 기다리고, 이메일을 확인하는 모든 과정은 매일 수행하는 작업에 불필요한 번거로움을 더합니다."
+      }
+    },
+    "techCallout": {
+      "headline": "근본적인 문제",
+      "body": "비밀번호는 '공유된 비밀(shared secret)'입니다. 사용자가 알고 있고, 서버가 이를 저장합니다. 즉, 사용자로부터(피싱) 그리고 서버로부터(데이터 유출) 도난당할 수 있는 경로가 두 군데 존재한다는 의미입니다. 공유된 비밀에 기반한 모든 인증 체계는 이러한 근본적인 취약점을 안고 있습니다.",
+      "additionalLinks": [
+        {
+          "label": "Verizon 데이터 침해 조사 보고서(DBIR)",
+          "url": "https://www.verizon.com/business/resources/reports/dbir/"
+        }
+      ]
+    }
+  },
+  "phishing": {
+    "sectionLabel": "피싱의 이해",
+    "headline": "피싱이란 무엇인가요?",
+    "body": "범죄자들은 은행, 이메일 서비스, 자주 찾는 쇼핑몰 등 실제 사이트와 완전히 똑같이 생긴 웹사이트를 만듭니다. 그리고 사용자를 속여 가짜 사이트에 접속해 비밀번호를 입력하게 유도합니다. 그런 다음 탈취한 비밀번호를 사용해 실제 사이트에서 사용자로 위장하여 로그인합니다. 피싱은 온라인에서 계정과 신원을 도용하는 가장 흔한 수법이며, 비밀번호, 인증 코드, 문자 메시지 인증 모두에 통합니다.",
+    "example": {
+      "label": "실제 사이트 vs 가짜 사이트",
+      "real": "bank.com",
+      "fake": "bank-secure-login.com"
+    },
+    "resistance": {
+      "headline": "passkey를 사용하면 피싱이 통하지 않습니다!",
+      "body": "passkey는 처음 생성된 바로 그 웹사이트에 영구적으로 연결되어 있으므로 유사 사이트, 오타 도메인(타이포스쿼팅), 리다이렉션 사이트에서는 아예 반응하지 않습니다. 사용자가 입력할 내용이 없으므로 공격자가 훔쳐낼 것도 없습니다.",
+      "fake": {
+        "label": "가짜 사이트",
+        "result": "passkey 작동 거부"
+      },
+      "real": {
+        "label": "실제 사이트",
+        "result": "passkey 정상 작동"
+      }
+    },
+    "techCallout": {
+      "headline": "기존 MFA가 사용자를 완벽히 보호하지 못하는 이유",
+      "body": [
+        "실시간 피싱 공격(소위 \"중간자 공격(adversary in the middle)\")은 SMS OTP 코드, TOTP 코드, 심지어 푸시 알림까지 실시간으로 가로챌 수 있습니다. 공격자의 가짜 사이트는 두 번째 인증 요소를 포함한 사용자의 자격 증명을 실제 사이트로 즉시 전달합니다. FIDO2/WebAuthn이 이 문제를 해결하기 위해 특별히 설계된 이유가 바로 여기에 있습니다. passkeys를 포함한 WebAuthn 자격 증명은 특정 도메인으로 범위가 한정됩니다.",
+        "등록 과정에서 이는 신뢰 당사자 ID(RP ID)로 선언되며, 자격 증명 관리자에 passkey와 함께 저장됩니다. 인증 과정에서는 브라우저, 앱 또는 OS가 RP ID를 사용하여 해당 서비스에 적합한 passkey를 선택합니다. 그러나 이것이 핵심적인 피싱 방지 기능을 제공하는 것은 아닙니다! 요청을 보낸 서비스의 호출 오리진에 passkey의 개인 키를 사용한 디지털 서명이 이루어집니다. 그러면 서비스는 백엔드에서 이 오리진을 확인하여 예상한 값과 일치하는지 검증할 수 있습니다. 오리진이 예상 값이 아니면 요청이 거부되고 세션이 설정되지 않습니다. 오리진은 대개 웹 오리진(예: https://login.example.com)이지만, 네이티브 앱의 경우 앱 식별자가 될 수도 있습니다."
+      ],
+      "additionalLinks": [
+        {
+          "label": "오리진(origin)이란 무엇인가요? @ MDN",
+          "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
+        },
+        {
+          "label": "RP가 오리진을 확인하는 방법 @ W3C",
+          "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
+        }
+      ]
+    },
+    "illustrationAlt": "가짜 웹사이트가 비밀번호를 훔치는 피싱 공격 일러스트레이션",
+    "diagram": {
+      "youLabel": "사용자",
+      "fakeSiteLabel": "가짜 사이트",
+      "passwordPlaceholder": "비밀번호 입력...",
+      "attackerLabel": "공격자",
+      "attackerCaption": "비밀번호 탈취 완료",
+      "realSiteLabel": "실제 사이트",
+      "signedInAsYou": "사용자 계정으로 로그인 완료!",
+      "realBadge": "실제",
+      "fakeBadge": "가짜"
+    }
+  },
+  "whyPasskeysWin": {
+    "sectionLabel": "passkey의 장점",
+    "headline": "passkey가 뛰어난 이유",
+    "tagline": "SMS 기반 비밀번호 인증보다 뛰어납니다. 매직 링크보다 뛰어납니다.",
+    "criteriaLabel": "비교 기준",
+    "categories": {
+      "passwordRequired": "비밀번호 필요 여부",
+      "phishable": "피싱 가능 여부",
+      "stolenFromServer": "서버 탈취 가능 여부",
+      "replayAttack": "재전송 공격 취약 여부",
+      "easiness": "사용 편의성"
+    },
+    "methods": {
+      "password": {
+        "name": "비밀번호",
+        "passwordRequired": { "text": "예", "icon": "cross" },
+        "phishable": { "text": "예", "icon": "cross" },
+        "stolenFromServer": { "text": "예 (해시값)" },
+        "replayAttack": { "text": "예", "icon": "cross" },
+        "easiness": { "text": "기억하기 어려움" }
+      },
+      "passwordSms": {
+        "name": "비밀번호 + SMS",
+        "passwordRequired": { "text": "예", "icon": "cross" },
+        "phishable": { "text": "예", "icon": "cross" },
+        "stolenFromServer": { "text": "예 (해시값)" },
+        "replayAttack": { "text": "일부 취약" },
+        "easiness": { "text": "번거로움" }
+      },
+      "magicLink": {
+        "name": "매직 링크",
+        "passwordRequired": { "text": "아니요", "icon": "check" },
+        "phishable": { "text": "일부 취약" },
+        "stolenFromServer": { "text": "일부 취약" },
+        "replayAttack": { "text": "일부 취약" },
+        "easiness": { "text": "이메일 접근 필요" }
+      },
+      "passkey": {
+        "name": "Passkey",
+        "passwordRequired": { "text": "아니요", "icon": "check", "bold": true },
+        "phishable": { "text": "아니요", "icon": "check", "bold": true },
+        "stolenFromServer": { "text": "아니요", "icon": "check", "bold": true },
+        "replayAttack": { "text": "아니요", "icon": "check", "bold": true },
+        "easiness": { "text": "간단한 인식 또는 터치" }
+      }
+    },
+    "techCallout": {
+      "headline": "크리덴셜 스터핑 및 서버 측 유출 방어",
+      "body": "크리덴셜 스터핑 공격에서 공격자는 특정 사이트에서 유출된 사용자 이름/비밀번호 쌍을 가져와 다른 사이트들에 대입해 봅니다. passkeys는 이를 완전히 차단합니다. 대입할 비밀 정보 자체가 없기 때문입니다. 서버 측에는 공개 키만 저장됩니다. 서버가 완전히 침해당하더라도 공격자가 얻을 수 있는 것은 공개 키 목록뿐이며, 이는 로그인에 수학적으로 아무런 쓸모가 없습니다. 이에 대응하는 개인 키는 자격 증명 관리자 외부로 절대 유출되지 않았습니다."
+    }
+  },
+  "credentialManagers": {
+    "sectionLabel": "passkey 저장하기",
+    "headline": "내 passkeys는 어디에 저장되나요?",
+    "intro": [
+      "passkeys는 로그인된 모든 기기에서 사진이나 연락처를 확인할 수 있는 것과 유사하게, 기기 간에 안전하게 동기화해 주는 앱 또는 서비스인 자격 증명 관리자에 저장됩니다.",
+      "대부분의 사용자는 이미 하나씩 가지고 있습니다. Android 사용자는 Google Password Manager 또는 Samsung Wallet (Pass)을 사용하고, iPhone 사용자는 주로 Apple Passwords를 사용하며, Windows 사용자는 Microsoft Password Manager를 사용할 수 있습니다. 또한 1Password, Dashlane, Bitwarden과 같은 서드파티 옵션을 사용할 수도 있습니다.",
+      "가장 큰 장점은 passkey를 한 번 생성하면 모든 기기에서 바로 사용할 수 있다는 점입니다. 기기마다 매번 다시 설정할 필요가 없습니다."
+    ],
+    "managers": {
+      "apple": {
+        "name": "Apple Passwords",
+        "description": "iPhone, iPad, Mac에 기본 내장되어 있습니다. Apple 계정을 사용하여 iCloud 키체인을 통해 동기화됩니다."
+      },
+      "google": {
+        "name": "Google Password Manager",
+        "description": "Android 및 Chrome에 기본 내장되어 있습니다. Google 계정을 사용하여 기기 간에 동기화됩니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "1password": {
+        "name": "1Password",
+        "description": "passkey를 지원하는 독립형 자격 증명 관리자입니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "bitwarden": {
+        "name": "Bitwarden",
+        "description": "passkey를 지원하는 독립형 오픈 소스 자격 증명 관리자입니다. 무료 버전 및 자체 호스팅 버전을 이용할 수 있습니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "dashlane": {
+        "name": "Dashlane",
+        "description": "passkey를 지원하는 독립형 자격 증명 관리자입니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "microsoft": {
+        "name": "Microsoft Password Manager",
+        "description": "Microsoft Edge 및 Windows에 기본 내장되어 있습니다. Microsoft 계정을 사용하여 기기 간에 동기화됩니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "nordpass": {
+        "name": "NordPass",
+        "description": "Nord Security에서 제공하는 passkey 지원 독립형 자격 증명 관리자입니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "keeper": {
+        "name": "Keeper",
+        "description": "passkey를 지원하는 개인 및 비즈니스용 독립형 자격 증명 관리자입니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "protonpass": {
+        "name": "Proton Pass",
+        "description": "Proton에서 제공하는 종단간 암호화(E2EE) 기반의 passkey 지원 독립형 자격 증명 관리자입니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "lastpass": {
+        "name": "LastPass",
+        "description": "passkey를 지원하는 독립형 자격 증명 관리자입니다. Android, iOS, Linux, macOS 및 Windows 기기 전반에서 작동합니다."
+      },
+      "samsungpass": {
+        "name": "Samsung Wallet (Pass)",
+        "description": "Samsung Pass는 Samsung Galaxy 기기에 기본 탑재된 Samsung Wallet에 통합되어 있습니다. Samsung 계정을 사용하여 Samsung Galaxy Android 기기 간에 동기화됩니다."
+      },
+      "keepassxc": {
+        "name": "KeePassXC",
+        "description": "passkey를 지원하는 독립형 오픈 소스 오프라인 중심 자격 증명 관리자입니다. Linux, macOS, Windows에서 작동하며, 커뮤니티에서 제작한 Android 및 iOS용 컴패니언 앱이 제공됩니다.",
+        "caveats": {
+          "general": "KeePassXC는 자체 동기화나 공유 기능이 내장된 서비스가 아닙니다. 데이터베이스 파일을 생성하고 읽는 앱이므로 E2EE, 가족 공유, 데이터 마이그레이션과 같은 기능은 KeePassXC 자체에서 제공되는 것이 아니라 해당 파일을 어떻게 저장하고 동기화할지(예: 일반 폴더, 개인 클라우드 드라이브, 자체 호스팅 솔루션 등)에 전적으로 달려 있습니다. 이러한 유연성 때문에 일부 항목에서 중립 등급을 받았습니다. 즉, 직접 구성하고자 하는 만큼의 보안성과 편의성을 정확히 얻게 됩니다."
+        }
+      }
+    },
+    "scoring": {
+      "sectionLabel": "자격 증명 관리자 선택하기",
+      "headline": "나에게 맞는 자격 증명 관리자는 무엇일까요?",
+      "intro": [
+        "자신에게 맞는 자격 증명 관리자를 선택하세요. 기기에 내장된 것을 사용하든 서드파티 앱을 사용하든, passkeys는 개방형 표준을 기반으로 구축되었으므로 웹사이트와 앱은 사용자가 어떤 자격 증명 관리자를 쓰든 상관없이 지원할 수 있습니다.",
+        "아래 각 자격 증명 관리자의 점수를 종합 평가 순위에 따라 최고점에서 최저점 순으로 매겼습니다. 전체 평가 방법론은 평가 기준 섹션을 참조하세요."
+      ],
+      "coreGroupLabel": "핵심 기준",
+      "lowerGroupLabel": "추가 고려 기준",
+      "managerColumnLabel": "자격 증명 관리자",
+      "gradeLabel": "등급",
+      "scoreLabel5": "우수",
+      "scoreLabel3": "보통",
+      "scoreLabel1": "제한적",
+      "lastUpdated": "점수 최종 업데이트: {date}.",
+      "coreTag": "핵심",
+      "lowerTag": "낮은 가중치",
+      "caveatIndicatorLabel": "주의사항 보기:",
+      "caveatsLabel": "추가 정보",
+      "criteria": {
+        "ecosystemAvailability": { "consumerLabel": "사용 환경 지원", "technicalLabel": "생태계 가용성" },
+        "nativePlatformIntegration": { "consumerLabel": "웹사이트 및 앱 연동 편의성", "technicalLabel": "네이티브 플랫폼 통합" },
+        "e2eeVaultSecurity": { "consumerLabel": "자격 증명 보안 유지", "technicalLabel": "E2EE 볼트 보안" },
+        "credentialExchange": { "consumerLabel": "데이터 이전 자유도", "technicalLabel": "자격 증명 교환" },
+        "specCompliance": { "consumerLabel": "최신 로그인 표준 지원", "technicalLabel": "상호 운용성" },
+        "digitalInheritance": { "consumerLabel": "디지털 유산 보호", "technicalLabel": "디지털 상속" },
+        "familySharing": { "consumerLabel": "가족 및 친구와 공유", "technicalLabel": "가족 공유" }
+      },
+      "criteriaDetails": {
+        "sectionLabel": "평가 기준",
+        "headline": "각 기준의 측정 내용",
+        "intro": "각 점수의 실제 평가 항목과 최우수 등급과 최하위 등급을 가르는 요소를 소개합니다. 점수는 직접 진행한 테스트와 각 벤더의 공개 문서를 종합하여 산정되었습니다. 조직 차원 또는 관리형 배포가 필요한 기능(직접 테스트하기 어려운 항목)은 공개된 문서를 기반으로 평가했습니다.",
+        "items": {
+          "ecosystemAvailability": {
+            "consumerBody": "휴대전화, 컴퓨터, 태블릿은 물론 사용하는 앱과 브라우저 등 필요한 모든 곳에서 이 자격 증명 관리자를 실제로 사용할 수 있나요? 최고 점수는 4대 주요 플랫폼 모두를 위한 네이티브 앱을 갖추고 모든 주요 브라우저에서 원활하게 작동함을 의미합니다. 낮은 점수는 특정 한 기업의 기기에 주로 묶여 있음을 의미합니다.",
+            "technicalBody": "4대 주요 운영체제(Android, iOS, macOS, Windows) 전반에 걸친 네이티브 자격 증명 관리자 앱 지원 범위 및 기타 환경을 위한 브라우저 확장 프로그램 지원 여부.",
+            "tier5": "4대 주요 OS 전반을 위한 네이티브 앱 및 기타 환경용 브라우저 확장 프로그램 제공.",
+            "tier3": "주요 플랫폼 중 하나가 누락되었거나 중대한 브라우저 제한 사항이 있음.",
+            "tier1": "주로 특정 생태계 하나에만 종속되어 있음."
+          },
+          "nativePlatformIntegration": {
+            "consumerBody": "로그인이 실제로 매끄럽게 진행되나요, 아니면 브라우저 확장 프로그램과 씨름해야 하나요? 최고 점수는 운영체제에 직접 통합되어 passkeys가 물 흐르듯 작동함을 의미합니다. 낮은 점수는 수동 우회 방식이나 번거로운 방법에 의존해야 함을 의미합니다.",
+            "technicalBody": "브라우저 확장 프로그램이나 기타 수동 워크플로에 대한 의존도 대비 네이티브 플랫폼 API 지원 수준(예: 시스템 수준 자격 증명 관리자 통합).",
+            "tier5": "주요 플랫폼 전반에서 완벽한 네이티브 플랫폼 통합 제공, 브라우저 및 네이티브 앱에서 원활한 passkey 사용 가능.",
+            "tier3": "일부 플랫폼에서는 네이티브 플랫폼 통합을 지원하지만, 브라우저 확장 프로그램 워크플로에 상당 부분 의존함.",
+            "tier1": "네이티브 플랫폼 통합이 거의 또는 전혀 이루어지지 않음."
+          },
+          "e2eeVaultSecurity": {
+            "consumerBody": "앱을 만든 회사조차도 사용자가 저장한 비밀번호와 passkeys를 읽을 수 없어야 합니다. 최고 점수는 오직 사용자만이 키를 갖는 강력한 종단간 암호화(E2EE)를 볼트에 적용하고 있음을 의미합니다. 낮은 점수는 이 기준에 미치지 못함을 의미합니다.",
+            "technicalBody": "볼트가 기밀 값뿐만 아니라 민감한 메타데이터까지 암호화하는 강력한 최신 암호화 기술을 포함하여, 영지식(zero-knowledge)/종단간 암호화 기준을 충족하는지 여부.",
+            "tier5": "강력한 최신 암호화 및 민감한 메타데이터 암호화를 포함하여 최고 수준의 E2EE/영지식 보호 기준을 충족함.",
+            "tier3": "강력한 E2EE/영지식 보호를 제공하지만, 최상위 티어의 모든 요구 사항을 충족하지는 못함.",
+            "tier1": "기대되는 E2EE/영지식 보호 기준을 충족하지 못함."
+          },
+          "credentialExchange": {
+            "consumerBody": "다른 자격 증명 관리자 앱으로 바꾸고 싶을 때 passkeys를 실제로 가지고 이동할 수 있나요? 최고 점수는 passkeys, 비밀번호 및 기타 볼트 데이터를 외부로 직접 내보낼 수 있음을 의미합니다. 낮은 점수는 비밀번호는 내보낼 수 있어도 passkeys는 갇혀 버림을 의미합니다.",
+            "technicalBody": "부분 지원 또는 passkeys 내보내기 불가 대비, 비밀번호와 passkeys 모두에 대해 표준 기반 직접 전송(예: FIDO Credential Exchange Protocol) 지원 여부.",
+            "tier5": "비밀번호 및 passkeys에 대한 표준 기반 직접 전송 지원.",
+            "tier3": "표준 기반 자격 증명 전송 기능이 부분적이거나 제한적임.",
+            "tier1": "비밀번호는 내보낼 수 있을지 모르나 passkeys는 사실상 묶여 있음."
+          },
+          "specCompliance": {
+            "consumerBody": "passkey 기술은 계속 발전하고 있습니다. 최고 점수는 몇 년 전의 기본 기능에만 머무르지 않고 이 자격 증명 관리자가 최신 기능을 발 빠르게 반영하고 있음을 의미합니다. 낮은 점수는 기초적인 기능만 지원함을 의미합니다.",
+            "technicalBody": "WebAuthn L3 규격을 준수하여 생태계 전반의 상호 운용성과 일관성을 보장하는 구현인지 여부.",
+            "tier5": "WebAuthn L3 사양에 대한 검증된 지원 및 준수.",
+            "tier3": "강력한 passkey 지원을 제공하지만 WebAuthn L3에 대한 완전한 지원 및 준수는 부족함.",
+            "tier1": "기본적인 passkey만 지원하거나 WebAuthn L3 지원 및 준수가 이루어지지 않음."
+          },
+          "digitalInheritance": {
+            "consumerBody": "사용자에게 신변의 이상이 생겼을 때 신뢰할 수 있는 사람이 계정에 접근할 수 있나요? 최고 점수는 긴급 접근이나 디지털 유산 접근을 부여하는 실질적인 기능이 내장되어 있음을 의미합니다. 낮은 점수는 소중한 사람이라도 접근할 수 있는 현실적인 방법이 없음을 의미합니다.",
+            "technicalBody": "수동 복구 계획이나 실질적인 신뢰 기반 접근 메커니즘의 부재 대비, passkeys, 비밀번호 및 기타 볼트 데이터에 대한 전용 긴급/유산 접근 메커니즘 지원 여부.",
+            "tier5": "passkeys, 비밀번호 및 기타 볼트 데이터에 대한 전용 긴급/유산 접근 지원.",
+            "tier3": "접근이 가능하지만 중대한 제한이 있거나 수동 복구 계획에 의존해야 함.",
+            "tier1": "비밀번호 및 passkeys에 대한 현실적인 신뢰 기반 접근 메커니즘이 없음."
+          },
+          "familySharing": {
+            "consumerBody": "배우자나 가족과 로그인을 공유해야 할 때가 있습니다. 최고 점수는 신뢰하는 사람들과 비밀번호뿐 아니라 passkeys까지 안전하게 공유할 수 있음을 의미합니다. 낮은 점수는 passkey 공유가 전혀 불가능함을 의미합니다.",
+            "technicalBody": "안전한 공유 기능이 비밀번호뿐만 아니라 passkeys까지 확장되는지 여부 및 해당 공유의 제한 수준.",
+            "tier5": "비밀번호와 passkeys의 안전한 공유 지원.",
+            "tier3": "passkey 공유가 지원되지만 중대한 제한이 있음.",
+            "tier1": "passkey 공유 불가."
+          }
+        }
+      }
+    },
+    "techCallout": {
+      "headline": "동기화 passkeys vs 기기 종속형 passkeys",
+      "body": "대부분의 기기에는 동기화 passkeys를 생성하는 자격 증명 관리자가 포함되어 있으며, 이때 개인 키는 암호화되어 기기 간에 동기화됩니다. 이 동기화는 종단간 암호화(E2EE)로 보호되므로 자격 증명 관리자 제공업체조차 개인 키를 복호화하거나 사용할 수 없습니다. 기기 종속형 passkeys는 오직 단 하나의 기기에만 존재합니다. 클라우드나 서비스 침해에 맞서 더 안전하지만, 기기를 분실하면 passkey도 잃게 되므로 편의성은 떨어집니다. 이는 기본적으로 제공되지 않으며 특정 자격 증명 관리자나 하드웨어 장치와 같은 추가 소프트웨어가 필요합니다. 보안 키와 Windows Hello가 기기 종속형 passkeys를 생성하는 대표적인 인증 장치입니다.",
+      "additionalLinks": [
+        {
+          "label": "동기화 passkeys 안내 @ passkeys.dev",
+          "url": "https://passkeys.dev/docs/reference/terms/#synced-passkey"
+        },
+        {
+          "label": "기기 종속형 passkeys 안내 @ passkeys.dev",
+          "url": "https://passkeys.dev/docs/reference/terms/#device-bound-passkey"
+        }
+      ]
+    }
+  },
+  "closingCTA": {
+    "sectionLabel": "passkey 사용 시작하기",
+    "headline": "한 번의 로그인부터 차근차근 비밀번호와 작별해 보세요",
+    "body": "passkeys에 대해 알아보았으니 이제 비밀번호와 작별을 고할 시간입니다.",
+    "detail": "시작하는 데는 몇 초밖에 걸리지 않습니다. 이제 로그인하는 시간을 줄이고 일상에 더 집중하세요.",
+    "examplesLabel": "PASSKEY 경험 예시",
+    "createLabel": "passkey 생성하기",
+    "signInLabel": "passkey로 로그인",
+    "createButtonCaption": "passkey 생성 버튼",
+    "signInButtonCaption": "passkey로 로그인 버튼",
+    "autofillCaption": "데스크톱 자동완성",
+    "keyboardCaption": "모바일 키보드 제안",
+    "iconCalloutBody": "자주 사용하는 사이트와 앱에서 passkey 아이콘을 찾아보세요.",
+    "passkeyIconAlt": "passkey 아이콘",
+    "applePasskeyIconAlt": "Apple passkey 아이콘",
+    "googlePasskeyIconAlt": "Google passkey 아이콘",
+    "usernameLabel": "사용자 이름",
+    "passkeyLabel": "passkey",
+    "useAnotherDevice": "다른 기기의 passkey 사용",
+    "forDomain": "{domain}용"
+  },
+  "workPasskeys": {
+    "sectionLabel": "직장에서의 passkey",
+    "headline": "직장에서 passkey를 사용하는 것은 무엇이 다를까요?",
+    "intro": "passkeys는 직장에서도 다른 곳과 동일한 방식으로 작동하지만, 이를 둘러싼 환경은 다른 경우가 많습니다. 업무용 계정이 하나만 침해당해도 회사 전체가 위험에 처할 수 있으므로, 고용주는 가정에서 사용하던 것보다 훨씬 엄격한 규칙을 적용하곤 합니다.",
+    "highlights": {
+      "choice": {
+        "title": "자격 증명 관리자를 직접 선택하지 못할 수 있습니다",
+        "body": "집에서는 마음에 드는 앱이나 기기를 자유롭게 선택합니다. 반면 직장에서는 모든 직원이 동일한 보안 기준을 충족하도록 IT 및 보안 팀이 특정 자격 증명 관리자, 관리 대상 기기 또는 물리적 보안 키 사용을 의무화하여 대신 결정하는 경우가 많습니다."
+      },
+      "extraSteps": {
+        "title": "추가 단계가 필요할 수 있습니다",
+        "body": "일부 조직은 특히 재무, 인사, 관리자 콘솔과 같은 민감한 시스템에 대해 passkey를 사용하기 전 PIN 입력, 생체 인증 또는 관리 대상 기기 확인 단계를 추가합니다."
+      },
+      "differentLook": {
+        "title": "로그인 화면이 다르게 보일 수 있습니다",
+        "body": "보안 키를 삽입하라는 메시지가 표시되거나 회사 자체 브랜딩이 나타날 수 있으며, 개인 기기에 내장된 passkey 옵션이 아예 제공되지 않을 수도 있습니다."
+      }
+    },
+    "compare": {
+      "sectionLabel": "서로 다른 두 환경",
+      "headline": "개인 생활 vs 직장",
+      "personal": {
+        "label": "개인 계정",
+        "caption": "사용자가 직접 제어",
+        "items": [
+          "원하는 자격 증명 관리자를 자유롭게 선택",
+          "내 기기 간 passkeys 동기화",
+          "백업 및 복구를 직접 관리"
+        ]
+      },
+      "work": {
+        "label": "업무용 계정",
+        "caption": "IT 팀의 규칙 준수",
+        "items": [
+          "IT 팀이 승인한 자격 증명 관리자 사용",
+          "물리적 보안 키나 관리 대상 기기가 요구될 수 있음",
+          "주로 기기 종속형 사용 — 개인 클라우드 동기화 불가",
+          "회사 보안 및 규정 준수 정책에 종속"
+        ]
+      }
+    },
+    "examples": {
+      "sectionLabel": "직장에서 접할 수 있는 환경",
+      "items": {
+        "managedDevice": { "label": "관리형 자격 증명 관리자" },
+        "securityKey": { "label": "물리적 보안 키" },
+        "brandedSignIn": { "label": "회사 브랜드 로그인 화면" },
+        "deviceBound": { "label": "기기 종속형 passkeys 전용" }
+      }
+    },
+    "techCallout": {
+      "headline": "보이지 않는 곳에서 작동하는 엔터프라이즈 제어",
+      "body": [
+        "하드웨어 기반의 증명된 기기 종속형 passkeys를 필수로 요구하는 등 구체적인 보안 요구사항이 있는 조직은 이러한 조건을 충족하는 인증 장치 및 자격 증명 관리자를 사용자에게 제공해야 합니다. 이는 하나 이상의 하드웨어 보안 키이거나 정책에 따라 특정 동작이 적용되는 업무 전용 자격 증명 관리자 앱일 수 있습니다.",
+        "이는 파일 저장소나 AI 도구와 비슷합니다. 직원들이 자의적으로 선택하는 것을 원치 않는다면 정책을 충족하는 승인된 옵션을 제공(및 의무화)하는 것입니다. 기기 종속형 passkeys를 지원하는 관리형 자격 증명 관리자가 매력적인 이유가 바로 여기에 있습니다. OS 수준이 아닌 자격 증명 관리자 수준에서 정책이 강제되므로 전체 기기 관리(MDM)를 도입하지 않고도 회사의 보안 요구사항을 적용할 수 있습니다."
+      ]
+    }
+  },
+  "faq": {
+    "sectionLabel": "자주 묻는 질문",
+    "headline": "passkeys에 관해 자주 묻는 질문",
+    "missingQuestion": "찾으시는 질문이 없나요?",
+    "missingQuestionLink": "의견 보내기",
+    "searchPlaceholder": "질문 검색...",
+    "searchAriaLabel": "FAQ 검색",
+    "noResults": "일치하는 질문이 없습니다. 다른 검색어를 입력해 보세요.",
+    "categories": [
+      {
+        "name": "기본 사항",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "passkey란 정확히 무엇인가요?",
+            "answer": "passkey는 비밀번호를 대체하는 고유한 디지털 키입니다. 생성 시 서로 연결된 두 개의 디지털 키가 만들어집니다. 하나는 내 자격 증명 관리자에 안전하게 저장되고, 다른 하나는 웹사이트나 앱과 공유됩니다. 로그인할 때 기기는 얼굴, 지문 또는 기기 PIN을 사용해 본인임을 확인한 후, 내 쪽에 보관된 passkey 부분을 사용해 본인임을 안전하게 증명합니다. 개인 키는 웹사이트와 절대 공유되지 않습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey는 비밀번호와 어떻게 다른가요?",
+            "answer": "비밀번호는 사용자가 기억하고 웹사이트에 직접 입력하는 비밀 정보입니다. passkey는 자격 증명 관리자에 저장되는 고유한 디지털 키로, 기억하거나 타이핑할 필요가 없습니다. 모든 passkey는 생성된 웹사이트나 앱에 고유하게 종속되므로 비밀번호처럼 추측되거나, 피싱을 당하거나, 다른 계정에서 재사용될 수 없습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey는 2차 인증(문자 코드나 인증 앱 등)과 어떻게 다른가요?",
+            "answer": "기존의 2단계 인증(2FA)은 대개 비밀번호를 입력한 후 문자로 전송된 코드나 앱에서 생성된 코드를 입력하는 등 추가 단계를 요구합니다. passkey는 사용자가 passkey를 소유하고 있는지, 그리고 얼굴, 지문 또는 기기 PIN을 사용해 실제 본인이 맞는지 안전하게 확인함으로써 비밀번호와 이러한 추가 단계를 모두 대체할 수 있습니다. 단, 웹사이트의 passkey 구현 방식에 따라 여전히 추가 확인을 요구할 수도 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "FIDO2란 무엇이며 passkeys와 어떤 관계인가요?",
+            "answer": "FIDO2는 passkeys가 기반으로 하는 기술 표준입니다. 세부 사항까지 다 알 필요는 없으며, FIDO2가 가능하게 만든 기술의 친숙한 명칭이 바로 \"passkey\"라는 점만 알아두시면 됩니다. FIDO2 덕분에 서로 다른 회사의 운영체제, 웹사이트, 앱, 기기 및 자격 증명 관리자 전반에서 passkeys가 동일한 방식으로 작동할 수 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey는 물리적 보안 키(YubiKey 등)와 같은 것인가요?",
+            "answer": "물리적 보안 키에 passkey를 저장할 수 있지만, passkeys를 사용하기 위해 보안 키가 반드시 필요한 것은 아닙니다. 대부분의 일반 사용자는 휴대전화, 컴퓨터 또는 기타 기기의 자격 증명 관리자에 passkeys를 저장합니다. 물리적 보안 키는 passkeys를 저장할 수 있는 또 다른 선택지이며, 추가적인 로그인 수단을 원하는 분들에게 유용할 수 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey를 사용하면 지문이나 얼굴 스캔 정보가 웹사이트로 전송되나요?",
+            "answer": "아닙니다. 지문이나 얼굴 스캔 정보는 기기 내부에서 본인 확인용으로만 사용됩니다. 생체 인식 정보는 절대 기기를 벗어나지 않으며 웹사이트나 앱과 공유되지 않습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey로 로그인하려면 실제로 무엇이 필요한가요?",
+            "answer": "자격 증명 관리자를 통한 passkey 접근 권한과 얼굴, 지문 또는 기기 PIN과 같이 본인임을 확인할 수 있는 수단이 필요합니다. 대부분의 경우 휴대전화나 컴퓨터에 이미 자격 증명 관리자가 내장되어 있으므로 새로 다운로드할 필요가 없습니다."
+          },
+          {
+            "type": "basic",
+            "question": "기기 PIN과 기존 비밀번호의 차이점은 무엇인가요?",
+            "answer": "비밀번호는 로그인할 때 웹사이트로 전송되어 공유됩니다. 기기 PIN은 로컬 기기 내에서 본인 여부를 확인하는 데만 사용되며 웹사이트와 공유되지 않습니다. passkey를 사용할 때 기기 PIN은 passkey를 사용할 권한이 있는지 기기가 확인하는 방법 중 하나가 될 수 있습니다. 기기 PIN/비밀번호는 웹사이트나 앱과 절대 공유되지 않습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkeys는 실제로 어디에 저장되나요?",
+            "answer": "보통 두 곳 중 하나에 저장됩니다. 기기의 내장 보안 저장소(휴대전화/컴퓨터의 나머지 부품과 분리된 보호 칩) 또는 사용 중인 자격 증명 관리자입니다. 저장된 비밀번호의 원본 코드를 볼 수 없는 것과 마찬가지로 원시 키를 직접 '볼' 수는 없지만, 계정 설정이나 자격 증명 관리자에서 생성한 passkeys 목록을 확인하고 관리할 수는 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "Google, Apple, Microsoft가 내 passkeys를 소유하나요? 그리고 이들이 내 접근을 차단할 수 있나요?",
+            "answer": "아닙니다. passkeys는 사용자의 소유이며 Google/Apple/Microsoft가 아닌 해당 웹사이트에 귀속됩니다. 이러한 기업들은 사진을 저장하고 동기화할 공간을 제공하는 것처럼 passkeys를 저장하고 동기화할 공간을 제공할 뿐입니다. 단, 해당 기업 계정에 대한 접근 권한을 잃어버리면 새 기기에서 passkeys에 접근하지 못할 수도 있습니다. 이 점이 우려되신다면 다른 서드파티 자격 증명 관리자에 passkeys를 저장하실 수 있습니다."
+          }
+        ]
+      },
+      {
+        "name": "설정 및 일상적 사용",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "passkey는 어떻게 설정하나요?",
+            "answer": "웹사이트나 앱에서 passkeys를 지원하는 경우, 계정 또는 보안 설정에서 “passkey 생성” 또는 “passkey 설정”과 같은 옵션을 찾으세요. 기기가 얼굴, 지문 또는 기기 PIN을 사용해 본인 확인을 요청합니다. 확인이 끝나면 passkey가 생성되어 자격 증명 관리자에 저장됩니다. 일부 웹사이트와 앱은 로그인 직후 설정을 권유하기도 합니다."
+          },
+          {
+            "type": "basic",
+            "question": "비밀번호가 이미 있는데 왜 사이트에서 passkey 생성을 요청하나요?",
+            "answer": "많은 웹사이트와 앱이 더 안전하고 쉬운 로그인 방식으로 passkeys를 도입하고 있습니다. passkey를 생성해 두면 다음 로그인 시 비밀번호를 입력하는 대신 passkey를 사용할 수 있습니다. 웹사이트에 따라 비밀번호는 대체 로그인 또는 계정 복구 옵션으로 유지될 수 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey를 설정했는데도 사이트에서 여전히 비밀번호를 요구하는 이유는 무엇인가요?",
+            "answer": "이는 대개 내 passkey와 아직 \"연결된 적이 없는\" 새 기기나 브라우저를 사용할 때 발생합니다. 해당 기기에서도 설정이 완료되면 비밀번호 요구가 중단될 것입니다. 이는 passkey 자체의 오류가 아니라 일부 사이트에서 기능을 도입하는 과정에서 나타나는 일시적인 현상입니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey를 사용한 후에도 일부 사이트에서 2차 인증 코드를 요구하는 이유는 무엇인가요?",
+            "answer": "일부 사이트가 아직 시스템을 완전히 업데이트하지 않아 예방 차원에서 기존 방식의 2FA를 여전히 요청하기 때문입니다. 이는 중복된 과정이지만 보안상 무해하며, 사이트들이 배포를 완료함에 따라 점차 사라질 것입니다."
+          },
+          {
+            "type": "basic",
+            "question": "비밀번호 없이 passkey만 단독으로 사용할 수 있나요?",
+            "answer": "이것이 passkeys가 본래 의도된 사용 방식입니다. 그러나 일부 사이트에서는 항상 passkey로 로그인할 계획이더라도 만일의 사태에 대비한 백업 계정 복구 수단으로 비밀번호를 여전히 설정하도록 요구하기도 합니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkey를 사용하는 것이 비밀번호보다 단계가 더 많게 느껴지는 이유는 무엇인가요?",
+            "answer": "현재 일부 웹사이트에서는 사용자들이 새로운 옵션에 익숙해지도록 돕기 위해 추가 안내창(예: \"passkey를 사용하시겠습니까?\")을 띄우고 있습니다. 기술이 표준으로 자리 잡으면 얼굴, 지문 또는 기기 PIN으로 본인 확인만 거치면 즉시 로그인되는 매우 빠른 방식으로 정착될 것입니다."
+          },
+          {
+            "type": "basic",
+            "question": "구분하기 쉽게 passkeys의 이름을 지정할 수 있나요?",
+            "answer": "네, 많은 웹사이트와 앱에서 각 passkey에 라벨을 붙일 수 있도록 지원합니다. 이렇게 하면 기기를 분실했을 때 어떤 것을 삭제해야 하는지 파악하기가 수월해집니다. 하지만 대부분의 passkeys는 모든 기기에서 공유되므로 기기 이름으로 명명하면 혼란스러울 수 있습니다. 상당수 사이트에서는 저장된 자격 증명 관리자의 이름(예: Google Password Manager, Apple Passwords, Bitwarden)을 자동으로 지정해 줍니다. 이름이 자동으로 입력되지 않는다면 기기 이름 대신 사용 중인 자격 증명 관리자의 이름을 사용하는 것을 권장합니다."
+          },
+          {
+            "type": "basic",
+            "question": "\"passkey를 저장하시겠습니까?\" 팝업창을 끄려면 어떻게 해야 하나요?",
+            "answer": "이러한 메시지는 웹사이트, 브라우저 또는 자격 증명 관리자에서 보낼 수 있으므로 끄는 방법은 팝업이 발생하는 위치에 따라 다릅니다. 브라우저나 자격 증명 관리자의 passkey, 로그인 또는 자동완성 설정을 확인해 보세요."
+          }
+        ]
+      },
+      {
+        "name": "다중 기기 및 동기화",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "휴대전화, 노트북, 기타 기기(게임 콘솔 등)를 함께 사용할 때 passkeys는 어떻게 작동하나요?",
+            "answer": "passkey가 어디에 저장되어 있는지에 따라 다릅니다. 다수의 자격 증명 관리자는 기기 간에 passkeys를 안전하게 동기화하므로 휴대전화에서 만든 passkey를 노트북이나 태블릿에서도 사용할 수 있습니다. 일부 passkeys는 특정 기기에만 저장되어 동기화되지 않습니다. 현재 사용 중인 기기에서 passkey를 바로 사용할 수 없더라도 휴대전화 등 다른 기기에 있는 passkey를 활용해 로그인할 수 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "휴대전화와 컴퓨터 간에 passkeys를 동기화할 수 있나요?",
+            "answer": "네, 사용 중인 자격 증명 관리자가 두 기기를 모두 지원하고 passkey 동기화를 지원한다면 가능합니다. 그렇지 않은 경우 각 기기의 passkeys는 개별적으로 유지됩니다."
+          },
+          {
+            "type": "basic",
+            "question": "하나의 자격 증명 관리자에서 다른 곳으로 passkey를 옮길 수 있나요?",
+            "answer": "자격 증명 관리자 간에 passkeys를 이전하는 기능은 점차 개선되고 있지만, 아직 모든 곳에서 지원되는 것은 아닙니다. passkeys 이동 가능 여부는 출발지와 목적지가 되는 자격 증명 관리자 및 해당 매니저가 현재 지원하는 기능에 따라 다릅니다. 현재 이를 지원하는 매니저 목록은 [자격 증명 관리자 점수 가이드](#credential-managers)에서 확인하실 수 있습니다. “자격 증명 교환(Credential Exchange)” 기능을 찾아보세요."
+          },
+          {
+            "type": "basic",
+            "question": "동기화할 때 노트북에서 휴대전화 PIN과 같은 관련 없는 PIN을 묻는 이유는 무엇인가요?",
+            "answer": "노트북과 휴대전화가 passkey 동기화를 위해 연결되어 있을 때 시스템이 양쪽 기기를 통해 본인 여부를 재차 확인하는 과정에서 발생합니다. 다소 혼란스러워 보일 수 있지만 정상적으로 작동하고 있는 것입니다."
+          },
+          {
+            "type": "basic",
+            "question": "도서관이나 친구 컴퓨터처럼 내 소유가 아닌 기기에서는 passkey를 어떻게 사용하나요?",
+            "answer": "해당 기기에 내 passkey를 저장하지 않고도 휴대전화나 태블릿의 passkey를 사용하여 다른 기기에서 로그인할 수 있습니다. 로그인 시 “다른 기기 사용”과 같은 옵션을 찾아보세요. 화면에 QR 코드가 표시되며 휴대전화로 이를 스캔하여 로그인을 이어갈 수 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "macOS와 Windows처럼 서로 다른 운영체제 간에도 passkeys를 사용할 수 있나요?",
+            "answer": "네, 가능하지만 경험이 항상 매끄러운 것은 아닙니다. 한 플랫폼의 자격 증명 관리자에 저장된 passkeys가 다른 플랫폼으로 반드시 직접 동기화되는 것은 아닙니다. 예를 들어 Apple Passwords에 passkey가 저장되어 있고 Windows 컴퓨터에서 로그인하는 경우, QR 코드를 스캔하는 등의 방식으로 iPhone을 사용해 로그인해야 할 수 있습니다. 서로 다른 생태계의 기기와 브라우저를 일상적으로 사용한다면 모든 환경에서 잘 작동하는 자격 증명 관리자를 선택하는 것이 passkeys 사용을 훨씬 수월하게 만듭니다. 기기, 운영체제 및 브라우저 전반에서 가장 우수한 지원을 제공하는 옵션을 비교하려면 [자격 증명 관리자 점수](#credential-managers)를 확인해 보세요. 기존 passkeys를 다른 자격 증명 관리자로 옮겨야 하는 경우, 옮겨갈 새 자격 증명 관리자가 자격 증명 교환 지원 항목에서 높은 점수를 받았는지 확인하시기 바랍니다."
+          }
+        ]
+      },
+      {
+        "name": "백업, 분실 및 복구",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "passkeys는 어떻게 백업하나요?",
+            "answer": "passkeys가 자격 증명 관리자를 통해 동기화되고 있다면, 새 기기에서 해당 자격 증명 관리자에 로그인할 때 다시 사용할 수 있습니다. 분실한 기기에만 단독으로 저장되어 있던 passkey라면 계정에 로그인하거나 복구하기 위한 다른 방법이 필요합니다. 언제든 계정에 접근할 수 있도록 보장하려면 자격 증명 관리자를 사용하는 것이 매우 유용한 이유입니다."
+          },
+          {
+            "type": "basic",
+            "question": "휴대전화를 잃어버리거나 컴퓨터가 고장 나면 어떻게 되나요?",
+            "answer": "passkeys를 복구할 수 있는지 여부는 사용 중인 자격 증명 관리자와 설정 방식에 따라 다릅니다. 자격 증명 관리자마다 계정 복구, 백업, 새 기기에서의 접근 방식이 다르므로 복구 옵션이 필요한 상황이 오기 전에 미리 파악해 두는 것이 중요합니다. 다양한 옵션이 보안, 복구, 디지털 유산을 어떻게 처리하는지 비교하려면 [자격 증명 관리자 점수](#credential-managers)를 확인하세요. passkeys를 복구할 수 없다면 각 웹사이트나 앱에서 제공하는 계정 복구 프로세스를 거쳐야 할 수 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "통신사를 바꾸거나 전화번호를 잃어버려도 passkeys를 잃지 않을 수 있나요?",
+            "answer": "네. passkeys는 전화번호에 묶여 있는 것이 아니라 자격 증명 관리자 계정이나 기기에 귀속되므로 통신사를 변경해도 영향을 받지 않습니다. 현재 기기를 보상 판매 등으로 처분하기 전에 새 기기에서 자격 증명 관리자에 접근할 수 있는지 확인하기만 하면 됩니다."
+          },
+          {
+            "type": "basic",
+            "question": "대기업 서비스에 의존하지 않고 passkeys를 직접 내보내서 백업할 수 있나요?",
+            "answer": "현재 이를 지원하는 자격 증명 관리자도 있고, 아직 지원하지 않는 곳도 있습니다. 백업에 대한 완전한 통제권이 중요하다면 사용 중인 자격 증명 관리자의 세부 내보내기 옵션을 확인해 보세요."
+          }
+        ]
+      },
+      {
+        "name": "다중 passkeys 관리",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "계정당 둘 이상의 passkey를 설정해야 하나요?",
+            "answer": "passkeys가 어떻게 저장되는지에 따라 다릅니다. 자격 증명 관리자가 기기 간에 passkeys를 동기화해 준다면 일반적으로 계정당 여러 개의 passkey가 필요하지 않습니다. passkey가 한 기기에만 저장되어 있거나 계정에 접근할 수 있는 예비 수단을 원한다면 추가 passkeys를 만들어 두는 것이 좋습니다."
+          },
+          {
+            "type": "basic",
+            "question": "특정 기기의 passkey로만 계정 로그인을 제한할 수 있나요?",
+            "answer": "모든 곳에서 지원되는 것은 아니지만 일부 사이트에서는 계정 설정의 보안 옵션으로 이를 제공합니다. 해당 사이트의 보안 설정을 확인해 보세요."
+          },
+          {
+            "type": "basic",
+            "question": "passkey만 유일한 로그인 수단으로 써야 할까요, 아니면 백업용 비밀번호도 유지해야 할까요?",
+            "answer": "웹사이트나 앱에서 옵션을 제공한다면 언제든 passkey를 사용하는 것이 좋습니다. 비밀번호를 완전히 삭제할 수 있는지 여부는 웹사이트에 따라 다릅니다. 일부는 passkey 전용 계정을 지원하지만 다른 사이트들은 비밀번호를 대체 로그인이나 복구 수단으로 남겨두기도 합니다. 비밀번호를 삭제할 수 있는 경우, passkey에 대한 접근 권한을 잃었을 때 계정에 접근하거나 복구할 수 있는 다른 신뢰할 만한 수단이 마련되어 있는지 꼭 확인하세요."
+          }
+        ]
+      },
+      {
+        "name": "보안",
+        "types": ["basic", "advanced"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "passkeys는 비밀번호나 기존 2차 인증보다 안전한가요?",
+            "answer": "네. passkeys는 비밀번호와 인증 코드를 탈취하는 피싱 및 기타 흔한 공격을 방어하도록 설계되었습니다. 모든 passkey는 생성된 웹사이트나 앱에 고유하게 결속되므로 추측할 수도 없고, 다른 사이트에서 재사용할 수도 없으며, 가짜 웹사이트에서 작동하도록 속일 수도 없습니다."
+          },
+          {
+            "type": "basic",
+            "question": "누군가 내 휴대전화를 훔치면 내 계정에 들어갈 수 있나요?",
+            "answer": "기기에 저장된 passkey를 사용하려면 기기 잠금 해제(지문, 얼굴 또는 PIN)가 필수적이므로, 기기 잠금을 해제할 수 있어야만 passkeys를 사용할 수 있습니다. 이는 일반적으로 원격 공격자가 비밀번호를 알아내는 것보다 훨씬 어렵습니다."
+          },
+          {
+            "type": "basic",
+            "question": "웹사이트는 자격 증명 관리자에 있는 passkey와 물리적 보안 키에 있는 passkey의 차이를 구별할 수 있나요?",
+            "answer": "네, 기술적으로는 구별할 수 있습니다. 하지만 일상적인 대부분의 로그인에서는 둘 다 동등하게 신뢰할 수 있는 것으로 간주되므로 차이가 없습니다."
+          },
+          {
+            "type": "basic",
+            "question": "내 자격 증명 관리자나 계정 제공업체가 해킹당하면 보안상 위험한가요?",
+            "answer": "위험할 수 있지만, 비밀번호 유출 사고와는 성격이 다릅니다. passkeys는 비밀번호처럼 재사용 가능한 비밀 정보가 아니므로 공격자가 단순히 passkey를 훔쳐 사용자의 계정에 로그인할 수는 없습니다. 또한 passkeys는 자격 증명 관리자의 보안과 이에 접근하는 기기의 보안에 의해 함께 보호됩니다. 안전한 자격 증명 관리자를 선택하는 것이 중요한 이유가 바로 이것입니다. 여러 옵션이 passkeys와 계정을 어떻게 보호하는지 비교하려면 [자격 증명 관리자 점수](#credential-managers)를 확인하세요."
+          },
+          {
+            "type": "advanced",
+            "question": "passkeys는 어떤 암호화 알고리즘을 사용하나요?",
+            "answer": "passkeys는 공개 키 암호화를 사용하며, WebAuthn 규격에 정의된 P-256 곡선을 사용하는 ECDSA(COSE 알고리즘 -7)가 가장 널리 쓰입니다. 일부 인증 장치는 RS256(RSASSA-PKCS1-v1_5) 또는 EdDSA도 지원합니다. 등록 과정에서 인증 장치는 키 쌍을 생성하고 신뢰 당사자(Relying Party)에 공개 키와 자격 증명 ID(Credential ID)를 반환합니다. 인증 과정에서는 인증 장치가 서버에서 생성한 챌린지에 개인 키로 서명하고, 서버는 저장된 공개 키를 바탕으로 이 서명을 검증합니다."
+          }
+        ]
+      },
+      {
+        "name": "공유 및 가족 접근",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "passkey로 보호된 계정을 가족 구성원과 공유할 수 있나요?",
+            "answer": "경우에 따라 가능합니다. 일부 자격 증명 관리자에서는 가족이나 신뢰할 수 있는 사람들과 passkeys를 안전하게 공유할 수 있습니다. passkey 공유 가능 여부는 사용하는 자격 증명 관리자와 해당 웹사이트나 앱이 passkey 공유를 허용하는지에 따라 달라집니다. 가족 공유를 지원하는 옵션을 비교하려면 [자격 증명 관리자 점수](#credential-managers)를 확인하세요."
+          },
+          {
+            "type": "basic",
+            "question": "나에게 신변 이상이 생겼을 때 가족이 내 계정에 접근할 수 있도록 하려면 어떻게 해야 하나요?",
+            "answer": "사용 중인 자격 증명 관리자에 따라 다릅니다. 일부 매니저는 긴급 접근, 레거시 연락처 또는 기타 디지털 상속 기능을 제공하여 신변에 이상이 생겼을 때 신뢰할 수 있는 사람이 계정이나 자격 증명에 접근할 수 있도록 돕습니다. 이 부분이 중요하다면 미리 설정해 두세요. 각 옵션이 디지털 유산을 어떻게 지원하는지 비교하려면 [자격 증명 관리자 점수](#credential-managers)를 확인하세요."
+          },
+          {
+            "type": "basic",
+            "question": "플랫폼 계정이 정지되면 그곳에 저장된 passkey로 다른 사이트에 로그인할 수 있나요?",
+            "answer": "반드시 그렇지는 않습니다. 자격 증명 관리자가 의존하는 플랫폼 계정의 접근 권한을 잃게 되면 해당 자격 증명 관리자에 저장되거나 동기화된 passkeys에 대한 접근 권한도 함께 잃을 수 있습니다. 구체적인 처리 방식은 제공업체와 설정해 둔 복구 옵션에 따라 달라집니다. 자격 증명 관리자가 계정 복구 및 접근을 어떻게 처리하는지 파악하는 것이 중요한 이유 중 하나입니다. 옵션을 비교하려면 [자격 증명 관리자 점수](#credential-managers)를 확인하세요."
+          }
+        ]
+      },
+      {
+        "name": "자격 증명 관리자 변경 및 벤더 종속",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "passkeys를 사용하기 시작하면 하나의 자격 증명 관리자에 영원히 묶이게 되나요?",
+            "answer": "설계상으로는 그렇지 않습니다. 하지만 실제로는 여러 자격 증명 관리자가 passkey 마이그레이션 지원을 위해 여전히 개발을 진행 중인 단계입니다. 그럼에도 널리 사용되는 대다수의 주요 자격 증명 관리자는 현재 passkeys를 포함한 안전한 자격 증명 이전을 다른 서비스로 지원하고 있습니다. 자격 증명 교환(Credential Exchange)에 대한 지원은 생태계 전반에서 빠르게 확대되고 있습니다. [자격 증명 관리자 점수 섹션](#credential-managers)의 \"데이터 이전 자유도\" 항목을 확인해 보세요."
+          },
+          {
+            "type": "basic",
+            "question": "내가 소유한 기기나 자격 증명 관리자 간에 passkeys를 자유롭게 옮길 수 없는 이유는 무엇인가요?",
+            "answer": "기반 기술은 이를 지원하지만 모든 회사가 이를 쉽게 처리할 수 있는 도구를 아직 완전히 구축하지는 못했기 때문입니다. 이는 기능 구현의 간극일 뿐 passkeys 자체의 근본적인 한계는 아닙니다."
+          }
+        ]
+      },
+      {
+        "name": "신뢰 및 도입 현황",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "왜 이렇게 많은 사이트에서 passkeys에 대한 설명이 부실한가요?",
+            "answer": "지당한 지적입니다. passkeys는 대다수의 사람들에게 아직 생소한 기술이기 때문에 많은 웹사이트가 명확한 설명을 제공하는 데 아직 충분히 투자하지 못했습니다. 업계 전반에서 대다수의 사이트가 겪고 있는 알려진 과제이기도 합니다. 바로 이것이 이 웹사이트가 존재하는 이유 중 하나입니다!"
+          },
+          {
+            "type": "basic",
+            "question": "내년에 passkeys를 대체할 더 좋은 기술이 나올 수도 있는데 굳이 지금 써야 할까요?",
+            "answer": "passkeys는 Apple, Google, Microsoft가 함께 지원하는 개방형 업계 표준(FIDO2)을 기반으로 구축되었으므로 일시적인 유행에 그치지 않고 장기적인 표준 방향이 될 것으로 전망됩니다. 지금 설정해 두더라도 오늘의 보안 위험을 줄일 수 있습니다."
+          },
+          {
+            "type": "basic",
+            "question": "passkeys는 수년 동안 동일한 방식으로 작동하나요, 아니면 나중에 다시 배워야 하나요?",
+            "answer": "핵심 개념(기기 잠금을 해제하여 웹사이트에 로그인하는 것)은 변함없이 유지될 것으로 보입니다. 현재 지속적으로 개선되고 있는 부분은 앞서 언급한 동기화 환경 및 자격 증명 관리자 마이그레이션 사용 경험입니다."
+          }
+        ]
+      }
+    ],
+    "advancedTag": "고급",
+    "resultsFound": {
+      "one": "{count}개의 질문을 찾았습니다",
+      "other": "{count}개의 질문을 찾았습니다"
+    }
+  },
+  "footer": {
+    "madeWith": "제작:",
+    "by": "passkey 커뮤니티",
+    "feedback": "의견이 있으신가요?",
+    "feedbackLink": "알려주세요",
+    "licensePrefix": "콘텐츠 라이선스:",
+    "licenseName": "CC BY 4.0",
+    "viewSourceOnGitHub": "GitHub에서 소스 보기",
+    "viewOnBluesky": "Bluesky에서 팔로우하기",
+    "viewOnMastodon": "Mastodon에서 팔로우하기",
+    "contentUpdated": "콘텐츠 최종 업데이트: {date}."
+  }
+}
