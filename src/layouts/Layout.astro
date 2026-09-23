@@ -30,7 +30,12 @@ const ogTerritoryMap: Record<string, string> = {
   fr: 'FR',
   ja: 'JP',
 };
-const ogLocale = `${bcp47Language(locale)}_${ogTerritoryMap[locale] ?? bcp47Language(locale).toUpperCase()}`;
+const bcp47 = bcp47Language(locale);
+// If the BCP-47 code already carries a region (e.g. zh-CN), reuse it as-is
+// instead of appending a second, guessed territory.
+const ogLocale = bcp47.includes('-')
+  ? bcp47.replace('-', '_')
+  : `${bcp47}_${ogTerritoryMap[locale] ?? bcp47.toUpperCase()}`;
 const ogImage = new URL('/og-image.png', Astro.site).toString();
 
 // hreflang alternates so search engines route users to the right locale
