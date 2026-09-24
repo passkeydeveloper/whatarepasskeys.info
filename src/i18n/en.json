@@ -337,7 +337,7 @@
       "headline": "Which credential manager is right for me?",
       "intro": [
         "Pick the credential manager that's right for you. Whether you choose the one built into your devices or a third-party app, passkeys are built on open standards, so websites and apps can support them regardless of which credential manager you use.",
-        "We've scored each credential manager below, ranked from highest to lowest overall grade. A higher score does not necessarily mean a credential manager is right for you. The devices and platforms you use, and the features that matter most to you, can all factor into your choice. See the Scoring Criteria section for our full scoring methodology."
+        "We've scored each credential manager below, ranked from highest to lowest overall grade. A higher score does not necessarily mean a credential manager is right for you. The devices and platforms you use, and the features that matter most to you, should also factor into your decision. See the Scoring Criteria section for our full scoring methodology."
       ],
       "coreGroupLabel": "Core criteria",
       "lowerGroupLabel": "Also considered",
