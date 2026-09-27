@@ -4,7 +4,7 @@
   },
   "site": {
     "title": "Cosa sono le passkey?",
-    "pageTitle": "Spiegazione delle passkey: il modo più semplice e sicuro per accedere",
+    "pageTitle": "Passkey: il modo più semplice e sicuro per accedere",
     "description": "Le passkey sostituiscono la tua password con una chiave digitale univoca. Più semplici e sicure da usare: niente password da ricordare, nessun codice da attendere.",
     "toggleConsumer": "Base",
     "toggleTechnical": "Avanzato",
@@ -43,7 +43,7 @@
   },
   "hero": {
     "headline": "Dai il benvenuto alle passkey",
-    "subheadline": "Il modo più semplice e sicuro per accedere. Nessuna password da ricordare. Nessun codice da attendere. Accedi e torna subito a ciò che conta.",
+    "subheadline": "Il modo più semplice e sicuro per accedere. Nessuna password da ricordare. Nessun codice da attendere. Accedi e vai subito a ciò che conta.",
     "scrollCta": "Scopri come funzionano le passkey",
     "eyebrow": "Cos'è una passkey?",
     "illustrationAlt": "Illustrazione di una passkey",
@@ -66,7 +66,7 @@
     "highlights": {
       "staysWithYou": {
         "title": "Una chiave resta con te",
-        "body": "Quella chiave rimane con te e non viene condivisa con il sito web."
+        "body": "Una chiave rimane con te e non viene condivisa con il sito web."
       },
       "websiteGetsKey": {
         "title": "Il sito web riceve la chiave collegata",
@@ -74,12 +74,12 @@
       },
       "workTogether": {
         "title": "Funzionano insieme",
-        "body": "Quando accedi, il tuo dispositivo usa la sua chiave per dimostrare che sei davvero tu. Nessuna password viene mai inviata o archiviata."
+        "body": "Quando accedi, il tuo dispositivo usa la sua chiave per dimostrare che sei davvero tu. Nessuna password viene mai inviata o memorizzata."
       }
     },
     "techCallout": {
       "headline": "Dietro le quinte: crittografia asimmetrica",
-      "body": "Le passkey utilizzano la crittografia a chiave pubblica, in modo simile alle chiavi SSH. La chiave privata viene generata in un gestore di credenziali o nell'elemento sicuro di un autenticatore hardware. La chiave pubblica, insieme ad alcuni metadati specifici di WebAuthn, viene inviata al server. Tuttavia, la chiave pubblica è matematicamente inutile senza la chiave privata con cui firmare i challenge. Il server non vede né memorizza mai alcun segreto."
+      "body": "Le passkey utilizzano la crittografia a chiave pubblica, in modo simile alle chiavi SSH. La chiave privata viene generata in un gestore di credenziali o nel componente sicuro di un autenticatore hardware. La chiave pubblica, insieme ad alcuni metadati specifici di WebAuthn, viene inviata al server. Tuttavia, la chiave pubblica è matematicamente inutile senza la chiave privata con cui firmare i challenge. Il server non vede né memorizza mai alcun segreto."
     },
     "illustrationAlt": "Illustrazione di una coppia di chiavi pubblica e privata",
     "diagram": {
@@ -106,7 +106,7 @@
     "steps": {
       "create": {
         "label": "Crea una passkey",
-        "body": "Il tuo gestore di credenziali crea una coppia univoca di chiavi, la tua passkey, per il sito web o l'app. Una parte della passkey viene condivisa con il sito web. L'altra parte rimane archiviata in modo sicuro nel gestore di credenziali sul tuo dispositivo per dimostrare la tua identità. La tua parte non viene mai condivisa o archiviata dal sito web o dall'app."
+        "body": "Il tuo gestore di credenziali crea una coppia univoca di chiavi, la tua passkey, per il sito web o l'app. Una parte della passkey viene condivisa con il sito web. L'altra parte rimane memorizzata in modo sicuro nel gestore di credenziali sul tuo dispositivo per dimostrare la tua identità. La tua parte non viene mai condivisa o memorizzata dal sito web o dall'app."
       },
       "confirm": {
         "label": "Conferma che sei tu",
@@ -114,7 +114,7 @@
       },
       "signedIn": {
         "label": "Hai effettuato l'accesso!",
-        "body": "Il tuo dispositivo dimostra in modo sicuro al sito web che sei davvero tu, senza inviare alcuna password tramite Internet."
+        "body": "Il tuo dispositivo dimostra in modo sicuro al sito web che sei davvero tu, senza inviare alcuna password su Internet."
       }
     },
     "uniqueness": {
@@ -126,7 +126,7 @@
     },
     "techCallout": {
       "headline": "L'handshake crittografico",
-      "body": "Per confermare la tua identità, il servizio (app o sito) invia un challenge durante la procedura di accesso. Il gestore di credenziali o autenticatore firma questo challenge utilizzando la chiave privata della passkey. La risposta firmata include questa firma e un contesto aggiuntivo sulla sessione, come l'origine e l'eventualità che la richiesta sia stata effettuata in un contesto incorporato (iframe). Il server verifica che (1) l'origine corrisponda al valore previsto (ad es. bank.com e non fake-bank.com), (2) il challenge corrisponda a quello emesso e (3) la firma sia valida per la chiave pubblica archiviata. La corrispondenza dell'origine firmata è il meccanismo principale con cui le passkey (e le credenziali WebAuthn in generale) resistono al phishing.",
+      "body": "Per confermare la tua identità, il servizio (app o sito) invia una challenge durante la procedura di accesso. Il gestore di credenziali o autenticatore firma questa challenge utilizzando la chiave privata della passkey. La risposta firmata include la firma stessa e un contesto aggiuntivo sulla sessione, come l'origine e l'eventualità che la richiesta sia stata effettuata in un contesto incorporato (iframe). Il server verifica che (1) l'origine corrisponda al valore previsto (ad es. bank.com e non fake-bank.com), (2) il challenge corrisponda a quello emesso e (3) la firma sia valida per la chiave pubblica salvata. La corrispondenza dell'origine firmata è il meccanismo principale con cui le passkey (e le credenziali WebAuthn in generale) resistono al phishing.",
       "additionalLinks": [
         {
           "label": "Diagrammi e spiegazione approfondita su MDN",
@@ -138,7 +138,7 @@
   "whyPasswordsFail": {
     "sectionLabel": "Il problema delle password",
     "headline": "Perché le password continuano a fallire",
-    "intro": "Le password esistono da decenni, ma non sono state progettate per l'Internet odierno. Con l'evoluzione delle minacce online, abbiamo cercato di renderle più sicure aggiungendo codici via SMS da inserire, link via email su cui cliccare e chiedendoti di completare altri passaggi aggiuntivi per dimostrare che hai il permesso di accedere. Sebbene questi metodi possano aiutare in alcune situazioni, non risolvono il problema di fondo: le password stesse sono un modo pessimo per dimostrare chi sei.",
+    "intro": "Le password esistono da decenni, ma non sono state progettate per l'Internet odierno. Con l'evoluzione delle minacce online, abbiamo cercato di renderle più sicure aggiungendo codici via SMS da inserire, link via email su cui cliccare e chiedendoti di completare altri passaggi aggiuntivi per dimostrare che hai il permesso di accedere. Sebbene questi metodi possano aiutare in alcune situazioni, non risolvono il problema di fondo: le password di per sé sono un modo pessimo per dimostrare chi sei.",
     "outro": "Le passkey sono state progettate proprio per risolvere questi problemi.",
     "cards": {
       "reuse": {
@@ -174,7 +174,7 @@
     "headline": "Cos'è il phishing?",
     "body": "I criminali creano siti web identici a quelli reali, come quello della tua banca, della tua posta elettronica o del tuo negozio preferito. Ti ingannano spingendoti a visitare il sito contraffatto e a digitare la tua password. Poi usano la tua password sul sito reale per accedere a tuo nome. Il phishing è il metodo più diffuso con cui vengono rubati account e identità online, e funziona sia con le password che con i codici di verifica e i messaggi SMS.",
     "example": {
-      "label": "Sito reale vs sito contraffatto",
+      "label": "Sito autentico vs sito contraffatto",
       "real": "bank.com",
       "fake": "bank-secure-login.com"
     },
@@ -186,14 +186,14 @@
         "result": "La passkey rifiuta di funzionare"
       },
       "real": {
-        "label": "Sito reale",
+        "label": "Sito autentico",
         "result": "La passkey funziona perfettamente"
       }
     },
     "techCallout": {
       "headline": "Perché l'MFA tradizionale non ti protegge completamente",
       "body": [
-        "Gli attacchi di phishing in tempo reale (chiamati anche \"adversary in the middle\") possono intercettare i codici OTP via SMS, i codici TOTP e persino le notifiche push in tempo reale. Il sito contraffatto dell'aggressore inoltra istantaneamente le tue credenziali al sito reale, compreso il secondo fattore. Per questo motivo FIDO2/WebAuthn è stato progettato specificamente per risolvere questo problema. Le credenziali WebAuthn, incluse le passkey, sono limitate a un dominio specifico.",
+        "Gli attacchi di phishing in tempo reale (chiamati anche \"adversary in the middle\") possono intercettare i codici OTP via SMS, i codici TOTP e persino le notifiche push in tempo reale. Il sito contraffatto dell'aggressore inoltra istantaneamente le tue credenziali al sito autentico, compreso il secondo fattore. Per questo motivo FIDO2/WebAuthn è stato progettato specificamente per risolvere questo problema. Le credenziali WebAuthn, incluse le passkey, sono limitate a un dominio specifico.",
         "Durante la fase di registrazione, questo viene dichiarato come Relying Party ID (RP ID), salvato con la passkey nel gestore di credenziali. Durante l'autenticazione, l'RP ID viene utilizzato dal browser, dall'app o dal sistema operativo per selezionare la passkey appropriata per il servizio. Ma non è questo il meccanismo principale di protezione dal phishing! L'origine chiamante del servizio viene firmata con la chiave privata della passkey. Questa origine può quindi essere verificata dal servizio nel proprio backend per confermare che sia quella prevista. Se l'origine non corrisponde a un valore atteso, la richiesta viene respinta e la sessione non viene stabilita. L'origine è spesso l'origine web (ad es. https://login.example.com), ma può anche essere l'identità dell'app per le applicazioni native."
       ],
       "additionalLinks": [
@@ -268,7 +268,7 @@
     },
     "techCallout": {
       "headline": "Protezione da credential stuffing e violazioni lato server",
-      "body": "In un attacco di credential stuffing, gli aggressori prendono le coppie nome utente/password trapelate da un sito e le provano su altri. Le passkey eliminano del tutto questo problema: non esiste alcun segreto da testare. Sul lato server viene memorizzata solo la chiave pubblica. Anche se un server viene completamente compromesso, l'aggressore ottiene un elenco di chiavi pubbliche, matematicamente inutili per accedere. La corrispondente chiave privata non ha mai lasciato il tuo gestore di credenziali."
+      "body": "In un attacco di credential stuffing, gli aggressori prendono le coppie nome utente/password sottratte da un sito e le provano su altri. Le passkey eliminano del tutto questo problema: non esiste alcun segreto da sottrarre. Sul lato server viene memorizzata solo la chiave pubblica. Anche se un server viene completamente compromesso, l'aggressore ottiene un elenco di chiavi pubbliche, matematicamente inutili per accedere. La corrispondente chiave privata non ha mai lasciato il tuo gestore di credenziali."
     }
   },
   "credentialManagers": {
@@ -302,7 +302,7 @@
       },
       "microsoft": {
         "name": "Microsoft Password Manager",
-        "description": "Integrato in Microsoft Edge e Windows. Sincronizza tra dispositivi tramite il tuo account Microsoft. Funziona su dispositivi Android, iOS, Linux, macOS e Windows."
+        "description": "Integrato in Microsoft Edge e Windows. Si sincronizza tra dispositivi tramite il tuo account Microsoft. Funziona su dispositivi Android, iOS, Linux, macOS e Windows."
       },
       "nordpass": {
         "name": "NordPass",
@@ -322,13 +322,13 @@
       },
       "samsungpass": {
         "name": "Samsung Wallet (Pass)",
-        "description": "Samsung Pass è integrato in Samsung Wallet, presente nativamente sui dispositivi Samsung Galaxy. Sincronizza tra i tuoi dispositivi Android Samsung Galaxy tramite il tuo account Samsung."
+        "description": "Samsung Pass è integrato in Samsung Wallet, presente nativamente sui dispositivi Samsung Galaxy. Si sincronizza tra i tuoi dispositivi Android Samsung Galaxy tramite il tuo account Samsung."
       },
       "keepassxc": {
         "name": "KeePassXC",
-        "description": "Gestore di credenziali indipendente, open source e offline-first con supporto per le passkey. Funziona su Linux, macOS e Windows, con app companion create dalla community per Android e iOS.",
+        "description": "Gestore di credenziali indipendente, open source e offline-first con supporto per le passkey. Funziona su Linux, macOS e Windows, con app complementari create dalla community per Android e iOS.",
         "caveats": {
-          "general": "KeePassXC non è un servizio con sincronizzazione o condivisione integrata: è un'applicazione che crea e gestisce un file di database. Pertanto, funzionalità come crittografia end-to-end, condivisione familiare e migrazione non sono fornite da KeePassXC stesso, ma dipendono interamente da come decidi di archiviare e sincronizzare quel file (ad es. una semplice cartella, un cloud personale o una soluzione self-hosted). Questa flessibilità è il motivo per cui ottiene una valutazione neutrale su alcuni punti: ottieni esattamente il livello di sicurezza e praticità che decidi di configurare in autonomia."
+          "general": "KeePassXC non è un servizio con sincronizzazione o condivisione integrata: è un'applicazione che crea e gestisce un file di database. Pertanto, funzionalità come crittografia end-to-end, condivisione familiare e migrazione non sono fornite da KeePassXC stesso, ma dipendono interamente da come decidi di memorizzare e sincronizzare quel file (ad es. una semplice cartella, un cloud personale o una soluzione self-hosted). Questa flessibilità è il motivo per cui ottiene una valutazione neutrale su alcuni punti: ottieni esattamente il livello di sicurezza e praticità che decidi di configurare in autonomia."
         }
       }
     },
@@ -352,11 +352,11 @@
       "caveatIndicatorLabel": "Visualizza nota per",
       "caveatsLabel": "Informazioni aggiuntive",
       "criteria": {
-        "ecosystemAvailability": { "consumerLabel": "Funziona ovunque tu lavori", "technicalLabel": "Disponibilità nell'ecosistema" },
+        "ecosystemAvailability": { "consumerLabel": "Funziona ovunque", "technicalLabel": "Disponibilità nell'ecosistema" },
         "nativePlatformIntegration": { "consumerLabel": "Funziona facilmente con siti web e app", "technicalLabel": "Integrazione nativa con la piattaforma" },
-        "e2eeVaultSecurity": { "consumerLabel": "Mantiene al sicuro le tue credenziali", "technicalLabel": "Sicurezza della cassaforte E2EE" },
+        "e2eeVaultSecurity": { "consumerLabel": "Mantiene al sicuro le tue credenziali", "technicalLabel": "Sicurezza vault E2EE" },
         "credentialExchange": { "consumerLabel": "Ti consente di cambiare gestore", "technicalLabel": "Scambio di credenziali" },
-        "specCompliance": { "consumerLabel": "Progettato per il futuro dell'accesso", "technicalLabel": "Interoperabilità" },
+        "specCompliance": { "consumerLabel": "Progettato per il futuro", "technicalLabel": "Interoperabilità" },
         "digitalInheritance": { "consumerLabel": "Protegge la tua eredità digitale", "technicalLabel": "Eredità digitale" },
         "familySharing": { "consumerLabel": "Condivisione con amici e familiari", "technicalLabel": "Condivisione familiare" }
       },
@@ -366,28 +366,28 @@
         "intro": "Ecco cosa analizziamo concretamente dietro ogni punteggio e cosa distingue un punteggio massimo da uno basso. I punteggi combinano test pratici e documentazione pubblica dei singoli fornitori. Le funzionalità che richiedono una configurazione aziendale o gestita (non verificabili direttamente) sono state valutate in base alla documentazione pubblicata.",
         "items": {
           "ecosystemAvailability": {
-            "consumerBody": "Puoi utilizzare concretamente questo gestore di credenziali ovunque ne hai bisogno, come sul telefono, computer, tablet e nelle app e nei browser che usi abitualmente? Il punteggio massimo indica la disponibilità di app native per tutte le principali piattaforme e un funzionamento ottimale in tutti i browser principali. Un punteggio basso indica che è per lo più limitato ai dispositivi di una singola azienda.",
+            "consumerBody": "Puoi utilizzare concretamente questo gestore di credenziali ovunque ne hai bisogno, come sul telefono, computer, tablet e nelle app e nei browser che usi abitualmente? Il punteggio massimo indica la disponibilità di app native per tutte le principali piattaforme e un funzionamento ottimale in tutti i browser principali. Un punteggio basso indica che è per lo più limitato ai dispositivi di un singolo produttore.",
             "technicalBody": "Copertura di app native per il gestore di credenziali su tutti e 4 i principali sistemi operativi (Android, iOS, macOS, Windows) e supporto di estensioni browser per gli altri.",
             "tier5": "App native per tutti e 4 i principali sistemi operativi, oltre a estensioni browser per gli altri.",
             "tier3": "Manca una piattaforma chiave, oppure sono presenti limitazioni significative per i browser.",
             "tier1": "Principalmente vincolato a un solo ecosistema."
           },
           "nativePlatformIntegration": {
-            "consumerBody": "L'accesso risulta davvero immediato o devi fare i conti con un'estensione del browser? Il punteggio massimo significa che le passkey funzionano senza problemi integrandosi direttamente nel sistema operativo. Un punteggio basso significa doversi affidare a soluzioni manuali e compromessi.",
+            "consumerBody": "L'accesso risulta davvero immediato o hai bisogno di un'estensione del browser? Il punteggio massimo significa che le passkey funzionano senza problemi integrandosi direttamente nel sistema operativo. Un punteggio basso significa doversi affidare a soluzioni manuali e compromessi.",
             "technicalBody": "Profondità del supporto per le API native della piattaforma (ad es. integrazione a livello di sistema per il gestore di credenziali) rispetto alla dipendenza da estensioni per browser o altri flussi di lavoro manuali.",
             "tier5": "Integrazione nativa completa su tutte le principali piattaforme; uso trasparente delle passkey nei browser e nelle app native.",
             "tier3": "Integrazione nativa su alcune piattaforme, ma notevole dipendenza dai flussi basati su estensioni per browser.",
             "tier1": "Integrazione nativa con la piattaforma scarsa o inesistente."
           },
           "e2eeVaultSecurity": {
-            "consumerBody": "Nemmeno l'azienda che sviluppa l'app dovrebbe essere in grado di leggere le tue password e passkey salvate. Il punteggio massimo significa che la tua cassaforte impiega una crittografia end-to-end sufficientemente solida da garantire che solo tu possiedi la chiave. Un punteggio basso indica il mancato rispetto di questo standard.",
-            "technicalBody": "Verifica che la cassaforte soddisfi i criteri di crittografia zero-knowledge/end-to-end, inclusa la crittografia moderna avanzata e la cifratura dei metadati sensibili, non solo dei valori segreti.",
+            "consumerBody": "Nemmeno l'azienda che sviluppa l'app dovrebbe essere in grado di leggere le tue password e passkey salvate. Il punteggio massimo significa che la tua app impiega una crittografia end-to-end sufficientemente solida da garantire che solo tu possiedi la chiave. Un punteggio basso indica il mancato rispetto di questo standard.",
+            "technicalBody": "Verifica che il vault soddisfi i criteri di crittografia zero-knowledge/end-to-end, inclusa la crittografia moderna avanzata e la cifratura dei metadati sensibili, non solo dei valori segreti.",
             "tier5": "Soddisfa i massimi requisiti di protezione E2EE/zero-knowledge, inclusa crittografia moderna avanzata e metadati sensibili cifrati.",
             "tier3": "Solida protezione E2EE/zero-knowledge, ma non soddisfa tutti i requisiti di livello superiore.",
             "tier1": "Non soddisfa gli standard previsti di protezione E2EE/zero-knowledge."
           },
           "credentialExchange": {
-            "consumerBody": "Se desideri passare a un'altra app di gestione credenziali, puoi davvero portare con te le tue passkey? Il punteggio massimo significa che puoi esportare direttamente passkey, password e altri dati della cassaforte. Un punteggio basso significa che potresti esportare le password, ma le tue passkey rimarranno bloccate.",
+            "consumerBody": "Se desideri passare a un'altra app di gestione credenziali, puoi davvero portare con te le tue passkey? Il punteggio massimo significa che puoi esportare direttamente passkey, password e altri dati gestiti dall'app. Un punteggio basso significa che potresti esportare le password, ma le tue passkey rimarranno bloccate.",
             "technicalBody": "Supporto per il trasferimento diretto e basato su standard sia delle password che delle passkey (ad es. tramite il FIDO Credential Exchange Protocol), rispetto a un supporto parziale o a passkey che non possono essere esportate affatto.",
             "tier5": "Trasferimento diretto e basato su standard di password e passkey.",
             "tier3": "Trasferimento delle credenziali basato su standard parziale o limitato.",
@@ -402,8 +402,8 @@
           },
           "digitalInheritance": {
             "consumerBody": "In caso di imprevisti, una persona di fiducia può accedere ai tuoi account? Il punteggio massimo significa che esiste una funzione nativa apposita per concedere l'accesso di emergenza o ereditario. Un punteggio basso significa che non c'è alcun modo pratico per consentire l'accesso nemmeno ai propri cari.",
-            "technicalBody": "Disponibilità di un meccanismo dedicato per l'accesso di emergenza/ereditario a passkey, password e altri dati della cassaforte, rispetto a piani di ripristino manuali o all'assenza di meccanismi pratici di accesso fidato.",
-            "tier5": "Accesso di emergenza/ereditario dedicato per passkey, password e altri dati della cassaforte.",
+            "technicalBody": "Disponibilità di un meccanismo dedicato per l'accesso di emergenza/ereditario a passkey, password e altri dati del vault, rispetto a piani di ripristino manuali o all'assenza di meccanismi pratici di accesso fidato.",
+            "tier5": "Accesso di emergenza/ereditario dedicato per passkey, password e altri dati del vault.",
             "tier3": "Accesso possibile ma con limitazioni rilevanti o tramite pianificazione manuale del recupero.",
             "tier1": "Nessun meccanismo pratico di accesso per contatti fidati a password e passkey."
           },
@@ -435,7 +435,7 @@
   "closingCTA": {
     "sectionLabel": "Inizia a usare le passkey",
     "headline": "Inizia a dire addio alle password, un accesso alla volta",
-    "body": "Hai dato il benvenuto alle passkey. Ora è il momento di iniziare a salutare le password.",
+    "body": "Hai dato il benvenuto alle passkey. Ora è il momento di iniziare a dire addio alle password.",
     "detail": "Bastano pochi secondi per cominciare. Dopodiché potrai dedicare meno tempo all'accesso e più tempo a ciò che conta davvero nella tua giornata.",
     "examplesLabel": "ESEMPI DI ESPERIENZE CON LE PASSKEY",
     "createLabel": "Crea una passkey",
@@ -460,11 +460,11 @@
     "highlights": {
       "choice": {
         "title": "Potresti non poter scegliere il tuo gestore di credenziali",
-        "body": "A casa scegli l'app o il dispositivo che preferisci. Al lavoro, i team IT e di sicurezza decidono spesso per te imponendo l'uso di uno specifico gestore di credenziali, di un dispositivo gestito o di una chiave di sicurezza fisica, affinché tutti i dipendenti rispettino gli stessi standard di sicurezza."
+        "body": "A casa scegli l'app o il dispositivo che preferisci. Al lavoro, i reparti IT e sicurezza decidono spesso per te imponendo l'uso di uno specifico gestore di credenziali, di un dispositivo gestito o di una chiave di sicurezza fisica, affinché tutti i dipendenti rispettino gli stessi standard di sicurezza."
       },
       "extraSteps": {
         "title": "Potrebbero essere richiesti passaggi aggiuntivi",
-        "body": "Alcune organizzazioni richiedono un PIN, un controllo biometrico o un dispositivo aziendale gestito prima che una passkey possa essere utilizzata, in particolare per l'accesso a sistemi sensibili come finanza, risorse umane o console di amministrazione."
+        "body": "Alcune organizzazioni richiedono un PIN, un controllo biometrico o un dispositivo aziendale gestito prima che una passkey possa essere utilizzata, in particolare per l'accesso a sistemi sensibili come contabilità, risorse umane o console di amministrazione."
       },
       "differentLook": {
         "title": "La schermata di accesso potrebbe avere un aspetto diverso",
@@ -489,7 +489,7 @@
         "items": [
           "L'IT sceglie il gestore di credenziali approvato",
           "Può richiedere una chiave di sicurezza fisica o un dispositivo gestito",
-          "Spesso vincolate al dispositivo: nessuna sincronizzazione cloud personale",
+          "Spesso vincolate al dispositivo: nessuna sincronizzazione con il cloud personale",
           "Legate alle policy di sicurezza e conformità aziendali"
         ]
       }
@@ -542,12 +542,12 @@
           {
             "type": "basic",
             "question": "Cos'è FIDO2 e che legame ha con le passkey?",
-            "answer": "FIDO2 è lo standard tecnico su cui si basano le passkey. Non è necessario conoscerne i dettagli: basta sapere che \"passkey\" è il nome intuitivo per ciò che FIDO2 rende possibile, ed è il motivo per cui le passkey funzionano allo stesso modo su sistemi operativi, siti web, app, dispositivi e gestori di credenziali di aziende diverse."
+            "answer": "FIDO2 è lo standard tecnico su cui si basano le passkey. Non è necessario conoscerne i dettagli: basta sapere che \"passkey\" è il nome comune per ciò che FIDO2 rende possibile, ed è il motivo per cui le passkey funzionano allo stesso modo su sistemi operativi, siti web, app, dispositivi e gestori di credenziali di aziende diverse."
           },
           {
             "type": "basic",
             "question": "Una passkey è la stessa cosa di una chiave di sicurezza fisica (come una YubiKey)?",
-            "answer": "Una chiave di sicurezza fisica può contenere una passkey, ma non è necessaria per utilizzarle. La maggior parte degli utenti conserva le proprie passkey in un gestore di credenziali su smartphone, computer o altri dispositivi. Le chiavi di sicurezza fisiche rappresentano un'opzione alternativa per archiviare le passkey e possono essere utili per chi desidera un ulteriore metodo di accesso."
+            "answer": "Una chiave di sicurezza fisica può contenere una passkey, ma non è necessaria per utilizzarle. La maggior parte degli utenti conserva le proprie passkey in un gestore di credenziali su smartphone, computer o altri dispositivi. Le chiavi di sicurezza fisiche rappresentano un'opzione alternativa per memorizzare le passkey e possono essere utili per chi desidera un ulteriore metodo di accesso."
           },
           {
             "type": "basic",
@@ -557,7 +557,7 @@
           {
             "type": "basic",
             "question": "Cosa serve concretamente per accedere con una passkey?",
-            "answer": "Hai bisogno di accedere alla tua passkey tramite il tuo gestore di credenziali e di un metodo per verificare la tua identità, come il volto, l'impronta digitale o il PIN del dispositivo. Nella maggior parte dei casi non è necessario scaricare nulla di nuovo, poiché smartphone e computer dispongono già di un gestore di credenziali integrato."
+            "answer": "Per accedere alla tua passkey hai bisogno del tuo gestore di credenziali e di un metodo per verificare la tua identità, come il volto, l'impronta digitale o il PIN del dispositivo. Nella maggior parte dei casi non è necessario scaricare nulla di nuovo, poiché smartphone e computer dispongono già di un gestore di credenziali integrato."
           },
           {
             "type": "basic",
@@ -567,7 +567,7 @@
           {
             "type": "basic",
             "question": "Dove vengono salvate effettivamente le passkey?",
-            "answer": "Di solito in uno di questi due posti: nella memoria sicura integrata del dispositivo (un chip protetto separato dal resto del telefono o computer) o nel tuo gestore di credenziali, se ne utilizzi uno. In genere non puoi \"vedere\" la chiave grezza, proprio come non puoi visualizzare il codice sorgente dietro una password salvata, ma puoi visualizzare e gestire l'elenco delle passkey create nelle impostazioni del tuo account o nel gestore di credenziali."
+            "answer": "Di solito in uno di questi due posti: nella memoria sicura integrata del dispositivo (un chip protetto separato dal resto del telefono o computer) o nel tuo gestore di credenziali, se ne utilizzi uno. In genere non puoi \"vedere\" la chiave grezza, proprio come non puoi visualizzare il codice di una password salvata, ma puoi visualizzare e gestire l'elenco delle passkey create nelle impostazioni del tuo account o nel gestore di credenziali."
           },
           {
             "type": "basic",
@@ -583,7 +583,7 @@
           {
             "type": "basic",
             "question": "Come configuro una passkey?",
-            "answer": "Quando un sito web o un'app offre le passkey, cerca opzioni come \"Crea una passkey\" o \"Configura una passkey\" nelle impostazioni dell'account o della sicurezza. Il tuo dispositivo ti chiederà di verificare la tua identità tramite volto, impronta digitale o PIN del dispositivo. La passkey verrà quindi generata e salvata nel tuo gestore di credenziali. Alcuni siti e app ti proporranno di crearne una subito dopo l'accesso."
+            "answer": "Quando un sito web o un'app offre le passkey, cerca un'opzione come \"Crea una passkey\" o \"Configura una passkey\" nelle impostazioni dell'account o della sicurezza. Il tuo dispositivo ti chiederà di verificare la tua identità tramite volto, impronta digitale o PIN del dispositivo. La passkey verrà quindi generata e salvata nel tuo gestore di credenziali. Alcuni siti e app ti proporranno di crearne una subito dopo l'accesso."
           },
           {
             "type": "basic",
@@ -629,7 +629,7 @@
           {
             "type": "basic",
             "question": "Come funzionano le passkey se utilizzo smartphone, portatile e altri dispositivi (come una console per videogiochi)?",
-            "answer": "Dipende da dove è archiviata la passkey. Molti gestori di credenziali sincronizzano in modo sicuro le tue passkey tra i tuoi dispositivi, per cui una passkey creata sul telefono potrebbe essere disponibile anche su portatile o tablet. Alcune passkey vengono archiviate solo su un dispositivo specifico e non si sincronizzano. Se la passkey non è disponibile sul dispositivo che stai utilizzando, potresti comunque accedere usando la passkey di un altro dispositivo, come lo smartphone."
+            "answer": "Dipende da dove è memorizzata la passkey. Molti gestori di credenziali sincronizzano in modo sicuro le tue passkey tra i tuoi dispositivi, per cui una passkey creata sul telefono potrebbe essere disponibile anche su portatile o tablet. Alcune passkey vengono archiviate solo su un dispositivo specifico e non si sincronizzano. Se la passkey non è disponibile sul dispositivo che stai utilizzando, potresti comunque accedere usando la passkey di un altro dispositivo, come lo smartphone."
           },
           {
             "type": "basic",
@@ -691,7 +691,7 @@
           {
             "type": "basic",
             "question": "Dovrei configurare più di una passkey per account?",
-            "answer": "Dipende da come vengono archiviate le tue passkey. Se il tuo gestore di credenziali le sincronizza tra i tuoi dispositivi, in genere non serve creare più passkey per lo stesso account. Se invece una passkey è salvata solo su un dispositivo, o desideri un ulteriore metodo di accesso di sicurezza, è consigliabile crearne altre."
+            "answer": "Dipende da come vengono memorizzate le tue passkey. Se il tuo gestore di credenziali le sincronizza tra i tuoi dispositivi, in genere non serve creare più passkey per lo stesso account. Se invece una passkey è salvata solo su un dispositivo, o desideri un ulteriore metodo di accesso di sicurezza, è consigliabile crearne altre."
           },
           {
             "type": "basic",
@@ -712,12 +712,12 @@
           {
             "type": "basic",
             "question": "Le passkey sono più sicure delle password e del vecchio 2FA?",
-            "answer": "Sì. Le passkey sono progettate per proteggere dal phishing e da altri attacchi diffusi in grado di sottrarre password e codici di verifica. Ogni passkey è univoca per il sito o l'app per cui è stata generata, quindi non può essere indovinata, riutilizzata altrove o ingannata per funzionare su un sito contraffatto."
+            "answer": "Sì. Le passkey sono progettate per proteggere dal phishing e da altri attacchi diffusi in grado di sottrarre password e codici di verifica. Ogni passkey è univoca per il sito o l'app per cui è stata generata, quindi non può essere indovinata, riutilizzata altrove o fatta funzionare su un sito contraffatto."
           },
           {
             "type": "basic",
             "question": "Se qualcuno mi ruba il telefono, può entrare nei miei account?",
-            "answer": "Un malintenzionato potrebbe usare le tue passkey solo se in grado di sbloccare il dispositivo (con impronta, volto o PIN), requisito indispensabile per usare qualunque passkey lì salvata. Per un attaccante da remoto è un ostacolo decisamente più difficile da superare rispetto al furto di una password."
+            "answer": "Un malintenzionato potrebbe usare le tue passkey solo se in grado di sbloccare il dispositivo (con impronta, volto o PIN), requisito indispensabile per usare qualunque passkey salvata lì. Per un malintenzionato da remoto è un ostacolo decisamente più difficile da superare rispetto al furto di una password."
           },
           {
             "type": "basic",
@@ -732,7 +732,7 @@
           {
             "type": "advanced",
             "question": "Quali algoritmi crittografici utilizzano le passkey?",
-            "answer": "Le passkey utilizzano la crittografia a chiave pubblica, più comunemente ECDSA con curva P-256 (algoritmo COSE -7) come definito nelle specifiche WebAuthn. Alcuni autenticatori supportano anche RS256 (RSASSA-PKCS1-v1_5) o EdDSA. Durante la registrazione, l'autenticatore genera una coppia di chiavi e restituisce al relying party la chiave pubblica e un credential ID. Durante l'autenticazione, l'autenticatore firma un challenge generato dal server con la chiave privata, che il server verifica a sua volta confrontandola con la chiave pubblica memorizzata."
+            "answer": "Le passkey utilizzano la crittografia a chiave pubblica, più comunemente ECDSA con curva P-256 (algoritmo COSE -7) come definito nelle specifiche WebAuthn. Alcuni autenticatori supportano anche RS256 (RSASSA-PKCS1-v1_5) o EdDSA. Durante la registrazione, l'autenticatore genera una coppia di chiavi e restituisce al relying party la chiave pubblica e un credential ID. Durante l'autenticazione, l'autenticatore firma una challenge generata dal server con la chiave privata, che il server verifica a sua volta confrontandola con la chiave pubblica memorizzata."
           }
         ]
       },
