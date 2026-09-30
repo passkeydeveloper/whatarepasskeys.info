@@ -334,7 +334,7 @@
     },
     "scoring": {
       "sectionLabel": "Escolher um gestor de credenciais",
-      "headline": "Qual gestor de credenciais é o ideal para mim?",
+      "headline": "Qual o gestor de credenciais ideal para mim?",
       "intro": [
         "Escolha o gestor de credenciais certo para si. Quer escolha o integrado nos seus dispositivos ou uma aplicação de terceiros, as passkeys são construídas com base em normas abertas, para que websites e aplicações possam suportá-las independentemente do gestor de credenciais que utilizar.",
         "Avaliámos cada gestor de credenciais abaixo, classificados da nota geral mais alta para a mais baixa. Consulte a secção Critérios de Avaliação para ver a nossa metodologia completa."
@@ -435,7 +435,7 @@
   "closingCTA": {
     "sectionLabel": "Comece a usar passkeys",
     "headline": "Comece a dizer adeus às palavras-passe, um início de sessão de cada vez",
-    "body": "Disse olá às passkeys. Agora é altura de começar a dizer adeus às palavras-passe.",
+    "body": "Diga olá às passkeys. Agora é altura de começar a dizer adeus às palavras-passe.",
     "detail": "Demora apenas alguns segundos para começar. Depois disso, pode passar menos tempo a iniciar sessão e mais tempo a focar-se no seu dia.",
     "examplesLabel": "EXEMPLOS DE EXPERIÊNCIAS COM PASSKEYS",
     "createLabel": "Criar uma passkey",
