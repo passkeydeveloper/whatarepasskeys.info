@@ -30,6 +30,7 @@ export const localeNames: Record<string, string> = Object.fromEntries(
 // locale's routing code isn't already valid BCP-47.
 export const bcp47LanguageMap: Record<string, string> = {
   'zh-cn': 'zh-CN',
+  'pt-pt': 'pt-PT',
 };
 
 export function bcp47Language(locale: string): string {
