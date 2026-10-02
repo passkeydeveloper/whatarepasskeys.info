@@ -1,0 +1,816 @@
+{
+  "meta": {
+    "nativeName": "简体中文"
+  },
+  "site": {
+    "title": "什么是 passkeys？",
+    "pageTitle": "Passkeys 详解：更简单、更安全的登录方式",
+    "description": "Passkeys 使用唯一的数字密钥替代您的密码。使用更简单、更安全——无需记住密码，无需等待验证码。",
+    "toggleConsumer": "基础",
+    "toggleTechnical": "进阶",
+    "logoText": "什么是 passkeys？"
+  },
+  "common": {
+    "technicalDetail": "技术细节",
+    "goDeeper": "深入了解",
+    "opensInNewTab": "（在新标签页中打开）",
+    "step": "第 {number} 步"
+  },
+  "nav": {
+    "skipToContent": "跳转到主要内容",
+    "language": "语言",
+    "contentMode": "内容模式",
+    "switchToLightMode": "切换到浅色模式",
+    "switchToDarkMode": "切换到深色模式",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "jumpToSection": "跳转到章节",
+    "pageSections": "页面章节",
+    "copyLinkToSection": "复制到“{section}”章节的链接",
+    "linkCopied": "链接已复制！",
+    "sections": {
+      "hero": "Passkeys",
+      "whatIs": "什么是 Passkey？",
+      "howItWorks": "运作原理",
+      "whyPasswordsFail": "为什么密码容易失效",
+      "phishing": "网络钓鱼",
+      "comparison": "对比",
+      "credentialManagers": "凭据管理器",
+      "sayGoodbye": "告别密码",
+      "workPasskeys": "工作场景中的 Passkeys",
+      "faq": "常见问题"
+    }
+  },
+  "hero": {
+    "headline": "向 passkeys 问好",
+    "subheadline": "更简单、更安全的登录方式。无需记忆密码，无需等待验证码。轻松登录，专注于真正重要的事情。",
+    "scrollCta": "了解 passkeys 如何运作",
+    "eyebrow": "什么是 passkey？",
+    "illustrationAlt": "Passkey 插图",
+    "scrollIndicator": "向下滚动以探索",
+    "jumpLinks": {
+      "whatIs": "什么是 passkey？",
+      "howItWorks": "使用 Passkeys",
+      "whyPasswordsFail": "密码带来的问题",
+      "phishing": "了解网络钓鱼",
+      "comparison": "Passkey 的优势",
+      "credentialManagers": "存储 Passkeys",
+      "workPasskeys": "工作场景中的 Passkeys",
+      "faq": "常见问题"
+    }
+  },
+  "whatIsAPasskey": {
+    "sectionLabel": "什么是 passkey？",
+    "headline": "Passkey 是一种替代密码的唯一数字密钥。",
+    "body": "Passkeys 让您无需创建、记忆或输入密码，即可快速安全地登录。当您使用 passkey 登录时，您的设备会首先使用面容、指纹或设备 PIN 码验证您的身份。",
+    "highlights": {
+      "staysWithYou": {
+        "title": "私有密钥由您保管",
+        "body": "该密钥始终保留在您的设备上，绝不会与网站共享。"
+      },
+      "websiteGetsKey": {
+        "title": "网站获取配对密钥",
+        "body": "网站仅存储与其配对的密钥，但该密钥单独存在时无法用于登录。"
+      },
+      "workTogether": {
+        "title": "双钥协同验证",
+        "body": "登录时，您的设备会使用其密钥来证明确实是您本人。过程中绝不会发送或存储任何密码。"
+      }
+    },
+    "techCallout": {
+      "headline": "底层原理：非对称加密",
+      "body": "Passkeys 使用与 SSH 密钥类似的公钥密码学。私钥在凭据管理器或硬件身份验证器的安全芯片（secure element）中生成。公钥会连同一些特定于 WebAuthn 的元数据一起发送到服务器。然而，如果没有私钥来对质询进行签名，公钥在数学上是无法单独用于身份验证的。服务器永远不会看到或存储任何私密凭据。"
+    },
+    "illustrationAlt": "公钥与私钥配对插图",
+    "diagram": {
+      "title": "两把密钥，成对协同。",
+      "privateKeyLabel": "私钥 (PRIVATE KEY)",
+      "publicKeyLabel": "公钥 (PUBLIC KEY)",
+      "linked": "已配对",
+      "private": "保留在您的设备上，绝不共享。",
+      "public": "共享给网站。没有私钥则毫无用处。",
+      "device": {
+        "title": "您的设备",
+        "subtitle": "凭据管理器"
+      },
+      "website": {
+        "title": "网站服务器",
+        "subtitle": "仅存储公钥"
+      }
+    }
+  },
+  "howItWorks": {
+    "sectionLabel": "使用 passkeys",
+    "headline": "如何使用 passkeys 进行登录",
+    "intro": "使用 passkey 非常简单。创建完成后，登录只需几秒钟。",
+    "steps": {
+      "create": {
+        "label": "创建 passkey",
+        "body": "您的凭据管理器会为该网站或应用创建一对唯一的密钥，即您的 passkey。其中一部分与网站共享；另一部分安全保存在您设备上的凭据管理器中，用于证明您的身份。属于您的那部分密钥绝不会被网站或应用共享或存储。"
+      },
+      "confirm": {
+        "label": "确认身份",
+        "body": "下次登录时，您的设备会要求您通过面容、指纹或设备 PIN 码来验证身份。如果您使用生物识别信息，它绝不会离开您的设备，也绝不会被共享。"
+      },
+      "signedIn": {
+        "label": "登录成功！",
+        "body": "您的设备会安全地向网站证明您的身份，全程无需在互联网上传输任何密码。"
+      }
+    },
+    "uniqueness": {
+      "headline": "每个 passkey 都是唯一的",
+      "body": [
+        "您使用的每项服务都会获得专属的唯一 passkey。为您银行创建的 passkey 仅对该银行（网站或应用）有效，其他地方一律无效。为您的邮箱创建的 passkey 也是如此，仅适用于该邮箱。因为每个 passkey 仅属于单一服务，所以不存在可被窃取并在其他地方重复利用的风险。",
+        "这也能保护您的隐私：由于每项服务只能看到专门为其生成的 passkey，因此不存在可以用来跨不同网站追踪或关联您活动的共享标识符。"
+      ]
+    },
+    "techCallout": {
+      "headline": "加密握手流程",
+      "body": "为了确认您的身份，服务（应用或网站）会在登录过程中发送一段质询（challenge）。凭据管理器/身份验证器使用 passkey 的私钥对该质询进行签名。签名后的响应包含该签名以及有关会话的附加上下文信息，例如来源（origin）以及请求是否在嵌入式上下文（iframe）中发起。服务器随后验证：(1) 来源是否为预期值（例如 bank.com 而非 fake-bank.com）；(2) 质询是否与所发出的匹配；(3) 针对所存储的公钥，该签名是否有效。通过对来源进行数字签名验证，是 passkeys（以及一般的 WebAuthn 凭据）抵御网络钓鱼的核心机制。",
+      "additionalLinks": [
+        {
+          "label": "图解与深度解析 @ MDN",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Authentication/Passkeys#sign_in"
+        }
+      ]
+    }
+  },
+  "whyPasswordsFail": {
+    "sectionLabel": "密码带来的问题",
+    "headline": "为什么密码屡屡失效",
+    "intro": "密码已经存在了几十年，但它们并不是为如今的互联网环境所设计的。随着网络威胁的不断演变，我们试图通过增加短信验证码、点击邮件链接以及要求其他额外步骤来让密码更安全。尽管这些手段在某些情况下有所帮助，但并没有解决根本问题：密码本身就是一种极不可靠的身份证明方式。",
+    "outro": "Passkeys 正是为解决这些问题而生。",
+    "cards": {
+      "reuse": {
+        "title": "密码常被重复使用",
+        "body": "许多人在多个账户中使用同一个密码。如果某个网站遭到泄露，攻击者往往会尝试在其他网站上使用相同的密码进行撞库攻击。"
+      },
+      "stolen": {
+        "title": "密码容易被窃取",
+        "body": "网站存储的密码数据常成为黑客入侵攻击的目标。一旦被盗，这些密码就会被攻击者破解并加以利用。"
+      },
+      "phishing": {
+        "title": "密码容易遭受钓鱼攻击",
+        "body": "网络钓鱼是导致账户被盗和身份冒用的最常见攻击手段。攻击者会搭建以假乱真的钓鱼网站，诱骗用户输入密码乃至验证码。"
+      },
+      "slow": {
+        "title": "密码拖慢日常效率",
+        "body": "记忆复杂的密码、重置忘记的密码、等待短信验证码以及翻查电子邮件，给每天都要进行的登录操作增添了繁琐的阻碍。"
+      }
+    },
+    "techCallout": {
+      "headline": "根本问题所在",
+      "body": "密码属于“共享机密”：您知道它，服务器也存储着它。这意味着有两个地方可能被窃取：从您这里（网络钓鱼）以及从服务器端（数据泄露）。任何基于共享机密的身份验证方案都存在这种根本性缺陷。",
+      "additionalLinks": [
+        {
+          "label": "Verizon 数据泄露调查报告",
+          "url": "https://www.verizon.com/business/resources/reports/dbir/"
+        }
+      ]
+    }
+  },
+  "phishing": {
+    "sectionLabel": "了解网络钓鱼",
+    "headline": "什么是网络钓鱼？",
+    "body": "不法分子会搭建与真实网站（例如您的网银、邮箱或常逛的电商平台）外观完全一致的假冒网站。他们诱骗您访问这些虚假站点并输入密码，随后便利用您的密码登录真实网站冒充您的身份。网络钓鱼是导致在线账户和个人身份被盗的最普遍途径，无论密码、动态口令还是短信验证码，都难以幸免。",
+    "example": {
+      "label": "真实网站对比假冒网站",
+      "real": "bank.com",
+      "fake": "bank-secure-login.com"
+    },
+    "resistance": {
+      "headline": "使用 passkey，钓鱼攻击彻底失效！",
+      "body": "您的 passkey 永久绑定到您创建它时的特定网站，因此它根本不会在仿冒网站上生效——无论是拼写仿冒（typosquatting）还是恶意重定向。由于没有任何内容需要手动输入，攻击者自然也就无从窃取。",
+      "fake": {
+        "label": "虚假网站",
+        "result": "Passkey 拒绝响应"
+      },
+      "real": {
+        "label": "真实网站",
+        "result": "Passkey 正常运作"
+      }
+    },
+    "techCallout": {
+      "headline": "为什么传统多因素认证（MFA）无法提供彻底保护",
+      "body": [
+        "实时钓鱼攻击（也称“中间人攻击”）能够实时拦截短信动态验证码（OTP）、TOTP 验证码甚至推送通知。攻击者的虚假网站会立即将您的凭据（包括第二因素）转发给真实网站。这正是 FIDO2/WebAuthn 专门要解决的痛点。包括 passkeys 在内的 WebAuthn 凭据均严格限定在特定的域名范围内。",
+        "在注册流程中，该范围被声明为依赖方 ID（RP ID），并与 passkey 一起保存在凭据管理器中。在认证流程中，浏览器、应用或操作系统会根据 RP ID 为该服务挑选相匹配的 passkey。但这还不是防钓鱼的核心所在！核心在于：凭据管理器会使用 passkey 的私钥对发起调用的服务来源（origin）进行数字签名。随后，服务会在后端校验该来源是否符合预期。如果来源不符，请求即被拒绝，不会建立任何会话。对于 Web 应用，来源通常是网络来源地址（例如 https://login.example.com）；对于原生应用，也可以是应用身份标识。"
+      ],
+      "additionalLinks": [
+        {
+          "label": "什么是来源（Origin）？ @ MDN",
+          "url": "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
+        },
+        {
+          "label": "RP 如何校验来源 @ W3C",
+          "url": "https://www.w3.org/TR/webauthn-3/#sctn-verifying-assertion"
+        }
+      ]
+    },
+    "illustrationAlt": "网络钓鱼攻击插图，展示虚假网站窃取密码的过程",
+    "diagram": {
+      "youLabel": "您",
+      "fakeSiteLabel": "虚假网站",
+      "passwordPlaceholder": "请输入您的密码...",
+      "attackerLabel": "攻击者",
+      "attackerCaption": "已获取您的密码",
+      "realSiteLabel": "真实网站",
+      "signedInAsYou": "现已冒用您的身份登录！",
+      "realBadge": "真实",
+      "fakeBadge": "虚假"
+    }
+  },
+  "whyPasskeysWin": {
+    "sectionLabel": "Passkey 的优势",
+    "headline": "为什么 passkeys 更胜一筹",
+    "tagline": "优于“密码 + 短信”，优于魔术链接（Magic Links）。",
+    "criteriaLabel": "对比标准",
+    "categories": {
+      "passwordRequired": "需要密码？",
+      "phishable": "可被钓鱼？",
+      "stolenFromServer": "可能从服务器端被盗？",
+      "replayAttack": "易受重放攻击？",
+      "easiness": "易用性"
+    },
+    "methods": {
+      "password": {
+        "name": "密码",
+        "passwordRequired": { "text": "是", "icon": "cross" },
+        "phishable": { "text": "是", "icon": "cross" },
+        "stolenFromServer": { "text": "是（哈希值）" },
+        "replayAttack": { "text": "是", "icon": "cross" },
+        "easiness": { "text": "难以记忆" }
+      },
+      "passwordSms": {
+        "name": "密码 + 短信",
+        "passwordRequired": { "text": "是", "icon": "cross" },
+        "phishable": { "text": "是", "icon": "cross" },
+        "stolenFromServer": { "text": "是（哈希值）" },
+        "replayAttack": { "text": "部分脆弱" },
+        "easiness": { "text": "繁琐耗时" }
+      },
+      "magicLink": {
+        "name": "魔术链接 (Magic Link)",
+        "passwordRequired": { "text": "否", "icon": "check" },
+        "phishable": { "text": "部分脆弱" },
+        "stolenFromServer": { "text": "部分脆弱" },
+        "replayAttack": { "text": "部分脆弱" },
+        "easiness": { "text": "需要查收邮件" }
+      },
+      "passkey": {
+        "name": "Passkey",
+        "passwordRequired": { "text": "否", "icon": "check", "bold": true },
+        "phishable": { "text": "否", "icon": "check", "bold": true },
+        "stolenFromServer": { "text": "否", "icon": "check", "bold": true },
+        "replayAttack": { "text": "否", "icon": "check", "bold": true },
+        "easiness": { "text": "只需扫视一眼或轻轻一触" }
+      }
+    },
+    "techCallout": {
+      "headline": "防御凭据撞库与服务器端数据泄露",
+      "body": "在凭据撞库攻击中，攻击者会利用从某个网站泄露的“用户名/密码”组合，尝试登录其他网站。Passkeys 能彻底杜绝这种风险：因为根本没有可以用来撞库的秘密。而在服务器端，系统仅存储公钥。即使服务器完全沦陷，攻击者拿到的也只是一组在数学上无法用于登录的公钥列表。与其配对的私钥自始至终都没有离开过您的凭据管理器。"
+    }
+  },
+  "credentialManagers": {
+    "sectionLabel": "存储 passkeys",
+    "headline": "我该在哪里存储我的 passkeys？",
+    "intro": [
+      "您的 passkeys 存储在凭据管理器中。这是一种可以安全地将密钥同步到您各个设备的应用或服务，就像您登录的所有设备上都能随时查看照片或联系人一样。",
+      "大多数人其实已经拥有凭据管理器了。Android 用户有 Google Password Manager 或 Samsung Wallet (Pass)，iPhone 用户通常使用 Apple Passwords，Windows 用户可能在使用 Microsoft Password Manager。您也可以选择第三方方案，如 1Password、Dashlane 或 Bitwarden。",
+      "最大的好处在于：只需创建一次 passkey，就能在您的所有设备上使用，无需在每台设备上重复配置。"
+    ],
+    "managers": {
+      "apple": {
+        "name": "Apple Passwords",
+        "description": "内置于 iPhone、iPad 和 Mac。通过 iCloud 钥匙串借助您的 Apple 账户进行同步。"
+      },
+      "google": {
+        "name": "Google Password Manager",
+        "description": "内置于 Android 和 Chrome。使用您的 Google 账户跨设备同步。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "1password": {
+        "name": "1Password",
+        "description": "支持 passkey 的独立凭据管理器。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "bitwarden": {
+        "name": "Bitwarden",
+        "description": "开源且支持 passkey 的独立凭据管理器。提供免费版和自托管版。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "dashlane": {
+        "name": "Dashlane",
+        "description": "支持 passkey 的独立凭据管理器。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "microsoft": {
+        "name": "Microsoft Password Manager",
+        "description": "内置于 Microsoft Edge 和 Windows。使用您的 Microsoft 账户跨设备同步。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "nordpass": {
+        "name": "NordPass",
+        "description": "来自 Nord Security、支持 passkey 的独立凭据管理器。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "keeper": {
+        "name": "Keeper",
+        "description": "面向个人与企业、支持 passkey 的独立凭据管理器。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "protonpass": {
+        "name": "Proton Pass",
+        "description": "来自 Proton 的端到端加密独立凭据管理器，支持 passkey。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "lastpass": {
+        "name": "LastPass",
+        "description": "支持 passkey 的独立凭据管理器。支持 Android、iOS、Linux、macOS 和 Windows 设备。"
+      },
+      "samsungpass": {
+        "name": "Samsung Wallet (Pass)",
+        "description": "Samsung Pass 现已集成到 Samsung Wallet 中，内置于 Samsung Galaxy 设备。使用您的 Samsung 账户在 Samsung Galaxy Android 设备之间同步。"
+      },
+      "keepassxc": {
+        "name": "KeePassXC",
+        "description": "独立、开源、离线优先的凭据管理器，支持 passkey。支持 Linux、macOS 和 Windows，并拥有社区开发的 Android 和 iOS 配套应用。",
+        "caveats": {
+          "general": "KeePassXC 本身并不是一项具有内置同步或共享功能的服务：它是一个生成和读取本地数据库文件的应用，因此端到端加密（E2EE）、家庭共享和迁移等特性并不是由 KeePassXC 本身直接提供，而是完全取决于您选择如何存储和同步该文件（例如普通文件夹、个人云盘或自建方案）。这种灵活性正是它在某些评分项上获得中立评价的原因：安全性和便利性完全取决于您愿意如何去配置它。"
+        }
+      }
+    },
+    "scoring": {
+      "sectionLabel": "选择凭据管理器",
+      "headline": "哪款凭据管理器适合我？",
+      "intro": [
+        "选择最适合您的凭据管理器。无论您选择设备内置的应用还是第三方应用，passkeys 都是基于开放标准构建的，因此无论您使用哪款凭据管理器，网站和应用都可以兼容支持。",
+        "我们在下方对各款凭据管理器进行了评分，并按总体评分从高到低排列。请参阅“评分标准”部分了解我们完整的评分体系。"
+      ],
+      "coreGroupLabel": "核心标准",
+      "lowerGroupLabel": "附加考量",
+      "managerColumnLabel": "凭据管理器",
+      "gradeLabel": "评级",
+      "scoreLabel5": "优秀",
+      "scoreLabel3": "部分支持",
+      "scoreLabel1": "有限支持",
+      "lastUpdated": "评分最近更新于 {date}。",
+      "coreTag": "核心",
+      "lowerTag": "权重较低",
+      "caveatIndicatorLabel": "查看说明：",
+      "caveatsLabel": "补充信息",
+      "criteria": {
+        "ecosystemAvailability": { "consumerLabel": "多平台随处可用", "technicalLabel": "生态系统可用性" },
+        "nativePlatformIntegration": { "consumerLabel": "无缝适配网站与应用", "technicalLabel": "原生平台集成" },
+        "e2eeVaultSecurity": { "consumerLabel": "保障凭据绝对安全", "technicalLabel": "端到端加密数据库安全" },
+        "credentialExchange": { "consumerLabel": "自由迁移导出", "technicalLabel": "凭据交换" },
+        "specCompliance": { "consumerLabel": "紧跟前沿登录规范", "technicalLabel": "互操作性与规范兼容" },
+        "digitalInheritance": { "consumerLabel": "保护数字遗产", "technicalLabel": "数字遗产继承" },
+        "familySharing": { "consumerLabel": "亲友安全共享", "technicalLabel": "家庭共享" }
+      },
+      "criteriaDetails": {
+        "sectionLabel": "评分标准",
+        "headline": "各项标准的评估维度",
+        "intro": "以下是各项评分背后的具体评估依据，以及区分高分与低分的考量因素。评分结合了实际测试与各厂商的公开文档。对于需要组织级或托管部署（无法直接实测）的功能，则基于其官方已发布的文档进行评估。",
+        "items": {
+          "ecosystemAvailability": {
+            "consumerBody": "您能否在所有需要的地方（如手机、电脑、平板电脑，以及您使用的应用和浏览器中）真正使用这款凭据管理器？高分意味着它拥有适用于所有主流平台的原生应用，且在所有主流浏览器中都能流畅运行。低分则意味着它基本上局限于某一家公司的设备生态中。",
+            "technicalBody": "在 4 大主流操作系统（Android、iOS、macOS、Windows）上的原生凭据管理器应用覆盖情况，以及对其他平台的浏览器扩展支持。",
+            "tier5": "为 4 大主流操作系统提供原生应用，并为其他平台提供浏览器扩展。",
+            "tier3": "缺少某一关键平台支持，或存在较为显著的浏览器使用限制。",
+            "tier1": "主要局限于单一软硬件生态。"
+          },
+          "nativePlatformIntegration": {
+            "consumerBody": "登录过程是否真正自然流畅，还是需要频繁与浏览器扩展繁琐交互？高分意味着 passkeys 能直接集成到操作系统中开箱即用。低分则意味着您不得不依赖复杂的手动操作或变通手段。",
+            "technicalBody": "对原生平台 API 的支持深度（例如系统级凭据管理器集成），对比依赖浏览器扩展或其他手动操作流程的程度。",
+            "tier5": "在主流平台上实现完全的原生平台集成；在浏览器和原生应用中均可无缝使用 passkey。",
+            "tier3": "在部分平台上支持原生集成，但在很大程度上仍依赖浏览器扩展流程。",
+            "tier1": "极少或完全没有原生平台集成。"
+          },
+          "e2eeVaultSecurity": {
+            "consumerBody": "即使是开发该应用的公司，也不应该能够读取您保存的密码和 passkeys。高分意味着您的密码库采用了足够强大的端到端加密，唯有您自己持有解密密钥。低分则意味着未能达到该安全门槛。",
+            "technicalBody": "密码库是否达到零知识/端到端加密标准，包括采用高强度的现代加密算法，以及对敏感元数据（不仅是机密数值本身）进行加密保护。",
+            "tier5": "达到最高标准的端到端加密/零知识安全基准，包含高强度的现代加密算法以及对敏感元数据的加密保护。",
+            "tier3": "具备强大的端到端加密/零知识安全防护，但尚未满足最高梯队的所有严苛要求。",
+            "tier1": "未达到预期的端到端加密/零知识防护门槛。"
+          },
+          "credentialExchange": {
+            "consumerBody": "如果您日后希望更换到其他凭据管理器应用，您是否能完整带走您的 passkeys？高分意味着您可以直接将 passkeys、密码以及其他密码库数据无损导出迁移。低分则意味着密码或许可以导出，但 passkeys 会被锁定在原平台。",
+            "technicalBody": "对基于标准格式直接传输密码和 passkeys 的支持情况（例如通过 FIDO 凭据交换协议），对比部分支持或完全无法导出 passkeys 的情况。",
+            "tier5": "支持基于开放标准直接无损传输密码和 passkeys。",
+            "tier3": "对基于标准的凭据传输提供部分或有限支持。",
+            "tier1": "密码或许可以导出，但 passkeys 实际上无法迁出。"
+          },
+          "specCompliance": {
+            "consumerBody": "Passkey 技术一直在不断演进。高分意味着该凭据管理器能够持续跟进最新特性，而非仅停留在几年前的基础能力上。低分则意味着它仅支持最基础的功能。",
+            "technicalBody": "实现是否严格遵循 WebAuthn L3 规范，从而确保整个生态系统的互操作性与一致性。",
+            "tier5": "具备明确的支持并严格遵循 WebAuthn L3 规范。",
+            "tier3": "具备出色的 passkey 支持，但缺乏对 WebAuthn L3 的全面支持与合规。",
+            "tier1": "仅提供基础 passkey 支持，或未支持/未遵循 WebAuthn L3 规范。"
+          },
+          "digitalInheritance": {
+            "consumerBody": "如果不幸发生意外，受信任的亲友能否访问您的重要账户？高分意味着系统内置了规范成熟的紧急访问或遗产访问机制。低分则意味着即便是至亲至爱也无法通过实用途径获得访问权。",
+            "technicalBody": "是否针对 passkeys、密码和其他保管库数据提供了专门构建的紧急/遗产访问机制，对比需要手动规划恢复方案或缺乏实用的受信任访问机制的情况。",
+            "tier5": "针对 passkeys、密码及其他密码库数据提供了专门构建的紧急/遗产访问机制。",
+            "tier3": "可以实现访问，但存在明显限制或需要手动规划恢复方案。",
+            "tier1": "对于密码和 passkeys 缺乏切实可行的受信任访问机制。"
+          },
+          "familySharing": {
+            "consumerBody": "有时您需要与伴侣或家庭成员共享某个登录凭据。高分意味着您可以与信任的人安全地共享密码和 passkeys。低分则意味着完全无法共享 passkey。",
+            "technicalBody": "安全共享功能是否延伸覆盖至 passkeys 而非仅限密码，以及此类共享所受限制的程度。",
+            "tier5": "支持安全共享密码和 passkeys。",
+            "tier3": "支持 passkey 共享，但存在较多限制。",
+            "tier1": "不支持 passkey 共享。"
+          }
+        }
+      }
+    },
+    "techCallout": {
+      "headline": "同步 passkeys 与设备绑定 passkeys",
+      "body": "大多数设备都包含一个能创建“同步 passkeys”的凭据管理器，在此模式下，私钥经过加密并在您的设备之间安全同步。该同步过程采用端到端加密；凭据管理器供应商无法解密或使用该私钥。而“设备绑定 passkeys”仅存在于单台设备上。它们对于防范云端或服务入侵更加安全，但便利性稍逊：一旦遗失该设备，您就会失去对应的 passkey。这类 passkeys 默认不启用，通常需要额外的软件（如特定的凭据管理器）或专用硬件支持。安全密钥（Security keys）和 Windows Hello 就是创建设备绑定 passkeys 的典型身份验证器代表。",
+      "additionalLinks": [
+        {
+          "label": "同步 passkeys @ passkeys.dev",
+          "url": "https://passkeys.dev/docs/reference/terms/#synced-passkey"
+        },
+        {
+          "label": "设备绑定 passkeys @ passkeys.dev",
+          "url": "https://passkeys.dev/docs/reference/terms/#device-bound-passkey"
+        }
+      ]
+    }
+  },
+  "closingCTA": {
+    "sectionLabel": "开始使用 passkeys",
+    "headline": "告别密码，从下一次登录开始",
+    "body": "您已经了解了 passkeys。现在，是时候逐步告别传统密码了。",
+    "detail": "只需几秒钟即可完成设置。此后，您便能减少花在登录上的时间，把更多精力留给真正重要的日常。",
+    "examplesLabel": "PASSKEY 使用体验示例",
+    "createLabel": "创建 passkey",
+    "signInLabel": "使用 passkey 登录",
+    "createButtonCaption": "用于创建 passkey 的按钮",
+    "signInButtonCaption": "用于使用 passkey 登录的按钮",
+    "autofillCaption": "桌面端自动填充",
+    "keyboardCaption": "移动端键盘推荐",
+    "iconCalloutBody": "在您使用的网站和应用中寻找 passkey 图标。",
+    "passkeyIconAlt": "Passkey 图标",
+    "applePasskeyIconAlt": "Apple passkey 图标",
+    "googlePasskeyIconAlt": "Google passkey 图标",
+    "usernameLabel": "用户名",
+    "passkeyLabel": "Passkey",
+    "useAnotherDevice": "使用其他设备上的 passkey",
+    "forDomain": "用于 {domain}"
+  },
+  "workPasskeys": {
+    "sectionLabel": "工作场景中的 passkeys",
+    "headline": "在工作中使用 passkeys 有何不同？",
+    "intro": "在工作中，passkeys 的基本运作方式通常与生活中的其他场景并无二致，但其周围的合规与网络环境却大不相同。一个工作账户沦陷就可能危及整个公司的安全，因此雇主往往会施加比您在个人生活中更严格的安全规则。",
+    "highlights": {
+      "choice": {
+        "title": "您可能无法自由挑选凭据管理器",
+        "body": "在家里，您可以选择任何心仪的应用或设备。而在工作中，IT 和安全团队往往会做出硬性规定，要求您使用指定的凭据管理器、托管设备或实体安全密钥，以确保每位员工都达到统一的安全标准。"
+      },
+      "extraSteps": {
+        "title": "可能需要额外的验证步骤",
+        "body": "某些企业在使用 passkey 之前会增加输入 PIN 码、生物识别检查或要求必须在受托管设备上操作，尤其是在访问财务、人力资源或管理控制台等敏感系统时。"
+      },
+      "differentLook": {
+        "title": "登录界面可能略有不同",
+        "body": "系统可能会提示您插入实体安全密钥、显示公司定制的企业标识，或者您可能会发现个人设备自带的内置 passkey 选项根本未被开放支持。"
+      }
+    },
+    "compare": {
+      "sectionLabel": "两种截然不同的环境",
+      "headline": "个人生活 vs 工作场景",
+      "personal": {
+        "label": "您的个人账户",
+        "caption": "由您全权掌控",
+        "items": [
+          "随心选择任何凭据管理器",
+          "在您自己的各个设备间同步 passkeys",
+          "由您自行管理备份与恢复"
+        ]
+      },
+      "work": {
+        "label": "您的工作账户",
+        "caption": "由 IT 部门制定规则",
+        "items": [
+          "由 IT 部门指定合规准用的凭据管理器",
+          "可能强制要求使用实体安全密钥或受托管设备",
+          "通常为设备绑定模式——禁止同步到个人云端",
+          "与企业安全规范和合规政策紧密绑定"
+        ]
+      }
+    },
+    "examples": {
+      "sectionLabel": "工作中可能遇到的情况",
+      "items": {
+        "managedDevice": { "label": "企业托管的凭据管理器" },
+        "securityKey": { "label": "实体硬件安全密钥" },
+        "brandedSignIn": { "label": "带有企业标识的登录界面" },
+        "deviceBound": { "label": "仅限设备绑定的 passkeys" }
+      }
+    },
+    "techCallout": {
+      "headline": "幕后的企业级管控机制",
+      "body": [
+        "对于有特定安全合规要求（例如强制要求基于硬件防护且经过认证证明的设备绑定 passkeys）的企业，必须向员工提供满足这些标准的身份验证器和/或凭据管理器。这可以是一个或多个硬件安全密钥，也可以是专门面向企业场景的凭据管理器应用，二者都可以基于企业安全策略应用特定的管控行为。",
+        "这与管理云存储或 AI 工具非常类似：如果您不希望员工随意选用未经验证的工具，就需要提供并要求使用符合安全规范的指定方案。这正是支持设备绑定 passkeys 的托管型凭据管理器备受青睐的原因：它们让企业无需实施完全的移动设备管理（MDM），即可在凭据管理器层级（而非操作系统层级）直接落实并强制执行安全要求。"
+      ]
+    }
+  },
+  "faq": {
+    "sectionLabel": "常见问题",
+    "headline": "关于 passkeys 的常见疑问",
+    "missingQuestion": "没找到您想问的问题？",
+    "missingQuestionLink": "告诉我们",
+    "searchPlaceholder": "搜索问题...",
+    "searchAriaLabel": "搜索常见问题",
+    "noResults": "未找到匹配的问题。请尝试更换搜索词。",
+    "categories": [
+      {
+        "name": "基础知识",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "究竟什么是 passkey？",
+            "answer": "Passkey 是一种替代传统密码的唯一数字密钥。当您创建 passkey 时，系统会生成两个相互配对的数字密钥：一个安全保存在您的凭据管理器中，另一个共享给网站或应用。登录时，您的设备会通过面容、指纹或设备 PIN 码验证是您本人，然后使用您设备持有的密钥安全地证明身份。您的私钥绝不会透露给网站。"
+          },
+          {
+            "type": "basic",
+            "question": "Passkey 和密码有什么区别？",
+            "answer": "密码是由您记忆并手动输入到网站中的秘密字符。Passkey 则是保存在凭据管理器中的唯一数字密钥，无需记忆也无需手动输入。每个 passkey 都是专门针对其对应的网站或应用而生成的，因此无法被猜出、无法被钓鱼窃取，也不能像密码那样在其他账户中重复利用。"
+          },
+          {
+            "type": "basic",
+            "question": "Passkey 和双重认证（如短信验证码或验证器 App）有什么不同？",
+            "answer": "传统的双重认证（2FA）通常是在输入密码之后追加一个步骤，例如短信验证码或认证器生成的动态口令。Passkey 可以同时替代密码以及这些额外步骤：它通过确认您持有 passkey，并借助面容、指纹或设备 PIN 码验证您是本人，一步搞定安全验证。部分网站根据其 passkey 的实现策略，可能仍会要求附加的验证步骤。"
+          },
+          {
+            "type": "basic",
+            "question": "什么是 FIDO2？它与 passkeys 有什么关系？",
+            "answer": "FIDO2 是构建 passkeys 所依托的技术标准。您无需深究底层细节——只需知道“passkey”是 FIDO2 技术在面向大众时的友好通俗称谓，正是这一标准确保了 passkeys 能在不同厂商的操作系统、网站、应用、设备和凭据管理器之间通用互通。"
+          },
+          {
+            "type": "basic",
+            "question": "Passkey 和实体硬件安全密钥（如 YubiKey）是一回事吗？",
+            "answer": "实体安全密钥可以用来存储 passkey，但使用 passkeys 并不一定非要配备实体安全密钥。绝大多数普通用户将 passkeys 保存在手机、电脑或其他设备自带的凭据管理器中。实体安全密钥只是存储 passkey 的另一种可选方式，对于希望多一层硬件级登录保障的用户非常有用。"
+          },
+          {
+            "type": "basic",
+            "question": "使用 passkey 是否意味着我会把指纹或面容扫描数据发送给网站？",
+            "answer": "不会。您的指纹或面容数据仅由您的本地设备用于核验您的身份。生物识别信息绝不会离开您的设备，也绝不会共享给任何网站或应用。"
+          },
+          {
+            "type": "basic",
+            "question": "要使用 passkey 登录，我实际需要准备什么？",
+            "answer": "您只需要能够通过凭据管理器访问到您的 passkey，并拥有一种验证本人身份的方式（如面容、指纹或设备 PIN 码）。在绝大多数情况下，您无需下载任何全新软件，因为您的手机或电脑通常已经内置了凭据管理器。"
+          },
+          {
+            "type": "basic",
+            "question": "我的设备 PIN 码和我旧的账户密码有什么区别？",
+            "answer": "账户密码在登录时会直接传输给网站。而设备 PIN 码仅在本地用于核实是您本人在使用设备，绝不会共享给网站。当您使用 passkey 时，设备 PIN 码可以作为设备验证您是否有权使用该 passkey 的验证方式之一。您的设备 PIN 码/锁屏密码绝不会发送给网站或应用。"
+          },
+          {
+            "type": "basic",
+            "question": "Passkeys 究竟存储在哪里？",
+            "answer": "通常存储在两个地方之一：您设备内置的安全存储区（与手机/电脑其他部分物理隔离的受保护安全芯片）中，或者存储在您使用的凭据管理器中。通常您无法直接“看到”原始密钥文件，就像您无法看到已存密码背后的底层代码一样——但您可以在账户设置或凭据管理器中查看和管理已创建的 passkeys 列表。"
+          },
+          {
+            "type": "basic",
+            "question": "Google、Apple 或 Microsoft 拥有我的 passkeys 吗？他们能限制我访问吗？",
+            "answer": "不能，passkeys 归您个人所有，且直接绑定到对应网站，而不是属于 Google/Apple/Microsoft。这些厂商只是为您提供了存储和同步密钥的平台（类似于为您提供存储和同步相册的空间）。但请记住，如果您丢失了该厂商账户的访问权限，可能就无法在新设备上直接访问它们。如果您对此有所顾虑，可以选择将 passkeys 存储在独立的第三方凭据管理器中。"
+          }
+        ]
+      },
+      {
+        "name": "设置与日常使用",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "如何设置 passkey？",
+            "answer": "当网站或应用支持 passkeys 时，可以在账户或安全设置中查找诸如“创建 passkey”或“设置 passkey”的选项。您的设备会提示您通过面容、指纹或设备 PIN 码验证身份。验证成功后，passkey 就会生成并存储在您的凭据管理器中。某些网站和应用也会在您登录成功后主动提示您进行创建。"
+          },
+          {
+            "type": "basic",
+            "question": "我已经有密码了，为什么网站还提示我创建 passkey？",
+            "answer": "许多网站和应用正在引入 passkeys 作为更安全、更便捷的登录方式。创建 passkey 后，下次登录时您就可以直接用它代替手动输入密码。根据各网站的策略，您的原密码可能会继续保留，作为备用的登录或找回手段。"
+          },
+          {
+            "type": "basic",
+            "question": "为什么我明明设置了 passkey，网站却依然要求输入密码？",
+            "answer": "这通常发生在您使用了尚未同步该 passkey 的新设备或新浏览器时。一旦在该设备上也配置好后，该提示通常就会消失。这是部分网站在推进 passkey 部署过渡期存在的体验不一致现象，并不代表您的 passkey 出现了故障。"
+          },
+          {
+            "type": "basic",
+            "question": "为什么有些网站在使用 passkey 之后，还要索取二次验证码？",
+            "answer": "少数网站尚未完全改造其认证体系，出于谨慎考虑仍然保留了旧式的二次验证机制。这虽然有些多余，但并不影响安全性——随着各大网站全面完成架构改造，这种现象会逐渐消除。"
+          },
+          {
+            "type": "basic",
+            "question": "我可以只用 passkey，彻底抛弃密码吗？",
+            "answer": "这正是 passkeys 的设计初衷。但目前部分网站为了提供“以防万一”的备用找回方案，即使您打算全程仅用 passkey 登录，依然会强制要求设置一个传统密码。"
+          },
+          {
+            "type": "basic",
+            "question": "为什么感觉使用 passkey 的步骤有时比输入密码还多？",
+            "answer": "目前部分网站在引导用户熟悉新功能的过程中，会额外弹出引导提示（例如“是否要使用 passkey？”）。随着该技术普及成为行业标配，流程会变得极其顺畅：通过面容、指纹或设备 PIN 码轻触验证，瞬间即可完成登录。"
+          },
+          {
+            "type": "basic",
+            "question": "我可以给我的 passkeys 命名以便于区分吗？",
+            "answer": "可以，许多网站和应用允许您为每个 passkey 自定义标签。这样当设备丢失时，您可以更轻松地识别并移除对应的密钥。但请注意，大多数 passkeys 都会在您的所有设备间自动同步，因此按单台设备来命名可能会引起混淆。许多网站会自动填入保存该密钥的凭据管理器名称（例如 Google Password Manager、Apple Passwords、Bitwarden）。如果未自动填充，建议使用凭据管理器的名称而非设备名称来命名。"
+          },
+          {
+            "type": "basic",
+            "question": "如果不想要“保存 passkey？”的弹窗，该如何关闭？",
+            "answer": "这些弹窗可能由网站、浏览器或凭据管理器触发，具体关闭方式取决于弹窗来源。您可以检查浏览器或凭据管理器设置中的 passkey、登录或自动填充相关选项进行关闭。"
+          }
+        ]
+      },
+      {
+        "name": "多设备与同步",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "如果我同时使用手机、笔记本电脑和其他设备（如游戏主机），passkeys 是如何运作的？",
+            "answer": "这取决于您的 passkey 存储在何处。许多凭据管理器可以在您的设备之间安全同步 passkeys，因此在手机上创建的 passkey 也可在笔记本电脑或平板上使用。也有一些 passkeys 仅存储在特定设备上而不参与同步。如果当前使用的设备上没有可用的 passkey，您通常仍然可以借助其他设备（如手机）来完成跨设备验证登录。"
+          },
+          {
+            "type": "basic",
+            "question": "我可以在手机和电脑之间同步 passkeys 吗？",
+            "answer": "可以，前提是您的凭据管理器同时支持这两台设备并具备 passkey 同步功能。否则，各设备的 passkeys 将保持相互独立。"
+          },
+          {
+            "type": "basic",
+            "question": "我可以将 passkey 从一个凭据管理器转移到另一个凭据管理器吗？",
+            "answer": "不同凭据管理器之间迁移 passkey 的技术支持正在逐步完善，但尚未完全普及。能否迁移取决于源凭据管理器与目标凭据管理器以及它们当前支持的功能；[我们的凭据管理器评分指南](#credential-managers)列出了当前支持此特性的管理器。您可以查看“凭据交换 (Credential Exchange)”功能。"
+          },
+          {
+            "type": "basic",
+            "question": "为什么笔记本在同步时偶尔会向我索取看似不相干的 PIN 码（比如手机的锁屏 PIN 码）？",
+            "answer": "这是由于您的笔记本和手机已关联用于 passkey 同步，系统通过双设备交叉确认来核实确属本人操作。虽然初看令人费解，但这完全符合预期的安全设计机制。"
+          },
+          {
+            "type": "basic",
+            "question": "如何在非本人拥有的设备（如图书馆公用电脑或朋友电脑）上使用 passkey？",
+            "answer": "您可以使用手机或平板电脑上的 passkey 在其他设备上完成登录，而无需将密钥保存在该设备上。登录时寻找类似“使用其他设备”的选项，屏幕通常会显示一个二维码，用手机扫码即可继续登录。"
+          },
+          {
+            "type": "basic",
+            "question": "我能跨不同操作系统（如 macOS 与 Windows）使用 passkeys 吗？",
+            "answer": "可以，但体验并不总是严丝合缝。存储在某一平台凭据管理器中的 passkeys 往往不会直接自动同步到另一平台。例如，如果您的 passkey 保存在 Apple Passwords 中，而在 Windows 电脑上登录时，您可能需要借助 iPhone（如扫描屏幕二维码）来完成登录。如果您经常跨不同生态使用设备和浏览器，挑选一款跨平台兼容出色的凭据管理器能大幅提升 passkeys 的使用体验。请参阅[我们的凭据管理器评分](#credential-managers)，对比了解哪些方案在跨设备、跨系统和跨浏览器方面表现最佳。如果需要迁移现有的 passkeys，请确保挑选在“凭据交换支持”类别中评分领先的凭据管理器。"
+          }
+        ]
+      },
+      {
+        "name": "备份、丢失与恢复",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "我该如何备份我的 passkeys？",
+            "answer": "如果您的 passkeys 由凭据管理器负责同步，只需在新设备上登录该凭据管理器，它们就会自动恢复可用。如果某个 passkey 仅存储在已丢失的单台设备上，则需要借助其他登录凭据或账户找回流程。这正是使用凭据管理器大有裨益的原因——能确保您始终可以访问自己的账户。"
+          },
+          {
+            "type": "basic",
+            "question": "如果手机丢失或电脑损坏了，会发生什么？",
+            "answer": "能否找回 passkeys 取决于您使用的凭据管理器及其设置方式。不同的凭据管理器在账户恢复、备份策略及新设备接入流程上各有不同，因此在遇到突发情况之前了解清楚恢复方案至关重要。请参阅[我们的凭据管理器评分](#credential-managers)，对比不同产品在安全性、灾备恢复及数字遗产方面的表现。如果 passkeys 彻底无法恢复，您可能需要走各个网站或应用原本提供的账户人工找回流程。"
+          },
+          {
+            "type": "basic",
+            "question": "更换手机运营商或停用原手机号，会导致我的 passkeys 丢失吗？",
+            "answer": "不会。Passkeys 并不绑定您的手机号码——它们绑定的是您的凭据管理器账户或具体设备，因此更换运营商不会对其产生影响。只需确保在淘汰或转让旧手机之前，新设备已成功登录并接入了您的凭据管理器即可。"
+          },
+          {
+            "type": "basic",
+            "question": "我能否自行导出并备份 passkeys，而不依赖大科技公司？",
+            "answer": "部分凭据管理器目前已支持该功能，另一些则尚未开放。如果您对数据的自主备份掌控权有较高要求，请专门查阅所选凭据管理器的具体导出功能说明。"
+          }
+        ]
+      },
+      {
+        "name": "管理多个 Passkeys",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "我应该为一个账户设置多个 passkey 吗？",
+            "answer": "这取决于您的 passkeys 存储在何处。如果凭据管理器负责在您的设备间同步 passkeys，通常每个账户保留一个 passkey 即可。如果您的 passkey 仅保存在单一设备上，或者您希望拥有冗余的备用访问渠道，那么创建额外的 passkey 是个好习惯。"
+          },
+          {
+            "type": "basic",
+            "question": "我可以限制账户只允许绑定某一台设备的 passkey 吗？",
+            "answer": "部分网站在账户安全设置中提供了该选项，但这并非行业通行标准。具体取决于相应网站的安全策略配置。"
+          },
+          {
+            "type": "basic",
+            "question": "我应该将 passkey 作为唯一的登录方式，还是保留密码作为备用？",
+            "answer": "只要网站或应用提供支持，推荐优先使用 passkey。是否能完全移除密码取决于网站本身。有些网站支持纯 passkey 账户，而有些网站则保留密码作为额外的登录或找回手段。如果您选择停用密码，请务必确保在失去 passkey 时拥有其他切实可靠的账户访问或恢复手段。"
+          }
+        ]
+      },
+      {
+        "name": "安全性",
+        "types": ["basic", "advanced"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "Passkeys 真的比传统密码和旧式双重认证（2FA）更安全吗？",
+            "answer": "是的。Passkeys 的设计从根源上防御了网络钓鱼以及其他窃取密码和验证码的常见攻击手法。每个 passkey 都是针对特定网站或应用生成的唯一密钥，因此无法被凭空猜解、无法在其他网站撞库，也不会被欺骗在钓鱼网站上生效。"
+          },
+          {
+            "type": "basic",
+            "question": "如果有人偷了我的手机，他们能进入我的账户吗？",
+            "answer": "攻击者只有在能够解锁您设备（通过指纹、面容或锁屏 PIN 码）的前提下才能使用 passkeys，因为调用设备存储的 passkey 必须先通过这层验证。对于远程攻击者来说，这比窃取普通密码要困难得多。"
+          },
+          {
+            "type": "basic",
+            "question": "网站能区分出 passkey 是来自凭据管理器还是来自实体安全密钥吗？",
+            "answer": "技术上是可以区分的，但对于绝大多数日常登录来说并没有差异——二者均被视作具备同等的可信度。"
+          },
+          {
+            "type": "basic",
+            "question": "如果我的凭据管理器或账户服务商被黑客入侵，会产生安全风险吗？",
+            "answer": "会存在一定风险，但该风险与传统的密码数据库泄露截然不同。Passkeys 并非像密码那样属于可复用的静态机密，攻击者无法简单地偷走一个 passkey 就直接登录您的账户。此外，您的 passkeys 还受到凭据管理器本身的安全机制以及访问所用设备的安全防护。这正是挑选一款高安全性凭据管理器的重要所在。请参阅[我们的凭据管理器评分](#credential-managers)，对比不同产品如何保护您的 passkeys 和账户安全。"
+          },
+          {
+            "type": "advanced",
+            "question": "Passkeys 使用了哪些加密算法？",
+            "answer": "Passkeys 采用公钥密码体制，最常用的是遵循 WebAuthn 规范定义的 P-256 曲线 ECDSA 算法（COSE 算法标识 -7）。部分身份验证器也支持 RS256 (RSASSA-PKCS1-v1_5) 或 EdDSA。在注册期间，身份验证器会生成一对密钥，并将公钥和凭据 ID 返回给依赖方（RP）。在认证期间，身份验证器使用私钥对服务器生成的质询进行签名，服务器随后借助之前存储的公钥对签名进行验证。"
+          }
+        ]
+      },
+      {
+        "name": "共享与家庭访问",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "我可以与家庭成员共享受 passkey 保护的账户吗？",
+            "answer": "有时可以。部分凭据管理器允许您与家人或其他受信赖的人安全共享 passkeys。能否共享取决于您使用的凭据管理器，以及对应网站或应用是否允许共享该 passkey。请参阅[我们的凭据管理器评分](#credential-managers)，对比查看哪些选项支持家庭共享。"
+          },
+          {
+            "type": "basic",
+            "question": "发生意外时，如何确保家人能够访问我的账户？",
+            "answer": "这取决于您的凭据管理器。部分产品提供了紧急访问、遗产联系人或其他数字遗产继承机制，以便在发生意外时协助受信任的亲友访问您的账户或凭据。如果您重视此项保障，建议提前进行配置。请参阅[我们的凭据管理器评分](#credential-managers)，对比不同方案对数字遗产特性的支持力度。"
+          },
+          {
+            "type": "basic",
+            "question": "如果我的平台账户被封禁，我还能在其他地方使用其中保存的 passkey 登录吗？",
+            "answer": "不一定。如果您失去了凭据管理器所依赖的平台账户的访问权，您也可能会连带失去对通过该凭据管理器存储或同步的 passkeys 的访问权限。具体后果取决于服务商策略以及您此前设置的恢复方案。这也是为什么搞清楚凭据管理器如何处理账户灾备找回至关重要的原因之一。请参阅[我们的凭据管理器评分](#credential-managers)以对比不同选择。"
+          }
+        ]
+      },
+      {
+        "name": "更换凭据管理器与供应商锁定",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "一旦开始使用 passkeys，我是否会被锁定在某一款凭据管理器中？",
+            "answer": "从设计原理上看并不会。不过在实际应用中，各大凭据管理器在全面支持 passkey 迁移方面仍在逐步推进，但大多数主流凭据管理器目前已支持将包括 passkeys 在内的凭据安全迁移至其他服务。整套生态对“凭据交换 (Credential Exchange)”的支持正在加速普及。请参阅[凭据管理器评分部分](#credential-managers)中的“自由迁移导出”类别。"
+          },
+          {
+            "type": "basic",
+            "question": "为什么我无法在自己拥有的设备或凭据管理器之间完全自由地转移 passkeys？",
+            "answer": "底层技术标准本身是完全支持这一特性的，只是尚未被所有厂商开发出简便易用的迁移工具。这属于各厂商功能迭代的滞后，而非 passkeys 本身的技术缺陷。"
+          }
+        ]
+      },
+      {
+        "name": "信任度与行业普及",
+        "types": ["basic"],
+        "items": [
+          {
+            "type": "basic",
+            "question": "为什么很多网站对 passkeys 的解释都含糊不清？",
+            "answer": "这是相当中肯的反馈。由于 passkeys 对大多数人而言依然是一项新概念，很多网站尚未投入精力制作清晰易懂的科普说明。这是整个行业当前普遍存在的痛点。这也正是我们搭建本网站的原因之一！"
+          },
+          {
+            "type": "basic",
+            "question": "如果明年出现了更好的新技术替代 passkeys，我现在还有必要折腾吗？",
+            "answer": "Passkeys 建立在 Apple、Google 和 Microsoft 共同维护与支持的开放工业标准（FIDO2）之上，因此它是长期的发展方向，而非昙花一现的短期产物。现在就启用 passkeys，能立即显著降低您当下所面临的账户被盗风险。"
+          },
+          {
+            "type": "basic",
+            "question": "未来几年 passkeys 的运作机制会保持稳定，还是我需要重新学一遍？",
+            "answer": "核心交互理念（解锁您的设备即可直接登录网站）将长期保持一致。目前正在持续优化和迭代的，主要是上文所提到的跨设备同步体验以及不同凭据管理器之间的迁移机制。"
+          }
+        ]
+      }
+    ],
+    "advancedTag": "进阶",
+    "resultsFound": {
+      "one": "找到 {count} 个相关问题",
+      "other": "找到 {count} 个相关问题"
+    }
+  },
+  "footer": {
+    "madeWith": "精心打造：",
+    "by": "由 passkey 社区呈献。",
+    "feedback": "有任何建议或反馈？",
+    "feedbackLink": "欢迎告诉我们",
+    "licensePrefix": "内容基于",
+    "licenseName": "CC BY 4.0 许可协议发布",
+    "viewSourceOnGitHub": "在 GitHub 上查看源码",
+    "viewOnBluesky": "在 Bluesky 上关注我们",
+    "viewOnMastodon": "在 Mastodon 上关注我们",
+    "contentUpdated": "内容最近更新于 {date}。"
+  }
+}
