@@ -337,7 +337,7 @@
       "headline": "¿Cuál es el gestor de credenciales adecuado para mí?",
       "intro": [
         "Elige el gestor de credenciales que mejor se adapte a tus necesidades. Ya sea que optes por el integrado en tus dispositivos o por una app de terceros, las passkeys se basan en estándares abiertos, por lo que los sitios web y apps pueden admitirlas sin importar cuál gestor utilices.",
-        "A continuación hemos evaluado cada gestor de credenciales, ordenados de mayor a menor según su calificación global. Consulta la sección Criterios de evaluación para conocer nuestra metodología completa."
+        "A continuación hemos evaluado cada gestor de credenciales, ordenados de mayor a menor según su calificación global. Una calificación más alta no significa necesariamente que un gestor sea el más adecuado para ti. Los dispositivos y plataformas que usas, y las funciones que más te importan, también deben influir en tu decisión. Consulta la sección Criterios de evaluación para conocer nuestra metodología completa."
       ],
       "coreGroupLabel": "Criterios principales",
       "managerColumnLabel": "Gestor de credenciales",
