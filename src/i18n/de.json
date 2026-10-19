@@ -337,7 +337,7 @@
       "headline": "Welcher Passwort-Manager passt zu mir?",
       "intro": [
         "Wählen Sie die Lösung, die am besten zu Ihren Anforderungen passt. Ob Sie den im Betriebssystem integrierten Dienst oder eine App eines Drittanbieters wählen: Passkeys basieren auf offenen Standards, sodass Websites und Apps unabhängig vom verwendeten Manager unterstützt werden.",
-        "Wir haben die Passwort-Manager nachfolgend bewertet, sortiert von der höchsten zur niedrigsten Gesamtnote. Einzelheiten zu unserer Methodik finden Sie im Abschnitt Bewertungskriterien."
+        "Wir haben die Passwort-Manager nachfolgend bewertet, sortiert von der höchsten zur niedrigsten Gesamtnote. Eine höhere Bewertung bedeutet nicht zwangsläufig, dass ein Passwort-Manager der richtige für Sie ist. Auch die Geräte und Plattformen, die Sie nutzen, sowie die Funktionen, die Ihnen am wichtigsten sind, sollten in Ihre Entscheidung einfließen. Einzelheiten zu unserer Methodik finden Sie im Abschnitt Bewertungskriterien."
       ],
       "coreGroupLabel": "Hauptkriterien",
       "managerColumnLabel": "Credential-Manager",

@@ -337,7 +337,7 @@
       "headline": "Quel gestionnaire d'identifiants me convient le mieux ?",
       "intro": [
         "Choisissez le gestionnaire d'identifiants adapté à vos besoins. Que vous préfériez celui intégré à vos appareils ou une application tierce, les passkeys reposent sur des standards ouverts : les sites web et applications peuvent ainsi fonctionner avec eux quel que soit le gestionnaire choisi.",
-        "Nous avons évalué ci-dessous chaque gestionnaire d'identifiants, classé de la note globale la plus haute à la plus basse. Consultez la section « Critères d'évaluation » pour découvrir l'intégralité de notre méthodologie."
+        "Nous avons évalué ci-dessous chaque gestionnaire d'identifiants, classé de la note globale la plus haute à la plus basse. Une note plus élevée ne signifie pas nécessairement qu'un gestionnaire d'identifiants est fait pour vous. Les appareils et les plateformes que vous utilisez, ainsi que les fonctionnalités qui comptent le plus pour vous, doivent également entrer en ligne de compte dans votre décision. Consultez la section « Critères d'évaluation » pour découvrir l'intégralité de notre méthodologie."
       ],
       "coreGroupLabel": "Critères fondamentaux",
       "managerColumnLabel": "Gestionnaire d'identifiants",
