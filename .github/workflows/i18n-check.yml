@@ -1,31 +1,33 @@
-# Flags translation drift between locale files: when a string value changes in one
-# locale's JSON but the same key isn't touched in the others, it's almost always a
-# forgotten translation update rather than an intentional change.
+# Flags missed translation updates: when en.json (the source of truth) changes, every
+# other locale file must reflect the same change.
 #
-# This is NOT a plain JSON diff between locale files. A raw diff would either compare
-# each locale file only against its own previous version (missing the fact that other
-# locales didn't follow suit) or compare locale files against each other directly
-# (which is useless, since translated strings are supposed to differ). Instead, this
-# check:
-#   - Flattens each locale file to dotted key paths (e.g. "nav.home") so it can compare
-#     by key regardless of nesting/ordering/formatting changes in the JSON.
-#   - For every key, compares its value at the PR base SHA vs the head SHA, per locale
-#     file, using `git show <sha>:<file>` to read historical content without checking
-#     out other commits.
-#   - Only flags a key when it changed in at least one locale file but was left
-#     unchanged in another locale file that also has that key — i.e. a partial update.
-#   - Treats keys in brand-new locale files as non-changes, so adding a whole new
-#     language doesn't get flagged against every other locale.
-#   - Skips keys listed in .github/i18n-ignore.json, for values that are intentionally
+# Runs only on PRs that touch src/i18n/en.json. Edits to other locale files alone
+# don't trigger it.
+#
+# This is NOT a plain JSON diff between locale files, since translated strings are
+# supposed to differ from English. Instead, this check:
+#   - Flattens each locale file to dotted key paths (e.g. "nav.home") so it compares
+#     by key regardless of nesting, ordering, or formatting.
+#   - Reads each file at the PR base SHA via `git show <sha>:<file>` and compares it
+#     to the PR head, to find what changed in en.json:
+#       added    -> the key must now exist in every other locale
+#       changed  -> the key's value must also have changed in every other locale
+#       removed  -> the key must be gone from every other locale
+#   - Fails if any locale file is missing one of those updates, listing each file and
+#     key. Locales that are already out of sync before the PR are only flagged for
+#     keys this PR touched.
+#   - Treats a locale file added in the same PR as having no base, so it passes as
+#     long as it contains the added/changed keys.
+#   - Skips keys listed in .github/i18n-ignore.json, for values intentionally
 #     identical across locales (URLs, brand names, etc.).
 #
-# See .github/scripts/check-i18n-parity.js for the implementation.
+# See .github/scripts/check-i18n-parity.cjs for the implementation.
 name: Check PRs for translation parity
 
 on:
   pull_request:
     paths:
-      - 'src/i18n/*.json'
+      - 'src/i18n/en.json'
 
 jobs:
   check-i18n-parity:
@@ -42,5 +44,4 @@ jobs:
       - name: Check translation value parity
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: node .github/scripts/check-i18n-parity.cjs

@@ -3,6 +3,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const I18N_DIR = 'src/i18n';
+const REFERENCE = 'en.json';
 const BASE_SHA = process.env.BASE_SHA;
 const IGNORE_FILE = '.github/i18n-ignore.json';
 
@@ -19,81 +20,82 @@ function flatten(obj, prefix = '') {
   return out;
 }
 
-function readAtHead(file) {
+function readHead(file) {
   return flatten(JSON.parse(fs.readFileSync(file, 'utf8')));
 }
 
-function readAtBase(file) {
+function readBase(file) {
   try {
     const raw = execSync(`git show ${BASE_SHA}:${file}`, { encoding: 'utf8' });
     return flatten(JSON.parse(raw));
   } catch {
-    return null; // file didn't exist at base (new locale)
+    return {}; // file didn't exist at base (new locale)
   }
 }
 
-function loadIgnoreList() {
-  if (!fs.existsSync(IGNORE_FILE)) return new Set();
-  return new Set(JSON.parse(fs.readFileSync(IGNORE_FILE, 'utf8')));
+const ignore = fs.existsSync(IGNORE_FILE)
+  ? new Set(JSON.parse(fs.readFileSync(IGNORE_FILE, 'utf8')))
+  : new Set();
+
+const refPath = path.join(I18N_DIR, REFERENCE);
+const enBase = readBase(refPath);
+const enHead = readHead(refPath);
+
+// Classify what changed in en.json
+const changes = []; // { key, type: 'added' | 'changed' | 'removed' }
+for (const key of new Set([...Object.keys(enBase), ...Object.keys(enHead)])) {
+  if (ignore.has(key)) continue;
+  const inBase = key in enBase;
+  const inHead = key in enHead;
+  if (!inBase && inHead) changes.push({ key, type: 'added' });
+  else if (inBase && !inHead) changes.push({ key, type: 'removed' });
+  else if (enBase[key] !== enHead[key]) changes.push({ key, type: 'changed' });
 }
 
-const ignore = loadIgnoreList();
-const localeFiles = fs
-  .readdirSync(I18N_DIR)
-  .filter((f) => f.endsWith('.json'))
-  .map((f) => path.join(I18N_DIR, f));
-
-// key -> { file -> changed(bool) }, only for files where the key exists at HEAD
-const keyChangeMap = {};
-// key -> set of files that currently contain it (at HEAD)
-const keyPresence = {};
-
-for (const file of localeFiles) {
-  const base = readAtBase(file);
-  const head = readAtHead(file);
-  const isNewFile = base === null;
-
-  for (const [key, value] of Object.entries(head)) {
-    if (ignore.has(key)) continue;
-    keyPresence[key] ??= new Set();
-    keyPresence[key].add(file);
-
-    const changed = isNewFile ? false : base[key] !== value; // new files don't count as "changes"
-    keyChangeMap[key] ??= {};
-    keyChangeMap[key][file] = changed;
-  }
-}
-
-const problems = [];
-
-for (const [key, fileChangeMap] of Object.entries(keyChangeMap)) {
-  const changedIn = Object.entries(fileChangeMap)
-    .filter(([, changed]) => changed)
-    .map(([file]) => file);
-
-  if (changedIn.length === 0) continue; // nobody touched this key
-
-  const presentFiles = [...keyPresence[key]];
-  const missedIn = presentFiles.filter((f) => !fileChangeMap[f]);
-
-  if (missedIn.length > 0) {
-    problems.push({ key, changedIn, missedIn });
-  }
-}
-
-if (problems.length === 0) {
-  console.log('All value changes are mirrored across locale files.');
+if (changes.length === 0) {
+  console.log('No translatable changes in en.json.');
   process.exit(0);
 }
 
-console.error(`Found ${problems.length} key(s) changed in some locale files but not others:\n`);
-for (const { key, changedIn, missedIn } of problems) {
-  console.error(`  ${key}`);
-  console.error(`    changed in: ${changedIn.join(', ')}`);
-  console.error(`    not updated in: ${missedIn.join(', ')}\n`);
+const otherLocales = fs
+  .readdirSync(I18N_DIR)
+  .filter((f) => f.endsWith('.json') && f !== REFERENCE)
+  .map((f) => path.join(I18N_DIR, f));
+
+const problems = {}; // file -> [{ key, type }]
+
+for (const file of otherLocales) {
+  const base = readBase(file);
+  const head = readHead(file);
+
+  for (const { key, type } of changes) {
+    let ok;
+    if (type === 'removed') {
+      ok = !(key in head);
+    } else if (type === 'added') {
+      ok = key in head;
+    } else {
+      ok = key in head && base[key] !== head[key];
+    }
+    if (!ok) (problems[file] ??= []).push({ key, type });
+  }
+}
+
+const files = Object.keys(problems);
+if (files.length === 0) {
+  console.log(`All ${changes.length} en.json change(s) are mirrored in every locale.`);
+  process.exit(0);
+}
+
+console.error(`en.json changed ${changes.length} key(s). Locales missing updates:\n`);
+for (const file of files) {
+  console.error(`${file}`);
+  for (const { key, type } of problems[file]) {
+    console.error(`  [${type}] ${key}`);
+  }
+  console.error('');
 }
 console.error(
-  'If any of these are intentionally shared across locales (URLs, brand names, etc.),\n' +
-  `add the key path to ${IGNORE_FILE} (a JSON array of dotted key paths).`
+  `Keys that are intentionally identical across locales (URLs, brand names) can be added to ${IGNORE_FILE}.`
 );
 process.exit(1);
