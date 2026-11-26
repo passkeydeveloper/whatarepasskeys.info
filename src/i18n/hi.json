@@ -351,6 +351,10 @@
       "lowerTag": "कम महत्व",
       "caveatIndicatorLabel": "ज़रूरी नोट देखें",
       "caveatsLabel": "अतिरिक्त जानकारी",
+      "whatsMissingLabel": "क्या कमी है",
+      "whatsMissingHint": "क्या कमी है यह देखने के लिए बिंदु वाला स्कोर चुनें",
+      "whatsMissingClose": "बंद करें",
+      "whatsMissingTriggerLabel": "क्या कमी है: {manager}, {criterion}",
       "criteria": {
         "ecosystemAvailability": { "consumerLabel": "हर उस जगह काम करता है जहां आप करते हैं", "technicalLabel": "इकोसिस्टम उपलब्धता (Ecosystem Availability)" },
         "nativePlatformIntegration": { "consumerLabel": "वेबसाइटों और ऐप्स के साथ आसानी से काम करता है", "technicalLabel": "नेटिव प्लेटफ़ॉर्म एकीकरण (Native Platform Integration)" },

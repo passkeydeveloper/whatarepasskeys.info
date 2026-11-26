@@ -56,6 +56,95 @@
   }
 }
 
+/* "What's missing" dialog (credential manager matrix, technical mode).
+   Centered card on desktop, bottom sheet on mobile. */
+.whats-missing-dialog {
+  margin: auto;
+  padding: 0;
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  max-height: min(80vh, 36rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 1rem;
+  opacity: 0;
+  transform: translateY(0.5rem) scale(0.98);
+  transition:
+    opacity 0.18s ease-out,
+    transform 0.18s ease-out,
+    overlay 0.18s allow-discrete,
+    display 0.18s allow-discrete;
+}
+
+.whats-missing-dialog[open] {
+  opacity: 1;
+  transform: none;
+}
+
+@starting-style {
+  .whats-missing-dialog[open] {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.98);
+  }
+}
+
+.whats-missing-dialog::backdrop {
+  background: rgb(0 0 0 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background 0.18s ease-out,
+    backdrop-filter 0.18s ease-out,
+    overlay 0.18s allow-discrete,
+    display 0.18s allow-discrete;
+}
+
+.whats-missing-dialog[open]::backdrop {
+  background: rgb(0 0 0 / 0.4);
+  backdrop-filter: blur(4px);
+}
+
+@starting-style {
+  .whats-missing-dialog[open]::backdrop {
+    background: rgb(0 0 0 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .whats-missing-dialog {
+    margin: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 80vh;
+    border-radius: 1rem 1rem 0 0;
+    border-bottom-width: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    transform: translateY(100%);
+    transition-duration: 0.25s;
+  }
+
+  .whats-missing-dialog[open] {
+    transform: none;
+  }
+
+  @starting-style {
+    .whats-missing-dialog[open] {
+      transform: translateY(100%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whats-missing-dialog,
+  .whats-missing-dialog::backdrop {
+    transition: none;
+  }
+}
+
+html:has(.whats-missing-dialog[open]) {
+  overflow: hidden;
+}
+
 /* Defer rendering for below-the-fold sections on this long single-page
    site. #hero stays eager since it's above the fold. contain-intrinsic-size
    is a placeholder height (not exact) so the browser can reserve scroll

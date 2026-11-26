@@ -351,6 +351,10 @@
       "lowerTag": "Geringere Gewichtung",
       "caveatIndicatorLabel": "Hinweis anzeigen für",
       "caveatsLabel": "Zusatzinformationen",
+      "whatsMissingLabel": "Was fehlt",
+      "whatsMissingHint": "Wählen Sie eine Bewertung mit Punkt aus, um zu sehen, was fehlt",
+      "whatsMissingClose": "Schließen",
+      "whatsMissingTriggerLabel": "Was fehlt: {manager}, {criterion}",
       "criteria": {
         "ecosystemAvailability": {
           "consumerLabel": "Funktioniert überall dort, wo Sie arbeiten",
