@@ -282,11 +282,13 @@
     "managers": {
       "apple": {
         "name": "Apple Passwords",
-        "description": "Built into iPhone, iPad, and Mac. Syncs via iCloud Keychain using your Apple Account."
+        "description": "Built into iPhone, iPad, and Mac. Syncs via iCloud Keychain using your Apple Account.",
+        "whatsMissing": { "ecosystemAvailability": [ "Not available on Android", "Not available on Linux", "Not available on Windows" ], "nativePlatformIntegration": [], "digitalInheritance": [] }
       },
       "google": {
         "name": "Google Password Manager",
-        "description": "Built into Android and Chrome. Syncs across devices using your Google account. Works across Android, iOS, Linux, macOS, and Windows devices."
+        "description": "Built into Android and Chrome. Syncs across devices using your Google account. Works across Android, iOS, Linux, macOS, and Windows devices.",
+        "whatsMissing": { "ecosystemAvailability": [ "Not available outside your Chrome profile on Linux", "Not available outside your Chrome profile on macOS", "Not available outside your Chrome profile on Windows"], "nativePlatformIntegration": [ "No native integration on macOS", "No native integration on Windows" ], "e2eeVaultSecurity": [ "Passkey metadata is not E2EE" ], "digitalInheritance": [], "familySharing": [ "Passkeys cannot be shared"] }
       },
       "1password": {
         "name": "1Password",
@@ -294,7 +296,8 @@
       },
       "bitwarden": {
         "name": "Bitwarden",
-        "description": "Independent, open-source credential manager with passkey support. Free and self-hosted versions available. Works across Android, iOS, Linux, macOS, and Windows devices."
+        "description": "Independent, open-source credential manager with passkey support. Free and self-hosted versions available. Works across Android, iOS, Linux, macOS, and Windows devices.",
+        "whatsMissing": { "specCompliance": [ "Conditional Create", "RP Signals" ] }
       },
       "dashlane": {
         "name": "Dashlane",
@@ -314,7 +317,8 @@
       },
       "protonpass": {
         "name": "Proton Pass",
-        "description": "Independent, end-to-end encrypted credential manager from Proton with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices."
+        "description": "Independent, end-to-end encrypted credential manager from Proton with passkey support. Works across Android, iOS, Linux, macOS, and Windows devices.",
+        "whatsMissing": { "nativePlatformIntegration": [ "No native integration on macOS", "No native integration on Windows" ], "credentialExchange": [ "No export support", "No import support"], "specCompliance": [] }
       },
       "lastpass": {
         "name": "LastPass",
@@ -322,11 +326,13 @@
       },
       "samsungpass": {
         "name": "Samsung Wallet (Pass)",
-        "description": "Samsung Pass is integrated into Samsung Wallet, which is built into Samsung Galaxy devices. Syncs across your Samsung Galaxy Android devices using your Samsung account."
+        "description": "Samsung Pass is integrated into Samsung Wallet, which is built into Samsung Galaxy devices. Syncs across your Samsung Galaxy Android devices using your Samsung account.",
+        "whatsMissing": { "ecosystemAvailability": [ "Not available on non-Samsung Android devices", "Not available on iOS", "Not available on Linux", "Not available on macOS", "Not available on Windows" ], "nativePlatformIntegration": [], "credentialExchange": [ "No import support", "No export support" ], "specCompliance": [], "digitalInheritance": [], "familySharing": [] }
       },
       "keepassxc": {
         "name": "KeePassXC",
         "description": "Independent, open-source, offline-first credential manager with passkey support. Works across Linux, macOS, and Windows, with community-built companion apps for Android and iOS.",
+        "whatsMissing": { "nativePlatformIntegration": [ "No native integration on macOS", "No native integration on Windows" ], "e2eeVaultSecurity": [], "credentialExchange": [], "specCompliance": [], "digitalInheritance": [], "familySharing": [] },
         "caveats": {
           "general": "KeePassXC isn't a service with built-in sync or sharing: it's an app that produces and consumes a database file, so features like E2EE, family sharing, and migration aren't provided by KeePassXC itself but depend entirely on how you choose to store and sync that file (e.g., a plain folder, a personal cloud drive, or a self-hosted solution). That flexibility is why it earns a neutral rating for some items: you get exactly the level of security and convenience you're willing to configure yourself."
         }
@@ -351,6 +357,10 @@
       "lowerTag": "Lower weight",
       "caveatIndicatorLabel": "View caveat for",
       "caveatsLabel": "Additional Info",
+      "whatsMissingLabel": "What's missing",
+      "whatsMissingHint": "Select a score with a dot to see what's missing",
+      "whatsMissingClose": "Close",
+      "whatsMissingTriggerLabel": "What's missing: {manager}, {criterion}",
       "criteria": {
         "ecosystemAvailability": { "consumerLabel": "Works where you do", "technicalLabel": "Ecosystem Availability" },
         "nativePlatformIntegration": { "consumerLabel": "Works easily with websites & apps", "technicalLabel": "Native Platform Integration" },

@@ -351,6 +351,10 @@
       "lowerTag": "Menor peso",
       "caveatIndicatorLabel": "Ver salvedad sobre",
       "caveatsLabel": "Información adicional",
+      "whatsMissingLabel": "Qué falta",
+      "whatsMissingHint": "Selecciona una puntuación con un punto para ver qué falta",
+      "whatsMissingClose": "Cerrar",
+      "whatsMissingTriggerLabel": "Qué falta: {manager}, {criterion}",
       "criteria": {
         "ecosystemAvailability": {
           "consumerLabel": "Funciona donde tú trabajas",

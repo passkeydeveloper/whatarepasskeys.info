@@ -351,6 +351,10 @@
       "lowerTag": "Peso minore",
       "caveatIndicatorLabel": "Visualizza nota per",
       "caveatsLabel": "Informazioni aggiuntive",
+      "whatsMissingLabel": "Cosa manca",
+      "whatsMissingHint": "Seleziona un punteggio con un punto per vedere cosa manca",
+      "whatsMissingClose": "Chiudi",
+      "whatsMissingTriggerLabel": "Cosa manca: {manager}, {criterion}",
       "criteria": {
         "ecosystemAvailability": { "consumerLabel": "Funziona ovunque", "technicalLabel": "Disponibilità nell'ecosistema" },
         "nativePlatformIntegration": { "consumerLabel": "Funziona facilmente con siti web e app", "technicalLabel": "Integrazione nativa con la piattaforma" },

@@ -351,6 +351,10 @@
       "lowerTag": "補助的",
       "caveatIndicatorLabel": "注意事項を表示：",
       "caveatsLabel": "補足情報",
+      "whatsMissingLabel": "不足している点",
+      "whatsMissingHint": "ドットの付いたスコアを選択すると、不足している点を確認できます",
+      "whatsMissingClose": "閉じる",
+      "whatsMissingTriggerLabel": "不足している点: {manager}、{criterion}",
       "criteria": {
         "ecosystemAvailability": { "consumerLabel": "どこでも使えるか", "technicalLabel": "エコシステムの可用性" },
         "nativePlatformIntegration": { "consumerLabel": "サイトやアプリでスムーズに使えるか", "technicalLabel": "ネイティブプラットフォーム統合" },

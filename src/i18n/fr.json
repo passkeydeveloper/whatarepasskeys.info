@@ -351,6 +351,10 @@
       "lowerTag": "Pondération moindre",
       "caveatIndicatorLabel": "Voir la réserve concernant",
       "caveatsLabel": "Informations complémentaires",
+      "whatsMissingLabel": "Ce qui manque",
+      "whatsMissingHint": "Sélectionnez une note marquée d'un point pour voir ce qui manque",
+      "whatsMissingClose": "Fermer",
+      "whatsMissingTriggerLabel": "Ce qui manque : {manager}, {criterion}",
       "criteria": {
         "ecosystemAvailability": { "consumerLabel": "Fonctionne partout où vous êtes", "technicalLabel": "Disponibilité de l'écosystème" },
         "nativePlatformIntegration": { "consumerLabel": "S'intègre facilement aux sites et applications", "technicalLabel": "Intégration native à la plateforme" },

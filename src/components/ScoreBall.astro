@@ -1,0 +1,54 @@
+---
+// A Harvey ball for one score cell in the credential manager matrix. When
+// `trigger` is set (a non-5 score with a "what's missing" list), technical
+// mode gets a button version that opens the shared What's Missing dialog;
+// consumer mode always gets the plain, non-interactive ball.
+import HarveyBall from './HarveyBall.astro';
+
+interface Props {
+  level: 'full' | 'half' | 'quarter';
+  colorClass: string;
+  srLabel: string;
+  size?: number;
+  boxClass?: string;
+  trigger?: {
+    manager: string;
+    criterion: string;
+    ariaLabel: string;
+    // Mobile rows also get a visible text link that carries the accessible
+    // name; the ball there is a pointer-only shortcut, kept out of the tab
+    // order and accessibility tree so each row has one stop, not two.
+    decorative?: boolean;
+  };
+}
+
+const { level, colorClass, srLabel, size = 16, boxClass = 'w-6 h-6', trigger } = Astro.props;
+---
+{trigger ? (
+  <>
+    <span class={`consumer-only inline-flex items-center justify-center ${boxClass} ${colorClass}`}>
+      <HarveyBall level={level} size={size} />
+      <span class="sr-only">{srLabel}</span>
+    </span>
+    <span class="technical-only">
+      <button
+        type="button"
+        class={`whats-missing-trigger relative inline-flex items-center justify-center ${boxClass} ${colorClass} rounded-full cursor-pointer hover:ring-2 hover:ring-indigo-300 dark:hover:ring-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400`}
+        data-manager={trigger.manager}
+        data-criterion={trigger.criterion}
+        aria-haspopup={trigger.decorative ? undefined : 'dialog'}
+        aria-label={trigger.decorative ? undefined : `${trigger.ariaLabel} (${srLabel})`}
+        aria-hidden={trigger.decorative ? 'true' : undefined}
+        tabindex={trigger.decorative ? -1 : undefined}
+      >
+        <HarveyBall level={level} size={size} />
+        <span aria-hidden="true" class="absolute left-1/2 -translate-x-1/2 -bottom-[3px] w-[3px] h-[3px] rounded-full bg-indigo-500 dark:bg-indigo-400"></span>
+      </button>
+    </span>
+  </>
+) : (
+  <span class={`inline-flex items-center justify-center ${boxClass} ${colorClass}`}>
+    <HarveyBall level={level} size={size} />
+    <span class="sr-only">{srLabel}</span>
+  </span>
+)}
